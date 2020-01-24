@@ -2,7 +2,7 @@
 	<img
 		width="300"
 		alt="Simi"
-		src="https://raw.githubusercontent.com/ISETH1998/simi-server/master/image/logo.PNG">
+		src="https://raw.githubusercontent.com/ISETH1998/simi-server/master/resources/logo.PNG">
 </h1>
 
 <h3 align="center">
