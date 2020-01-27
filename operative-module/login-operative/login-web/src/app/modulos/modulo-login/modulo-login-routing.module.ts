@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import { LoginLoadingComponent } from './login-loading/login-loading.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -10,7 +12,11 @@ const routes: Routes = [{
 {
   path: 'prueba',
   component: LoginLoadingComponent
-},{
+},
+{
+  path:'createAccount', component: CreateAccountComponent
+},
+{
   path: '**',
   redirectTo: ''
 }];
