@@ -20,7 +20,7 @@
 .background-login-white{
     height: 75%;
     background-color: white;
-    width: 85%;
+    width: 88%;
     border-radius: 8px;
     box-shadow: 20px 35px 15px;
 }
@@ -29,7 +29,6 @@
     height: 105%;
     margin-top: -10px;
     background-color: #096ac6;
-    width: 100%;
 }
 
 .primary-color {
@@ -43,15 +42,24 @@
 
 }
 
+.btn-register:hover{
+    color: rgb(63, 63, 63);
+}
+
+.btn-register {
+    background-color: none;
+    border-radius: 12px;
+    color: rgb(116, 116, 116);
+
+}
+
 .btn-login:hover{
     background-color: #3f85c7;
 }
 
-#register {
-    size: 1px;
-    text-decoration: underline;
-}
 
-#register :hover {
-    cursor: pointer;
+@media screen and (max-width: 996px) {
+    .display-none{
+        display:none;
+    }
 }
