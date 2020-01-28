@@ -27,7 +27,7 @@
 
 .background-login-lighblue{
     height: 105%;
-    margin-top: -10px;
+    margin-top: -2.5%;
     background-color: #096ac6;
 }
 
@@ -58,8 +58,14 @@
 }
 
 
-@media screen and (max-width: 996px) {
+@media screen and (max-width: 991px) {
     .display-none{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .display-none-blue{
         display:none;
     }
 }
