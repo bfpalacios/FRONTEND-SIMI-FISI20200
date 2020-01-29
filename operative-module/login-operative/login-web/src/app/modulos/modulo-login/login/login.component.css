@@ -18,7 +18,7 @@
 }
 
 .background-login-white{
-    height: 75%;
+    height: 80%;
     background-color: white;
     width: 88%;
     border-radius: 8px;
@@ -27,7 +27,7 @@
 
 .background-login-lighblue{
     height: 105%;
-    margin-top: -2.5%;
+    margin-top: -2.7%;
     background-color: #096ac6;
 }
 
@@ -58,9 +58,26 @@
 }
 
 
+.btn-register-s {
+    background-color: #272727;
+    border-radius: 12px;
+    color: white;
+
+}
+
+.btn-register-s:hover{
+    background-color: #000000;
+}
+
 @media screen and (max-width: 991px) {
     .display-none{
         display:none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .display-show{
+        display: none;
     }
 }
 
@@ -68,4 +85,51 @@
     .display-none-blue{
         display:none;
     }
+}
+
+@media screen and (max-width: 767px) {
+    .display-none-section{
+        display:none;
+    }
+}
+
+@media screen and (max-height: 600px){
+    .display-h-none{
+        height: 100%;
+        background-color: white;
+    width: 100%;
+    border-radius: 0px;
+    box-shadow: 0px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .display-w-none{
+        height: 100%;
+        background-color: white;
+        width: 100%;
+        border-radius: 0px;
+        box-shadow: 0px 0px 0px;
+    }
+}
+
+
+.section-border{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.section-border:hover {
+    background: rgb(231, 230, 230);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.oink{
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.oink:hover{
+    border-style: solid;
+    border-width: 1px;
 }

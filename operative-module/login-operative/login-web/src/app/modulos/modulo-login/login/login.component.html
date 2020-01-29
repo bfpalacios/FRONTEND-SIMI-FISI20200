@@ -1,35 +1,58 @@
-<div class="background-login-center center-content">
-    <div class="background-login-white">
+<div class="background-login-center center-content display-h-none">
+    <div class="background-login-white display-h-none display-w-none">
         <div class="row height-100">
-            <div class="col-lg-5 col-md-6 col-sm-12 col-12 center-content">
+
+            <div class="col-lg-5 col-md-6 col-sm-12 col-12 center-content" style="margin-right:  -25px;">
                 <div>
-                    <div class="text-center">
-                        <img src="assets/logo/logo-completo.png" width="200"/>
+                    <div class="">
+                        <div class="text-center">
+                            <img src="assets/logo/logo-completo.png" width="200" />
+                            <br />
+                            <span class="f-13 f-grey ml-5 mr-5">Sistema de Matrícula Online</span>
+                        </div>
                         <br />
-                        <span class="f-13 f-grey ml-5 mr-5">Sistema de Matrícula Online</span>
+                        <br />
+                        <div>
+                            <label class="f-15"><i class="mdi mdi-account f-18 primary-color"></i>Usuario</label>
+                            <input type="text" class="form-control form-control-sm" />
+                        </div>
+                        <div class="mt-3">
+                            <label class="f-15">
+                                <i class="mdi mdi-key-variant f-18 primary-color"></i>
+                                Contraseña</label>
+                            <input type="text" class="form-control form-control-sm" />
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-login btn-block">
+                                Ingresar al sistema
+                            </button>
+                        </div>
+                        <div class="text-center mt-1">
+                            <button class="btn text-center btn-register" (click)="onIngresar()">
+                                me olvidé la contraseña
+                            </button>
+                        </div>
+                        <div class="text-center mt-3 display-show">
+                            <button class="btn btn-register-s btn-block">
+                                Registrarme
+                            </button>
+                        </div>
                     </div>
                     <br/>
-                    <br/>
-                    <br/>
-                    <div>
-                        <label class="f-15"><i class="mdi mdi-account f-18 primary-color"></i>Usuario</label>
-                        <input type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="mt-3">
-                        <label class="f-15">
-                            <i class="mdi mdi-key-variant f-18 primary-color"></i>
-                            Contraseña</label>
-                        <input type="text" class="form-control form-control-sm" />
-                    </div>
-                    <div class="text-center mt-3">
-                        <button  class="btn btn-login btn-block">
-                            Ingresar al sistema
-                        </button>
-                    </div>
-                    <div  class="text-center mt-1">
-                        <button class="btn text-center btn-register" (click)="onIngresar()" >
-                            Solicitar una cuenta
-                        </button>
+                    <div class="row display-show">
+                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink" style="color: #f44336">
+                            <i class="mdi mdi-border-color" style="font-size: 3vw;"></i><br/>
+                            <span class="f-11">REGISTRAR</span>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink" style="color: #4caf50">
+                            <i class="mdi mdi-account-tie" style="font-size: 3vw;"></i><br/>
+                            <span class="f-11">INVITADO</span>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink">
+                            <i class="mdi mdi-restart" style="font-size: 3vw; color: #212121;"></i>
+                            <br/>
+                            <span class="f-11">PRINCIPAL</span>
+                        </div>
                     </div>
                 </div>
 
@@ -46,19 +69,21 @@
             </div>
             <div class="col-lg-2 center-content display-none" style="margin-left: -35px;">
                 <div>
-                    <div class="row mb-3 mt-3">
-                        <div class="col-lg-4">
+                    <div class="row mb-3 mt-3 section-border">
+                        <div class="col-lg-4 center-content">
                             <i class="mdi mdi-border-color primary-color" style="font-size: 2.9vw;"></i>
                         </div>
                         <div class="col-lg-8" style="font-size: 0.71vw;">
                             <h6 class="primary-color" style="font-size: 1vw;">
                                 REGISTRARME
                             </h6>
-                            <span>Solicitar una cuenta del Centro de Idiomas</span>
+                            <div>
+                                <span>Solicitar una cuenta del Centro de Idiomas</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mb-3 mt-3">
-                        <div class="col-lg-4">
+                    <div class="row mb-3 mt-3 section-border">
+                        <div class="col-lg-4  center-content">
                             <i class="mdi mdi-account-tie primary-color" style="font-size: 2.9vw; color: #f44336;"></i>
                         </div>
                         <div class="col-lg-8" style="font-size: 0.71vw;">
@@ -68,8 +93,8 @@
                             <span>Ingresar como invitado al sistema</span>
                         </div>
                     </div>
-                    <div class="row mb-5 mt-5">
-                        <div class="col-lg-4">
+                    <div class="row mb-5 mt-5 section-border">
+                        <div class="col-lg-4  center-content">
                             <i class="mdi mdi-flag-outline primary-color" style="font-size: 2.9vw; color: #4caf50;"></i>
                         </div>
                         <div class="col-lg-8" style="font-size: 0.71vw;">
@@ -79,8 +104,8 @@
                             <span>Cursos e idiomas que se dictan</span>
                         </div>
                     </div>
-                    <div class="row mb-5 mt-5">
-                        <div class="col-lg-4">
+                    <div class="row mb-5 mt-5 section-border">
+                        <div class="col-lg-4 center-content">
                             <i class="mdi mdi-restart primary-color" style="font-size: 2.9vw; color: #212121;"></i>
                         </div>
                         <div class="col-lg-8" style="font-size: 0.71vw;">
@@ -95,7 +120,7 @@
                             <i class="mdi mdi-information-outline"></i>
                             <span class="f-12">Más información</span>
                         </div>
-                       
+
                     </div>
                 </div>
 
