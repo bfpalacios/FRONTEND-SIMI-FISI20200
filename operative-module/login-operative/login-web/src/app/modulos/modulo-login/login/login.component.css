@@ -22,7 +22,7 @@
     background-color: white;
     width: 88%;
     border-radius: 8px;
-    box-shadow: 20px 35px 15px;
+    box-shadow: 20px 20px 15px;
 }
 
 .background-login-lighblue{
@@ -93,7 +93,7 @@
     }
 }
 
-@media screen and (max-height: 600px){
+@media screen and (max-height: 660px){
     .display-h-none{
         height: 100%;
         background-color: white;
