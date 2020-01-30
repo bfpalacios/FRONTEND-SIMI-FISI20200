@@ -26,8 +26,8 @@
 }
 
 .background-login-lighblue{
-    height: 105%;
-    margin-top: -2.7%;
+    height: 110%;
+    
     background-color: #096ac6;
 }
 
@@ -47,6 +47,7 @@
 }
 
 .btn-register {
+    font-size: 11px;
     background-color: none;
     border-radius: 12px;
     color: rgb(116, 116, 116);
