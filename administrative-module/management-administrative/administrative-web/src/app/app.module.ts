@@ -10,11 +10,12 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
+import { MenuComponent } from './menu/menu.component';
 
 const appRoutes: Routes = [
   {
 
-    path: '',
+    path: 'home',
     loadChildren: './modules/home/home.module#HomeModule'
   },
   {
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'home',
 
   },
 ];
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
