@@ -42,7 +42,6 @@ export class MenuComponent implements OnInit {
   }
 
   private setItems() {
-    item:
     this.items.push();
   }
   private initAccesoSistema(b: boolean) {
