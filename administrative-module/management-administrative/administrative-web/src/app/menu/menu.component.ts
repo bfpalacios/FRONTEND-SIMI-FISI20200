@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from '../modelos/MainMenu';
+import { MenuItem } from '../models/MainMenu';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +8,6 @@ import { MenuItem } from '../modelos/MainMenu';
 })
 export class MenuComponent implements OnInit {
 
-  //public user: User;
   public success: boolean;
   public items: MenuItem[];
   public authentication: boolean;
@@ -42,6 +41,10 @@ export class MenuComponent implements OnInit {
       
   }
 
+  private setItems() {
+    item:
+    this.items.push();
+  }
   private initAccesoSistema(b: boolean) {
     this.sistema = b;
     this.usuarios = b;
@@ -57,20 +60,6 @@ export class MenuComponent implements OnInit {
     this.admda = b;
     this.admre = b;
   }
-
-  getAuth(auth: string) {
-    if (auth === 'true') {
-      this.success = false;
-      this.authentication = true;
-    } else {
-      this.success = true;
-      this.initAccesoSistema(false);
-      this.authentication = false;
-    }
-  }
-
-
-
 
   show(id: number) {
     switch (id) {
