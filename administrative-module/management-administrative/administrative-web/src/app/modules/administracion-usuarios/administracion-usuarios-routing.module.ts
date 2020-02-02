@@ -9,7 +9,7 @@ const routes: Routes = [{
   component: ListComponent,
 },
 {
-  path: 'tipoUsuarios',
+  path: 'tipoUsuario',
   component: TipoUsuariosComponent,
 },{
   path: 'permisos',
