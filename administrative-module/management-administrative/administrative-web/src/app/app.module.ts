@@ -11,6 +11,8 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
+// import { SistemaGeneralComponent } from './modules/administracion-sistema/sistema-general/sistema-general.component';
+// import { ConfiguracionComponent } from './modules/administracion-sistema/configuracion/configuracion.component';
 
 const appRoutes: Routes = [
   {
@@ -19,8 +21,11 @@ const appRoutes: Routes = [
     loadChildren: './modules/home/home.module#HomeModule'
   },
   {
-    path: 'administracion',
+    path: 'administracionUsuarios',
     loadChildren: './modules/administracion-usuarios/administracion-usuarios.module#AdministracionUsuariosModule'
+  }, {
+    path: 'administracionSistema',
+    loadChildren: './modules/administracion-sistema/administracion-sistema.module#AdministracionSistemaModule'
   },
   {
     path: '**',
@@ -33,7 +38,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    // SistemaGeneralComponent,
+    // ConfiguracionComponent,
+    
   ],
   imports: [
     BrowserModule,
