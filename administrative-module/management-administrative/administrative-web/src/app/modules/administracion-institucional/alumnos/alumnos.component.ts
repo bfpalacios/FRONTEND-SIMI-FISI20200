@@ -31,15 +31,14 @@ export class AlumnosComponent implements OnInit {
 
   }
   nuevoAlumno() {
-    console.log("nuevoAlumno");
-    this.router.navigate(['administracionInstitucional/alumnos/nuevo']).then();
+    
+    this.router.navigate(['administracionInstitucional/alumnos/crear']).then();
   }
-  editarAlumno(id: number) {  console.log("editarAlumno");
+  // editarAlumno(id: number) 
+  editarAlumno() { 
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar']).then();
+    this.router.navigate(['administracionInstitucional/alumnos/editar']).then();
   }
 
-
-  eliminarAlumno
 
 }

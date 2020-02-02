@@ -13,6 +13,8 @@ import { EditarAlumnoComponent } from './alumnos/editar-alumno/editar-alumno.com
 
 const routes: Routes = [
 {  path: 'alumnos',  component: AlumnosComponent},
+{  path: 'alumnos/crear',  component: CreateAlumnoComponent},
+{  path: 'alumnos/editar',  component: EditarAlumnoComponent},
 {  path: 'aulas',  component: AulasComponent},
 {  path: 'cursos',  component: CursosComponent},
 {  path: 'docentes',  component: DocentesComponent},
@@ -20,8 +22,7 @@ const routes: Routes = [
 {  path: 'idiomas',  component: IdiomasComponent},
 {  path: 'sedes',  component: SedesComponent},
 {  path: '**',  redirectTo: 'alumnos'},
-{  path: 'alumnos/crear',  component: CreateAlumnoComponent},
-{  path: 'alumnos/editar',  component: EditarAlumnoComponent},
+
 ];
 
 @NgModule({
