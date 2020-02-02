@@ -28,15 +28,18 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	@Autowired
 	 private Environment env;
 	
+	@Autowired
+	private DataSource dataSource;
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 	}
 	
-	@Bean("jsonObject")
+	@Bean
 	public LinkedHashMap<Object, Object> getProperty() {
-		JSONObject json = env.getProperty("configuracion", JSONObject.class);
-		@SuppressWarnings("unchecked")LinkedHashMap<Object, Object> database = (LinkedHashMap<Object, Object>) json.get("database");
+		JSONObject json = env.getProperty(Config.CONFIG, JSONObject.class);
+		@SuppressWarnings("unchecked") LinkedHashMap<Object, Object> database = (LinkedHashMap<Object, Object>) json.get(Config.DATABASE);
 		return database;
 	}
 
@@ -51,7 +54,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         dataSourceBuilder.url(url);
         dataSourceBuilder.username(username);
         dataSourceBuilder.password(password);
-        System.out.println(url);
         return dataSourceBuilder.build();
     }
 	
