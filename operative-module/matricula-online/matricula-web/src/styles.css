@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-home{
+  background: rgb(228, 225, 225); height: 100%;
+  border: none; font-size: 14px; border-radius: 3px;
+}
+
+.btn-home:hover{
+    background: silver;
+}
+
+.main-container {
+  display: flex; flex-direction: column; position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.header-login{
+  background-color: #096ac6; color: white;
+  font-size: 14px; height: 50px; align-items: center; width: 100%;
+}
+
+.btn-sidenav{
+    height: 100%; display:flex; align-items: center;
+    background: transparent; border: 0px; color: white;
+}
