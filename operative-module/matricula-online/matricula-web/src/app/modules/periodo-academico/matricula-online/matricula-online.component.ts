@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-matricula-online',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatriculaOnlineComponent implements OnInit {
 
-  constructor() { }
+  public pagosRealizados: any[];
+  constructor(private router: Router) 
+  { }
 
   ngOnInit() {
+    this.init();
   }
 
+  private init() {
+    //this.pagosRealizados = [];
+    this.pagosRealizados = ["1", "2", "3", "4", "5", "6"];
+  }
+
+  public goMatricular() {
+    this.router.navigate(['/periodo-academico/matriculaOnline/matricular']).then();
+  }
 }

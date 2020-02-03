@@ -11,7 +11,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-import { MatriculaOnlineComponent } from './modules/periodo-academico/matricula-online/matricula-online.component';
+
 
 const appRoutes: Routes = [
   {
@@ -43,8 +43,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    MatriculaOnlineComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
