@@ -9,11 +9,11 @@ const routes: Routes = [{
 /*{
   path: 'feed',
   component: FeedComponent,
-},*/
+},
 {
   path: '**',
   redirectTo: ''
-},
+},*/
 ];
 
 @NgModule({
