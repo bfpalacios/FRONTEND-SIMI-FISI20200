@@ -33,7 +33,6 @@ export class MenuComponent implements OnInit {
   }
 
   show(id: number) {
-    console.log(id);
     this.modules.forEach(value => {
       if (value.module === id) {
         value.state = !value.state;
@@ -42,5 +41,4 @@ export class MenuComponent implements OnInit {
       }
     });
   }
-
 }

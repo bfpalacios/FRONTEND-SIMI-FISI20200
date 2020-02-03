@@ -13,16 +13,30 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 
 const appRoutes: Routes = [
-/*   {
-
+  {
     path: 'home',
     loadChildren: './modules/home/home.module#HomeModule'
   },
   {
+    path: 'profile',
+    loadChildren: './modules/profile/profile.module#ProfileModule'
+  },
+  {
+    path: 'centro-idiomas',
+    loadChildren: './modules/centro-idiomas/centro-idiomas.module#CentroIdiomasModule'
+  },
+  {
+    path: 'periodo-academico',
+    loadChildren: './modules/periodo-academico/periodo-academico.module#PeriodoAcademicoModule'
+  },
+  {
+    path: 'reportes',
+    loadChildren: './modules/reports/reports.module#ReportsModule'
+  },
+  {
     path: '**',
     redirectTo: 'home',
-
-  }, */
+  },
 ];
 
 @NgModule({

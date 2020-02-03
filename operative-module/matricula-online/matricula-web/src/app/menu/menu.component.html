@@ -2,7 +2,7 @@
     <button (click)="show(1)" class="list-group-item btn-item">
         Mi Perfil
     </button>
-    <div *ngIf="modules[1].state" class="ele">
+    <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light subitem" mat-list-item
             [routerLink]="['sistema/general']">Información Académica
         </button>
@@ -16,7 +16,7 @@
 
     <button (click)="show(2)" class="list-group-item btn-item">
         Centro de Idiomas</button>
-    <div *ngIf="modules[2].state" class="ele">
+    <div *ngIf="modules[1].state" class="ele">
         <button class="list-group-item btn-light subitem" mat-list-item
         [routerLink]="['mesas/list']">Conceptos de pago</button>
         <button class="list-group-item btn-light subitem" mat-list-item
@@ -28,7 +28,7 @@
     </div>
     <button (click)="show(3)" class="list-group-item btn-item">
         Periodo Académico</button>
-    <div *ngIf="modules[3].state" class="ele">
+    <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem" mat-list-item
             [routerLink]="['clientes/list']">Matrícula Online</button>
         <button class="list-group-item btn-light subitem" mat-list-item
@@ -40,7 +40,7 @@
     </div>
     <button (click)="show(4)" class="list-group-item btn-item">
         Reportes</button>
-    <div *ngIf="modules[4].state" class="ele">
+    <div *ngIf="modules[3].state" class="ele">
         <button class="list-group-item btn-light subitem" mat-list-item
             [routerLink]="['reportes/importar-exportar']">Reportes de matrícula</button>
         <button class="list-group-item btn-light subitem" mat-list-item
