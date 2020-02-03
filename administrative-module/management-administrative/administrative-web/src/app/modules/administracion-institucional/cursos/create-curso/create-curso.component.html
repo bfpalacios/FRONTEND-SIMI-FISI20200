@@ -1,0 +1,53 @@
+<div class="header-user-list mb-2">
+    <button class="btn-nuevo ml-1 mr-1" (click)="crearCurso()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Crear Curso
+    </button>
+    <button type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelar()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+    </button>
+</div>
+
+<div *ngIf="load" class="div-loading" style="position:absolute"><img class="loading" src="{{loading}}" /></div>
+<span *ngIf="empty" class="not-complete">
+    {{successText}} <br /></span>
+<div class="ml-4 mr-4 mt-3 f-13">
+
+    <hr class="mt-1" />
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+    <span><b>Lenguaje</b></span>
+    <!-- <hr class="mt-1" /> -->
+    <select class="form-control">
+        <option>Ingles</option>
+        <option>Español</option>
+        <option>Italiano</option>
+        <option>Frances</option>
+        <option>Japones</option>
+        </select>
+       </div>
+    </div>
+    
+    <!-- <hr class="mt-1" /> -->
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Ciclo</b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="ciclo">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+    <span><b>Nivel</b></span>
+    <!-- <hr class="mt-1" /> -->
+    <select class="form-control">
+        <option>Basico</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+    
+        </select>
+     </div>
+    </div>
+</div>

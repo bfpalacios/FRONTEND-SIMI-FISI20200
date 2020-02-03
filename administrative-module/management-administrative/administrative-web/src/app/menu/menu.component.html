@@ -4,10 +4,10 @@
     </button>
     <div *ngIf="admsis" class="ele">
         <button class="list-group-item btn-light subitem" mat-list-item (click)="setTitle(1)"
-            [routerLink]="['sistema/general']">Sistema General
+            [routerLink]="['administracionSistema/sistemaGeneral']">Sistema General
         </button>
         <button class="list-group-item btn-light subitem" mat-list-item (click)="setTitle(2)"
-            [routerLink]="['sistema/configuracion']">Configuración
+            [routerLink]="['administracionSistema/configuracion']">Configuración
         </button>
     </div>
 
@@ -16,54 +16,54 @@
     </button>
     <div *ngIf="admus" class="ele">
         <button class="list-group-item btn-light subitem" (click)="setTitle(5)" mat-list-item
-            [routerLink]="['administracion/listUsuarios']">Permisos</button>
+            [routerLink]="['administracionUsuarios/permisos']">Permisos</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(3)" mat-list-item
-            [routerLink]="['usuarios/tipos']">Tipos de Usuario</button>
+            [routerLink]="['administracionUsuarios/tipoUsuario']">Tipos de Usuario</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(4)" mat-list-item
-            [routerLink]="['usuarios/list']">Usuarios</button>
+            [routerLink]="['administracionUsuarios/listUsuarios']">Usuarios</button>
     </div>
     <button (click)="show(3)" class="list-group-item btn-item">
         Administración Institucional</button>
     <div *ngIf="admme" class="ele">
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Idiomas</button>
+            [routerLink]="['administracionInstitucional/idiomas']">Idiomas</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Horarios</button>
+            [routerLink]="['administracionInstitucional/horarios']">Horarios</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Cursos</button>
+            [routerLink]="['administracionInstitucional/cursos']">Cursos</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(7)" mat-list-item
-            [routerLink]="['mesas/perfiles']">Docentes</button>
+            [routerLink]="['administracionInstitucional/docentes']">Docentes</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Alumnos</button>
+            [routerLink]="['administracionInstitucional/alumnos']">Alumnos</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Sedes</button>
+            [routerLink]="['administracionInstitucional/sedes']">Sedes</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Aulas</button>
+            [routerLink]="['administracionInstitucional/aulas']">Aulas</button>
     </div>
     <button (click)="show(4)" class="list-group-item btn-item">
         Periodo Académico</button>
     <div *ngIf="admcl" class="ele">
         <button class="list-group-item btn-light subitem" (click)="setTitle(9)" mat-list-item
-            [routerLink]="['clientes/list']">Ciclo Académico</button>
+            [routerLink]="['periodoAcademico/cicloAcademico']">Ciclo Académico</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(10)" mat-list-item
-            [routerLink]="['clientes/tipos']">Matriculados</button>
+            [routerLink]="['periodoAcademico/matriculados']">Matriculados</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(11)" mat-list-item
-            [routerLink]="['clientes/historial']">Programación de cursos</button>
+            [routerLink]="['periodoAcademico/programacionCursos']">Programación de cursos</button>
     </div>
     <button (click)="show(5)" class="list-group-item btn-item">
         Administración de Matrícula</button>
     <div *ngIf="admda" class="ele">
         <button class="list-group-item btn-light subitem" (click)="setTitle(6)" mat-list-item
-            [routerLink]="['mesas/list']">Matrícula</button>
+            [routerLink]="['administracionMatricula/matricula']">Matrícula</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(12)" mat-list-item
-            [routerLink]="['dashboard/reservaciones']">Monitoreo de Matrícula</button>
+            [routerLink]="['administracionMatricula/monitoreoMatricula']">Monitoreo de Matrícula</button>
     </div>
     <button (click)="show(6)" class="list-group-item btn-item">
         Reportes</button>
     <div *ngIf="admre" class="ele">
         <button class="list-group-item btn-light subitem" (click)="setTitle(13)" mat-list-item
-            [routerLink]="['reportes/importar-exportar']">Reportes Institucionales</button>
+            [routerLink]="['reportes/institucionales']">Reportes Institucionales</button>
         <button class="list-group-item btn-light subitem" (click)="setTitle(13)" mat-list-item
-            [routerLink]="['reportes/importar-exportar']">Reportes de pagos</button>
+            [routerLink]="['reportes/pagos']">Reportes de pagos</button>
     </div>
 </div>

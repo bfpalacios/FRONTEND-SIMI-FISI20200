@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './usuarios/list/list.component';
+import { TipoUsuariosComponent } from './tipo-usuarios/tipo-usuarios.component';
+import { PermisosComponent } from './permisos/permisos.component';
 
 const routes: Routes = [{
   path: 'listUsuarios',
   component: ListComponent,
+},
+{
+  path: 'tipoUsuario',
+  component: TipoUsuariosComponent,
+},{
+  path: 'permisos',
+  component: PermisosComponent,
 },
 {
   path: '**',

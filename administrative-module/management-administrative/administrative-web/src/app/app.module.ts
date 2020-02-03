@@ -19,9 +19,29 @@ const appRoutes: Routes = [
     loadChildren: './modules/home/home.module#HomeModule'
   },
   {
-    path: 'administracion',
+    path: 'administracionUsuarios',
     loadChildren: './modules/administracion-usuarios/administracion-usuarios.module#AdministracionUsuariosModule'
+  }, {
+    path: 'administracionSistema',
+    loadChildren: './modules/administracion-sistema/administracion-sistema.module#AdministracionSistemaModule'
+  },{
+    path: 'administracionInstitucional',
+    loadChildren: './modules/administracion-institucional/administracion-institucional.module#AdministracionInstitucionalModule'
   },
+  {
+    path: 'administracionMatricula',
+    loadChildren: './modules/administracion-matricula/administracion-matricula.module#AdministracionMatriculaModule'
+  },
+  {
+    path: 'periodoAcademico',
+    loadChildren: './modules/periodo-academico/periodo-academico.module#PeriodoAcademicoModule'
+  },
+  {
+    path: 'reportes',
+    loadChildren: './modules/reportes/reportes.module#ReportesModule'
+  },
+
+  
   {
     path: '**',
     redirectTo: 'home',
@@ -33,7 +53,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

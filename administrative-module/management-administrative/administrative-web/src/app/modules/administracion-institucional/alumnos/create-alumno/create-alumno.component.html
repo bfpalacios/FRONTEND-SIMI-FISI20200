@@ -1,0 +1,69 @@
+<div class="header-user-list mb-2">
+    <button class="btn-nuevo ml-1 mr-1" (click)="crearAlumno()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Crear Alumno
+    </button>
+    <button type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelar()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+    </button>
+</div>
+
+<div *ngIf="load" class="div-loading" style="position:absolute"><img class="loading" src="{{loading}}" /></div>
+<span *ngIf="empty" class="not-complete">
+    {{successText}} <br /></span>
+<div class="ml-4 mr-4 mt-3 f-13">
+
+    <hr class="mt-1" />
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Nombre </b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="Nombre">
+
+        </div>
+
+    </div>
+    
+    <!-- <hr class="mt-1" /> -->
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Apellido Paterno </b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="apelldioPaterno">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Apellido Materno </b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="apelldioPaterno">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Email</b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="email">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+            <span><b>Dni </b> </span>
+            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
+            <input type="text" class="form-control form-control-sm mt-1"  name="dni">
+
+        </div>
+
+    </div>
+
+
+
+</div>
