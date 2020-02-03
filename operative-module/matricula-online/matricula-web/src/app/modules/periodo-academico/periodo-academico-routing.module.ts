@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {MatriculaOnlineComponent} from './matricula-online/matricula-online.component';
 
-/* const routes: Routes = [{
+const routes: Routes = [{
   path: '',
   component: MatriculaOnlineComponent,
 },
@@ -9,7 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
   path: '**',
   redirectTo: ''
 },
-]; */
+];
 
 @NgModule({
   imports: [/* RouterModule.forChild(routes) */],
