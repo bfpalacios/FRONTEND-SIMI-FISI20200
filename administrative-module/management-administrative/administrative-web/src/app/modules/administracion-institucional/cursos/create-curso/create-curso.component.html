@@ -15,12 +15,16 @@
     <hr class="mt-1" />
     <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-            <span><b>Lenguaje </b> </span>
-            <!-- <input type="text" class="form-control form-control-sm mt-1" [(ngModel)]="mesa.nombremesa" name="apellidos"> -->
-            <input type="text" class="form-control form-control-sm mt-1"  name="lenguaje">
-
-        </div>
-
+    <span><b>Lenguaje</b></span>
+    <!-- <hr class="mt-1" /> -->
+    <select class="form-control">
+        <option>Ingles</option>
+        <option>Español</option>
+        <option>Italiano</option>
+        <option>Frances</option>
+        <option>Japones</option>
+        </select>
+       </div>
     </div>
     
     <!-- <hr class="mt-1" /> -->
@@ -34,20 +38,16 @@
 
     </div>
 
+    <div class="row">
+        <div class="col-lg-2 col-md-4 col-sm-4 col-6">
     <span><b>Nivel</b></span>
     <!-- <hr class="mt-1" /> -->
-    <div class="row mt-2 mb-3">
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <input type="text" class="form-control form-control-sm mt-1"  name="nivel">
-
-            <!-- <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdEstado">
-                <option [ngValue]="0">Seleccionar un estado de mesa</option>
-                <option [ngValue]="estado.cestadomesa" *ngFor="let estado of estadomesa">{{estado.emdescripcion}}
-                </option>
-            </select> -->
-        </div>
+    <select class="form-control">
+        <option>Basico</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+    
+        </select>
+     </div>
     </div>
-
-
-
 </div>
