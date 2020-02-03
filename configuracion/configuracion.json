@@ -7,7 +7,7 @@
 			"db" : "db_simi",
 			"type": "mysql",
 			"username": "dev01@dev-fisi",
-			"password": "$2y$12$VpH27bnq7OJzUCd1A7gm8uaR1wX4WxDl5h3OAJwpQ/JiILbdzIDny",
+			"password": "Servidor123456",
 			"driver": "com.mysql.jdbc.Driver"
 		}
 	}
