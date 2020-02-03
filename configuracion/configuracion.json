@@ -9,6 +9,7 @@
 			"username": "dev01@dev-fisi",
 			"password": "Servidor123456",
 			"driver": "com.mysql.jdbc.Driver"
-		}
+		},
+		"version": "1.0.0"
 	}
 }
