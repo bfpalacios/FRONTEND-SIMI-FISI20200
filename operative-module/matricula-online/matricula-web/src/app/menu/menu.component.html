@@ -3,13 +3,13 @@
         Mi Perfil
     </button>
     <div *ngIf="modules[0].state" class="ele">
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['sistema/general']">Información Académica
         </button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['sistema/configuracion']">Historial Académico
         </button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['sistema/configuracion']">Cuenta de usuario
         </button>
     </div>
@@ -17,35 +17,35 @@
     <button (click)="show(2)" class="list-group-item btn-item">
         Centro de Idiomas</button>
     <div *ngIf="modules[1].state" class="ele">
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
         [routerLink]="['mesas/list']">Conceptos de pago</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['mesas/list']">Docentes</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['mesas/list']">Plan de Estudios</button>
-            <button class="list-group-item btn-light subitem" mat-list-item
+            <button class="list-group-item btn-light subitem" 
             [routerLink]="['mesas/list']">Dashboard Online</button>
     </div>
     <button (click)="show(3)" class="list-group-item btn-item">
         Periodo Académico</button>
     <div *ngIf="modules[2].state" class="ele">
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['clientes/list']">Matrícula Online</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['mesas/list']">Horarios y Vacantes</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['clientes/tipos']">Ciclo Académico</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['clientes/historial']">Programación de cursos</button>
     </div>
     <button (click)="show(4)" class="list-group-item btn-item">
         Reportes</button>
     <div *ngIf="modules[3].state" class="ele">
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['reportes/importar-exportar']">Reportes de matrícula</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['reportes/importar-exportar']">Reportes de evaluaciones</button>
-        <button class="list-group-item btn-light subitem" mat-list-item
+        <button class="list-group-item btn-light subitem" 
             [routerLink]="['reportes/importar-exportar']">Reportes de pagos</button>
     </div>
 </div>

@@ -3,11 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 /* const routes: Routes = [{
   path: '',
-  component: MainComponent,
-},
-{
-  path: 'feed',
-  component: FeedComponent,
+  component: MatriculaOnlineComponent,
 },
 {
   path: '**',
