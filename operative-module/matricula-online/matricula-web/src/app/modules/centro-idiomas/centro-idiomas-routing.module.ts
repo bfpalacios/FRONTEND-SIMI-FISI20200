@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ConceptoPagoComponent } from './concepto-pago/concepto-pago.component';
 import { PlanEstudioComponent } from './plan-estudio/plan-estudio.component';
 
- const routes: Routes = [{
+const routes: Routes = [{
   path: 'conceptoPago',
-  component: ConceptoPagosComponent
- },{
-   path: 'planEstudios',
-   component: PlanEstudioComponent,
-},
-{
+  component: ConceptoPagoComponent
+},{
+  path: '',
+  component: PlanEstudioComponent,
+},{
   path: '**',
-  redirectTo: ''
-},
+  redirectTo: 'conceptoPago'
+}
 ]; 
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [ RouterModule.forChild(routes) ],
   exports: [RouterModule]
 })
 export class CentroIdiomasRoutingModule { }
