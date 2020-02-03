@@ -29,4 +29,6 @@
 
 .title-module{
   font-size: 19px;
+  justify-content: center;
+  align-items: center;
 }

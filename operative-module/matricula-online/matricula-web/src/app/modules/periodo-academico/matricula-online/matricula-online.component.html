@@ -1,15 +1,97 @@
 <div class="m-3">
     <div>
         <span class="title-module">
-            Matrícula Online
+            <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
         </span>
         <hr />
     </div>
     <div>
-        <div>
-            <button class="btn-iniciar-matricula">
-                Iniciar Matrícula
-            </button>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+                <span>
+                    <b>Matrícula</b>
+                </span>
+                <div *ngIf="!pagosRealizados?.length">
+                    <span style="font-size: 13px;">
+                        Matrícula no habilitada
+                    </span>
+                </div>
+                <div *ngIf="pagosRealizados?.length">
+                    <div style="font-size: 14px;">
+                        <span>
+                            Realiza tu matrícula online ahora mismo.
+                            <hr />Matricúlate en los diferentes cursos de idiomas que brinda la institución.
+                        </span>
+                    </div>
+                    <div class="iniciar-matricula">
+                        <div style="font-size: 14px;" class="text-center">
+                            <div class="title-ciclo">
+                                <span>
+                                    Ciclo Febrero 2020
+                                </span>
+                            </div>
+                            <br />
+                            <span class="mr-2">
+                                Fecha actual:
+                            </span>
+                            03/02/2020
+                            <br/>
+                            <span class="mr-2">
+                                Hora actual:
+                            </span>
+
+                            11:16 a. m.
+
+                        </div>
+                        <button class="btn-iniciar-matricula">
+                            Iniciar Matrícula
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-7">
+                <div>
+                    <span>
+                        <b>Pagos realizados</b>
+                    </span>
+                    <br />
+                    <div *ngIf="!pagosRealizados?.length">
+                        <span style="font-size: 13px;">
+                            No tienes pagos realizados en el Banco.
+                        </span>
+                    </div>
+                    <div *ngIf="pagosRealizados?.length" style="height: 600px; overflow-y: auto;">
+                        <div class="pago-realizado" *ngFor="let pagos of pagosRealizados">
+                            <table class="table-responsive">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="assets/logo/banco-pichincha.PNG" width="48"
+                                                style="margin-right: 5px; margin-top: 10px;">
+                                        </td>
+                                        <td>
+                                            <span><b>Fecha de pago</b></span> <br />
+                                            03/02/2020 10:02 a. m.
+                                        </td>
+                                        <td rowspan="2">
+                                            <button class="btn-disponible">
+                                                Disponible
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td> <span><b>Descripción</b></span><br />
+                                            <span class="mr-3">Matrícula sanmarquino</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

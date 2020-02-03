@@ -1,18 +1,75 @@
 .btn-iniciar-matricula {
-    background-color: #096ac6;
+    background-color: #111111;
     border: 0px;
     cursor: pointer;
     color: white;
     font-size: 13px;
     padding: 10px;
     border-radius: 8px;
-    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
 }
 
 .btn-iniciar-matricula:hover{
-    background-color: #15458f;
+    background-color: #363636;
 }
 
 .btn-iniciar-matricula:active {
-    background-color: #000000;
+    background-color: #096ac6;
+}
+
+.pago-realizado {
+    margin-top: 2px;
+    font-size: 13px;
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.pago-realizado:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+.btn-disponible {
+    background-color: #04a783;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+    font-size: 11px;
+    margin: 5px;
+    padding: 6px;
+    border-radius: 2px;
+    width: 85px;
+    height: 85px;
+}
+
+.btn-disponible:hover{
+    background-color: #03795f;
+}
+
+.iniciar-matricula {
+    margin-top: 2px;
+    font-size: 13px;
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    border-radius: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.title-ciclo{
+    color: black;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: solid 1px;
+    border-color:#096ac6; 
 }
