@@ -1,6 +1,7 @@
 {
 	"configuracion":
 	{
+		"version": "1.0.0",
 		"database": {
 			"ip" : "dev-fisi.mysql.database.azure.com",
 			"port": "3306",
@@ -9,7 +10,6 @@
 			"username": "dev01@dev-fisi",
 			"password": "Servidor123456",
 			"driver": "com.mysql.jdbc.Driver"
-		},
-		"version": "1.0.0"
+		}
 	}
 }
