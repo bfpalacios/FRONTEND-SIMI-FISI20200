@@ -1,3 +1,8 @@
+<div class="panel">
+    <button class="btn-cancel" [disabled]>
+        <i class="mdi mdi-close-circle"></i>Ciclo Febrero 2020
+    </button>
+</div>
 <div class="m-3">
     <div>
         <span class="title-module">
@@ -60,7 +65,7 @@
                     <span>
                         <b>Pagos realizados</b>
                     </span>
-                    <div style="font-size: 14px;">
+                    <div *ngIf="pagosRealizados?.length" style="font-size: 14px;">
                         <span>
                             Tienes pagos disponibles para usar.
                             <hr />

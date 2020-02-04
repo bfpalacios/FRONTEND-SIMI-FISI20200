@@ -15,8 +15,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'matriculaOnline'
-  },
-
+  },]
+  
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
