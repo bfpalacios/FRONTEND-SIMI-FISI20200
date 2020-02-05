@@ -76,3 +76,19 @@
   color: black;
    font-size: 14px; height: 50px; align-items: center; width: 100%;
  }
+
+ .section-matricula{
+  background-color: #e9ebee;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.section-filtro{
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0px;
+  font-size: 13px;
+  border: 1px solid #dddfe2;
+}
