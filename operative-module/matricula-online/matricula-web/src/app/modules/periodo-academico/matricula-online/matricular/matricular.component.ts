@@ -9,7 +9,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 })
 export class MatricularComponent implements OnInit {
 
-  showFiller = false;
+  showFiller = true;
   mobileQuery: MediaQueryList;
 
   mobile: MediaQueryList;
@@ -35,4 +35,11 @@ export class MatricularComponent implements OnInit {
     this.router.navigate(['periodo-academico/matriculaOnline']).then();
   }
 
+  public siguiente() {
+    this.router.navigate(['/periodo-academico/matriculaOnline/verificarMatricula']).then();
+  }
+
+  public aplicar() {
+ 
+  }
 }

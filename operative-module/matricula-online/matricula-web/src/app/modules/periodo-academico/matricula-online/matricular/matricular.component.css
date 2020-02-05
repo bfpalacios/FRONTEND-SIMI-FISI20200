@@ -33,7 +33,7 @@
   }
 
   .btn-aplicar {
-    background-color: #096ac6;
+    background-color: #f44336;
     border: 0px;
     cursor: pointer;
     color: white;
@@ -41,23 +41,15 @@
     font-size: 13px;
     padding: 10px;
     border-radius: 8px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    position: absolute;
-    border-bottom: solid 3.5px #000000;
+    margin-top: 10px;
 }
 
   .btn-aplicar:hover{
-    background-color: #197dda;
+    background-color: #fa3a2c;
 }
 
 .btn-aplicar:active {
-    background-color: #013c72;
-}
-
-.table-matricular{
-  background-color: #ffffff;
-  font-size: 14px;
+    background-color: #df3023;
 }
 
 .btn-matriculados-top{
@@ -124,22 +116,6 @@
 }
 
 
-.btn-siguiente {
-  background-color: #096ac6;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 0px;
-  font-size: 14px;
-
-  color: white;
-  width: 100%;
-}
-
-.btn-siguiente:hover{
-  background-color: #197dda
-}
-
 .btn-none{
   border-radius: 8px;
   border: 0px;
@@ -153,6 +129,7 @@
 }
 
 .btn-filter{
+  background-color: #096ac6;
   border-radius: 8px;
   border: 0px;
   padding-top: 5px;
@@ -160,11 +137,6 @@
   padding-left: 10px;
   padding-right: 10px;
   height: 50px;
-  font-size: 25px; color:#096ac6;
-  margin-top: -14px;
-}
-
-.header-matricular{
- color: black;
-  font-size: 14px; height: 50px; align-items: center; width: 100%;
+  margin-left: -5px;
+  font-size: 25px; color:white;
 }

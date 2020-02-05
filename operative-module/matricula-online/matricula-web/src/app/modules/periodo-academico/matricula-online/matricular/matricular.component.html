@@ -36,46 +36,49 @@
                         <mat-checkbox class="oink">Avanzado</mat-checkbox><br />
                     </div>
                 </div>
+                <button class="btn-aplicar" (click)="snav.toggle()  ">
+                    Aplicar
+                </button>
             </div>
-            <button class="btn-aplicar">
-                Aplicar
-            </button>
+            
         </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="header-matricular">
-                <span>
-                    <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
-                </span>
-                -
-                <span>
-                    <b>Matricular</b>
-                </span>
+        <mat-sidenav-content  class="header-matricular">
+            <div>
+                <div class="ml-3 mr-3 mt-3">
+                    <span class="title-module">
+                        <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
+                    </span>
+                    -
+                    <span>
+                        <b>Matricular</b>
+                    </span>
+                </div>
+
                 <hr class="mt-1" />
                 <div>
-                    <button (click)="snav.toggle()" class="btn-filter" style="justify-content: center; text-align: center;">
+                    <button (click)="snav.toggle()" class="btn-filter">
                         <i class="mdi mdi-chart-donut-variant"></i>
-                        <span style="font-size: 16px;">Filtar</span>
                     </button>
 
                 </div>
             </div>
 
-            <div style="margin-right: 80px; margin-left: 80px;">
+            <div style="margin-right: 80px; margin-left: 80px; margin-top: -50px;">
                 <div class="text-center">
                     <h4>Matrícula Online</h4>
                     <span>Ciclo Febrero 2020</span>
                     <div style="font-size: 14px;"><b>05/02/2020</b></div>
                 </div>
 
-                <div class="mb-3 mt-5 row">
+                <div class=" mt-5 row">
                     <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
-                        <div class="max-matricular">
+                        <div>
                             <span>Máximo de Cursos:</span>
                             <span class="ml-2"><b>2</b></span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
-                        <div class="max-matricular">
+                        <div>
                             <span>Cursos seleccionados:</span>
                             <span class="ml-2"><b>0</b></span>
                         </div>
@@ -89,7 +92,7 @@
                         </button>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-6">
-                        <button class="btn-siguiente">
+                        <button class="btn-siguiente" (click)="siguiente()">
                             Siguiente <i class="mdi mdi-skip-next"></i>
                         </button>
                     </div>
