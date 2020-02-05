@@ -1,2 +1,170 @@
+.section-matricular{
+    background-color: #096ac6;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 5px;
+  }
+
+  .section-matricula{
+    background-color: #e9ebee;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 5px;
+  }
+
+  .section-filtro{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0px;
+    font-size: 13px;
+    border: 1px solid #dddfe2;
+  }
+
+  .oink{
+    cursor: pointer;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .oink:hover{
+    background-color: #F5F5F6;
+  }
+
+  .btn-aplicar {
+    background-color: #096ac6;
+    border: 0px;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: absolute;
+    border-bottom: solid 3.5px #000000;
+}
+
+  .btn-aplicar:hover{
+    background-color: #197dda;
+}
+
+.btn-aplicar:active {
+    background-color: #013c72;
+}
+
+.table-matricular{
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+.btn-matriculados-top{
+  background-color: #096ac6;
+  border-radius: 8px;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  cursor: initial;
+  width: 35px;
+  height: 35px;
+}
+
+.btn-matriculados-top:hover{
+  background-color: #197dda;
+}
+
+.btn-matriculados-none{
+  background-color: #343a40;
+  border-radius: 8px;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  cursor: initial;
+  width: 35px;
+  height: 35px;
+}
+
+.btn-matriculados-none:hover{
+  background-color: #42484e;
+}
+
+.btn-matriculados-empty{
+  background-color: #E1E2E1;
+  border-radius: 8px;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+  cursor: initial;
+  width: 35px;
+  height: 35px;
+}
+
+.btn-matriculados-empty:hover{
+  background-color: rgb(190, 190, 190);
+}
+
+.max-matricular{
+  font-size: 14px;
+  padding: 8px;
+  border: solid 1px #acacac;
+  margin: 2px;
+  border-radius: 8px;
+  width: 100%;
+}
 
 
+.btn-siguiente {
+  background-color: #096ac6;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0px;
+  font-size: 14px;
+
+  color: white;
+  width: 100%;
+}
+
+.btn-siguiente:hover{
+  background-color: #197dda
+}
+
+.btn-none{
+  border-radius: 8px;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 35px;
+  height: 35px;
+  cursor: inherit;
+}
+
+.btn-filter{
+  border-radius: 8px;
+  border: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  font-size: 25px; color:#096ac6;
+  margin-top: -14px;
+}
+
+.header-matricular{
+ color: black;
+  font-size: 14px; height: 50px; align-items: center; width: 100%;
+}

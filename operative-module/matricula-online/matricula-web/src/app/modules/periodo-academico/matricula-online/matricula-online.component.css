@@ -79,3 +79,10 @@
     border: solid 1px;
     border-color:#096ac6; 
 }
+
+.section-matricula{
+    background-color: #e9ebee;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 5px;
+  }

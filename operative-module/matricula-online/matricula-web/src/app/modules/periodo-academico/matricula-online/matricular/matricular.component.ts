@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-matricular',
@@ -8,9 +9,26 @@ import { Router } from '@angular/router';
 })
 export class MatricularComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  showFiller = false;
+  mobileQuery: MediaQueryList;
+
+  mobile: MediaQueryList;
+  mobileListener: () => void;
+
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    private router: Router) {
+    this.mobile = media.matchMedia('(max-width: 500px)');
+    this.mobileListener = () => changeDetectorRef.detectChanges();
+    this.mobile.addListener(this.mobileListener);
+  }
 
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.mobile.removeListener(this.mobileListener);
   }
 
   cancelarMatriculaOnline() {
