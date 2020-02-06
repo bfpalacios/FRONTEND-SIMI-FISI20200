@@ -10,6 +10,14 @@ h1 {
     margin-top: 20px;
 }
 
+button {
+    background: #00CC99;
+    border-radius: 5px;
+    border-style: none;
+    color: #ffffff;
+    float: right;
+}
+
 table {
     width: 100%;
     text-align: center;
