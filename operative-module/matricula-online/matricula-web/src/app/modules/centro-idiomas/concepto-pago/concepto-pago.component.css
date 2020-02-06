@@ -1,32 +1,35 @@
-#container{
+#container {
     width: 600px;
     margin: 150px auto;
     margin-top: 40px;
-    
 }
 
-h1{
+h1 {
     text-align: center;
     margin-top: 20px;
 }
 
-table{
+table {
     width: 100%;
     text-align: center;
     background-color: white;
 }
 
-th, td{
+th,
+td {
     padding: 8px;
     border: rgb(121, 120, 120) solid 0.5px;
 }
-thead{
+
+thead {
     background-color: rgb(3, 3, 39);
     color: white;
 }
-tr:nth-child(even){
+
+tr:nth-child(even) {
     background-color: #ddd;
 }
-tr:hover{
+
+tr:hover {
     background-color: rgb(191, 234, 252);
 }

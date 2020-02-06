@@ -7,7 +7,7 @@ const routes: Routes = [{
   path: 'conceptoPago',
   component: ConceptoPagoComponent
 },{
-  path: '',
+  path: 'planEstudio',
   component: PlanEstudioComponent,
 },{
   path: '**',
