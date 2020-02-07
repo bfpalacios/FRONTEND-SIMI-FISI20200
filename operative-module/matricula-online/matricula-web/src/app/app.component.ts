@@ -26,11 +26,9 @@ export class AppComponent implements OnInit {
     this.mobile.removeListener(this.mobileListener);
   }
 
-  prueba() {
-    this.router.navigate(['home/feed']).then();
+  public home() {
+    this.router.navigate(['home']).then();
   }
 
-  prueba2() {
-    this.router.navigate(['administracion/listUsuarios']).then();
-  }
+
 }

@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 export class MatriculaOnlineComponent implements OnInit {
 
   public pagosRealizados: any[];
-  constructor(private router: Router) 
-  { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
     this.init();

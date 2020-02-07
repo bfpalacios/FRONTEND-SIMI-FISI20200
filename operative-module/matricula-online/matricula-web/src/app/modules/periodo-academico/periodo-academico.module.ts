@@ -3,14 +3,23 @@ import { CommonModule } from '@angular/common';
 import { PeriodoAcademicoRoutingModule } from './periodo-academico-routing.module';
 import { MatriculaOnlineComponent } from './matricula-online/matricula-online.component';
 import { MatricularComponent } from './matricula-online/matricular/matricular.component';
-
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { VerificarMatriculaComponent } from './matricula-online/matricular/verificar-matricula/verificar-matricula.component';
 
 @NgModule({
-  declarations: [MatriculaOnlineComponent, MatricularComponent],
+  declarations: [MatriculaOnlineComponent, MatricularComponent, VerificarMatriculaComponent],
   imports: [
     CommonModule,
-    PeriodoAcademicoRoutingModule
+    PeriodoAcademicoRoutingModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
   ]
 })
 export class PeriodoAcademicoModule { }
