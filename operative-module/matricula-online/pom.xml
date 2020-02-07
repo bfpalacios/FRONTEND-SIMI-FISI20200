@@ -18,7 +18,7 @@
 
 	<!-- Propiedades Generales -->
 	<properties>
-		<angular.project.location>angular-project</angular.project.location>
+		<angular.project.location>matricula-web</angular.project.location>
 		<angular.project.nodeinstallation>node_installation</angular.project.nodeinstallation>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -26,7 +26,11 @@
 	</properties>
 	
 	<dependencies>
-
+		<dependency>
+		    <groupId>commons-digester</groupId>
+		    <artifactId>commons-digester</artifactId>
+		    <version>2.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -159,7 +163,7 @@
 									  <outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
 										  <resources>          
 											  <resource>
-												<directory>${project.basedir}/${angular.project.location}/dist/dashboard/</directory>
+												<directory>${project.basedir}/${angular.project.location}/dist/matricula-web/</directory>
 												<filtering>true</filtering>
 											  </resource>
 										  </resources>              
