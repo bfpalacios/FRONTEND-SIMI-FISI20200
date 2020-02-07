@@ -1,23 +1,30 @@
 <div class="main-container">
     <mat-sidenav-container class="sidenav-container">
         <mat-sidenav #snav [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
-            style="background: rgb(248, 248, 248); width: 260px;">
-            <div class="ml-2 mt-5 mr-2 text-center">
-                <button class="f-13 btn-home mb-3" (click)="home()">Home</button>
+            class="sidenav-content">
+            <div class="text-center" style="background-color: #fafafa; color: black;">
+                <br/>
+                <br/>
                 <h2 class="example-app-name">
-                    <img src="favicon.ico" style="width: 40px;" />Simi
+                    <img src="favicon.ico" 
+                    style="width: 40px; margin-right: 2px;" />
+                    <span>Simi</span>
                 </h2>
+                <br/>
                 <span style="font-size: 13px;">Viernes 31 de enero de 2020</span> <br />
                 <span style="font-size: 13px;">version 1.0</span>
+                <br/>
+                <button class="f-13 btn-home mb-3" (click)="home()">
+                    <i class="mdi mdi-home"></i> Home</button>
             </div>
 
-            <mat-nav-list id="main-menu">
+            <mat-nav-list style="padding-top: 0px !important;">
                 <app-menu></app-menu>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>
             <div class="header-login">
-                <button (click)="snav.toggle()" class="btn-sidenav">
+                <button (click)="snav.toggle(); oink()" class="btn-sidenav">
                     <i class="ml-2 mr-2 mdi mdi-menu white"></i>
                 </button>
             </div>

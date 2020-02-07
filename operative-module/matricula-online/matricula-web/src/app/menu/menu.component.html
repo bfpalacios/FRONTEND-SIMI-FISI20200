@@ -1,37 +1,70 @@
 <div style="overflow-y: auto;">
     <button (click)="show(1)" class="list-group-item btn-item">
-        Mi Perfil
+        <i class="mdi mdi-face-profile f-15"></i> <span>Mi Perfil</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span>
     </button>
     <div *ngIf="modules[0].state" class="ele">
-        <button class="list-group-item btn-light subitem" [routerLink]="['sistema/general']">Información Académica
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['sistema/general']">
+        <i class="mdi mdi-book-information-variant f-15"></i> Información Académica
         </button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['profile/historialAcademico']">Historial Académico
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['profile/historialAcademico']">
+        <i class="mdi mdi-school f-15"></i> Historial Académico
         </button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['sistema/configuracion']">Cuenta de usuario
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['sistema/configuracion']">
+        <i class="mdi mdi-account f-15"></i> Cuenta de usuario
         </button>
     </div>
 
     <button (click)="show(2)" class="list-group-item btn-item">
-        Centro de Idiomas</button>
+        <i class="mdi mdi-pillar f-15"></i> <span>Centro de Idiomas</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
     <div *ngIf="modules[1].state" class="ele">
-        <button class="list-group-item btn-light subitem" [routerLink]="['centro-idiomas/conceptoPago']">Conceptos de pago</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">Docentes</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['centro-idiomas/planEstudio']">Plan de Estudios</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">Dashboard Online</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['centro-idiomas/conceptoPago']">
+        <i class="mdi mdi-credit-card-outline f-15"></i> Conceptos de pago</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['mesas/list']">
+        <i class="mdi mdi-teach f-15"></i> Docentes</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['centro-idiomas/planEstudio']">
+        <i class="mdi mdi-tablet-dashboard f-15"></i> Plan de Estudios</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['mesas/list']">
+        <i class="mdi mdi-view-dashboard f-15"></i> Dashboard Online</button>
     </div>
     <button (click)="show(3)" class="list-group-item btn-item">
-        Periodo Académico</button>
+        <i class="mdi mdi-calendar-multiple f-15"></i> <span>Periodo Académico</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
     <div *ngIf="modules[2].state" class="ele">
-        <button class="list-group-item btn-light subitem" [routerLink]="['periodo-academico/matriculaOnline']">Matrícula Online</button>
-        <!-- <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">Horarios y Vacantes</button> -->
-        <button class="list-group-item btn-light subitem" [routerLink]="['clientes/tipos']">Ciclo Académico</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['clientes/historial']">Programación de cursos</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['periodo-academico/matriculaOnline']">
+        <i class="mdi mdi-book-variant-multiple f-15"></i> Matrícula Online</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['clientes/tipos']">
+        <i class="mdi mdi-book-open-variant f-15"></i> Ciclo Académico</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['clientes/historial']">
+        <i class="mdi mdi-progress-clock f-15"></i> Programación de cursos</button>
     </div>
     <button (click)="show(4)" class="list-group-item btn-item">
-        Reportes</button>
+        <i class="mdi mdi-file f-15"></i> <span>Reportes</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
     <div *ngIf="modules[3].state" class="ele">
-        <button class="list-group-item btn-light subitem" [routerLink]="['reportes/reporteMatricula']">Reportes de matrícula</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['reportes/reporteEvaluaciones']">Reportes de evaluaciones</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['reportes/reportePagos']">Reportes de pagos</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['reportes/reporteMatricula']">
+        <i class="mdi mdi-clipboard-file f-15"></i> Reportes de matrícula</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['reportes/reporteEvaluaciones']">
+        <i class="mdi mdi-file-multiple f-15"></i> Reportes de evaluaciones</button>
+        <button class="list-group-item btn-light subitem" 
+        [routerLink]="['reportes/reportePagos']">
+        <i class="mdi mdi-file-chart f-15"></i> Reportes de pagos</button>
     </div>
 </div>

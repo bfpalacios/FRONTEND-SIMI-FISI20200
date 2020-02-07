@@ -1,19 +1,30 @@
 .btn-item{
-    background-color: #096ac6; color: white;
-    margin-bottom: 2px;
+    background-color: rgba(0,0,0,.87);
     width: 100%;
     text-align: center;
-    font-size: 14px;
-    
+    font-size: 14.5px;
+    color: white;
+    border-radius: 0px !important;
+    text-align: left !important;
   }
 
+  .f-15{
+    font-size: 15px;
+    margin-right: 5px;
+  }
+
+  .f-11{
+    font-size: 8.5px;
+  }
   .subitem{
     width: 259px;
+    text-align: left !important;
     font-size: 14px;
+    border-radius: 0px !important;
   }
 
   .btn-item:hover{
-    background-color: #1a51a3;
+    background-color: #323232;
   }
   .ele {
   animation: 0.5s fadeIn;

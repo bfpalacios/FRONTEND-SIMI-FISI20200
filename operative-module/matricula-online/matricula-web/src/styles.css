@@ -1,10 +1,16 @@
+.sidenav-content{
+  width: 260px;
+  border-right: none !important;
+}
 .btn-home{
-  background: rgb(228, 225, 225); height: 100%;
-  border: none; font-size: 14px; border-radius: 3px;
+  background: none; height: 100%; color: black; margin-top: 5px;
+  border: none; font-size: 15px; border-radius: 3px;
+  padding: 10px;
 }
 
 .btn-home:hover{
-    background: silver;
+  color:white;
+  background: rgb(26, 26, 26);
 }
 
 .main-container {
@@ -18,11 +24,11 @@
 
 .header-login{
   background-color: #096ac6; color: white;
-  font-size: 14px; height: 50px; align-items: center; width: 100%;
+  font-size: 14px; height: 54px; align-items: center; width: 100%;
 }
 
 .btn-sidenav{
-    height: 100%; display:flex; align-items: center;
+    height: 100%; display:flex; align-items: center; font-size: 18px;
     background: transparent; border: 0px; color: white;
 }
 

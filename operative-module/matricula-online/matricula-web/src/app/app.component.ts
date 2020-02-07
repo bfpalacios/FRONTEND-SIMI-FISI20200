@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   showFiller = false;
   mobileQuery: MediaQueryList;
-
+ // @ViewChild('snav') public nav: MatSidenav;
   mobile: MediaQueryList;
   mobileListener: () => void;
 
@@ -20,6 +21,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  oink(){
   }
 
   ngOnDestroy(): void {
