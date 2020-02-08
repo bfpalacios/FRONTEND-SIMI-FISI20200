@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatriculaOnlineComponent } from './matricula-online/matricula-online.component';
 import { MatricularComponent } from './matricula-online/matricular/matricular.component';
 import { VerificarMatriculaComponent } from './matricula-online/matricular/verificar-matricula/verificar-matricula.component';
+import { ProgramacionCursoComponent } from './programacion-curso/programacion-curso.component';
 
 const routes: Routes = [
   {
@@ -18,10 +19,16 @@ const routes: Routes = [
     component: MatriculaOnlineComponent,
   },
   {
+    path: 'programacionCurso',
+    component: ProgramacionCursoComponent,
+  },
+  {
     path: '**',
     redirectTo: 'matriculaOnline'
-  },]
-  
+  }
+];
+
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

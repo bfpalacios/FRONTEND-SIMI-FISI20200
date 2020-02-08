@@ -6,18 +6,14 @@
     color: white;
     border-radius: 0px !important;
     text-align: left !important;
-  }
-
-  .f-15{
-    font-size: 15px;
-    margin-right: 5px;
-  }
+    margin-bottom: 2px;
+}
 
   .f-11{
     font-size: 8.5px;
   }
   .subitem{
-    width: 259px;
+    width: 269px;
     text-align: left !important;
     font-size: 14px;
     border-radius: 0px !important;

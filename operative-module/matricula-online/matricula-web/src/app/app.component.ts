@@ -8,13 +8,15 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: []
 })
 export class AppComponent implements OnInit {
+  public date: number;
+
   showFiller = false;
   mobileQuery: MediaQueryList;
- // @ViewChild('snav') public nav: MatSidenav;
   mobile: MediaQueryList;
   mobileListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router) {
+    this.date = Date.now();
     this.mobile = media.matchMedia('(max-width: 500px)');
     this.mobileListener = () => changeDetectorRef.detectChanges();
     this.mobile.addListener(this.mobileListener);

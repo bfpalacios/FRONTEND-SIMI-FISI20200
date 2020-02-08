@@ -1,12 +1,12 @@
-<div style="overflow-y: auto;">
+<div style="overflow-y: auto; overflow-x: hidden;">
     <button (click)="show(1)" class="list-group-item btn-item">
-        <i class="mdi mdi-face-profile f-15"></i> <span>Mi Perfil</span>
+        <i class="mdi mdi-account-multiple f-15"></i> <span>Mi Perfil</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-blank-circle f-11"></i></span>
     </button>
     <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light subitem" 
-        [routerLink]="['sistema/general']">
+        [routerLink]="['profile/informacionAcademica']">
         <i class="mdi mdi-book-information-variant f-15"></i> Información Académica
         </button>
         <button class="list-group-item btn-light subitem" 
@@ -20,7 +20,7 @@
     </div>
 
     <button (click)="show(2)" class="list-group-item btn-item">
-        <i class="mdi mdi-pillar f-15"></i> <span>Centro de Idiomas</span>
+        <i class="mdi mdi-school-outline f-15"></i> <span>Centro de Idiomas</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
     <div *ngIf="modules[1].state" class="ele">
@@ -49,7 +49,7 @@
         [routerLink]="['clientes/tipos']">
         <i class="mdi mdi-book-open-variant f-15"></i> Ciclo Académico</button>
         <button class="list-group-item btn-light subitem" 
-        [routerLink]="['clientes/historial']">
+        [routerLink]="['periodo-academico/programacionCurso']">
         <i class="mdi mdi-progress-clock f-15"></i> Programación de cursos</button>
     </div>
     <button (click)="show(4)" class="list-group-item btn-item">
