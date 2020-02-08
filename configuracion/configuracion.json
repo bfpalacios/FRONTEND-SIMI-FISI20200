@@ -1,13 +1,14 @@
 {
 	"configuracion":
 	{
+		"version": "1.0.0",
 		"database": {
 			"ip" : "dev-fisi.mysql.database.azure.com",
 			"port": "3306",
 			"db" : "db_simi",
 			"type": "mysql",
 			"username": "dev01@dev-fisi",
-			"password": "Servidor123456",
+			"password": "4x5ekREtTps2subelUdaf/46YcGQPWtj",
 			"driver": "com.mysql.jdbc.Driver"
 		}
 	}

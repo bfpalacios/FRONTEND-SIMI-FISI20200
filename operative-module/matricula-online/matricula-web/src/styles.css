@@ -1,10 +1,21 @@
+.sidenav-content{
+  width: 270px;
+  border-right: none !important;
+}
 .btn-home{
-  background: rgb(228, 225, 225); height: 100%;
-  border: none; font-size: 14px; border-radius: 3px;
+  background: none; height: 100%; color: black; margin-top: 5px;
+  border: none; font-size: 15px; border-radius: 3px;
+  padding: 9px;
+}
+
+.f-15{
+  font-size: 20px;
+  margin-right: 5px;
 }
 
 .btn-home:hover{
-    background: silver;
+  color:white;
+  background: rgb(26, 26, 26);
 }
 
 .main-container {
@@ -18,11 +29,11 @@
 
 .header-login{
   background-color: #096ac6; color: white;
-  font-size: 14px; height: 50px; align-items: center; width: 100%;
+  font-size: 14px; height: 54px; align-items: center; width: 100%;
 }
 
 .btn-sidenav{
-    height: 100%; display:flex; align-items: center;
+    height: 100%; display:flex; align-items: center; font-size: 18px;
     background: transparent; border: 0px; color: white;
 }
 
@@ -31,4 +42,72 @@
   font-size: 19px;
   justify-content: center;
   align-items: center;
+}
+
+.btn-cancel {
+  background-color: #E1E2E1;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0px;
+  font-size: 14px;
+   width: 100%;
+}
+
+.btn-cancel:hover{
+  background-color: rgb(190, 190, 190);
+}
+
+.panel {
+  background-color: #F5F5F6;
+}
+
+.btn-siguiente {
+  background-color: #096ac6;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0px;
+  font-size: 14px;
+
+  color: white;
+  width: 100%;
+}
+
+.btn-siguiente:hover{
+  background-color: #197dda
+}
+
+.table-matricular{
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+.header-matricular{
+  color: black;
+   font-size: 14px; height: 50px; align-items: center; width: 100%;
+ }
+
+ .section-matricula{
+  background-color: #e9ebee;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.section-filtro{
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0px;
+  font-size: 13px;
+  border: 1px solid #dddfe2;
+}
+
+.nickname-menu{
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  font-size: 13px;
 }

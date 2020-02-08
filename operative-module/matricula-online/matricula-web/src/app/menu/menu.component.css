@@ -1,19 +1,31 @@
 .btn-item{
-    background-color: #096ac6; color: white;
-    margin-bottom: 2px;
+    background-color: rgb(26, 26, 26);
     width: 100%;
+    border: none;
+    padding-left: 13px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-align: center;
-    font-size: 14px;
-    
-  }
+    font-size: 14.5px;
+    color: white;
+    border-radius: 0px !important;
+    text-align: left !important;
+    justify-content: center;
+}
 
+  .f-11{
+    font-size: 12px;
+  }
   .subitem{
-    width: 210px;
+    width: 269px;
+    text-align: left !important;
     font-size: 14px;
+    border-radius: 0px !important;
   }
 
   .btn-item:hover{
-    background-color: #1a51a3;
+    background-color: #323232;
   }
   .ele {
   animation: 0.5s fadeIn;

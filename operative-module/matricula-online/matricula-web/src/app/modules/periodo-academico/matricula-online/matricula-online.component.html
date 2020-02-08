@@ -8,59 +8,61 @@
     <div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
-                <span>
-                    <b>Matrícula</b>
-                </span>
-                <div *ngIf="!pagosRealizados?.length">
-                    <span style="font-size: 13px;">
-                        Matrícula no habilitada
+                <div class="section-matricula">
+                    <span>
+                        <b>Matrícula</b>
                     </span>
-                </div>
-                <div *ngIf="pagosRealizados?.length">
-                    <div style="font-size: 14px;">
-                        <span>
-                            Realiza tu matrícula online ahora mismo.
-                            <hr />
+                    <div *ngIf="!pagosRealizados?.length">
+                        <span style="font-size: 13px;">
+                            Matrícula no habilitada
                         </span>
                     </div>
-                    <div class="iniciar-matricula">
-                        <div style="font-size: 14px;" class="text-center">
-                            <div class="header-iniciar-matricula">
-                            </div>
-                            <div class="mt-3">
-                                <span>
-                                    Ciclo Febrero 2020
-                                </span>
-                            </div>
-                            <hr style="background-color: white;" />
-                            <div class="mb-1">
-                                <span class="mr-2">
-                                    Fecha actual:
-                                </span>
-                                03/02/2020
-                                <br />
-                                <span class="mr-2">
-                                    Hora actual:
-                                </span>
-
-                                11:16 a. m.
-
-                            </div>
+                    <div *ngIf="pagosRealizados?.length">
+                        <div style="font-size: 14px;">
+                            <span>
+                                Realiza tu matrícula online ahora mismo.
+                                <hr />
+                            </span>
                         </div>
-                        <div class="text-center">
-                            <button class="btn-iniciar-matricula" (click)="goMatricular()">
-                                <i class="mdi mdi-clock-check-outline"></i> Iniciar Matrícula
-                            </button>
+                        <div class="iniciar-matricula">
+                            <div style="font-size: 14px;" class="text-center">
+                                <div class="header-iniciar-matricula">
+                                </div>
+                                <div class="mt-3">
+                                    <span>
+                                        Ciclo Febrero 2020
+                                    </span>
+                                </div>
+                                <hr style="background-color: white;" />
+                                <div class="mb-1">
+                                    <span class="mr-2">
+                                        Fecha actual:
+                                    </span>
+                                    03/02/2020
+                                    <br />
+                                    <span class="mr-2">
+                                        Hora actual:
+                                    </span>
+    
+                                    11:16 a. m.
+    
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="btn-iniciar-matricula" (click)="goMatricular()">
+                                    <i class="mdi mdi-clock-check-outline"></i> Iniciar Matrícula
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-6 mb-4">
+            <div class="col-lg-4 col-md-5 col-sm-12 mb-4">
                 <div>
                     <span>
                         <b>Pagos realizados</b>
                     </span>
-                    <div style="font-size: 14px;">
+                    <div *ngIf="pagosRealizados?.length" style="font-size: 14px;">
                         <span>
                             Tienes pagos disponibles para usar.
                             <hr />
@@ -71,7 +73,7 @@
                             No tienes pagos realizados en el Banco.
                         </span>
                     </div>
-                    <div *ngIf="pagosRealizados?.length" style="height: 500px; overflow-y: auto;">
+                    <div *ngIf="pagosRealizados?.length" style="height: 450px; overflow-y: auto;">
                         <div class="pago-realizado" *ngFor="let pagos of pagosRealizados">
                             <table class="table-responsive">
                                 <tbody>
@@ -103,8 +105,8 @@
 
                 </div>
             </div>
-            <div class="col-lg-5 col-sm-6">
-                <div>
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <div class="section-matricula">
                     <span>
                         <b>Información de Matrícula</b>
                     </span>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../models/MainMenu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +14,7 @@ export class MenuComponent implements OnInit {
   public authentication: boolean;
   public modules: any[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.success = true;
     this.initAccesoSistema(false);
   }
@@ -40,5 +41,9 @@ export class MenuComponent implements OnInit {
         value.state = false;
       }
     });
+  }
+
+  public home() {
+    this.router.navigate(['home']).then();
   }
 }

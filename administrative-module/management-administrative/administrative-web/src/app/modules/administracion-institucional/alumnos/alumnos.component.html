@@ -1,29 +1,33 @@
+<div class="mx-5 my-3">
 <div class="header-user-list">
     <button class="btn-nuevo ml-1 mr-1" (click)="nuevoAlumno()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nuevo Alumno
     </button>
 </div>
 <div class="mt-3 table-responsive">
-    <table class="table table-hover">
-        <thead class="header-table">
+    <table class="table table-hover table-bordered ">
+        <thead class="header-table thead-primary">
             <tr>
-                <td style="width: 100px;"></td>
-                
-                <td>
+                <th style="width: 100px;" class="text-center">Acciones</th>
+
+                <th>
                     <div class="center-head">Nombre</div>
-                </td>
-                <td>
+                </th>
+                <th>
                     <div class="center-head">Apellido Paterno</div>
-                </td>
-                <td>
+                </th>
+                <th>
                     <div class="center-head">Apellido Materno</div>
-                </td>
-                <td>
+                </th>
+                <th>
                     <div class="center-head">Email</div>
-                </td>
-                <td>
+                </th>
+                <th>
                     <div class="center-head">Dni</div>
-                </td>
+                </th>
+                <th>
+                    <div class="center-head">Estado</div>
+                </th>
             </tr>
         </thead>
         <tbody class="header-body">
@@ -74,6 +78,13 @@
                         <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
                         <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
                     </td>
+                    <td>
+                        <div class="center-body"> Activo
+                            <!-- {{mesadto.pmnombre}}  -->
+                        </div>
+                        <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
+                        <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
+                    </td>
                 </tr>
                 <!-- <tr *ngFor= "let mesadto of mesasdto"> --><tr >
                     <td >
@@ -117,6 +128,13 @@
                     </td>
                     <td>
                         <div class="center-body"> 76546921
+                            <!-- {{mesadto.pmnombre}}  -->
+                        </div>
+                        <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
+                        <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
+                    </td>
+                    <td>
+                        <div class="center-body"> Inactivo
                             <!-- {{mesadto.pmnombre}}  -->
                         </div>
                         <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
@@ -171,6 +189,13 @@
                         <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
                         <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
                     </td>
+                    <td>
+                        <div class="center-body"> Activo
+                            <!-- {{mesadto.pmnombre}}  -->
+                        </div>
+                        <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
+                        <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
+                    </td>
                 </tr>                
                 <!-- <tr *ngFor= "let mesadto of mesasdto"> --><tr >
                     <td >
@@ -219,7 +244,15 @@
                         <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
                         <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
                     </td>
+                    <td>
+                        <div class="center-body"> Activo
+                            <!-- {{mesadto.pmnombre}}  -->
+                        </div>
+                        <!-- <div class="center-body" *ngIf="mesadto.pmcapacidad===1">{{mesadto.pmcapacidad}} persona</div>
+                        <div class="center-body" *ngIf="mesadto.pmcapacidad>1">{{mesadto.pmcapacidad}} personas</div> -->
+                    </td>
                 </tr>
             </tbody>
     </table>
+</div>
 </div>
