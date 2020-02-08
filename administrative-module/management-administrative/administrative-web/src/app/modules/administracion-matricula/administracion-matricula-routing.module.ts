@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MatriculaComponent } from './matricula/matricula.component';
+import { MatriculasComponent } from './matriculas/matriculas.component';
 import { MonitoreoMatriculaComponent } from './monitoreo-matricula/monitoreo-matricula.component';
 
 const routes: Routes = [{
   path: 'matricula',
-  component: MatriculaComponent,
+  component: MatriculasComponent,
 },
 {
   path: 'monitoreoMatricula',
