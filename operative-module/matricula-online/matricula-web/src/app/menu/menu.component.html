@@ -1,8 +1,13 @@
 <div style="overflow-y: auto; overflow-x: hidden;">
+    <button (click)="home()" class="btn-item">
+        <i class="mdi mdi-home f-15"></i> <span>Inicio</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-multiple-blank-circle f-11"></i></span>
+    </button>
     <button (click)="show(1)" class="list-group-item btn-item">
         <i class="mdi mdi-account-multiple f-15"></i> <span>Mi Perfil</span>
         <span style="float:right">
-            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span>
+            <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span>
     </button>
     <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light subitem" 
@@ -22,7 +27,7 @@
     <button (click)="show(2)" class="list-group-item btn-item">
         <i class="mdi mdi-school-outline f-15"></i> <span>Centro de Idiomas</span>
         <span style="float:right">
-            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
+            <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
     <div *ngIf="modules[1].state" class="ele">
         <button class="list-group-item btn-light subitem" 
         [routerLink]="['centro-idiomas/conceptoPago']">
@@ -40,7 +45,7 @@
     <button (click)="show(3)" class="list-group-item btn-item">
         <i class="mdi mdi-calendar-multiple f-15"></i> <span>Periodo Académico</span>
         <span style="float:right">
-            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
+            <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
     <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem" 
         [routerLink]="['periodo-academico/matriculaOnline']">
@@ -55,7 +60,7 @@
     <button (click)="show(4)" class="list-group-item btn-item">
         <i class="mdi mdi-file f-15"></i> <span>Reportes</span>
         <span style="float:right">
-            <i class="mdi mdi-checkbox-blank-circle f-11"></i></span></button>
+            <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
     <div *ngIf="modules[3].state" class="ele">
         <button class="list-group-item btn-light subitem" 
         [routerLink]="['reportes/reporteMatricula']">
@@ -67,4 +72,9 @@
         [routerLink]="['reportes/reportePagos']">
         <i class="mdi mdi-file-chart f-15"></i> Reportes de pagos</button>
     </div>
+    <button class="btn-item">
+        <i class="mdi mdi-location-exit f-15"></i> <span>Cerrar Sesión</span>
+        <span style="float:right">
+            <i class="mdi mdi-checkbox-multiple-blank-circle f-11"></i></span>
+    </button>
 </div>

@@ -32,9 +32,7 @@ export class AppComponent implements OnInit {
     this.mobile.removeListener(this.mobileListener);
   }
 
-  public home() {
-    this.router.navigate(['home']).then();
-  }
+
 
 
 }
