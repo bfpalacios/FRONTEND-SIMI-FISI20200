@@ -10,9 +10,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { VerificarMatriculaComponent } from './matricula-online/matricular/verificar-matricula/verificar-matricula.component';
 import { ProgramacionCursoComponent } from './programacion-curso/programacion-curso.component';
+import { SolicitarAperturaCursoComponent } from './programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component';
 
 @NgModule({
-  declarations: [MatriculaOnlineComponent, MatricularComponent, VerificarMatriculaComponent, ProgramacionCursoComponent],
+  declarations: [MatriculaOnlineComponent, MatricularComponent, VerificarMatriculaComponent, ProgramacionCursoComponent, SolicitarAperturaCursoComponent],
   imports: [
     CommonModule,
     PeriodoAcademicoRoutingModule,
