@@ -5,7 +5,7 @@
 		"database": {
 			"ip" : "dev-fisi.mysql.database.azure.com",
 			"port": "3306",
-			"db" : "db_simi",
+			"db" : "dbsimi",
 			"type": "mysql",
 			"username": "dev01@dev-fisi",
 			"password": "4x5ekREtTps2subelUdaf/46YcGQPWtj",

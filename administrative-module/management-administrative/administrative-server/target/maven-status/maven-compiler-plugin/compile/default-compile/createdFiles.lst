@@ -1,9 +1,0 @@
-simi\infraestructure\idioma\jdbc\IdiomaRowMapper.class
-simi\infraestructure\idioma\jdbc\IdiomaRepositoryImpl.class
-simi\application\idioma\IdiomaService.class
-simi\web\controllers\IdiomaController.class
-simi\application\idioma\IdiomaServiceImpl.class
-simi\domain\idioma\repository\IdiomaRepository.class
-simi\AdministrativeServerApplication.class
-simi\domain\idioma\model\Idioma.class
-simi\ServletInitializer.class

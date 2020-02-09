@@ -68,50 +68,22 @@
   background-color: #0a83e6;
 }
 
-.btn-rose-d{
-  font-size: 13px;
-  width: 50%;
-  border: 0px;
-  background-color: #ff6a6a;
-  color: white;
-  padding: 8px;
-  font-weight: lighter;
-}
-
-.btn-rose-d:hover{
-  background-color: #e76969;
-}
-
 .btn-blue-d:hover{
-    background-color: #2d6ca0;
-}
-
-.btn-yellow-d{
-  font-size: 13px;
-  width: 50%;
-  border: 0px;
-  background-color: rgb(14, 150, 75);
-  color: white;
-  padding: 8px;
-  font-weight: lighter;
-}
-
-.btn-yellow-d:hover{
-  background-color: #e76969;
+    background-color: #0f4c7e;
 }
 
 .btn-black-blue-d{
     font-size: 13px;
     width: 50%;
     border: 0px;
-    background-color: #009688;
+    background-color: #204564;
     color: white;
     padding: 8px;
     font-weight: lighter;
 }
 
 .btn-black-blue-d:hover{
-    background-color: #204564;
+    background-color: #0f4c7e;
 }
 
 .f-14{
