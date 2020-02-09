@@ -14,25 +14,26 @@ export class MenuComponent implements OnInit {
   title: string;
   admsis: boolean;
   admus: boolean;
-  admme: boolean;
-  admcl: boolean;
-  admda: boolean;
-  admre: boolean;
+  adminst: boolean;
+  perac: boolean;
+  admmat: boolean;
+  rep: boolean;
+
 
   public sistema: boolean;
   public usuarios: boolean;
-  public mesas: boolean;
-  public clientes: boolean;
-  public dashboard: boolean;
+  public institucional: boolean;
+  public periodo: boolean;
+  public matricula: boolean;
   public reportes: boolean;
 
   constructor() {
     this.admsis = false;
     this.admus = false;
-    this.admme = false;
-    this.admcl = false;
-    this.admda = false;
-    this.admre = false;
+    this.adminst = false;
+    this.perac = false;
+    this.admmat = false;
+    this.rep = false;
     this.success = true;
     this.initAccesoSistema(false);
   }
@@ -47,17 +48,17 @@ export class MenuComponent implements OnInit {
   private initAccesoSistema(b: boolean) {
     this.sistema = b;
     this.usuarios = b;
-    this.mesas = b;
-    this.clientes = b;
-    this.dashboard = b;
+    this.institucional = b;
+    this.periodo = b;
+    this.matricula = b;
     this.reportes = b;
 
     this.admsis = b;
     this.admus = b;
-    this.admme = b;
-    this.admcl = b;
-    this.admda = b;
-    this.admre = b;
+    this.adminst = b;
+    this.perac = b;
+    this.admmat = b;
+    this.rep = b;
   }
 
   show(id: number) {
@@ -65,50 +66,50 @@ export class MenuComponent implements OnInit {
       case 1:
         this.admsis = !this.admsis;
         this.admus = false;
-        this.admme = false;
-        this.admcl = false;
-        this.admda = false;
-        this.admre = false;
+        this.adminst = false;
+        this.perac = false;
+        this.admmat = false;
+        this.rep = false;
         break;
       case 2:
         this.admus = !this.admus;
         this.admsis = false;
-        this.admme = false;
-        this.admcl = false;
-        this.admda = false;
-        this.admre = false;
+        this.adminst = false;
+        this.perac = false;
+        this.admmat = false;
+        this.rep = false;
         break;
       case 3:
-        this.admme = !this.admme;
+        this.adminst = !this.adminst;
         this.admsis = false;
         this.admus = false;
-        this.admcl = false;
-        this.admda = false;
-        this.admre = false;
+        this.perac = false;
+        this.admmat = false;
+        this.rep = false;
         break;
       case 4:
-        this.admcl = !this.admcl;
+        this.perac = !this.perac;
         this.admsis = false;
         this.admus = false;
-        this.admme = false;
-        this.admda = false;
-        this.admre = false;
+        this.adminst = false;
+        this.admmat = false;
+        this.rep = false;
         break;
       case 5:
-        this.admda = !this.admda;
+        this.admmat = !this.admmat;
         this.admsis = false;
         this.admus = false;
-        this.admme = false;
-        this.admcl = false;
-        this.admre = false;
+        this.adminst = false;
+        this.perac = false;
+        this.rep = false;
         break;
       case 6:
-        this.admre = !this.admre;
+        this.rep = !this.rep;
         this.admsis = false;
         this.admus = false;
-        this.admme = false;
-        this.admcl = false;
-        this.admda = false;
+        this.adminst = false;
+        this.perac = false;
+        this.admmat = false;
         break;
     }
   }
@@ -122,37 +123,54 @@ export class MenuComponent implements OnInit {
         this.setLocalStorageTitle('Admin. del Sistema - Configuración');
         break;
       case 3:
-        this.setLocalStorageTitle('Admin. de Usuarios - Tipos de Usuario');
-        break;
+          this.setLocalStorageTitle('Admin. de Usuarios - Permisos');
+          break;
       case 4:
-        this.setLocalStorageTitle('Admin. de Usuarios - Usuarios');
-        break;
-      case 5:
-        this.setLocalStorageTitle('Admin. de Usuarios - Permisos');
-        break;
+          this.setLocalStorageTitle('Admin. de Usuarios - Tipos de Usuarios');
+          break;
+       case 5:
+          this.setLocalStorageTitle('Admin. de Usuarios - Usuarios');
       case 6:
-        this.setLocalStorageTitle('Admin. de Mesas - Mesas');
+        this.setLocalStorageTitle('Admin. Institucional - Idiomas');
         break;
       case 7:
-        this.setLocalStorageTitle('Admin. de Mesas - Perfil de Mesa');
+        this.setLocalStorageTitle('Admin. Institucional - Horarios');
         break;
       case 8:
-        this.setLocalStorageTitle('Admin. de Mesas - Programación');
+        this.setLocalStorageTitle('Admin. Institucional - Cursos');
         break;
       case 9:
-        this.setLocalStorageTitle('Admin. de Clientes - Clientes');
+        this.setLocalStorageTitle('Admin. Institucional - Docentes');
         break;
       case 10:
-        this.setLocalStorageTitle('Admin. de Clientes - Tipo de Cliente');
+        this.setLocalStorageTitle('Admin. Institucional - Alumnos');
         break;
       case 11:
-        this.setLocalStorageTitle('Admin. de Clientes - Historial');
+        this.setLocalStorageTitle('Admin. Institucional - Sedes');
         break;
       case 12:
-        this.setLocalStorageTitle('Dashboard - Reservaciones');
+        this.setLocalStorageTitle('Admin. Institucional - Aulas');
         break;
       case 13:
-        this.setLocalStorageTitle('Reportes - Importes/Exportar');
+        this.setLocalStorageTitle('Periódo Académico - Ciclo Académico');
+        break;
+      case 14:
+        this.setLocalStorageTitle('Periódo Académico - Matriculados');
+        break;
+      case 15:
+        this.setLocalStorageTitle('Periódo Académico - Programación de Cursos');
+        break;
+      case 16:
+        this.setLocalStorageTitle('Admin. de Matrícula - Matricula Online');
+        break;
+      case 17:
+        this.setLocalStorageTitle('Admin. de Matrícula - Monitoreo de Matrícula');
+        break;
+      case 18:
+        this.setLocalStorageTitle('Reportes - Reportes Institucionales');
+        break;
+      case 19:
+        this.setLocalStorageTitle('Reportes - Reportes de Pagos');
         break;
     }
 

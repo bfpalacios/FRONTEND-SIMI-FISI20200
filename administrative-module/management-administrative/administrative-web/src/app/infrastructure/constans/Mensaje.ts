@@ -23,4 +23,7 @@ export class Mensaje {
     public static emptyFecha = 'Ingrese una fecha';
     public static emptyHora = 'Ingrese una hora';
     public static emptyCantidad = 'Ingrese una Cantidad';
+    
+    public static emptyNomIdioma= 'Ingrese nombre de Idioma';
+    public static emptyDescIdioma = 'Ingrese descripción de Idioma';
 }

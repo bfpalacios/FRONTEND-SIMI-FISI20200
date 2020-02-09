@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,7 +11,10 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
-
+import { registerLocaleData } from '@angular/common';
+import localePe from '@angular/common/locales/es-PE';
+import { HttpClientModule } from '@angular/common/http';
+registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
   {
 
@@ -66,9 +69,10 @@ const appRoutes: Routes = [
     CdkTableModule,
     CdkTreeModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ { provide: LOCALE_ID, useValue: 'es-PE' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
