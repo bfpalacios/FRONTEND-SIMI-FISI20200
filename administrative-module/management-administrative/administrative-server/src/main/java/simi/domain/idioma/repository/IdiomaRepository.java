@@ -8,4 +8,5 @@ public interface IdiomaRepository {
 	Idioma editIdioma(Idioma idioma, int id);
 	List<Idioma> getIdiomas();
 	boolean deleteIdioma(int cidioma);
+	Idioma getIdiomaById(int id);
 }

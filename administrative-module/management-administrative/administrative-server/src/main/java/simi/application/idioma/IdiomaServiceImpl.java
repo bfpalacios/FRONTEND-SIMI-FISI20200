@@ -38,4 +38,10 @@ public class IdiomaServiceImpl implements IdiomaService{
 		return this.repository.deleteIdioma(cidioma);
 	}
 
+	@Override
+	public Idioma getIdiomaById(int id) {
+		// TODO Auto-generated method stub
+		return this.repository.getIdiomaById(id);
+	}
+
 }

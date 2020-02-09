@@ -1,6 +1,6 @@
 package simi.web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +15,7 @@ import simi.domain.idioma.model.Idioma;
 
 import java.util.List;
 
-@CrossOrigin(origins = "localhost:4200")
+//@CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/idioma"})
 
@@ -30,25 +30,25 @@ public class IdiomaController {
 	}
 	
 	@PutMapping(path = {"/actualizarIdioma/{id}"})
-	public Idioma actualizarMesaById(@RequestBody Idioma idioma, @PathVariable int id) {
+	public Idioma actualizarIdiomaById(@RequestBody Idioma idioma, @PathVariable int id) {
 		
 		idioma.setCidioma(id);
 		return this.service.editIdioma(idioma, id);
 	}
 
-	@DeleteMapping(path = {"/eliminarIdiomaaById/{id}"})
+	@DeleteMapping(path = {"/eliminarIdiomaById/{id}"})
 	public boolean eliminarIdiomaById( @PathVariable int id) {	
 			return this.service.deleteIdioma(id);
 	}
 	
-	@PostMapping(path = {"/crearPerfilMesa"})
-	public Idioma crearPerfilMesa(@RequestBody Idioma idioma) {
+	@PostMapping(path = {"/crearIdioma"})
+	public Idioma crearIdioma(@RequestBody Idioma idioma) {
 		return this.service.crearIdioma(idioma);
 	}
 	
-//	@GetMapping(path= {"/obtenerPerfilMesa/{id}"})
-//	public PerfilMesa obtenerPerfilMesa(@PathVariable int id) {
-//		return this.service.getPerfilMesaById(id);
-//	}
+	@GetMapping(path= {"/obtenerIdiomaById/{id}"})
+	public Idioma obtenerIdioma(@PathVariable int id) {
+		return this.service.getIdiomaById(id);
+	}
 	
 }

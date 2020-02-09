@@ -30,9 +30,10 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 
 	@Override
 	public Idioma editIdioma(Idioma idioma, int id) {
-		String query = "UPDATE idioma  SET DESC_IDIOMA = ? , NOM_IDIOMA = ? WHERE CPERFILMESA = ?";
-		int update = this.jdbcTemplate.update(query, idioma.getDescIdioma(), idioma.getNomIdioma(), 
-				idioma.getCidioma());
+		String query = "UPDATE idioma  SET DESC_IDIOMA = ? , NOM_IDIOMA = ? WHERE CIDIOMA = "+ id;
+		int update = this.jdbcTemplate.update(query, 
+				idioma.getDescIdioma(), 
+				idioma.getNomIdioma());
 		
 		if (update == 1) {
 			return idioma;
@@ -58,6 +59,16 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public Idioma getIdiomaById(int id) {
+		String findIdioma ="SELECT * FROM  idioma WHERE CIDIOMA  = " + id;
+		List<Idioma> idioma = this.row.mapRowIdioma(this.jdbcTemplate.queryForList(findIdioma));
+		if (idioma.size() > 0) {
+			return idioma.get(0);
+		}
+		return null;
 	}
 
 }
