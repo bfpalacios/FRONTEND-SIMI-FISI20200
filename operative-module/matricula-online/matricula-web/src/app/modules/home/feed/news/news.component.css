@@ -3,9 +3,8 @@
 }
 
 .btn-examen-clasificacion{
-    background-color: #096ac6;
-    border-radius: 8px;
-    font-size: 13px;
+    background-color: #ee7600;
+    font-size: 20px;
     color: white;
     border: 0px;
     padding: 8px;
@@ -15,12 +14,11 @@
 }
 
 .btn-examen-clasificacion:hover{
-  background-color: #10599e;
+  background-color: #f1390b;
 }
 
 .btn-ver-idiomas{
-    background-color: #096ac6;
-    border-radius: 8px;
+    background-color: #3f51b5;
     font-size: 13px;
     color: white;
     border: 0px;
@@ -30,7 +28,7 @@
 }
 
 .btn-ver-idiomas:hover{
-  background-color: #10599e;
+  background-color: #213397;
 }
 
 .card-feed{
