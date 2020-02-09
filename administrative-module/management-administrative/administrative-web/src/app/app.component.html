@@ -1,29 +1,48 @@
 <div class="example-container">
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #snav [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
-    style="background: rgb(248, 248, 248);">
-    <div class="ml-2 mt-5 mr-2 text-center">
-      <button class="f-13 btn-nuevo mb-3" [routerLink]="['home/feed']">Home</button>
+  <mat-sidenav #snav opened [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
+  class="sidenav-content">
+  <div class="text-center" style="background-color: #fafafa; color: black;">
+      <br/>
+      <br/>
       <h2 class="example-app-name">
-        <img src="favicon.ico" style="width: 40px;" />Simi
+          <img src="favicon.ico"  style="width: 40px; margin-right: 12px;" />
+          <span>Simi</span>
       </h2>
-      <span style="font-size: 13px;">Viernes 31 de enero de 2020</span> <br />
-      <span style="font-size: 13px;">version 1.0</span>
-    </div>
+      <span style="font-size: 13.5px;">{{date | date:'fullDate':'pe'}}</span> <br />
+      <span style="font-size: 13px;"><b>version 1.0</b></span>
+      <br/>
+      <div class="mt-3 mb-3">
+          <span class="nickname-menu">
+              Nataly Grace  Vásquez Saenz
+          </span>
+      </div>
+  </div>
 
-    <mat-nav-list id="main-menu">
+  <mat-nav-list style="padding-top: 0px !important;">
       <app-menu></app-menu>
-    </mat-nav-list>
-    <div class="mt-3 text-center">
-      <span style="font-size: 11px;">Simi: Sistema de Matrícula</span>
-    </div>
-  </mat-sidenav>
-
+  </mat-nav-list>
+  <div class="text-center mt-4">
+      <span style="font-size: 12px;">Simi: Sistema de Matrícula Online</span>
+  </div>
+</mat-sidenav>
   <mat-sidenav-content>
     <div class="header-login">
-      <button (click)="snav.toggle()" class="f-left btn-sidenav">
+      <!-- <button (click)="snav.toggle()" class="f-left btn-sidenav">
         <i class="ml-2 mdi mdi-menu white f-20"></i>
+      </button> -->
+
+      <button (click)="snav.toggle(); navOpenClose()" class="f-left btn-sidenav">
+        <i  class="ml-2 mdi mdi-menu white f-20"></i>
+        <div class="f-left"><span class="text-header">{{title}}</span></div>
       </button>
+      <div class="f-right">
+        <button (click)="!navOpen ? nothing() : snav.toggle(); logout()" 
+        class="btn-close">
+          <span class="subline">Cerrar Sesión</span>
+        </button>
+      </div>
+
     </div>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

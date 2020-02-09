@@ -1,5 +1,6 @@
 package simi.web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 //import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ import simi.domain.idioma.model.Idioma;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/idioma"})
 

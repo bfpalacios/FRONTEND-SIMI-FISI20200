@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Idioma } from 'src/app/domain/Idioma';
+import { IdiomaService } from 'src/app/services/administracion/idioma/idioma.service';
+import { Path } from 'src/app/infrastructure/constans/Path';
 @Component({
   selector: 'app-idiomas',
   templateUrl: './idiomas.component.html',
@@ -10,26 +13,33 @@ export class IdiomasComponent implements OnInit {
   estado: boolean;
   prueba : string;
   public id: number;
-  // mesas: Mesa[];
-  // mesasdto: MesaDTO[];
-  // estadomesa : EstadoMesa;
+  idiomas: Idioma[];
   load: boolean;
   loading: string;
-   constructor(private router: Router 
-    // ,private serviceMesas: MesasService , 
-    // private serviceestadomesa: EstadoMesasService 
-    ) {
-     this.estado = false;
+   constructor(private router: Router     ,private serviceIdioma: IdiomaService   ) {
+    this.load = true;
+    this.loading = Path.loading;
     }
 
 
-  // constructor() { }
 
   ngOnInit() {
-    //obtener Listado de Alumnos
-    // this.router.navigate(['home/feed']).then();
+    //obtener Listado de Idiomas
+    this.obtenerIdiomas();
 
   }
+  obtenerIdiomas(){
+    console.log("antes");
+    this.serviceIdioma.getIdiomas().subscribe(data => 
+      { 
+       this.load=false;
+       this.idiomas = data;
+       
+       console.log("idiomas" ,this.idiomas);
+
+      } 
+    )}
+
   nuevoIdioma() {
     
     this.router.navigate(['administracionInstitucional/idiomas/crear']).then();

@@ -1,5 +1,6 @@
 package simi.web.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +11,7 @@ import simi.domain.nivel.model.Nivel;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "localhost:4200")
+@CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/nivel"})
 
