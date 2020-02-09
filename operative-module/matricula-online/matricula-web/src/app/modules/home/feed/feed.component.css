@@ -1,0 +1,114 @@
+.section-feed{
+    background-color: rgb(26, 26, 26);
+    padding: 10px 0px 0px 0px;
+    color: white;
+  }
+
+  .section-feed-idiomas{
+    background-color: rgb(26, 26, 26);
+    padding: 10px 10px 10px 10px;
+    color: white;
+  }
+
+  .section-photo{
+    background-color: #ebebeb;
+    border-radius: 35px;
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+  }
+
+  .f-16{
+      font-size: 16px;
+  }
+
+  .section-codigo{
+    background-color: #20639b;
+    border-radius: 7px;
+    padding: 5.5px 9.5px;
+    margin: 5px;
+    font-size: 14px;
+    color: white;
+  }
+
+  .section-universidad{
+    background-color: #204564;
+    border-radius: 4px;
+    padding: 5.5px 9.5px;
+    margin: 5px;
+    font-size: 14px;
+    color: white;
+  }
+
+  .section-email{
+    background-color: #204564;
+    border-radius: 4px;
+    padding: 5.5px 9.5px;
+    margin: 5px;
+    font-size: 14px;
+    color: white;
+  }
+
+.btn-blue-d{
+    font-size: 13px;
+    width: 50%;
+    border: 0px;
+    background-color: #20639b;
+    color: white;
+    padding: 8px;
+}
+
+.btn-rose-d{
+  font-size: 13px;
+  width: 50%;
+  border: 0px;
+  background-color: #ff6a6a;
+  color: white;
+  padding: 8px;
+}
+
+.btn-rose-d:hover{
+  background-color: #e76969;
+}
+
+.btn-blue-d:hover{
+    background-color: #2d6ca0;
+}
+
+.btn-yellow-d{
+  font-size: 13px;
+  width: 50%;
+  border: 0px;
+  background-color: rgb(14, 150, 75);
+  color: white;
+  padding: 8px;
+}
+
+.btn-yellow-d:hover{
+  background-color: #e76969;
+}
+
+.btn-black-blue-d{
+    font-size: 13px;
+    width: 50%;
+    border: 0px;
+    background-color: #173f5f;
+    color: white;
+    padding: 8px;
+}
+
+.btn-black-blue-d:hover{
+    background-color: #204564;
+}
+
+.f-14{
+    font-size: 14px;
+}
+
+.idiomas-bg{
+    cursor: pointer;
+}
+.idiomas-bg:hover{
+    background-color: rgba(243, 243, 243, .1);
+    border-radius: 8px;
+}

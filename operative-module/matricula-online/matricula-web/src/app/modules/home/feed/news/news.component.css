@@ -1,0 +1,36 @@
+.section-new{
+    margin: 2px;
+}
+
+.btn-examen-clasificacion{
+    background-color: #096ac6;
+    border-radius: 8px;
+    font-size: 13px;
+    color: white;
+    border: 0px;
+    padding: 8px;
+    width: 100%;
+    margin: 2px;
+}
+
+.btn-examen-clasificacion:hover{
+  background-color: #10599e;
+}
+
+.card-feed{
+    background-color: white;
+}
+
+.section-feed-news{
+
+    padding: 10px 10px 10px 10px;
+    color: white;
+  }
+
+  .section-photo-new{
+    background-color: #ebebeb;
+    border-radius: 35px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+  }
