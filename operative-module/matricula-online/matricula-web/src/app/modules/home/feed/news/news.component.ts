@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NewsComponent implements OnInit {
 
   public news: any[];
-  constructor() { 
-    this.news = [1,2,3];
+  constructor() {
+    this.news = [1];
   }
 
   ngOnInit() {

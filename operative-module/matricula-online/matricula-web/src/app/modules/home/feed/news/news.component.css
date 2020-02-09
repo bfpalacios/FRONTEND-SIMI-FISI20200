@@ -11,9 +11,25 @@
     padding: 8px;
     width: 100%;
     margin: 2px;
+    font-weight: lighter;
 }
 
 .btn-examen-clasificacion:hover{
+  background-color: #10599e;
+}
+
+.btn-ver-idiomas{
+    background-color: #096ac6;
+    border-radius: 8px;
+    font-size: 13px;
+    color: white;
+    border: 0px;
+    padding: 8px;
+    margin: 2px;
+    font-weight: lighter;
+}
+
+.btn-ver-idiomas:hover{
   background-color: #10599e;
 }
 

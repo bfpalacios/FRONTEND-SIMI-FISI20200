@@ -2,7 +2,7 @@
   <div class="pb-3 text-center font-weight-light" style="padding-top: 54px;">
     <div class="row m-0">
       <div class="col-lg-4 col-md-6 col-12" style="position: relative;margin: 0px !important; padding: 0px !important;">
-        <div class="section-feed">
+        <div class="section-feed mt-2">
           <div class="section-photo">
           </div>
           <div class="mt-1">
@@ -24,7 +24,7 @@
             <span class="section-email">+51 993420344</span>
           </div>
           <div>
-            <button class="btn-blue-d">
+            <button class="btn-blue-d" (click)="informacionAcademica()">
               <i class="mdi mdi-book-information-variant" style="font-size: 30px;"></i><br />
               Información Académica
             </button>
@@ -34,18 +34,24 @@
             </button>
           </div>
         </div>
+        <div class="mt-2">
+          <button class="btn-light-blue-d mb-2" (click)="programacionCursos()">
+            <i class="mdi mdi-tablet-dashboard" style="font-size: 50px;"></i><br />
+            Plan de Estudios 
+          </button>
+          <button class="btn-light-blue-d" (click)="planEstudios()">
+            <i class="mdi  mdi-progress-clock" style="font-size: 50px;"></i><br />
+            Programación de cursos
+          </button>
+        </div>
         
       </div>
       <div class="col-lg-4 col-md-6 col-12" style="margin: 0px !important; padding: 0px !important;">
         <app-news></app-news>
       </div>
       <div class="col-lg-4 col-12" style="margin: 0px !important; padding: 0px !important;">
-        <div class="section-feed-idiomas">
-          <div>
-            <span *ngFor="let photo of photos">
-              <img src={{photo.image}} style="width: 25%;" class="idiomas-bg"></span>
-          </div>
-        </div>
+        <app-lenguajes></app-lenguajes>
+        <app-info-matricula></app-info-matricula>
       </div>
     </div>
   </div>
