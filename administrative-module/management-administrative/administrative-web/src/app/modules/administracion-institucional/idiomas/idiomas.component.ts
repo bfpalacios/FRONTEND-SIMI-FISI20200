@@ -11,15 +11,17 @@ import { Path } from 'src/app/infrastructure/constans/Path';
 export class IdiomasComponent implements OnInit {
 
   estado: boolean;
-  prueba : string;
+  prueba: string;
   public id: number;
   idiomas: Idioma[];
   load: boolean;
   loading: string;
-   constructor(private router: Router     ,private serviceIdioma: IdiomaService   ) {
+  constructor(
+    private router: Router,
+    private serviceIdioma: IdiomaService) {
     this.load = true;
     this.loading = Path.loading;
-    }
+  }
 
 
 
@@ -28,24 +30,24 @@ export class IdiomasComponent implements OnInit {
     this.obtenerIdiomas();
 
   }
-  obtenerIdiomas(){
+  obtenerIdiomas() {
     console.log("antes");
-    this.serviceIdioma.getIdiomas().subscribe(data => 
-      { 
-       this.load=false;
-       this.idiomas = data;
-       
-       console.log("idiomas" ,this.idiomas);
+    this.serviceIdioma.getIdiomas().subscribe(data => {
+      this.load = false;
+      this.idiomas = data;
 
-      } 
-    )}
+      console.log("idiomas", this.idiomas);
+
+    }
+    )
+  }
 
   nuevoIdioma() {
-    
+
     this.router.navigate(['administracionInstitucional/idiomas/crear']).then();
   }
   // editarAlumno(id: number) 
-  editarIdioma() { 
+  editarIdioma() {
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
     this.router.navigate(['administracionInstitucional/idiomas/editar']).then();
   }
