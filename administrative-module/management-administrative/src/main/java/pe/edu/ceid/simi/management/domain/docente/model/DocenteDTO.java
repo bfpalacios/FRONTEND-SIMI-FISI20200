@@ -3,12 +3,12 @@ package pe.edu.ceid.simi.management.domain.docente.model;
 public class DocenteDTO {
 	
 	private int cusuario;
-	private String nombre;
-	private String apellidoPat;
-	private String apellidoMat;
+	private String nombre;			// cusuario
+	private String apellidoPat;		// cusuario
+	private String apellidoMat;		// cusuario
 	private int cdocente;
 	private int tipoContrato;
-	private String nomTipoContrato;
+	private String nomTipoContrato;	// tipoContrato
 	
 	public DocenteDTO(int cusuario, String nombre, String apellidoPat, String apellidoMat, int cdocente,
 			int tipoContrato, String nomTipoContrato) {

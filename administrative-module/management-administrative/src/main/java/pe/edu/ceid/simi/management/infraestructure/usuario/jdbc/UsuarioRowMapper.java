@@ -25,16 +25,16 @@ public class UsuarioRowMapper implements RowMapper {
 		List<Usuario> usuarioss = new ArrayList<Usuario>();
 		for(Map<String, Object> row: rows) {
 			int cusuario = Integer.parseInt(row.get("CUSUARIO").toString());
-			String nombre =row.get("NOMBRE").toString();
+			String nombre = row.get("NOMBRE").toString();
 			String apellidoPat = row.get("APELLIDOPAT").toString();
 			String apellidoMat =row.get("APELLIDOMAT").toString();
 			String email = row.get("EMAIL").toString();
 			String contrasenia =row.get("CONTRASENIA").toString();
-			int cdni = Integer.parseInt(row.get("CDNI").toString());
-			int cgenero = Integer.parseInt(row.get("CGENERO").toString());
-			String rol = row.get("ROL").toString();
+			int dni = Integer.parseInt(row.get("DNI").toString());
+			int genero = Integer.parseInt(row.get("GENERO").toString());
+			int crol = Integer.parseInt(row.get("CROL").toString());
 			
-			Usuario u = new Usuario(cusuario,nombre,apellidoPat,apellidoMat,email,contrasenia,cdni,cgenero,rol);
+			Usuario u = new Usuario(cusuario,nombre,apellidoPat,apellidoMat,email,contrasenia,dni,genero,crol);
 			usuarioss.add(u);
 		}
 		return usuarioss;

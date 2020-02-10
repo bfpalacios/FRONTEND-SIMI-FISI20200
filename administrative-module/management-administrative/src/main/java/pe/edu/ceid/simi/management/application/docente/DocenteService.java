@@ -5,7 +5,6 @@ import java.util.List;
 import pe.edu.ceid.simi.management.domain.docente.model.Docente;
 import pe.edu.ceid.simi.management.domain.docente.model.DocenteDTO;
 
-
 public interface DocenteService {
 	Docente crearDocente(Docente docente);
 	Docente editDocente(Docente docente, int id);

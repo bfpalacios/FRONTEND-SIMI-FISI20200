@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.edu.ceid.simi.management.application.usuario.UsuarioService;
 import pe.edu.ceid.simi.management.domain.usuario.model.Usuario;
 
-
 @CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/usuario"})

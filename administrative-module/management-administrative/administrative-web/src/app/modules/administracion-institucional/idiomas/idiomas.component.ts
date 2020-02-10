@@ -112,10 +112,6 @@ export class IdiomasComponent implements OnInit {
    
   } ) ;
 
-///////////////////
-
-
-
   }
 
 }
