@@ -261,3 +261,6 @@ color: white;
   font-size: 13px;
   color: #cc0000;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

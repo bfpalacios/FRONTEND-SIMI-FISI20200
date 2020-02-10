@@ -21,13 +21,15 @@ export class CreateIdiomaComponent implements OnInit {
   // public selectedTypeIdEstado : number;
 
   constructor(private router: Router , private idiomaService: IdiomaService)  {
-    this.idioma = new Idioma();
+    // this.idioma = new Idioma();
+
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
   }
 
   ngOnInit() {//lenar cmbs
+    this.load=false;
   }
 
   crearIdioma(){

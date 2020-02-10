@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Idioma } from 'src/app/domain/Idioma';
-import { IdiomaService } from 'src/app/services/administracion/idioma/idioma.service';
 import { Path } from 'src/app/infrastructure/constans/Path';
 import Swal from 'sweetalert2';
+import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/idioma.service';
 @Component({
   selector: 'app-idiomas',
   templateUrl: './idiomas.component.html',
