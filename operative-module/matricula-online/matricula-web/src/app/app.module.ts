@@ -14,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
 import { registerLocaleData } from '@angular/common';
 
 import localePe from '@angular/common/locales/es-PE';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     CdkTableModule,
     CdkTreeModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es-PE' } ],
   bootstrap: [AppComponent]
