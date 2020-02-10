@@ -28,7 +28,7 @@ export class IdiomaService {
   }
 
   public deleteIdiomaById(id: number) {
-    return this.http.delete<boolean>(this.url + '/' + 'eliminarIdiomaByIds' + '/' + id);
+    return this.http.delete<boolean>(this.url + '/' + 'eliminarIdiomaById' + '/' + id);
   }
 
 }
