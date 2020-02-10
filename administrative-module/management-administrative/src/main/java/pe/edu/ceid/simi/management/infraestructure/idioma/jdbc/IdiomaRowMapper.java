@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import pe.edu.ceid.simi.management.domain.idioma.model.Idioma;
 
 
+
 @Component
 public class IdiomaRowMapper implements RowMapper {
 

@@ -19,7 +19,6 @@ import java.util.List;
 @CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/curso"})
-
 public class CursoController {
 
 	@Autowired
@@ -39,7 +38,7 @@ public class CursoController {
 
 	@DeleteMapping(path = {"/eliminarCursoById/{id}"})
 	public boolean eliminarCursoById( @PathVariable int id) {	
-			return this.service.deleteCurso(id);
+		return this.service.deleteCurso(id);
 	}
 	
 	@PostMapping(path = {"/crearCurso"})

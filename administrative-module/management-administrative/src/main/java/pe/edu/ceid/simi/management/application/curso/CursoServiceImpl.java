@@ -9,12 +9,12 @@ import pe.edu.ceid.simi.management.domain.curso.model.Curso;
 import pe.edu.ceid.simi.management.domain.curso.model.CursoDTO;
 import pe.edu.ceid.simi.management.domain.curso.repository.CursoRepository;
 
+
 @Service
 public class CursoServiceImpl implements CursoService{
 	
 	@Autowired
 	private CursoRepository repository;
-	
 	
 	@Override
 	public Curso crearCurso(Curso curso) {
@@ -29,6 +29,12 @@ public class CursoServiceImpl implements CursoService{
 	}
 
 	@Override
+	public boolean deleteCurso(int id) {
+		// TODO Auto-generated method stub
+		return this.repository.deleteCurso(id);
+	}
+
+	@Override
 	public List<CursoDTO> getCursos() {
 		// TODO Auto-generated method stub
 		return this.repository.getCursos();
@@ -38,12 +44,6 @@ public class CursoServiceImpl implements CursoService{
 	public CursoDTO getCursoById(int id) {
 		// TODO Auto-generated method stub
 		return this.repository.getCursoById(id);
-	}
-
-	@Override
-	public boolean deleteCurso(int id) {
-		// TODO Auto-generated method stub
-		return this.repository.deleteCurso(id);
 	}
 
 }

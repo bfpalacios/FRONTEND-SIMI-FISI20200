@@ -1,12 +1,12 @@
 package pe.edu.ceid.simi.management.domain.curso.model;
 
+
 public class Curso {
 
 	private int ccurso;
 	private int cidioma;
 	private int cnivel;
 	private int ciclo;
-	
 	
 	public Curso(int ccurso, int cidioma, int cnivel, int ciclo) {
 		super();

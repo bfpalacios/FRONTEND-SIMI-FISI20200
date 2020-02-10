@@ -5,6 +5,7 @@ import java.util.List;
 import pe.edu.ceid.simi.management.domain.curso.model.Curso;
 import pe.edu.ceid.simi.management.domain.curso.model.CursoDTO;
 
+
 public interface CursoService {
 
 	Curso crearCurso(Curso curso);
@@ -12,4 +13,5 @@ public interface CursoService {
 	List<CursoDTO> getCursos();
 	CursoDTO getCursoById(int id);
 	boolean deleteCurso(int id);
+	
 }

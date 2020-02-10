@@ -4,6 +4,7 @@ import java.util.List;
 
 import pe.edu.ceid.simi.management.domain.idioma.model.Idioma;
 
+
 public interface IdiomaService {
 
 	Idioma crearIdioma(Idioma idioma);

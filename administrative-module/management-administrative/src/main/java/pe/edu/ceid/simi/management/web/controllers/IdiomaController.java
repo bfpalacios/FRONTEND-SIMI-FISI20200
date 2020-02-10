@@ -1,6 +1,8 @@
 package pe.edu.ceid.simi.management.web.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +20,6 @@ import java.util.List;
 @CrossOrigin(origins = "localhost:4200")
 @RestController
 @RequestMapping({"/api/idioma"})
-
 public class IdiomaController {
 
 	@Autowired
@@ -28,7 +29,7 @@ public class IdiomaController {
 	public List<Idioma> getIdiomas() {
 		return this.service.getIdiomas();
 	}
-	//Oink
+	
 	@PutMapping(path = {"/actualizarIdioma/{id}"})
 	public Idioma actualizarIdiomaById(@RequestBody Idioma idioma, @PathVariable int id) {
 		
@@ -37,8 +38,8 @@ public class IdiomaController {
 	}
 
 	@DeleteMapping(path = {"/eliminarIdiomaById/{id}"})
-	public boolean eliminarIdiomaById( @PathVariable int id) {	
-			return this.service.deleteIdioma(id);
+	public boolean eliminarIdiomaById(@PathVariable int id) {	
+		return this.service.deleteIdioma(id);
 	}
 	
 	@PostMapping(path = {"/crearIdioma"})
