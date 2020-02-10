@@ -1,5 +1,5 @@
 .section-feed-idiomas{
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(243, 242, 242);
     padding: 10px 10px 10px 10px;
     color: white;
   }
@@ -10,6 +10,6 @@
     cursor: pointer;
 }
 .idiomas-bg:hover{
-    background-color: rgba(243, 243, 243, .1);
+    background-color: rgb(95, 95, 95, 0.1);
     border-radius: 8px;
 }

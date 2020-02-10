@@ -671,7 +671,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>programacion-curso works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>programacion-curso works!</p>\r\n<button (click)=\"solicitarApertura()\">Solicitar apertura de curso</button>\r\n\r\n<div>\r\n    <div id=\"descargar\">\r\n        <button>Descargar en PDF</button>\r\n    </div>\r\n</div>\r\n\r\n<div id=\"container\">\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n    </table>\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n    </table>\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n    </table>\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n    </table>\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n    </table>\r\n    <div class=\"idioma\">\r\n        <button>INGLÉS</button>\r\n    </div>\r\n    <table class=\"hitorial\">\r\n        <thead>\r\n            <tr class=\"head\">\r\n                <th>Nivel</th>\r\n                <th>Docente</th>\r\n                <th>Matriculados</th>\r\n                <th>Horario</th>\r\n            </tr>\r\n        </thead>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        <tr>\r\n            <td>Básico I</td>\r\n            <td>Gabriela Betorran Diaz</td>\r\n            <td>15</td>\r\n            <td><button class=\"btn btn-primary btn-sm \" >Horario</button></td>\r\n        </tr>\r\n        \r\n    </table>\r\n    <div id=\"aperturar\">\r\n        <td><button class=\"btn btn-primary btn-sm \" >Solicitar apertura</button></td>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.html":
+/*!********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.html ***!
+  \********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>solicitar-apertura-curso works!</p>\r\n");
 
 /***/ }),
 
@@ -878,6 +891,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _matricula_online_matricular_matricular_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matricula-online/matricular/matricular.component */ "./src/app/modules/periodo-academico/matricula-online/matricular/matricular.component.ts");
 /* harmony import */ var _matricula_online_matricular_verificar_matricula_verificar_matricula_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./matricula-online/matricular/verificar-matricula/verificar-matricula.component */ "./src/app/modules/periodo-academico/matricula-online/matricular/verificar-matricula/verificar-matricula.component.ts");
 /* harmony import */ var _programacion_curso_programacion_curso_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./programacion-curso/programacion-curso.component */ "./src/app/modules/periodo-academico/programacion-curso/programacion-curso.component.ts");
+/* harmony import */ var _programacion_cuso_solicitar_apertura_curso_solicitar_apertura_curso_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component */ "./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.ts");
+
 
 
 
@@ -901,6 +916,10 @@ const routes = [
     {
         path: 'programacionCurso',
         component: _programacion_curso_programacion_curso_component__WEBPACK_IMPORTED_MODULE_6__["ProgramacionCursoComponent"],
+    },
+    {
+        path: 'programacionCurso/solicitarAperturaCurso',
+        component: _programacion_cuso_solicitar_apertura_curso_solicitar_apertura_curso_component__WEBPACK_IMPORTED_MODULE_7__["SolicitarAperturaCursoComponent"],
     },
     {
         path: '**',
@@ -943,6 +962,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
 /* harmony import */ var _matricula_online_matricular_verificar_matricula_verificar_matricula_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./matricula-online/matricular/verificar-matricula/verificar-matricula.component */ "./src/app/modules/periodo-academico/matricula-online/matricular/verificar-matricula/verificar-matricula.component.ts");
 /* harmony import */ var _programacion_curso_programacion_curso_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./programacion-curso/programacion-curso.component */ "./src/app/modules/periodo-academico/programacion-curso/programacion-curso.component.ts");
+/* harmony import */ var _programacion_cuso_solicitar_apertura_curso_solicitar_apertura_curso_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component */ "./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.ts");
+
 
 
 
@@ -960,7 +981,7 @@ let PeriodoAcademicoModule = class PeriodoAcademicoModule {
 };
 PeriodoAcademicoModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_matricula_online_matricula_online_component__WEBPACK_IMPORTED_MODULE_4__["MatriculaOnlineComponent"], _matricula_online_matricular_matricular_component__WEBPACK_IMPORTED_MODULE_5__["MatricularComponent"], _matricula_online_matricular_verificar_matricula_verificar_matricula_component__WEBPACK_IMPORTED_MODULE_11__["VerificarMatriculaComponent"], _programacion_curso_programacion_curso_component__WEBPACK_IMPORTED_MODULE_12__["ProgramacionCursoComponent"]],
+        declarations: [_matricula_online_matricula_online_component__WEBPACK_IMPORTED_MODULE_4__["MatriculaOnlineComponent"], _matricula_online_matricular_matricular_component__WEBPACK_IMPORTED_MODULE_5__["MatricularComponent"], _matricula_online_matricular_verificar_matricula_verificar_matricula_component__WEBPACK_IMPORTED_MODULE_11__["VerificarMatriculaComponent"], _programacion_curso_programacion_curso_component__WEBPACK_IMPORTED_MODULE_12__["ProgramacionCursoComponent"], _programacion_cuso_solicitar_apertura_curso_solicitar_apertura_curso_component__WEBPACK_IMPORTED_MODULE_13__["SolicitarAperturaCursoComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _periodo_academico_routing_module__WEBPACK_IMPORTED_MODULE_3__["PeriodoAcademicoRoutingModule"],
@@ -986,7 +1007,7 @@ PeriodoAcademicoModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGVyaW9kby1hY2FkZW1pY28vcHJvZ3JhbWFjaW9uLWN1cnNvL3Byb2dyYW1hY2lvbi1jdXJzby5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".section-perfil {\r\n    width: 500px;\r\n    margin: 150px auto;\r\n    margin-top: 40px;\r\n    background-color: #ffffff;\r\n}\r\n\r\ntable {\r\n    width: 100%;\r\n    background-color: white;\r\n    text-align: center;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\r\n}\r\n\r\nhr {\r\n    text-align: center;\r\n}\r\n\r\n.left {\r\n    text-align: left;\r\n    border-style: none;\r\n}\r\n\r\n#container {\r\n    width: 600px;\r\n    margin: 150px auto;\r\n    margin-top: 40px;\r\n}\r\n\r\nbutton {\r\n    background: #00CC99;\r\n    border-radius: 5px;\r\n    border-style: none;\r\n    color: #ffffff;\r\n}\r\n\r\n.historial {\r\n    width: 100%;\r\n    text-align: center;\r\n    background-color: white;\r\n\r\n}\r\n\r\nthead {\r\n    background-color: #096AC6;\r\n    color: white;\r\n}\r\n\r\nth {\r\n    padding: 8px;\r\n    border-bottom: rgb(148, 148, 148) solid 1px;\r\n    border-top: rgb(148, 148, 148) solid 1px;\r\n}\r\n\r\n#descargar{\r\n    float: right;\r\n    margin-right: 30px;\r\n}\r\n\r\n.idioma{\r\n    float: left; \r\n    margin-bottom: 20px;  \r\n}\r\n\r\ntr {\r\n    /* border-radius: 10px; */\r\n    padding: 8px;\r\n    border: rgb(148, 148, 148) solid 1px;\r\n}\r\n\r\n.head:hover {\r\n    background-color: #333333;\r\n}\r\n\r\ntr:hover {\r\n    background: rgb(238, 236, 236);\r\n}\r\n\r\n#aperturar{\r\n    margin-top: 20px;\r\n    float:right;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9wZXJpb2RvLWFjYWRlbWljby9wcm9ncmFtYWNpb24tY3Vyc28vcHJvZ3JhbWFjaW9uLWN1cnNvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGdCQUFnQjtJQUNoQix5QkFBeUI7QUFDN0I7O0FBRUE7SUFDSSxXQUFXO0lBQ1gsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksa0JBQWtCO0FBQ3RCOztBQUVBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGtCQUFrQjtBQUN0Qjs7QUFFQTtJQUNJLFlBQVk7SUFDWixrQkFBa0I7SUFDbEIsZ0JBQWdCO0FBQ3BCOztBQUVBO0lBQ0ksbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixrQkFBa0I7SUFDbEIsY0FBYztBQUNsQjs7QUFFQTtJQUNJLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsdUJBQXVCOztBQUUzQjs7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksWUFBWTtJQUNaLDJDQUEyQztJQUMzQyx3Q0FBd0M7QUFDNUM7O0FBQ0E7SUFDSSxZQUFZO0lBQ1osa0JBQWtCO0FBQ3RCOztBQUNBO0lBQ0ksV0FBVztJQUNYLG1CQUFtQjtBQUN2Qjs7QUFDQTtJQUNJLHlCQUF5QjtJQUN6QixZQUFZO0lBQ1osb0NBQW9DO0FBQ3hDOztBQUVBO0lBQ0kseUJBQXlCO0FBQzdCOztBQUVBO0lBQ0ksOEJBQThCO0FBQ2xDOztBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLFdBQVc7QUFDZiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGVyaW9kby1hY2FkZW1pY28vcHJvZ3JhbWFjaW9uLWN1cnNvL3Byb2dyYW1hY2lvbi1jdXJzby5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNlY3Rpb24tcGVyZmlsIHtcclxuICAgIHdpZHRoOiA1MDBweDtcclxuICAgIG1hcmdpbjogMTUwcHggYXV0bztcclxuICAgIG1hcmdpbi10b3A6IDQwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xyXG59XHJcblxyXG50YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luLXRvcDogMjBweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbn1cclxuXHJcbmhyIHtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLmxlZnQge1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIGJvcmRlci1zdHlsZTogbm9uZTtcclxufVxyXG5cclxuI2NvbnRhaW5lciB7XHJcbiAgICB3aWR0aDogNjAwcHg7XHJcbiAgICBtYXJnaW46IDE1MHB4IGF1dG87XHJcbiAgICBtYXJnaW4tdG9wOiA0MHB4O1xyXG59XHJcblxyXG5idXR0b24ge1xyXG4gICAgYmFja2dyb3VuZDogIzAwQ0M5OTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIGJvcmRlci1zdHlsZTogbm9uZTtcclxuICAgIGNvbG9yOiAjZmZmZmZmO1xyXG59XHJcblxyXG4uaGlzdG9yaWFsIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcblxyXG59XHJcblxyXG50aGVhZCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDk2QUM2O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG59XHJcblxyXG50aCB7XHJcbiAgICBwYWRkaW5nOiA4cHg7XHJcbiAgICBib3JkZXItYm90dG9tOiByZ2IoMTQ4LCAxNDgsIDE0OCkgc29saWQgMXB4O1xyXG4gICAgYm9yZGVyLXRvcDogcmdiKDE0OCwgMTQ4LCAxNDgpIHNvbGlkIDFweDtcclxufVxyXG4jZGVzY2FyZ2Fye1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAzMHB4O1xyXG59XHJcbi5pZGlvbWF7XHJcbiAgICBmbG9hdDogbGVmdDsgXHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4OyAgXHJcbn1cclxudHIge1xyXG4gICAgLyogYm9yZGVyLXJhZGl1czogMTBweDsgKi9cclxuICAgIHBhZGRpbmc6IDhweDtcclxuICAgIGJvcmRlcjogcmdiKDE0OCwgMTQ4LCAxNDgpIHNvbGlkIDFweDtcclxufVxyXG5cclxuLmhlYWQ6aG92ZXIge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzMzMzMzMztcclxufVxyXG5cclxudHI6aG92ZXIge1xyXG4gICAgYmFja2dyb3VuZDogcmdiKDIzOCwgMjM2LCAyMzYpO1xyXG59XHJcbiNhcGVydHVyYXJ7XHJcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xyXG4gICAgZmxvYXQ6cmlnaHQ7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -1002,13 +1023,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramacionCursoComponent", function() { return ProgramacionCursoComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 let ProgramacionCursoComponent = class ProgramacionCursoComponent {
-    constructor() { }
+    constructor(router) {
+        this.router = router;
+    }
     ngOnInit() {
     }
+    solicitarApertura() {
+        this.router.navigate(['periodo-academico/programacionCurso/solicitarAperturaCurso']).then();
+    }
 };
+ProgramacionCursoComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
 ProgramacionCursoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-programacion-curso',
@@ -1016,6 +1047,50 @@ ProgramacionCursoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./programacion-curso.component.css */ "./src/app/modules/periodo-academico/programacion-curso/programacion-curso.component.css")).default]
     })
 ], ProgramacionCursoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.css ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcGVyaW9kby1hY2FkZW1pY28vcHJvZ3JhbWFjaW9uLWN1c28vc29saWNpdGFyLWFwZXJ0dXJhLWN1cnNvL3NvbGljaXRhci1hcGVydHVyYS1jdXJzby5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.ts":
+/*!****************************************************************************************************************************!*\
+  !*** ./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.ts ***!
+  \****************************************************************************************************************************/
+/*! exports provided: SolicitarAperturaCursoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SolicitarAperturaCursoComponent", function() { return SolicitarAperturaCursoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let SolicitarAperturaCursoComponent = class SolicitarAperturaCursoComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+SolicitarAperturaCursoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-solicitar-apertura-curso',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./solicitar-apertura-curso.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./solicitar-apertura-curso.component.css */ "./src/app/modules/periodo-academico/programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component.css")).default]
+    })
+], SolicitarAperturaCursoComponent);
 
 
 
