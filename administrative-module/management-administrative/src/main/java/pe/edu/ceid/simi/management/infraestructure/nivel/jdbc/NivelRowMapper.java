@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 
-
-
 @Component
 public class NivelRowMapper implements RowMapper {
 

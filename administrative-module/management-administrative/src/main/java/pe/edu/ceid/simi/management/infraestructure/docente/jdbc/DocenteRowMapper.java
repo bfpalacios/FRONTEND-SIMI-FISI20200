@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.management.domain.docente.model.DocenteDTO;
 
-
 @Component
 public class DocenteRowMapper implements RowMapper {
 
@@ -29,9 +28,9 @@ public class DocenteRowMapper implements RowMapper {
 			String apellidoPat =row.get("APELLIDOPAT").toString();
 			String apellidoMat =row.get("APELLIDOMAT").toString();
 			int cdocente = Integer.parseInt(row.get("CDOCENTE").toString());
-			int tipoContrato = Integer.parseInt(row.get("CTIPO_CONTRATO").toString());
+			int ctipoContrato = Integer.parseInt(row.get("CTIPO_CONTRATO").toString());
 			String nomTipoContrato = row.get("NOM_TIPO_CONTRATO").toString();
-			DocenteDTO d = new DocenteDTO(cusuario, nombre, apellidoPat, apellidoMat, cdocente, tipoContrato, nomTipoContrato);
+			DocenteDTO d = new DocenteDTO(cusuario, nombre, apellidoPat, apellidoMat, cdocente, ctipoContrato, nomTipoContrato);
 			
 			docentes.add(d);
 		}

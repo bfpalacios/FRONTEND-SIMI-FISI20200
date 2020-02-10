@@ -9,7 +9,6 @@ import pe.edu.ceid.simi.management.domain.docente.model.Docente;
 import pe.edu.ceid.simi.management.domain.docente.model.DocenteDTO;
 import pe.edu.ceid.simi.management.domain.docente.repository.DocenteRepository;
 
-
 @Service
 public class DocenteServiceImpl implements DocenteService {
 

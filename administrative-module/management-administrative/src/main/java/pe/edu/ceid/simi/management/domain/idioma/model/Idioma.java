@@ -6,7 +6,6 @@ public class Idioma {
 	private String descIdioma;
 	private String nomIdioma;
 	
-	
 	public Idioma(int cidioma, String descIdioma, String nomIdioma) {
 		super();
 		this.cidioma = cidioma;

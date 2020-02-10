@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import pe.edu.ceid.simi.management.domain.usuario.model.Usuario;
 import pe.edu.ceid.simi.management.domain.usuario.repository.UsuarioRepository;
 
-
 @Component
 public class UsuarioRepositoryImpl implements UsuarioRepository{
 
@@ -22,11 +21,11 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
 	@Override
 	public Usuario crearUsuario(Usuario usuario) {
-		String insertQuery = "INSERT INTO tmusuario (NOMBRES, APPATERNO, APMATERNO, EMAIL, PASSWORD, NUMDOC, SEXO, CTIPOUSUARIO)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String insertQuery = "INSERT INTO tmusuario (NOMBRE, APELLIDOPAT, APELLIDOMAT, EMAIL, CONTRASENIA, "
+				+ "DNI, GENERO, CROL) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		int success = this.jdbcTemplate.update(insertQuery, usuario.getNombre(), usuario.getApellidoPat(),
-				usuario.getApellidoMat(), usuario.getEmail(), usuario.getContrasenia(), usuario.getCdni(),
-				usuario.getGenero(), usuario.getRol());
+				usuario.getApellidoMat(), usuario.getEmail(), usuario.getContrasenia(), usuario.getDni(),
+				usuario.getGenero(), usuario.getCrol());
 		
 		if (success >= 0) {
 			return usuario;
@@ -37,24 +36,16 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
 	@Override
 	public Usuario editUsuario(Usuario usuario, int id) {
-		String query = "UPDATE tmusuario SET NOMBRES = ?, APPATERNO = ?, APMATERNO = ?, EMAIL = ?,"
-				+ " PASSWORD = ?, NUMDOC = ?, SEXO = ?, CTIPOUSUARIO = ? WHERE CIDIOMA = "+ id;
+		String query = "UPDATE tmusuario SET NOMBRE = ?, APELLIDOPAT = ?, APELLIDOMAT = ?, EMAIL = ?,"
+				+ " CONTRASENIA = ?, DNI = ?, GENERO = ?, CROL = ? WHERE CUSUARIO = "+ id;
 		int update = this.jdbcTemplate.update(query, usuario.getNombre(), usuario.getApellidoPat(), usuario.getApellidoMat(),
-				usuario.getEmail(), usuario.getContrasenia(), usuario.getCdni(), usuario.getGenero(), usuario.getRol());
+				usuario.getEmail(), usuario.getContrasenia(), usuario.getDni(), usuario.getGenero(), usuario.getCrol());
 		
 		if (update == 1) {
 			return usuario;
 		}
 		
 		return null;
-	}
-
-	@Override
-	public List<Usuario> getUsuarios() {
-		String query = "SELECT * FROM tmusuario";
-		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
-		List<Usuario> usuario = row.mapRowUsuario(rows);
-		return usuario;
 	}
 
 	@Override
@@ -70,9 +61,17 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 	}
 
 	@Override
+	public List<Usuario> getUsuarios() {
+		String query = "SELECT * FROM tmusuario";
+		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
+		List<Usuario> usuario = row.mapRowUsuario(rows);
+		return usuario;
+	}
+
+	@Override
 	public Usuario getUsuarioById(int id) {
-		String findIdioma ="SELECT * FROM tmusuario WHERE CUSUARIO = " + id;
-		List<Usuario> usuario = this.row.mapRowUsuario(this.jdbcTemplate.queryForList(findIdioma));
+		String query ="SELECT * FROM tmusuario WHERE CUSUARIO = " + id;
+		List<Usuario> usuario = this.row.mapRowUsuario(this.jdbcTemplate.queryForList(query));
 		
 		if (usuario.size() > 0) {
 			return usuario.get(0);

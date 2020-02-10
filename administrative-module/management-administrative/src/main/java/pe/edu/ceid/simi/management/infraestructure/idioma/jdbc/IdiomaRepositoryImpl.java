@@ -65,8 +65,8 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 
 	@Override
 	public Idioma getIdiomaById(int id) {
-		String findIdioma ="SELECT * FROM tmidioma WHERE CIDIOMA  = " + id;
-		List<Idioma> idioma = this.row.mapRowIdioma(this.jdbcTemplate.queryForList(findIdioma));
+		String query ="SELECT * FROM tmidioma WHERE CIDIOMA  = " + id;
+		List<Idioma> idioma = this.row.mapRowIdioma(this.jdbcTemplate.queryForList(query));
 		
 		if (idioma.size() > 0) {
 			return idioma.get(0);
