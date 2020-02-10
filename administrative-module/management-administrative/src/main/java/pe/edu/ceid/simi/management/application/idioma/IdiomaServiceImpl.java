@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.ceid.simi.management.domain.idioma.model.Idioma;
 import pe.edu.ceid.simi.management.domain.idioma.repository.IdiomaRepository;
 
+
 @Service
 public class IdiomaServiceImpl implements IdiomaService{
 	

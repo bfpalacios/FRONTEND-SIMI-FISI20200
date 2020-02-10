@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 import pe.edu.ceid.simi.management.domain.nivel.repository.NivelRepository;
 
+
 @Service
 public class NivelServiceImpl implements NivelService{
 	

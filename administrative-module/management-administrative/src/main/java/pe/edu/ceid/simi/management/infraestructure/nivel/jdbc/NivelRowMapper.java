@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 
 
+
 @Component
 public class NivelRowMapper implements RowMapper {
 
@@ -25,8 +26,8 @@ public class NivelRowMapper implements RowMapper {
 		List<Nivel> niveles = new ArrayList<Nivel>();
 		for(Map<String, Object> row: rows) {
 			int cnivel = Integer.parseInt(row.get("CNIVEL").toString());
-			String descNivel =row.get("DESC_NIVEL").toString();
 			String nomNivel = row.get("NOM_NIVEL").toString();
+			String descNivel =row.get("DESC_NIVEL").toString();
 			
 			
 			Nivel i = new Nivel(cnivel,descNivel,nomNivel);

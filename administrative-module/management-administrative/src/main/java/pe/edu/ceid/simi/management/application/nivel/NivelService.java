@@ -4,6 +4,7 @@ import java.util.List;
 
 import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 
+
 public interface NivelService {
 
 	List<Nivel> getNiveles();

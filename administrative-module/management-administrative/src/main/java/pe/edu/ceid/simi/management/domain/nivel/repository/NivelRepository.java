@@ -5,7 +5,6 @@ import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 
 public interface NivelRepository {
 
-	
 	List<Nivel> getNiveles();
 	Nivel getNivelById(int id);
 	

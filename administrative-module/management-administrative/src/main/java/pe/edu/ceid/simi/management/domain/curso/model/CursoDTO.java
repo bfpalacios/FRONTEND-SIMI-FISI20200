@@ -1,5 +1,7 @@
 package pe.edu.ceid.simi.management.domain.curso.model;
 
+
+
 public class CursoDTO {
 	
 	private int ccurso;
@@ -26,7 +28,6 @@ public class CursoDTO {
 		this.cnivel = cnivel;
 		this.ciclo = ciclo;
 	}
-	
 	
 	public int getCcurso() {
 		return ccurso;
