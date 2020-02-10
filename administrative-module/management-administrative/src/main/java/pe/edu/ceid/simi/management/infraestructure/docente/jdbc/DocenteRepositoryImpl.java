@@ -22,14 +22,14 @@ public class DocenteRepositoryImpl implements DocenteRepository {
 
 	@Override
 	public Docente crearDocente(Docente docente) {
-		String insertQuery = "INSERT INTO docente (CIDIOMA,CNIVEL,CICLO) values (?,?,?)";
-		int success = this.jdbcTemplate.update(insertQuery,
-				curso.getCidioma(), 
-				curso.getCnivel(),
-				curso.getCiclo() );
-		if (success >= 0) {
-			return curso;
-		}
+		// String insertQuery = "INSERT INTO docente (CIDIOMA,CNIVEL,CICLO) values (?,?,?)";
+		// int success = this.jdbcTemplate.update(insertQuery,
+		// 		curso.getCidioma(), 
+		// 		curso.getCnivel(),
+		// 		curso.getCiclo() );
+		// if (success >= 0) {
+		// 	return curso;
+		// }
 		return null;
 	}
 

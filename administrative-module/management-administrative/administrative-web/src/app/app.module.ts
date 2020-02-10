@@ -13,7 +13,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { registerLocaleData } from '@angular/common';
 import localePe from '@angular/common/locales/es-PE';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatNativeDateModule } from '@angular/material/core';
+// import { HttpModule} from '@angular/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
   {
@@ -71,6 +77,10 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    NgxPaginationModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'es-PE' } ],
   bootstrap: [AppComponent]

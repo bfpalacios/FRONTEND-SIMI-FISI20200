@@ -22,15 +22,10 @@ export class CreateIdiomaComponent implements OnInit {
 
   constructor(private router: Router , private idiomaService: IdiomaService)  {
     this.idioma = new Idioma();
-
-    // this.selectedTypeIdPerfil = 0;
-    // this.selectedTypeIdEstado = 0;
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
   }
-
-  
 
   ngOnInit() {//lenar cmbs
   }
@@ -45,6 +40,7 @@ export class CreateIdiomaComponent implements OnInit {
       console.log(this.idioma);
       this.crearIdioma2();
     } }
+
     private crearIdioma2() {
       this.idiomaService.crearIdioma(this.idioma)
         .subscribe(o => {
@@ -54,7 +50,7 @@ export class CreateIdiomaComponent implements OnInit {
             this.navigateList();
           } else {
             this.empty = true;
-            this.successText = 'El nombre del idioma ya existe, pruebe otro.';
+            this.successText = 'El idioma ya existe, pruebe otro.';
           }
         });
     }
@@ -80,11 +76,11 @@ export class CreateIdiomaComponent implements OnInit {
       return true;
     }
   }
-  descIdioma: string;
-    nomIdioma: string;
+   
+
   private isEmpty() { // true : vacio 
 
-    if (this.isEmpytText(this.nomIdioma, Mensaje.emptyNomIdioma)) {
+    if (this.isEmpytText(this.idioma.nomIdioma, Mensaje.emptyNomIdioma)) {
       return true;
     }
     if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {

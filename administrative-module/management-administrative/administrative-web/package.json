@@ -24,7 +24,9 @@
     "@mdi/font": "^4.8.95",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.4.0",
+    "sweetalert2": "^9.7.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
