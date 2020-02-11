@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
-import { MediaMatcher} from '@angular/cdk/layout';
+import { Component, ChangeDetectorRef, OnInit, DoCheck } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 @Component({
@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: []
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
   public date: number;
 
   showFiller = false;
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     // const auth = localStorage.getItem('authentication');
     // this.getAuth(auth);
   }
-  cleanTitle(){
+  cleanTitle() {
     localStorage.removeItem('title');
   }
   logout() {
@@ -49,9 +49,9 @@ export class AppComponent implements OnInit {
     this.mobile.removeListener(this.mobileListener);
   }
   navOpenClose() {
-    
-      this.navOpen = !this.navOpen;
-    
+
+    this.navOpen = !this.navOpen;
+
   }
 
 }

@@ -7,12 +7,14 @@ public class Idioma {
 	private String nomIdioma;
 	
 	public Idioma(int cidioma, String descIdioma, String nomIdioma) {
-		super();
 		this.cidioma = cidioma;
 		this.descIdioma = descIdioma;
 		this.nomIdioma = nomIdioma;
 	}
 	
+	public Idioma() {
+		
+	}
 	public int getCidioma() {
 		return cidioma;
 	}

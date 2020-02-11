@@ -3,24 +3,24 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatListModule} from '@angular/material/list';
-import {MatIconModule} from '@angular/material/icon';
-import {CdkStepperModule} from '@angular/cdk/stepper';
-import {CdkTableModule} from '@angular/cdk/table';
-import {CdkTreeModule} from '@angular/cdk/tree';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { MenuComponent } from './menu/menu.component';
 import { registerLocaleData } from '@angular/common';
 import localePe from '@angular/common/locales/es-PE';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 // import { HttpModule} from '@angular/http';
 // import {NgxPaginationModule} from 'ngx-pagination';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
   {
@@ -34,7 +34,7 @@ const appRoutes: Routes = [
   }, {
     path: 'administracionSistema',
     loadChildren: './modules/administracion-sistema/administracion-sistema.module#AdministracionSistemaModule'
-  },{
+  }, {
     path: 'administracionInstitucional',
     loadChildren: './modules/administracion-institucional/administracion-institucional.module#AdministracionInstitucionalModule'
   },
@@ -50,8 +50,6 @@ const appRoutes: Routes = [
     path: 'reportes',
     loadChildren: './modules/reportes/reportes.module#ReportesModule'
   },
-
-  
   {
     path: '**',
     redirectTo: 'home',
@@ -78,13 +76,12 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
     MatNativeDateModule,
     MatDialogModule,
     MatSliderModule,
     MatFormFieldModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'es-PE' } ],
+  providers: [{ provide: LOCALE_ID, useValue: 'es-PE' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

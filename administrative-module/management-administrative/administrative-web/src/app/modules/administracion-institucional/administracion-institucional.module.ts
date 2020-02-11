@@ -23,6 +23,7 @@ import { CreateCursoComponent } from './cursos/create-curso/create-curso.compone
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { CreateDocenteComponent } from './docentes/create-docente/create-docente.component';
 import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -35,7 +36,8 @@ import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente
     EditarCursoComponent,CreateDocenteComponent,EditarDocenteComponent],
     imports: [
     CommonModule,
-   AdministracionInstitucionalRoutingModule
+   AdministracionInstitucionalRoutingModule,
+   FormsModule
   ]
 })
 export class AdministracionInstitucionalModule { }

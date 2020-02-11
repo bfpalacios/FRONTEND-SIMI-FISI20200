@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../models/MainMenu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,111 +8,45 @@ import { MenuItem } from '../models/MainMenu';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
   public success: boolean;
   public items: MenuItem[];
   public authentication: boolean;
-  title: string;
-  admsis: boolean;
-  admus: boolean;
-  adminst: boolean;
-  perac: boolean;
-  admmat: boolean;
-  rep: boolean;
+  public modules: any[];
+  public title: string;
 
-
-  public sistema: boolean;
-  public usuarios: boolean;
-  public institucional: boolean;
-  public periodo: boolean;
-  public matricula: boolean;
-  public reportes: boolean;
-
-  constructor() {
-    this.admsis = false;
-    this.admus = false;
-    this.adminst = false;
-    this.perac = false;
-    this.admmat = false;
-    this.rep = false;
+  constructor(private router: Router) {
     this.success = true;
     this.initAccesoSistema(false);
   }
 
   ngOnInit() {
-      
   }
 
-  private setItems() {
-    this.items.push();
-  }
   private initAccesoSistema(b: boolean) {
-    this.sistema = b;
-    this.usuarios = b;
-    this.institucional = b;
-    this.periodo = b;
-    this.matricula = b;
-    this.reportes = b;
-
-    this.admsis = b;
-    this.admus = b;
-    this.adminst = b;
-    this.perac = b;
-    this.admmat = b;
-    this.rep = b;
+    this.modules = [
+      {module: 1, state: false},
+      {module: 2, state: false},
+      {module: 3, state: false},
+      {module: 4, state: false},
+      {module: 5, state: false},
+      {module: 6, state: false}];
+    this.modules.forEach(value => {
+      value.state = b;
+    });
   }
 
   show(id: number) {
-    switch (id) {
-      case 1:
-        this.admsis = !this.admsis;
-        this.admus = false;
-        this.adminst = false;
-        this.perac = false;
-        this.admmat = false;
-        this.rep = false;
-        break;
-      case 2:
-        this.admus = !this.admus;
-        this.admsis = false;
-        this.adminst = false;
-        this.perac = false;
-        this.admmat = false;
-        this.rep = false;
-        break;
-      case 3:
-        this.adminst = !this.adminst;
-        this.admsis = false;
-        this.admus = false;
-        this.perac = false;
-        this.admmat = false;
-        this.rep = false;
-        break;
-      case 4:
-        this.perac = !this.perac;
-        this.admsis = false;
-        this.admus = false;
-        this.adminst = false;
-        this.admmat = false;
-        this.rep = false;
-        break;
-      case 5:
-        this.admmat = !this.admmat;
-        this.admsis = false;
-        this.admus = false;
-        this.adminst = false;
-        this.perac = false;
-        this.rep = false;
-        break;
-      case 6:
-        this.rep = !this.rep;
-        this.admsis = false;
-        this.admus = false;
-        this.adminst = false;
-        this.perac = false;
-        this.admmat = false;
-        break;
-    }
+    this.modules.forEach(value => {
+      if (value.module === id) {
+        value.state = !value.state;
+      } else {
+        value.state = false;
+      }
+    });
+  }
+
+  public home() {
+    this.router.navigate(['home']).then();
   }
 
   setTitle(id: number) {
