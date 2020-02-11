@@ -48,5 +48,10 @@ export class AppComponent implements OnInit {
   ngOnDestroy(): void {
     this.mobile.removeListener(this.mobileListener);
   }
+  navOpenClose() {
+    
+      this.navOpen = !this.navOpen;
+    
+  }
 
 }

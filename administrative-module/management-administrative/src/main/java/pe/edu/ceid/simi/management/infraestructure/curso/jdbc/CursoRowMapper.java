@@ -28,8 +28,9 @@ public class CursoRowMapper implements RowMapper {
 			int cidioma = Integer.parseInt(row.get("CIDIOMA").toString());
 			String nomIdioma =row.get("NOM_IDIOMA").toString();
 			int cnivel = Integer.parseInt(row.get("CNIVEL").toString());
-			String nomNivel = row.get("NOMNIVEL").toString();
+			String nomNivel = row.get("NOM_NIVEL").toString();
 			int ciclo = Integer.parseInt(row.get("CICLO").toString());
+			
 			CursoDTO i = new CursoDTO(ccurso, cidioma, nomIdioma, cnivel, nomNivel, ciclo);
 			
 			cursos.add(i);

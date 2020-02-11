@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Idioma } from 'src/app/domain/Idioma';
-import { IdiomaService } from 'src/app/services/administracion/idioma/idioma.service';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import Swal from 'sweetalert2';
+import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/idioma.service';
 @Component({
   selector: 'app-idiomas',
   templateUrl: './idiomas.component.html',
@@ -14,6 +15,7 @@ export class IdiomasComponent implements OnInit {
   prueba: string;
   public id: number;
   idiomas: Idioma[];
+  idioma : Idioma;
   load: boolean;
   loading: string;
   constructor(
@@ -21,6 +23,7 @@ export class IdiomasComponent implements OnInit {
     private serviceIdioma: IdiomaService) {
     this.load = true;
     this.loading = Path.loading;
+    this.idioma = new Idioma();
   }
 
 
@@ -50,6 +53,65 @@ export class IdiomasComponent implements OnInit {
   editarIdioma() {
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
     this.router.navigate(['administracionInstitucional/idiomas/editar']).then();
+  }
+  private navigateList() {
+    this.router.navigate(['administracionInstitucional/idiomas']);
+  }
+
+  public eliminarIdioma(id: number) {
+    console.log(id);
+    
+    this.serviceIdioma.getIdiomaById(id).subscribe(o => {
+      if (o !== null) {
+        this.idioma = o;console.log(this.idioma);
+        Swal.fire({
+          title: 'Estas seguro que desea eliminar el idioma '+ this.idioma.nomIdioma+' ?',
+          // text: "S",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            this.load = true;
+            this.serviceIdioma.deleteIdiomaById(id).subscribe(data => {
+              
+              if (data) {
+                this.load = false;
+                Swal.fire(
+                  'Idioma Eliminado!',
+                  'El Registro se elimino correctamente.',
+                  'success'
+                );
+                this.obtenerIdiomas();
+                Swal.fire(
+                  'Idioma Eliminado!',
+                    'El Registro se elimino correctamente.',
+                    'success'
+                  );
+        
+        
+              } else {
+                this.load = false;
+                // this.obtenerIdiomas();
+              }
+            }, error => {
+              if (error) {
+                this.load = false;
+                // this.obtenerIdiomas();
+               
+              }
+            });
+           
+          }
+          })
+
+         } else {  this.navigateList();    }
+   
+  } ) ;
+
   }
 
 }
