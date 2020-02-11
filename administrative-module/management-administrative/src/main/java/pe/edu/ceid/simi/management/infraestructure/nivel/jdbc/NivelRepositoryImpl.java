@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 import pe.edu.ceid.simi.management.domain.nivel.model.Nivel;
 import pe.edu.ceid.simi.management.domain.nivel.repository.NivelRepository;
 
-
-
 @Component
 public class NivelRepositoryImpl implements NivelRepository {
 

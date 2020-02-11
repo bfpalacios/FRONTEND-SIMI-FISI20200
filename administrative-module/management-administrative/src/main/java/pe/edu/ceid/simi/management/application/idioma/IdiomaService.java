@@ -6,7 +6,6 @@ import pe.edu.ceid.simi.management.domain.idioma.model.Idioma;
 
 
 public interface IdiomaService {
-
 	Idioma crearIdioma(Idioma idioma);
 	Idioma editIdioma(Idioma idioma, int id);
 	List<Idioma> getIdiomas();
