@@ -24,6 +24,8 @@ import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.compone
 import { CreateDocenteComponent } from './docentes/create-docente/create-docente.component';
 import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente.component';
 import { FormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -37,7 +39,9 @@ import { FormsModule } from '@angular/forms';
     imports: [
     CommonModule,
    AdministracionInstitucionalRoutingModule,
-   FormsModule
+   FormsModule,
+   Ng2SearchPipeModule,
+   NgxPaginationModule
   ]
 })
 export class AdministracionInstitucionalModule { }
