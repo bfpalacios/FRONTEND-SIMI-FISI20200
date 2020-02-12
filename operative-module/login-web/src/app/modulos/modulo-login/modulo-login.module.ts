@@ -9,7 +9,6 @@ import { SectionButtonsResponsiveComponent } from './login/section-buttons-respo
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { ErrorSistemaComponent } from './login/error-sistema/error-sistema.component';
 import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     LoginComponent,
@@ -25,6 +24,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   entryComponents: [ErrorSistemaComponent],
-  exports: [MatSnackBarModule,]
+  exports: [
+    MatSnackBarModule,
+  ]
 })
 export class ModuloLoginModule { }

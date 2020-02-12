@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ErrorSistemaComponent } from './error-sistema/error-sistema.component';
+import { SistemaMatriculaService } from 'src/app/services/sistema/sistema-matricula.service';
+import {ToastrService} from 'ngx-toastr';
+import { Path } from 'src/app/constants/Path';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,28 +11,51 @@ import { ErrorSistemaComponent } from './error-sistema/error-sistema.component';
 })
 export class LoginComponent implements OnInit {
 
-  durationInSeconds: number = 5;
+  public available: boolean;
+  public loading: boolean;
+  public loadingGif: string;
 
-
-  constructor(private router: Router, private route: ActivatedRoute, private _snackBar: MatSnackBar) { 
-    this.durationInSeconds = this.durationInSeconds * 1000;
+  constructor(
+    private router: Router,
+    private service: SistemaMatriculaService,
+    private toastService: ToastrService) {
+      this.loadingGif = Path.loadingGif;
+      this.available = true;
+      this.loading = true;
   }
 
   ngOnInit() {
-  }
-
-  prueba() {
-    this.router.navigate(['prueba'], {relativeTo: this.route}).then();
+    this.verificarSistema();
   }
 
   onIngresar(){
     this.router.navigate(['/createAccount']);
   }
 
-  openSnackBar() {
-    this._snackBar.openFromComponent(ErrorSistemaComponent, {
-      duration: this.durationInSeconds * 1000,
+  private verificarSistema() {
+    this.service.verificarSistemaMatricula().subscribe(data => {
+      // Success
+    }, () => { // Error
+      this.errorSistema();
     });
+  }
+
+  public ingresarSistema() {
+    if (!this.available) {
+      this.verificarSistema();
+    }
+  }
+
+  public registrarme() {
+    if (!this.available) {
+      this.verificarSistema();
+    }
+  }
+
+  private errorSistema() {
+    this.available = false;
+    this.loading = false;
+    this.toastService.error('Sistema no disponible');
   }
 
 }

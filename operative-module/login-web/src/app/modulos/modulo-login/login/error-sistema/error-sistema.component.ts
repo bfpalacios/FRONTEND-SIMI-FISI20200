@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-error-sistema',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorSistemaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public snackBarRef: MatSnackBarRef<ErrorSistemaComponent>,
+    @Inject(MAT_SNACK_BAR_DATA) public data: any){
+  }
 
   ngOnInit() {
   }

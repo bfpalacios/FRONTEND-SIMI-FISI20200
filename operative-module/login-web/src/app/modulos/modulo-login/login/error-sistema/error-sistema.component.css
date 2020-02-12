@@ -1,3 +1,11 @@
 .example-pizza-party {
-    color: hotpink;
+    color: rgb(255, 255, 255);
+  }
+
+  .btn-close {
+    color: white;
+  }
+
+  .btn-close:hover {
+    
   }
