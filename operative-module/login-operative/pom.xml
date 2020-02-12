@@ -1,14 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>pe.edu.unmsm.ceidletras.simi.operative</groupId>
 	<artifactId>login-operative</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>login-operative</name>
 	<description>login-operative</description>
-	
+
 	<!-- Spring Boot 1.5.9 -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,13 +25,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	
-	
+
+
 	<dependencies>
 		<dependency>
-		    <groupId>commons-digester</groupId>
-		    <artifactId>commons-digester</artifactId>
-		    <version>2.1</version>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,9 +38,9 @@
 		</dependency>
 
 		<dependency>
-	        <groupId>mysql</groupId>
-	        <artifactId>mysql-connector-java</artifactId>
-	    </dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -51,8 +51,8 @@
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>com.googlecode.json-simple</groupId>
-		    <artifactId>json-simple</artifactId>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -80,102 +80,28 @@
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>org.jasypt</groupId>
-		    <artifactId>jasypt</artifactId>
-		    <version>1.9.0</version>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt</artifactId>
+			<version>1.9.0</version>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
-                    <plugin>
-                            <groupId>org.springframework.boot</groupId>
-                            <artifactId>spring-boot-maven-plugin</artifactId>
-                    </plugin>
-                   
-                    <plugin>
-                            <groupId>com.github.eirslett</groupId>
-                            <artifactId>frontend-maven-plugin</artifactId>
-                            <version>1.5</version>
-                            <configuration>
-                                    <workingDirectory>${angular.project.location}</workingDirectory>
-                                    <installDirectory>${angular.project.nodeinstallation}</installDirectory>
-                            </configuration>
-                            <executions>
-                                    
-									<!-- install node and npm -->
-                                    <execution>
-                                            <id>install node and npm</id>
-                                            <goals>
-                                                    <goal>install-node-and-npm</goal>
-                                            </goals>
-                                            <configuration>
-                                                    <nodeVersion>v13.2.0</nodeVersion>
-                                                    <npmVersion>6.13.1</npmVersion>
-                                            </configuration>
-                                    </execution>
-                                  
-								    <!-- install node modules -->
-									<execution>
-										<id>npm install --no-bin-links</id>
-										<goals>
-											<goal>npm</goal>
-										</goals>
-										<phase>generate-resources</phase>
-									</execution>
-					
-								    <!-- build angular folder -> dist -->
-									<execution>
-										<id>ng build</id>
-										<goals>
-											<goal>npm</goal>
-										</goals>
-										<phase>generate-resources</phase>
-										<configuration>
-											<!-- reference: package.json  -->
-											<arguments>run build</arguments>
-										</configuration>
-									</execution>
-					
-							</executions>	
-									
-                    </plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
 
-					<!-- copy build angular "dist" to static folder -->
-					<plugin>
-						<artifactId>maven-resources-plugin</artifactId>
-						<version>3.1.0</version>
-						<executions>
-							<execution>
-									<id>copy-angular-dist</id>
-									<phase>generate-resources</phase>
-									<goals>
-									  <goal>copy-resources</goal>
-									</goals>
-									<configuration>
-									  <overwrite>true</overwrite>
-									  <outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
-										  <resources>          
-											  <resource>
-												<directory>${project.basedir}/${angular.project.location}/dist/login-web/</directory>
-												<filtering>true</filtering>
-											  </resource>
-										  </resources>              
-									</configuration>            
-							</execution>
-						</executions>
-					</plugin>
-			
-            </plugins>
-            
-            <finalName>app</finalName>
-            <extensions>
-                    <extension>
-                            <groupId>org.kuali.maven.wagons</groupId>
-                            <artifactId>maven-s3-wagon</artifactId>
-                            <version>1.2.1</version>
-                    </extension>
-            </extensions>
+		<finalName>login-operative</finalName>
+		<extensions>
+			<extension>
+				<groupId>org.kuali.maven.wagons</groupId>
+				<artifactId>maven-s3-wagon</artifactId>
+				<version>1.2.1</version>
+			</extension>
+		</extensions>
 	</build>
 </project>
