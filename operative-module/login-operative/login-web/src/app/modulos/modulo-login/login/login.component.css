@@ -25,21 +25,11 @@
     box-shadow: 20px 20px 15px;
 }
 
-.background-login-lighblue{
-    height: 110%;
-    
-    background-color: #096ac6;
-}
-
-.primary-color {
- color: #096ac6;
-}
-
 .btn-login {
     background-color: #096ac6;
-    border-radius: 12px;
+    border-radius: 0px;
     color: white;
-
+    font-weight: lighter;
 }
 
 .btn-register:hover{
@@ -47,11 +37,10 @@
 }
 
 .btn-register {
-    font-size: 11px;
+    font-size: 13.5px;
     background-color: none;
     border-radius: 12px;
-    color: rgb(116, 116, 116);
-
+    color: rgb(0, 0, 0);
 }
 
 .btn-login:hover{
@@ -61,9 +50,9 @@
 
 .btn-register-s {
     background-color: #272727;
-    border-radius: 12px;
+    border-radius: 0px;
     color: white;
-
+    font-weight: lighter;
 }
 
 .btn-register-s:hover{
@@ -114,23 +103,10 @@
     }
 }
 
-
-.section-border{
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.section-border:hover {
-    background: rgb(231, 230, 230);
-    border-radius: 8px;
-    cursor: pointer;
-}
-
 .oink{
-    border-radius: 8px;
     cursor: pointer;
 }
 
 .oink:hover{
-    border-style: solid;
-    border-width: 1px;
+    background: rgb(238, 237, 237);
 }
