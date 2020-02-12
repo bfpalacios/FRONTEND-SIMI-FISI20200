@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   }
 
   public verificarSistema() {
-    this.service.verificarSistemaMatricula(data => {
+    this.service.verificarSistemaMatricula().subscribe(data => {
       if (data) {
         console.log(data);
       }

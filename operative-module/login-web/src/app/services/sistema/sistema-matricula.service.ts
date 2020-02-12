@@ -8,7 +8,7 @@ export class SistemaMatriculaService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'api/v1/';
+    this.url = 'api/v1';
    }
 
   verificarSistemaMatricula() {
