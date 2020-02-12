@@ -8,7 +8,7 @@ export class AutorizacionServiceService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/v1/autorizacion';
+    this.url = 'simi/ api/v1/autorizacion';
   }
 
   public accederSistema(codigo: string, tipo: string) {

@@ -35,12 +35,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -164,7 +158,7 @@
 									  <outputDirectory>${project.basedir}/src/main/resources/static/</outputDirectory>
 										  <resources>          
 											  <resource>
-												<directory>${project.basedir}/${angular.project.location}/dist/matricula-web/</directory>
+												<directory>${project.basedir}/${angular.project.location}/dist/login-web/</directory>
 												<filtering>true</filtering>
 											  </resource>
 										  </resources>              
