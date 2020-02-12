@@ -6,8 +6,9 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { BannerLoginComponent } from './login/banner-login/banner-login.component';
 import { SectionButtonsComponent } from './login/section-buttons/section-buttons.component';
 import { SectionButtonsResponsiveComponent } from './login/section-buttons-responsive/section-buttons-responsive.component';
-
-
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { ErrorSistemaComponent } from './login/error-sistema/error-sistema.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,15 @@ import { SectionButtonsResponsiveComponent } from './login/section-buttons-respo
     CreateAccountComponent,
     BannerLoginComponent,
     SectionButtonsComponent,
-    SectionButtonsResponsiveComponent
+    SectionButtonsResponsiveComponent,
+    ErrorSistemaComponent
   ],
   imports: [
     CommonModule,
     ModuleLoginRoutingModule,
-  ]
+    FormsModule
+  ],
+  entryComponents: [ErrorSistemaComponent],
+  exports: [MatSnackBarModule,]
 })
 export class ModuloLoginModule { }

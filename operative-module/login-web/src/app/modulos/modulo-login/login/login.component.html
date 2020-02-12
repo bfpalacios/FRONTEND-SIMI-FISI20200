@@ -35,6 +35,14 @@
                             <button class="btn btn-register-s btn-block">
                                 Registrarme
                             </button>
+                           
+                                Snack bar duration (seconds)
+                                <input type="number" [(ngModel)]="durationInSeconds" matInput>
+                             
+                              
+                              <button mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+                                Pizza party
+                              </button>
                         </div>
                     </div>
                     <app-section-buttons-responsive></app-section-buttons-responsive>
