@@ -2,6 +2,8 @@ package pe.edu.ceid.simi.operative.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,12 @@ public class AuthenticationController {
 
 	@PostMapping(path = {"withEmailAndPassword"})
 	public Authentication signInWithEmailAndPassword(@RequestBody Authentication auth) {
-		return this.service.signInWithEmailAndPassword(auth.getUser(), auth.getPassword());
+		return this.service.signInWithEmailAndPassword(auth.getEmail(), auth.getPassword());
+	}
+	
+	@GetMapping(path = {"/findUserByEmail/{email:.+}"})
+	public Authentication buscarUsuarioSiExiste(@PathVariable String email) {
+		return this.service.findUserByEmail(email);
 	}
 	
 	@PostMapping(path = {"invited"})

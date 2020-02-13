@@ -11,6 +11,6 @@ export class SistemaMatriculaService {
    }
 
   verificarSistemaMatricula() {
-    return this.http.get<boolean>(Path.url + '/' + 'verificarSistemaMatricula');
+    return this.http.get<boolean>(Path.url + '/sistema/verificarSistemaMatricula');
   }
 }

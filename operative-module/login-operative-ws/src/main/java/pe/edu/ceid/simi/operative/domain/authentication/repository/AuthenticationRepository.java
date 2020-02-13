@@ -5,5 +5,6 @@ import pe.edu.ceid.simi.operative.domain.authentication.model.Authentication;
 public interface AuthenticationRepository {
 
 	Authentication signInWithEmailAndPassword(String email, String password);
+	Authentication findUserByEmail(String email);
 	Authentication signInInvited();
 }

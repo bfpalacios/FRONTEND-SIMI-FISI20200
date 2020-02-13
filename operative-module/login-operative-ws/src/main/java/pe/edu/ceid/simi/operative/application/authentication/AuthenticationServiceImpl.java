@@ -22,4 +22,9 @@ public class AuthenticationServiceImpl implements AuthenticationService{
 		return this.repository.signInInvited();
 	}
 
+	@Override
+	public Authentication findUserByEmail(String email) {
+		return this.repository.findUserByEmail(email);
+	}
+
 }
