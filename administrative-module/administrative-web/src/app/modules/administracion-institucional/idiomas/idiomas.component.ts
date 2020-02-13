@@ -89,16 +89,10 @@ export class IdiomasComponent implements OnInit {
                 this.load = false;
                 Swal.fire(
                   'Idioma Eliminado!',
-                  'El Registro se elimino correctamente.',
+                  'El idioma '+ this.idioma.nomIdioma+' se elimino correctamente.',
                   'success'
                 );
                 this.obtenerIdiomas();
-                Swal.fire(
-                  'Idioma Eliminado!',
-                    'El Registro se elimino correctamente.',
-                    'success'
-                  );
-        
         
               } else {
                 this.load = false;

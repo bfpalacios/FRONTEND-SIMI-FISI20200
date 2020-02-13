@@ -27,4 +27,9 @@ export class Mensaje {
     public static emptyNomIdioma = 'Ingrese nombre de Idioma';
     public static emptyDescIdioma = 'Ingrese descripción del Idioma';
 
+    public static emptyNomAula = 'Ingrese un aula';
+    public static emptyRefAula = 'Ingrese una referencia del aula';
+    public static emptySede = 'Seleccione una Sede';
+
+
 }

@@ -100,7 +100,7 @@ export class EditarIdiomaComponent implements OnInit {
         if (data != null) {
           console.log("data",data);
           Swal.fire(
-            'Ediciòn Exitosa!',
+            'Edición Exitosa!',
             'El idioma '+this.idioma.nomIdioma +' se edito correctamente.',
             'success'
           );

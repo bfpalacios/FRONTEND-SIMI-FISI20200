@@ -29,7 +29,7 @@ const routes: Routes = [
 {  path: 'alumnos/editar',  component: EditarAlumnoComponent},
 {  path: 'aulas',  component: AulasComponent},
 {  path: 'aulas/crear',  component: CreateAulaComponent},
-{  path: 'aulas/editar',  component: EditarAulaComponent},
+{  path: 'aulas/editar/:id',  component: EditarAulaComponent},
 {  path: 'cursos',  component: CursosComponent},
 {  path: 'cursos/crear',  component: CreateCursoComponent},
 {  path: 'cursos/editar',  component: EditarCursoComponent},
