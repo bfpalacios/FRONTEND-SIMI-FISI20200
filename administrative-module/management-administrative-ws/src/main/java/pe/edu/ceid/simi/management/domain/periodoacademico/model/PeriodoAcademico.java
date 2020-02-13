@@ -13,6 +13,10 @@ public class PeriodoAcademico {
 		this.mesPeriodo = mesPeriodo;
 	}
 	
+	public PeriodoAcademico() {
+		super();
+	}
+
 	public int getCperiodo() {
 		return cperiodo;
 	}

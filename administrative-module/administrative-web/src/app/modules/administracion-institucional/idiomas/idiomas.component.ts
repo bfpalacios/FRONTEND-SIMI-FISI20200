@@ -38,6 +38,7 @@ export class IdiomasComponent implements OnInit {
     this.serviceIdioma.getIdiomas().subscribe(data => {
       this.load = false;
       this.idiomas = data;
+      console.log("idiomas", data);
 
       console.log("idiomas", this.idiomas);
 
@@ -50,10 +51,14 @@ export class IdiomasComponent implements OnInit {
     this.router.navigate(['administracionInstitucional/idiomas/crear']).then();
   }
   // editarAlumno(id: number) 
-  editarIdioma() {
-    // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/idiomas/editar']).then();
+  editarIdioma(id:number) {
+    console.log("editaridioma");
+    console.log(id);
+    this.router.navigate(['administracionInstitucional/idiomas/editar/'+id]).then();
+    // this.router.navigate(['administracionInstitucional/idiomas/editar']).then();
+
   }
+
   private navigateList() {
     this.router.navigate(['administracionInstitucional/idiomas']);
   }
@@ -82,16 +87,10 @@ export class IdiomasComponent implements OnInit {
                 this.load = false;
                 Swal.fire(
                   'Idioma Eliminado!',
-                  'El Registro se elimino correctamente.',
+                  'El idioma '+ this.idioma.nomIdioma+' se elimino correctamente.',
                   'success'
                 );
                 this.obtenerIdiomas();
-                Swal.fire(
-                  'Idioma Eliminado!',
-                    'El Registro se elimino correctamente.',
-                    'success'
-                  );
-        
         
               } else {
                 this.load = false;

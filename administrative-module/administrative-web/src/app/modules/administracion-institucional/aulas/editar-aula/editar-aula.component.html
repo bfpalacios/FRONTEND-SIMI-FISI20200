@@ -1,5 +1,3 @@
-<div class="mx-5 my-3">
-
     <div class="header-user-list mt-3">
         <button type="button" class="btn-nuevo ml-1 mr-1" (click)="eliminar()">
             <i class="mdi mdi-delete f-16"></i> Eliminar
@@ -12,55 +10,45 @@
         </button>
     </div>
     <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
-    <span *ngIf="empty" class="not-complete">
+    <span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
         {{successText}} <br /></span>
-
         
+        <h5 class="modal-title ml-3 mt-3" style=" color: #317bbc;">Formulario Registro de Aula </h5>
+        <hr>
+
         <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6 ">
-                <form class="bg-form p-4 border rounded-sm">
-                    <h4 class="font-weight-bold text-center py-2 bg-title text-white">Formulario</h4>
-
-                    <hr class="mb-4"/>
-
-
-
-                    
-
-                    <div class="form-group row mx-3">
-                        <label for="inputEmail3"
-                            class="col-sm-4 col-form-label text-sm-right">Aula:</label>
-                        <div class="col-sm-8">
-                            <input type="Descripcion" class="form-control" type="text">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row mx-3">
-                        <label for="inputEmail3"
-                            class="col-sm-4 col-form-label text-sm-right">Capacidad:</label>
-                        <div class="col-sm-8">
-                            <input type="Descripcion" class="form-control" type="text">
-                        </div>
-                    </div>
-
-                    <div class="form-group row mx-3">
-                        <label for="inputEmail3"
-                            class="col-sm-4 col-form-label text-sm-right">Sede:</label>
-                            <div class="col-sm-8">
-                                <select class="form-control">
-                                    <option>San Juan De Lurigancho</option>
-                                    <option>Central</option>
- 
-                      
-                                    </select>
-                            </div>
-                    </div>
-
-
-                </form>
+            <div class="col-md-6">
+            <div class="form-group row mx-3">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
+                    <i class="mdi mdi-domain f-16"></i> Aula</label>
+                <div class="col-sm-10">
+                    <input name="nomAula" [(ngModel)]="aula.nomAula" type="text" class="form-control" >
+                </div>
             </div>
-            <div class="col-sm-3"></div>
+            <div class="form-group row mx-3">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                    <i class="mdi mdi-home-modern f-16"></i>  Sede</label>
+                    <div class="col-sm-10 ">
+                        <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdSede">
+                            <option [ngValue]="0">Seleccionar la Sede</option>
+                            <option [ngValue]="sede.csede" *ngFor="let sede of sedes">{{sede.nomSede}}
+                            </option>
+                        </select>
+                    </div>
+            </div>
         </div>
-    </div>
+            <div class="col-md-6">
+
+                <div class="form-group row mx-3">
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"
+                   >
+                        <i class="mdi mdi-view-module f-16"></i>  Referencia Aula</label>
+                    <div class="col-sm-12">
+                        <textarea name="refAula "[(ngModel)]="aula.refAula" 
+                         class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+          </div>
+
 
