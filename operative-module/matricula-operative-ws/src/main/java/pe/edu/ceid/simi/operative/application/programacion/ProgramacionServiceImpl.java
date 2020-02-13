@@ -4,11 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import pe.edu.ceid.simi.operative.domain.programacion.model.Programacion;
 import pe.edu.ceid.simi.operative.domain.programacion.model.ProgramacionDTO;
 import pe.edu.ceid.simi.operative.domain.programacion.repository.ProgramacionRepository;
 
+@Service
 public class ProgramacionServiceImpl implements ProgramacionService {
 
 	@Autowired

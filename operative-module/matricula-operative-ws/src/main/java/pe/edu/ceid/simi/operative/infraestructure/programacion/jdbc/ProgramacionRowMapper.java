@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.operative.domain.programacion.model.ProgramacionDTO;
 
+@Component
 public class ProgramacionRowMapper implements RowMapper{
 	
 	public int[] getRowsForPaths(TreePath[] arg0) {
