@@ -15,7 +15,7 @@ public class ProgramacionServiceImpl implements ProgramacionService {
 	private ProgramacionRepository repository;
 	
 	@Override
-	public List<ProgramacionDTO> getProgrmacion() {
+	public List<ProgramacionDTO> getProgramacion() {
 		// TODO Auto-generated method stub
 	
 		return this.repository.getProgramacion();
