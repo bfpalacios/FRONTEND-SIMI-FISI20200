@@ -16,10 +16,6 @@ public class Curso {
 		this.ciclo = ciclo;
 	}
 	
-	public Curso() {
-		super();
-	}
-
 	public int getCcurso() {
 		return ccurso;
 	}

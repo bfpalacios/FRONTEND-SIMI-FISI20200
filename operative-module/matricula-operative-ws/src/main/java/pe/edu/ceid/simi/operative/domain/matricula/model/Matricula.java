@@ -1,27 +1,30 @@
 package pe.edu.ceid.simi.operative.domain.matricula.model;
 
 public class Matricula {
-	private int idmatricula;
+	private int idMatricula;
 	private int codEstudiante;
-	private int idprogcurso;
+	private int idProgcurso;
 	private int numvouvher;
 	private int estadoMat;
+	private String fechaMat;
 	
-	public Matricula(int idmatricula, int codEstudiante, int idprogcurso, int numvouvher, int estadoMat) {
+	public Matricula(int idMatricula, int codEstudiante, int idProgcurso, int numvouvher, int estadoMat,
+			String fechaMat) {
 		super();
-		this.idmatricula = idmatricula;
+		this.idMatricula = idMatricula;
 		this.codEstudiante = codEstudiante;
-		this.idprogcurso = idprogcurso;
+		this.idProgcurso = idProgcurso;
 		this.numvouvher = numvouvher;
 		this.estadoMat = estadoMat;
+		this.fechaMat = fechaMat;
 	}
 
-	public int getIdmatricula() {
-		return idmatricula;
+	public int getIdMatricula() {
+		return idMatricula;
 	}
 
-	public void setIdmatricula(int idmatricula) {
-		this.idmatricula = idmatricula;
+	public void setIdMatricula(int idMatricula) {
+		this.idMatricula = idMatricula;
 	}
 
 	public int getCodEstudiante() {
@@ -32,12 +35,12 @@ public class Matricula {
 		this.codEstudiante = codEstudiante;
 	}
 
-	public int getIdprogcurso() {
-		return idprogcurso;
+	public int getIdProgcurso() {
+		return idProgcurso;
 	}
 
-	public void setIdprogcurso(int idprogcurso) {
-		this.idprogcurso = idprogcurso;
+	public void setIdProgcurso(int idProgcurso) {
+		this.idProgcurso = idProgcurso;
 	}
 
 	public int getNumvouvher() {
@@ -55,5 +58,13 @@ public class Matricula {
 	public void setEstadoMat(int estadoMat) {
 		this.estadoMat = estadoMat;
 	}
-	
+
+	public String getFechaMat() {
+		return fechaMat;
+	}
+
+	public void setFechaMat(String fechaMat) {
+		this.fechaMat = fechaMat;
+	}
+
 }

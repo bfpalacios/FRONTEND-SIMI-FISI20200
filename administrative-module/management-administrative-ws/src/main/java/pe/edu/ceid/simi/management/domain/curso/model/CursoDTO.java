@@ -20,11 +20,15 @@ public class CursoDTO {
 		this.nomNivel = nomNivel;
 		this.ciclo = ciclo;
 	}
-
-	public CursoDTO() {
+	
+	public CursoDTO(int ccurso, int cidioma,  int cnivel,int ciclo) {
 		super();
+		this.ccurso = ccurso;
+		this.cidioma = cidioma;
+		this.cnivel = cnivel;
+		this.ciclo = ciclo;
 	}
-
+	
 	public int getCcurso() {
 		return ccurso;
 	}

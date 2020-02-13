@@ -1,8 +1,11 @@
 
+
+<!-- <div class="mx-5 my-3"> -->
+
     <div class="header-user-list">
-        <!-- <button class="btn-nuevo ml-1 mr-1"  (click)="nuevaSede()">
+        <button class="btn-nuevo ml-1 mr-1"  (click)="nuevaSede()">
             <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nueva Sede
-        </button> -->
+        </button>
     </div>
     <div class="w-75 mt-3 table-responsive" style="margin: auto;">
         <table class="table table-hover table-bordered">
@@ -10,9 +13,7 @@
             <thead class="header-table " style ="background: #dfe3e7;">
                 <tr>
                     <!-- <th style="width: 100px;" class="text-center">Accion</th> -->
-                    <td>
-                        <div class="center-head">N°</div>
-                    </td>
+
                     <th> 
                         <div class="center-head">Nombre</div>
                     </th>
@@ -26,8 +27,7 @@
                 </tr>
             </thead>
             <tbody class="header-body">
-                    <tr *ngFor="let sede of sedes | filter:busquedaTexto 
-            | paginate : {itemsPerPage :4,currentPage : pageActual}; let i = index">
+                <tr *ngFor= "let sede of sedes">
                     <!-- <td >
                         <div class="row">
                                 <button class="btn-edit mt-1 ml-3 " style ="background: #27c68f ;" (click)="editarSede(sede.csede)">
@@ -40,9 +40,7 @@
     
                         </div>
                     </td> -->
-                    <td>
-                        <div class="center-body">{{i+1}}</div> 
-                    </td>  
+                   
                     <td>
                         <div class="center-body"> <span class = " border-bottom  border-primary font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:110%;"> {{sede.nomSede}} </span> </div>
                      </td>
@@ -57,5 +55,6 @@
             </tbody>
 
         </table>
-        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
     </div>
+
+<!-- </div> -->

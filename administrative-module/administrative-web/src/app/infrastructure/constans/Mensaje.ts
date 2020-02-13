@@ -23,13 +23,7 @@ export class Mensaje {
     public static emptyFecha = 'Ingrese una fecha';
     public static emptyHora = 'Ingrese una hora';
     public static emptyCantidad = 'Ingrese una Cantidad';
-
-    public static emptyNomIdioma = 'Ingrese nombre de Idioma';
-    public static emptyDescIdioma = 'Ingrese descripción del Idioma';
-
-    public static emptyNomAula = 'Ingrese un aula';
-    public static emptyRefAula = 'Ingrese una referencia del aula';
-    public static emptySede = 'Seleccione una Sede';
-
-
+    
+    public static emptyNomIdioma= 'Ingrese nombre de Idioma';
+    public static emptyDescIdioma = 'Ingrese descripción de Idioma';
 }

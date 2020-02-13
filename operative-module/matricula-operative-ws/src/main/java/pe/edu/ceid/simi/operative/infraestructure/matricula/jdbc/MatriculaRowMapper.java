@@ -22,14 +22,24 @@ public class MatriculaRowMapper implements RowMapper {
 		List<MatriculaDTO> matriculas = new ArrayList<MatriculaDTO>();
 		
 		for(Map<String, Object> row: rows) {
-			int idmatricula = Integer.parseInt(row.get("ID_MATRICULA").toString());
+			int idMatricula = Integer.parseInt(row.get("ID_MATRICULA").toString());
 			int codEstudiante = Integer.parseInt(row.get("FK_COD_ESTUDIANTE_CI").toString());
-			int idprogcurso = Integer.parseInt(row.get("FK_ID_PROGCURSO").toString());
+			int idProgcurso = Integer.parseInt(row.get("FK_ID_PROGCURSO").toString());
 			int numvouvher = Integer.parseInt(row.get("FK_NUM_VOUCHER").toString());
 			int estadoMat = Integer.parseInt(row.get("FK_ID_ESTADO_MATRICULA").toString());
+			String fechaMat = row.get("FECHA_MATRICULA").toString();
 			String nomEstado = row.get("NOM_ESTADO_MATRICULA").toString();
+			String nomIdioma= row.get("NOM_IDIOMA").toString();
+			String nomNivel= row.get("NOM_NIVEL").toString();
+			String nomDocente= row.get("NOMBRE").toString();
+			String appatDocente= row.get("APELLIDO_PAT").toString();
+			String apmatDocente= row.get("APELLIDO_MAT").toString();
+			String nomGrupoH = row.get("NOM_GRUPOHORARIO").toString();
+			String horaInicio = row.get("HORA_INICIO").toString();
+			String horaFin = row.get("HORA_SALIDA").toString();
 			
-			MatriculaDTO i = new MatriculaDTO(idmatricula, codEstudiante, idprogcurso, numvouvher, estadoMat, nomEstado);
+			MatriculaDTO i = new MatriculaDTO(idMatricula, codEstudiante, idProgcurso, numvouvher, estadoMat, fechaMat,
+					nomEstado, nomIdioma, nomNivel, nomDocente, appatDocente, apmatDocente, nomGrupoH, horaInicio, horaFin);
 			
 			matriculas.add(i);
 		}

@@ -18,13 +18,12 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/assets"
             ],
             "styles": [
               "src/styles.css",
-              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@mdi/font/scss/materialdesignicons.scss"
             ],
@@ -43,6 +42,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -121,10 +121,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "login-web",
-  "cli": {
-    "analytics": "125b5b20-2fc4-4652-83b3-c74a7043d7bc"
-  }
+    }},
+  "defaultProject": "login-web"
 }

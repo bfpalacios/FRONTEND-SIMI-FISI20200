@@ -31,7 +31,7 @@ import org.springframework.core.env.Environment;
 public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired
-	private Environment env;
+	 private Environment env;
 	
 	@Bean
 	public LinkedHashMap<Object, Object> getProperty() {

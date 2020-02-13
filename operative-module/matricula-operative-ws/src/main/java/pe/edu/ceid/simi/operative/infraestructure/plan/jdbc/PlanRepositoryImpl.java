@@ -20,12 +20,7 @@ public class PlanRepositoryImpl implements PlanRepository{
 	
 	@Override
 	public List<PlanDTO> getPlan() {
-		String query = "SELECT CURSO.ID_CURSO, CURSO.FK_ID_IDIOMA, CURSO.FK_ID_NIVEL, CURSO.CICLO, IDIOMA.NOM_IDIOMA, NIVEL.NOM_NIVEL, COUNT(CURSO.CICLO)" 
-				+ "FROM TMCURSO CURSO"
-				+ "INNER JOIN TMIDIOMA IDIOMA ON CURSO.FK_ID_IDIOMA = IDIOMA.ID_IDIOMA"
-				+ "INNER JOIN TXNIVEL NIVEL ON CURSO.FK_ID_NIVEL = NIVEL.ID_NIVEL" 
-				+ "GROUP BY IDIOMA.NOM_IDIOMA, NIVEL.NOM_NIVEL" 
-				+ "ORDER BY IDIOMA.ID_IDIOMA, NIVEL.ID_NIVEL";
+		String query = "CALL SP_PLAN_LIST";
 		
 		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
 		List<PlanDTO> plan = row.mapRowPlan(rows);

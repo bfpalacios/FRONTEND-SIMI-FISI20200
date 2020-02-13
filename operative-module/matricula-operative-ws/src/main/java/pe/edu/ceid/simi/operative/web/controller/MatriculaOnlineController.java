@@ -33,7 +33,7 @@ public class MatriculaOnlineController {
 	@PutMapping(path = {"/actualizarMatricula/{id}"})
 	public Matricula actualizarMatricula(@RequestBody Matricula matricula, @PathVariable int id) {
 		
-		matricula.setIdmatricula(id);
+		matricula.setIdMatricula(id);
 		return this.service.editMatricula(matricula, id);
 	}
 
