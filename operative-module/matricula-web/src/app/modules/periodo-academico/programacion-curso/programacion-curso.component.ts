@@ -14,7 +14,7 @@ export class ProgramacionCursoComponent implements OnInit {
   public arregloProgramacion: [] = [];
 
   ngOnInit() {
-    console.log("hola0");
+    console.log("Hola");
     this.programacionCursoService.getProgramacionCursos()
       .subscribe(
          res => {
