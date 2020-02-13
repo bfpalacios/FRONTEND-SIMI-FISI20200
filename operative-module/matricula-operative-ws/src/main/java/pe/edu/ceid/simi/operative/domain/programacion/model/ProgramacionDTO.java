@@ -1,11 +1,11 @@
 package pe.edu.ceid.simi.operative.domain.programacion.model;
 
 public class ProgramacionDTO {
-	private int idprogramacionCurso;
-	private int iddocProg;
-	private int idaula;
-	private int idgrupohorario;
-	private int estadoprog;
+	private int idpProgramacionCurso;
+	private int idDocProg;
+	private int idAula;
+	private int idGrupohorario;
+	private int estadoProg;
 	private String nomIdioma;
 	private String nomNivel;
 	private String nomDocente;
@@ -15,15 +15,15 @@ public class ProgramacionDTO {
 	private String horaInicio;
 	private String horaFin;
 	
-	public ProgramacionDTO(int idprogramacionCurso, int iddocProg, int idaula, int idgrupohorario, int estadoprog,
+	public ProgramacionDTO(int idpProgramacionCurso, int idDocProg, int idAula, int idGrupohorario, int estadoProg,
 			String nomIdioma, String nomNivel, String nomDocente, String appatDocente, String apmatDocente,
 			String nomGrupoH, String horaInicio, String horaFin) {
 		super();
-		this.idprogramacionCurso = idprogramacionCurso;
-		this.iddocProg = iddocProg;
-		this.idaula = idaula;
-		this.idgrupohorario = idgrupohorario;
-		this.estadoprog = estadoprog;
+		this.idpProgramacionCurso = idpProgramacionCurso;
+		this.idDocProg = idDocProg;
+		this.idAula = idAula;
+		this.idGrupohorario = idGrupohorario;
+		this.estadoProg = estadoProg;
 		this.nomIdioma = nomIdioma;
 		this.nomNivel = nomNivel;
 		this.nomDocente = nomDocente;
@@ -33,112 +33,83 @@ public class ProgramacionDTO {
 		this.horaInicio = horaInicio;
 		this.horaFin = horaFin;
 	}
-
-	public int getIdprogramacionCurso() {
-		return idprogramacionCurso;
+	public int getIdpProgramacionCurso() {
+		return idpProgramacionCurso;
 	}
-
-	public void setIdprogramacionCurso(int idprogramacionCurso) {
-		this.idprogramacionCurso = idprogramacionCurso;
+	public void setIdpProgramacionCurso(int idpProgramacionCurso) {
+		this.idpProgramacionCurso = idpProgramacionCurso;
 	}
-
-	public int getIddocProg() {
-		return iddocProg;
+	public int getIdDocProg() {
+		return idDocProg;
 	}
-
-	public void setIddocProg(int iddocProg) {
-		this.iddocProg = iddocProg;
+	public void setIdDocProg(int idDocProg) {
+		this.idDocProg = idDocProg;
 	}
-
-	public int getIdaula() {
-		return idaula;
+	public int getIdAula() {
+		return idAula;
 	}
-
-	public void setIdaula(int idaula) {
-		this.idaula = idaula;
+	public void setIdAula(int idAula) {
+		this.idAula = idAula;
 	}
-
-	public int getIdgrupohorario() {
-		return idgrupohorario;
+	public int getIdGrupohorario() {
+		return idGrupohorario;
 	}
-
-	public void setIdgrupohorario(int idgrupohorario) {
-		this.idgrupohorario = idgrupohorario;
+	public void setIdGrupohorario(int idGrupohorario) {
+		this.idGrupohorario = idGrupohorario;
 	}
-
-	public int getEstadoprog() {
-		return estadoprog;
+	public int getEstadoProg() {
+		return estadoProg;
 	}
-
-	public void setEstadoprog(int estadoprog) {
-		this.estadoprog = estadoprog;
+	public void setEstadoProg(int estadoProg) {
+		this.estadoProg = estadoProg;
 	}
-
 	public String getNomIdioma() {
 		return nomIdioma;
 	}
-
 	public void setNomIdioma(String nomIdioma) {
 		this.nomIdioma = nomIdioma;
 	}
-
 	public String getNomNivel() {
 		return nomNivel;
 	}
-
 	public void setNomNivel(String nomNivel) {
 		this.nomNivel = nomNivel;
 	}
-
 	public String getNomDocente() {
 		return nomDocente;
 	}
-
 	public void setNomDocente(String nomDocente) {
 		this.nomDocente = nomDocente;
 	}
-
 	public String getAppatDocente() {
 		return appatDocente;
 	}
-
 	public void setAppatDocente(String appatDocente) {
 		this.appatDocente = appatDocente;
 	}
-
 	public String getApmatDocente() {
 		return apmatDocente;
 	}
-
 	public void setApmatDocente(String apmatDocente) {
 		this.apmatDocente = apmatDocente;
 	}
-
 	public String getNomGrupoH() {
 		return nomGrupoH;
 	}
-
 	public void setNomGrupoH(String nomGrupoH) {
 		this.nomGrupoH = nomGrupoH;
 	}
-
 	public String getHoraInicio() {
 		return horaInicio;
 	}
-
 	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
-
 	public String getHoraFin() {
 		return horaFin;
 	}
-
 	public void setHoraFin(String horaFin) {
 		this.horaFin = horaFin;
 	}
-	
-	
-	
 	
 }

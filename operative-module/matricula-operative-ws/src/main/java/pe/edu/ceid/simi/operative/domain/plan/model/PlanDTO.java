@@ -1,40 +1,40 @@
 package pe.edu.ceid.simi.operative.domain.plan.model;
 
 public class PlanDTO {
-	private int idcurso;
-	private int ididioma;
+	private int idCurso;
+	private int idIdioma;
 	private String nomIdioma;
-	private int idnivel;
+	private int idNivel;
 	private String nomNivel;
 	private int ciclo;
 	private int countCiclo;
 	
-	public PlanDTO(int idcurso, int ididioma, String nomIdioma, int idnivel, String nomNivel, int ciclo,
+	public PlanDTO(int idCurso, int idIdioma, String nomIdioma, int idNivel, String nomNivel, int ciclo,
 			int countCiclo) {
 		super();
-		this.idcurso = idcurso;
-		this.ididioma = ididioma;
+		this.idCurso = idCurso;
+		this.idIdioma = idIdioma;
 		this.nomIdioma = nomIdioma;
-		this.idnivel = idnivel;
+		this.idNivel = idNivel;
 		this.nomNivel = nomNivel;
 		this.ciclo = ciclo;
 		this.countCiclo = countCiclo;
 	}
 
-	public int getIdcurso() {
-		return idcurso;
+	public int getIdCurso() {
+		return idCurso;
 	}
 
-	public void setIdcurso(int idcurso) {
-		this.idcurso = idcurso;
+	public void setIdCurso(int idCurso) {
+		this.idCurso = idCurso;
 	}
 
-	public int getIdidioma() {
-		return ididioma;
+	public int getIdIdioma() {
+		return idIdioma;
 	}
 
-	public void setIdidioma(int ididioma) {
-		this.ididioma = ididioma;
+	public void setIdIdioma(int idIdioma) {
+		this.idIdioma = idIdioma;
 	}
 
 	public String getNomIdioma() {
@@ -45,12 +45,12 @@ public class PlanDTO {
 		this.nomIdioma = nomIdioma;
 	}
 
-	public int getIdnivel() {
-		return idnivel;
+	public int getIdNivel() {
+		return idNivel;
 	}
 
-	public void setIdnivel(int idnivel) {
-		this.idnivel = idnivel;
+	public void setIdNivel(int idNivel) {
+		this.idNivel = idNivel;
 	}
 
 	public String getNomNivel() {

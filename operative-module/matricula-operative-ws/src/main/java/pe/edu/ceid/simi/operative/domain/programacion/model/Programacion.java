@@ -1,59 +1,60 @@
 package pe.edu.ceid.simi.operative.domain.programacion.model;
 
 public class Programacion {
-	private int idprogramacionCurso;
-	private int iddocProg;
-	private int idaula;
-	private int idgrupohorario;
-	private int estadoprog;
+	private int idProgramacionCurso;
+	private int idDocProg;
+	private int idAula;
+	private int idGrupohorario;
+	private int estadoProg;
 	
-	public Programacion(int idprogramacionCurso, int iddocProg, int idaula, int idgrupohorario, int estadoprog) {
+	public Programacion(int idProgramacionCurso, int idDocProg, int idAula, int idGrupohorario, int estadoProg) {
 		super();
-		this.idprogramacionCurso = idprogramacionCurso;
-		this.iddocProg = iddocProg;
-		this.idaula = idaula;
-		this.idgrupohorario = idgrupohorario;
-		this.estadoprog = estadoprog;
+		this.idProgramacionCurso = idProgramacionCurso;
+		this.idDocProg = idDocProg;
+		this.idAula = idAula;
+		this.idGrupohorario = idGrupohorario;
+		this.estadoProg = estadoProg;
 	}
 
-	public int getIdprogramacionCurso() {
-		return idprogramacionCurso;
+	public int getIdProgramacionCurso() {
+		return idProgramacionCurso;
 	}
 
-	public void setIdprogramacionCurso(int idprogramacionCurso) {
-		this.idprogramacionCurso = idprogramacionCurso;
+	public void setIdProgramacionCurso(int idProgramacionCurso) {
+		this.idProgramacionCurso = idProgramacionCurso;
 	}
 
-	public int getIddocProg() {
-		return iddocProg;
+	public int getIdDocProg() {
+		return idDocProg;
 	}
 
-	public void setIddocProg(int iddocProg) {
-		this.iddocProg = iddocProg;
+	public void setIdDocProg(int idDocProg) {
+		this.idDocProg = idDocProg;
 	}
 
-	public int getIdaula() {
-		return idaula;
+	public int getIdAula() {
+		return idAula;
 	}
 
-	public void setIdaula(int idaula) {
-		this.idaula = idaula;
+	public void setIdAula(int idAula) {
+		this.idAula = idAula;
 	}
 
-	public int getIdgrupohorario() {
-		return idgrupohorario;
+	public int getIdGrupohorario() {
+		return idGrupohorario;
 	}
 
-	public void setIdgrupohorario(int idgrupohorario) {
-		this.idgrupohorario = idgrupohorario;
+	public void setIdGrupohorario(int idGrupohorario) {
+		this.idGrupohorario = idGrupohorario;
 	}
 
-	public int getEstadoprog() {
-		return estadoprog;
+	public int getEstadoProg() {
+		return estadoProg;
 	}
 
-	public void setEstadoprog(int estadoprog) {
-		this.estadoprog = estadoprog;
+	public void setEstadoProg(int estadoProg) {
+		this.estadoProg = estadoProg;
 	}
+	
 	
 }

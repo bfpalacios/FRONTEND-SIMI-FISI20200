@@ -1,50 +1,41 @@
 package pe.edu.ceid.simi.operative.domain.plan.model;
 
 public class Plan {
-	private int idcurso;
-	private int ididioma;
-	private int idnivel;
+	private int idCurso;
+	private int idIdioma;
+	private int idNivel;
 	private int ciclo;
 	
-	public Plan(int idcurso, int ididioma, int idnivel, int ciclo) {
+	public Plan(int idCurso, int idIdioma, int idNivel, int ciclo) {
 		super();
-		this.idcurso = idcurso;
-		this.ididioma = ididioma;
-		this.idnivel = idnivel;
+		this.idCurso = idCurso;
+		this.idIdioma = idIdioma;
+		this.idNivel = idNivel;
 		this.ciclo = ciclo;
 	}
-
-	public int getIdcurso() {
-		return idcurso;
+	public int getIdCurso() {
+		return idCurso;
 	}
-
-	public void setIdcurso(int idcurso) {
-		this.idcurso = idcurso;
+	public void setIdCurso(int idCurso) {
+		this.idCurso = idCurso;
 	}
-
-	public int getIdidioma() {
-		return ididioma;
+	public int getIdIdioma() {
+		return idIdioma;
 	}
-
-	public void setIdidioma(int ididioma) {
-		this.ididioma = ididioma;
+	public void setIdIdioma(int idIdioma) {
+		this.idIdioma = idIdioma;
 	}
-
-	public int getIdnivel() {
-		return idnivel;
+	public int getIdNivel() {
+		return idNivel;
 	}
-
-	public void setIdnivel(int idnivel) {
-		this.idnivel = idnivel;
+	public void setIdNivel(int idNivel) {
+		this.idNivel = idNivel;
 	}
-
 	public int getCiclo() {
 		return ciclo;
 	}
-
 	public void setCiclo(int ciclo) {
 		this.ciclo = ciclo;
 	}
-	
 	
 }

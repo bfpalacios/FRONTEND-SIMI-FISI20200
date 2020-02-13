@@ -21,15 +21,15 @@ public class PlanRowMapper implements RowMapper{
 	public List<PlanDTO> mapRowPlan(List<Map<String, Object>> rows){
 		List<PlanDTO> plan = new ArrayList<PlanDTO>();
 		for(Map<String, Object> row: rows) {
-			int idcurso = Integer.parseInt(row.get("ID_CURSO").toString());
-			int ididioma = Integer.parseInt(row.get("FK_ID_IDIOMA").toString());
+			int idCurso = Integer.parseInt(row.get("ID_CURSO").toString());
+			int idIdioma = Integer.parseInt(row.get("FK_ID_IDIOMA").toString());
 			String nomIdioma =row.get("NOM_IDIOMA").toString();
-			int idnivel = Integer.parseInt(row.get("FK_ID_NIVEL").toString());
+			int idNivel = Integer.parseInt(row.get("FK_ID_NIVEL").toString());
 			String nomNivel = row.get("NOM_NIVEL").toString();
 			int ciclo = Integer.parseInt(row.get("CICLO").toString());
 			int countCiclo = Integer.parseInt(row.get("COUNTCICLO").toString());
 			
-			PlanDTO i = new PlanDTO(idcurso, ididioma, nomIdioma, idnivel, nomNivel, ciclo, countCiclo);
+			PlanDTO i = new PlanDTO(idCurso, idIdioma, nomIdioma, idNivel, nomNivel, ciclo, countCiclo);
 			
 			plan.add(i);
 		}

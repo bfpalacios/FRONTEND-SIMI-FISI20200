@@ -21,11 +21,11 @@ public class ProgramacionRowMapper implements RowMapper{
 	public List<ProgramacionDTO> mapRowProgramacion(List<Map<String, Object>> rows){
 		List<ProgramacionDTO> programacion = new ArrayList<ProgramacionDTO>();
 		for(Map<String, Object> row: rows) {
-			int idprogramacionCurso = Integer.parseInt(row.get("ID_PROGCURSO").toString());
-			int iddocProg =Integer.parseInt(row.get("FK_ID_PROG_DOC_CUR").toString());
-			int idaula = Integer.parseInt(row.get("FK_ID_AULA").toString());
-			int idgrupohorario = Integer.parseInt(row.get("FK_ID_GRUPOHORARIO").toString());
-			int estadoprog = Integer.parseInt(row.get("FK_ID_ESTADO_PROGCURSO").toString());
+			int idProgramacionCurso = Integer.parseInt(row.get("ID_PROGCURSO").toString());
+			int idDocProg =Integer.parseInt(row.get("FK_ID_PROG_DOC_CUR").toString());
+			int idAula = Integer.parseInt(row.get("FK_ID_AULA").toString());
+			int idGrupohorario = Integer.parseInt(row.get("FK_ID_GRUPOHORARIO").toString());
+			int estadoProg = Integer.parseInt(row.get("FK_ID_ESTADO_PROGCURSO").toString());
 			String nomIdioma= row.get("NOM_IDIOMA").toString();
 			String nomNivel= row.get("NOM_NIVEL").toString();
 			String nomDocente= row.get("NOMBRE").toString();
@@ -36,7 +36,7 @@ public class ProgramacionRowMapper implements RowMapper{
 			String horaFin = row.get("HORA_SALIDA").toString();
 			
 			
-			ProgramacionDTO i = new ProgramacionDTO(idprogramacionCurso, iddocProg, idaula, idgrupohorario, estadoprog, nomIdioma, nomNivel, nomDocente, appatDocente, apmatDocente, nomGrupoH, horaInicio, horaFin);
+			ProgramacionDTO i = new ProgramacionDTO(idProgramacionCurso, idDocProg, idAula, idGrupohorario, estadoProg, nomIdioma, nomNivel, nomDocente, appatDocente, apmatDocente, nomGrupoH, horaInicio, horaFin);
 			
 			programacion.add(i);
 		}

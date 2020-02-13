@@ -21,7 +21,7 @@ public class MatriculaRepositoryImpl implements MatriculaRepository {
 	@Override
 	public Matricula crearMatricula(Matricula matricula) {
 		String insertQuery = "INSERT INTO tpmatricula (FK_COD_ESTUDIANTE_CI, FK_ID_PROGCURSO, FK_NUM_VOUCHER, FK_ID_ESTADO_MATRICULA) values (?, ?, ?, ?)";
-		int success = this.jdbcTemplate.update(insertQuery, matricula.getCodEstudiante(), matricula.getIdprogcurso(),
+		int success = this.jdbcTemplate.update(insertQuery, matricula.getCodEstudiante(), matricula.getIdProgcurso(),
 				matricula.getNumvouvher(), matricula.getEstadoMat());
 		if (success >= 0) {
 			return matricula;
@@ -32,7 +32,7 @@ public class MatriculaRepositoryImpl implements MatriculaRepository {
 	@Override
 	public Matricula editMatricula(Matricula matricula, int id) {
 		String query = "UPDATE tpmatricula  SET FK_COD_ESTUDIANTE_CI = ?, FK_ID_PROGCURSO = ?, FK_NUM_VOUCHER = ?, FK_ID_ESTADO_MATRICULA = ? WHERE ID_MATRICULA = "+ id;
-		int update = this.jdbcTemplate.update(query,matricula.getCodEstudiante(), matricula.getIdprogcurso(),
+		int update = this.jdbcTemplate.update(query,matricula.getCodEstudiante(), matricula.getIdProgcurso(),
 				matricula.getNumvouvher(), matricula.getEstadoMat());
 		if (update == 1) {
 			return matricula;
@@ -51,16 +51,23 @@ public class MatriculaRepositoryImpl implements MatriculaRepository {
 
 	@Override
 	public List<MatriculaDTO> getMatricula() {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "CALL SP_MATRICULA_LIST";
+		
+		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
+		List<MatriculaDTO> matriculas = row.mapRowMatricula(rows);
+		return matriculas;
 	}
 
 	@Override
 	public MatriculaDTO getMatriculaById(int id) {
-		// TODO Auto-generated method stub
+		String query = "CALL USP_MATRICULA_LIST ("+id+")";
+		
+		List<MatriculaDTO> matricula = this.row.mapRowMatricula(this.jdbcTemplate.queryForList(query));
+		if (matricula.size() > 0) {
+			return matricula.get(0);
+		}
 		return null;
 	}
 	
 	
-
 }
