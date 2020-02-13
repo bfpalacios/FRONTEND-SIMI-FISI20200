@@ -24,16 +24,16 @@ public class EstudianteRowMapper implements RowMapper {
 		List<EstudianteDTO> estudiantes = new ArrayList<EstudianteDTO>();
 		
 		for(Map<String, Object> row: rows) {
-			int cestudiante = Integer.parseInt(row.get("CESTUDIANTE").toString());
-			int cusuario = Integer.parseInt(row.get("CUSUARIO").toString());
+			int idEstudiante = Integer.parseInt(row.get("COD_ESTUDIANTE_CI").toString());
+			int idUsuario = Integer.parseInt(row.get("FK_ID_USUARIO").toString());
 			String nombre =row.get("NOMBRE").toString();
-			String apellidoPat =row.get("APELLIDOPAT").toString();
-			String apellidoMat =row.get("APELLIDOMAT").toString();
-			int ctipoEstudiante = Integer.parseInt(row.get("CTIPO_ESTUDIANTE").toString());
+			String apellidoPat =row.get("APELLIDO_PAT").toString();
+			String apellidoMat =row.get("APELLIDO_MAT").toString();
+			int idTipoEstudiante = Integer.parseInt(row.get("FK_ID_TIPO_ESTUDIANTE").toString());
 			String nomTipoEstudiante = row.get("NOM_TIPO_ESTUDIANTE").toString();
-			String facultad = row.get("FACULTAD").toString();
-			EstudianteDTO e = new EstudianteDTO(cestudiante, cusuario, nombre, apellidoPat, apellidoMat,
-					ctipoEstudiante, nomTipoEstudiante, facultad);
+			int codEstudianteAsm = Integer.parseInt(row.get("COD_ESTUDIANTE_ASM").toString());
+			EstudianteDTO e = new EstudianteDTO(idEstudiante, idUsuario, nombre, apellidoPat, apellidoMat,
+					idTipoEstudiante, nomTipoEstudiante, codEstudianteAsm);
 			estudiantes.add(e);
 		}
 		

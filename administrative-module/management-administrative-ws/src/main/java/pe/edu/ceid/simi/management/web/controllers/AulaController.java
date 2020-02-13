@@ -32,7 +32,7 @@ public class AulaController {
 	
 	@PutMapping(path = {"/actualizarAula/{id}"})
 	public Aula actualizarAula(@RequestBody Aula aula, @PathVariable int id) {
-		aula.setCaula(id);
+		aula.setIdAula(id);
 		return this.service.editAula(aula, id);
 	}
 

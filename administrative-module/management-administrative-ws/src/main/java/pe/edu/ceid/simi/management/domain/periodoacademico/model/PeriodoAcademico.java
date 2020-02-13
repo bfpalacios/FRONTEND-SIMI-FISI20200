@@ -1,35 +1,45 @@
 package pe.edu.ceid.simi.management.domain.periodoacademico.model;
 
+import java.sql.Date;
+
 public class PeriodoAcademico {
 
-	private int cperiodo;
-	private int anioPeriodo;
-	private int mesPeriodo;
+	private int idPeriodo;
+	private String nomPeriodo;
+	private Date fechaInicio;
+	private Date fechaFin;
 	
-	public PeriodoAcademico(int cperiodo, int anioPeriodo, int mesPeriodo) {
+	public PeriodoAcademico(int idPeriodo, String nomPeriodo, Date fechaInicio, Date fechaFin) {
 		super();
-		this.cperiodo = cperiodo;
-		this.anioPeriodo = anioPeriodo;
-		this.mesPeriodo = mesPeriodo;
+		this.idPeriodo = idPeriodo;
+		this.nomPeriodo = nomPeriodo;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
 	}
 	
-	public int getCperiodo() {
-		return cperiodo;
+	public int getIdPeriodo() {
+		return idPeriodo;
 	}
-	public void setCperiodo(int cperiodo) {
-		this.cperiodo = cperiodo;
+	public void setIdPeriodo(int idPeriodo) {
+		this.idPeriodo = idPeriodo;
 	}
-	public int getAnioPeriodo() {
-		return anioPeriodo;
+	public String getNomPeriodo() {
+		return nomPeriodo;
 	}
-	public void setAnioPeriodo(int anioPeriodo) {
-		this.anioPeriodo = anioPeriodo;
+	public void setNomPeriodo(String nomPeriodo) {
+		this.nomPeriodo = nomPeriodo;
 	}
-	public int getMesPeriodo() {
-		return mesPeriodo;
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
-	public void setMesPeriodo(int mesPeriodo) {
-		this.mesPeriodo = mesPeriodo;
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
 	}
 	
 }

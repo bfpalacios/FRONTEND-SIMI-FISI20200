@@ -2,34 +2,26 @@ package pe.edu.ceid.simi.management.domain.tipocontrato.model;
 
 public class TipoContrato {
 	
-	private int ctipoContrato;
+	private int idTipoContrato;
 	private String nomTipoContrato;
-	private float salario;
 	
-	public TipoContrato(int ctipoContrato, String nomTipoContrato, float salario) {
+	public TipoContrato(int ctipoContrato, String nomTipoContrato) {
 		super();
-		this.ctipoContrato = ctipoContrato;
+		this.idTipoContrato = ctipoContrato;
 		this.nomTipoContrato = nomTipoContrato;
-		this.salario = salario;
 	}
 	
 	public int getCtipoContrato() {
-		return ctipoContrato;
+		return idTipoContrato;
 	}
 	public void setCtipoContrato(int ctipoContrato) {
-		this.ctipoContrato = ctipoContrato;
+		this.idTipoContrato = ctipoContrato;
 	}
 	public String getNomTipoContrato() {
 		return nomTipoContrato;
 	}
 	public void setNomTipoContrato(String nomTipoContrato) {
 		this.nomTipoContrato = nomTipoContrato;
-	}
-	public float getSalario() {
-		return salario;
-	}
-	public void setSalario(float salario) {
-		this.salario = salario;
 	}
 	
 }
