@@ -17,6 +17,12 @@ public class PeriodoAcademico {
 		this.fechaFin = fechaFin;
 	}
 	
+	
+	public PeriodoAcademico() {
+		super();
+	}
+
+
 	public int getIdPeriodo() {
 		return idPeriodo;
 	}

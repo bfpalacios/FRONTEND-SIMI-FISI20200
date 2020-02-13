@@ -22,7 +22,7 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 	@Override
 	public PeriodoAcademico crearPeriodoAcademico(PeriodoAcademico periodo) {
 		String insertQuery = "INSERT INTO tmperiodo_academico (NOM_PERIODO, FECHA_INICIO, FECHA_FIN) "
-				+ "VALUES (?, ?)";
+				+ "VALUES (?, ?,?)";
 		int success = this.jdbcTemplate.update(insertQuery, periodo.getNomPeriodo(),
 				periodo.getFechaInicio(), periodo.getFechaFin());
 		
