@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pe.edu.ceid.simi.management.application.usuario.UsuarioService;
 import pe.edu.ceid.simi.management.domain.usuario.model.Usuario;
-import pe.edu.ceid.simi.management.domain.usuario.model.UsuarioDTO;
 
 @CrossOrigin(origins = "localhost:4200")
 @RestController
@@ -26,13 +25,13 @@ public class UsuarioController {
 	private UsuarioService service;
 	
 	@GetMapping(path = {"/listUsuarios"})
-	public List<UsuarioDTO> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return this.service.getUsuarios();
 	}
 	
 	@PutMapping(path = {"/actualizarUsuario/{id}"})
 	public Usuario actualizarUsuarioById(@RequestBody Usuario usuario, @PathVariable int id) {
-		usuario.setIdUsuario(id);
+		usuario.setCusuario(id);
 		return this.service.editUsuario(usuario, id);
 	}
 
@@ -47,7 +46,7 @@ public class UsuarioController {
 	}
 	
 	@GetMapping(path= {"/obtenerUsuarioById/{id}"})
-	public UsuarioDTO obtenerUsuario(@PathVariable int id) {
+	public Usuario obtenerUsuario(@PathVariable int id) {
 		return this.service.getUsuarioById(id);
 	}
 	

@@ -2,23 +2,23 @@ package pe.edu.ceid.simi.management.domain.horasclase.model;
 
 public class HorasClase {
 
-	private int idHora;
+	private int chora;
 	private String horaInicio;
 	private String horaSalida;
 	
 	public HorasClase(int chora, String horaInicio, String horaSalida) {
 		super();
-		this.idHora = chora;
+		this.chora = chora;
 		this.horaInicio = horaInicio;
 		this.horaSalida = horaSalida;
 	}
 
 	public int getChora() {
-		return idHora;
+		return chora;
 	}
 
 	public void setChora(int chora) {
-		this.idHora = chora;
+		this.chora = chora;
 	}
 
 	public String getHoraInicio() {

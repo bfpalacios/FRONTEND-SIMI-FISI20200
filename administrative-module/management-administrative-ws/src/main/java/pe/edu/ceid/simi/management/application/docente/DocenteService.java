@@ -11,4 +11,5 @@ public interface DocenteService {
 	boolean deleteDocente(int id);
 	List<DocenteDTO> getDocente();
 	DocenteDTO getDocenteById(int id);
+	
 }

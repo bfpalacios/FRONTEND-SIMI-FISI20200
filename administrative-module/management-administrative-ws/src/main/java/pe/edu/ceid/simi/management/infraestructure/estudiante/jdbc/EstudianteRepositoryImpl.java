@@ -22,11 +22,9 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public Estudiante crearEstudiante(Estudiante estudiante) {
-		String insertQuery = "INSERT INTO tmestudiante "
-				+ "(COD_ESTUDIANTE_CI, FK_ID_USUARIO, COD_ESTUDIANTE_ASM, FK_ID_TIPO_ESTUDIANTE) "
-				+ "VALUES (?, ?, ?, ?)";
-		int success = this.jdbcTemplate.update(insertQuery, estudiante.getCestudiante(), estudiante.getCusuario(),
-				estudiante.getCodEstudianteAsm(), estudiante.getCtipoEsudiante());
+		String insertQuery = "INSERT INTO tmestudiante (CUSUARIO, CTIPO_ESTUDIANTE, FACULTAD) values (?, ?, ?)";
+		int success = this.jdbcTemplate.update(insertQuery, estudiante.getCusuario(),
+				estudiante.getCtipoEsudiante(), estudiante.getFacultad());
 		
 		if (success >= 0) {
 			return estudiante;
@@ -37,11 +35,10 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public Estudiante editEstudiante(Estudiante estudiante, int id) {
-		String query = "UPDATE tmestudiante "
-				+ "SET FK_ID_USUARIO = ?, COD_ESTUDIANTE_ASM = ?, FK_ID_TIPO_ESTUDIANTE = ? "
-				+ "WHERE COD_ESTUDIANTE_CI = "+ id;
+		String query = "UPDATE tmestudiante SET CUSUARIO = ?, CTIPO_ESTUDIANTE = ?, FACULTAD = ?"
+				+ " WHERE CDOCENTE = "+ id;
 		int update = this.jdbcTemplate.update(query, estudiante.getCusuario(),
-				estudiante.getCodEstudianteAsm(), estudiante.getCtipoEsudiante());
+				estudiante.getCtipoEsudiante(), estudiante.getFacultad());
 		
 		if (update == 1) {
 			return estudiante;
@@ -52,7 +49,7 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public boolean deleteEstudiante(int id) {
-		String query = "DELETE FROM tmestudiante WHERE COD_ESTUDIANTE_CI = ?";
+		String query = "DELETE FROM tmestudiante WHERE CESTUDIANTE = ?";
 		int success = this.jdbcTemplate.update(query, id);
 		
 		if (success >= 0) {
@@ -64,10 +61,9 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public List<EstudianteDTO> getEstudiantes() {
-		String query = "SELECT * FROM tmestudiante AS es " + 
-				"INNER JOIN tmusuario AS us ON es.FK_ID_USUARIO = us.ID_USUARIO " + 
-				"INNER JOIN tmpersona AS pe ON us.FK_ID_PERSONA = pe.ID_PERSONA " + 
-				"INNER JOIN tmtipo_estudiante AS te ON es.FK_ID_TIPO_ESTUDIANTE = te.ID_TIPO_ESTUDIANTE";
+		String query = "SELECT * FROM tmestudiante AS doc "
+				+ "INNER JOIN tmusuario AS us ON doc.CUSUARIO = us.CUSUARIO "
+				+ "INNER JOIN tmtipo_estudiante AS ti ON doc.CTIPO_ESTUDIANTE = ti.CTIPO_ESTUDIANTE";
 		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
 		List<EstudianteDTO> estudiante = row.mapRowEstudiante(rows);
 		return estudiante;
@@ -75,11 +71,10 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 
 	@Override
 	public EstudianteDTO getEstudianteById(int id) {
-		String query = "SELECT * FROM tmestudiante AS es " + 
-				"INNER JOIN tmusuario AS us ON es.FK_ID_USUARIO = us.ID_USUARIO " + 
-				"INNER JOIN tmpersona AS pe ON us.FK_ID_PERSONA = pe.ID_PERSONA " + 
-				"INNER JOIN tmtipo_estudiante AS te ON es.FK_ID_TIPO_ESTUDIANTE = te.ID_TIPO_ESTUDIANTE " +
-				"WHERE COD_ESTUDIANTE_CI = " + id;
+		String query ="SELECT * FROM tmestudiante AS doc "
+				+ "INNER JOIN tmusuario AS us ON doc.CUSUARIO = us.CUSUARIO "
+				+ "INNER JOIN tmtipo_estudiante AS ti ON doc.CTIPO_ESTUDIANTE = ti.CTIPO_ESTUDIANTE "
+				+ "WHERE CESTUDIANTE = " + id;
 		List<EstudianteDTO> estudiante = this.row.mapRowEstudiante(this.jdbcTemplate.queryForList(query));
 		
 		if (estudiante.size() > 0) {

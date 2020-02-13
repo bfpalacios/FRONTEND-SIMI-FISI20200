@@ -22,15 +22,14 @@ public class TipoContratoRowMapper implements RowMapper {
 
 	public List<TipoContrato> mapRowTipoContrato(List<Map<String, Object>> rows){
 		List<TipoContrato> tiposs = new ArrayList<TipoContrato>();
-		
 		for(Map<String, Object> row: rows) {
-			int idTipoContrato = Integer.parseInt(row.get("ID_TIPO_CONTRATO").toString());
-			String nomTipoContrato =row.get("NOM_TIPO").toString();
+			int ctipoContrato = Integer.parseInt(row.get("CTIPO_CONTRATO").toString());
+			String nomTipoContrato =row.get("NOM_TIPO_CONTRATO").toString();
+			float salario = Float.parseFloat(row.get("SALARIO").toString());
 			
-			TipoContrato t = new TipoContrato(idTipoContrato, nomTipoContrato);
+			TipoContrato t = new TipoContrato(ctipoContrato,nomTipoContrato,salario);
 			tiposs.add(t);
 		}
-		
 		return tiposs;
 	}
 	

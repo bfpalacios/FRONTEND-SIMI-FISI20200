@@ -22,9 +22,9 @@ public class GrupoHorarioRepositoryImpl implements GrupoHorarioRepository {
 
 	@Override
 	public GrupoHorario crearGrupoHorario(GrupoHorario grupoHorario) {
-		String insertQuery = "INSERT INTO grupo_horario (NOM_GRUPOHORARIO) values (?)";
+		String insertQuery = "INSERT INTO grupo_horario (CHORARIO) values (?)";
 		int success = this.jdbcTemplate.update(insertQuery,
-				grupoHorario.getNomGrupoHorario());
+				grupoHorario.getChorario());
 		if (success >= 0) {
 			return grupoHorario;
 		}
@@ -33,8 +33,9 @@ public class GrupoHorarioRepositoryImpl implements GrupoHorarioRepository {
 
 	@Override
 	public GrupoHorario editGrupoHorario(GrupoHorario grupoHorario, int id) {
-		String query = "UPDATE grupo_horario  SET NOM_GRUPOHORARIO = ? WHERE ID_GRUPOHORARIO = " + id;
-		int update = this.jdbcTemplate.update(query, grupoHorario.getNomGrupoHorario());
+		String query = "UPDATE grupo_horario  SET CHORARIO = ? WHERE CGRUPOHORARIO = " + id;
+		int update = this.jdbcTemplate.update(query, 
+				grupoHorario.getCgrupoHorario());
 		
 		if (update == 1) {
 			return grupoHorario;
@@ -53,7 +54,7 @@ public class GrupoHorarioRepositoryImpl implements GrupoHorarioRepository {
 
 	@Override
 	public GrupoHorario getGrupoHorarioById(int id) {
-		String query = "SELECT * FROM grupo_horario WHERE ID_GRUPOHORARIO = ?";
+		String query = "SELECT * FROM grupo_horario WHERE CGRUPOHORARIO = ?";
 		List<GrupoHorario> grupoHorario = this.row.mapRowGrupoHorario(this.jdbcTemplate.queryForList(query));
 		if (grupoHorario.size() > 0) {
 			return grupoHorario.get(0);
@@ -63,7 +64,7 @@ public class GrupoHorarioRepositoryImpl implements GrupoHorarioRepository {
 
 	@Override
 	public boolean deleteGrupoHorario(int id) {
-		String query = "DELETE FROM grupo_horario WHERE ID_GRUPOHORARIO = ?";
+		String query = "DELETE FROM grupo_horario WHERE CGRUPOHORARIO = ?";
 
 		int success = this.jdbcTemplate.update(query, id);
 		if (success >= 0) {

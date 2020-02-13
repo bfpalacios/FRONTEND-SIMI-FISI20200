@@ -23,9 +23,9 @@ public class AulaRepositoryImpl implements AulaRepository {
 
 	@Override
 	public Aula crearAula(Aula aula) {
-		String insertQuery = "INSERT INTO tmaula (ID_AULA,NOM_AULA, REF_AULA,FK_ID_SEDE) values (?, ?, ?, ?)";
-		int success = this.jdbcTemplate.update(insertQuery, aula.getIdAula(), aula.getNomAula(), aula.getRefAula(),
-				 aula.getIdSede());
+		String insertQuery = "INSERT INTO tmaula (CSEDE, NOM_AULA, REF_AULA, CAPAC_AULA) values (?, ?, ?, ?)";
+		int success = this.jdbcTemplate.update(insertQuery, aula.getCsede(), aula.getNomAula(), aula.getRefAula(),
+				 aula.getRefAula(), aula.getCapacAula());
 		if (success >= 0) {
 			return aula;
 		}
@@ -34,8 +34,9 @@ public class AulaRepositoryImpl implements AulaRepository {
 
 	@Override
 	public Aula editAula(Aula aula, int id) {
-		String query = "UPDATE tmaula SET NOM_AULA = ?, REF_AULA = ? , FK_ID_SEDE = ? WHERE ID_AULA = "+ id;
-		int update = this.jdbcTemplate.update(query, aula.getNomAula(), aula.getRefAula(), aula.getIdSede());
+		String query = "UPDATE tmaula SET CSEDE = ?, NOM_AULA = ? , REF_AULA = ? , CAPAC_AULA = ? WHERE CAULA = "+ id;
+		int update = this.jdbcTemplate.update(query, aula.getCsede(), aula.getNomAula(), aula.getRefAula(),
+				aula.getRefAula(), aula.getCapacAula());
 		if (update == 1) {
 			return aula;
 		}
@@ -45,7 +46,7 @@ public class AulaRepositoryImpl implements AulaRepository {
 	@Override
 	public List<AulaDTO> getAulas() {
 		String query = "SELECT * FROM tmaula AS au "
-				+ "INNER JOIN tmsede AS se ON au.FK_ID_SEDE = se.ID_SEDE";
+				+ "INNER JOIN tmsede AS se ON au.CSEDE = se.CSEDE";
 
 		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
 		List<AulaDTO> aulas = row.mapRowAula(rows);
@@ -55,7 +56,7 @@ public class AulaRepositoryImpl implements AulaRepository {
 	@Override
 	public AulaDTO getAulaById(int id) {
 		String query = "SELECT * FROM tmaula AS au "
-				+ "INNER JOIN tmsede AS se ON au.FK_ID_SEDE = se.ID_SEDE WHERE ID_AULA  = " + id;
+				+ "INNER JOIN tmsede AS se ON au.CSEDE = se.CSEDE WHERE CAULA  = " + id;
 		List<AulaDTO> aula = this.row.mapRowAula(this.jdbcTemplate.queryForList(query));
 		if (aula.size() > 0) {
 			return aula.get(0);
@@ -65,7 +66,7 @@ public class AulaRepositoryImpl implements AulaRepository {
 
 	@Override
 	public boolean deleteAula(int id) {
-		String query = "DELETE FROM tmaula WHERE ID_AULA = ?";
+		String query = "DELETE FROM tmaula WHERE CAULA = ?";
 
 		int success = this.jdbcTemplate.update(query, id);
 		if (success >= 0) {

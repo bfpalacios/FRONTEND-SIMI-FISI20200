@@ -21,10 +21,9 @@ public class TipoContratoRepositoryImpl implements TipoContratoRepository {
 
 	@Override
 	public TipoContrato crearTipoContrato(TipoContrato tipoContrato) {
-		String insertQuery = "INSERT INTO tmtipo_contrato (NOM_TIPO) values (?)";
+		String insertQuery = "INSERT INTO tmtipo_contrato (NOM_TIPO_CONTRATO, SALARIO) values (?, ?)";
 		
-		int success = this.jdbcTemplate.update(insertQuery, tipoContrato.getNomTipoContrato());
-		
+		int success = this.jdbcTemplate.update(insertQuery, tipoContrato.getNomTipoContrato(), tipoContrato.getSalario());
 		if (success >= 0) {
 			return tipoContrato;
 		}
@@ -34,8 +33,8 @@ public class TipoContratoRepositoryImpl implements TipoContratoRepository {
 
 	@Override
 	public TipoContrato editTipoContrato(TipoContrato tipoContrato, int id) {
-		String query = "UPDATE tmtipo_contrato SET NOM_TIPO = ? WHERE ID_TIPO_CONTRATO = "+ id;
-		int update = this.jdbcTemplate.update(query, tipoContrato.getNomTipoContrato());
+		String query = "UPDATE tmtipo_contrato SET NOM_TIPO_CONTRATO = ?, SALARIO = ? WHERE CTIPO_CONTRATO = "+ id;
+		int update = this.jdbcTemplate.update(query, tipoContrato.getNomTipoContrato(), tipoContrato.getSalario());
 		
 		if (update == 1) {
 			return tipoContrato;
@@ -46,7 +45,7 @@ public class TipoContratoRepositoryImpl implements TipoContratoRepository {
 
 	@Override
 	public boolean deleteTipoContrato(int ctipoContrato) {
-		String query = "DELETE FROM tmtipo_contrato WHERE ID_TIPO_CONTRATO = ?";
+		String query = "DELETE FROM tmtipo_contrato WHERE CTIPO_CONTRATO = ?";
 		int success = this.jdbcTemplate.update(query, ctipoContrato);
 		
 		if (success >= 0) {
@@ -66,7 +65,7 @@ public class TipoContratoRepositoryImpl implements TipoContratoRepository {
 
 	@Override
 	public TipoContrato getTipoContratoById(int id) {
-		String query = "SELECT * FROM tmtipo_contrato WHERE ID_TIPO_CONTRATO  = " + id;
+		String query = "SELECT * FROM tmtipo_contrato WHERE CTIPO_CONTRATO  = " + id;
 		List<TipoContrato> tipoContrato = this.row.mapRowTipoContrato(this.jdbcTemplate.queryForList(query));
 		
 		if (tipoContrato.size() > 0) {

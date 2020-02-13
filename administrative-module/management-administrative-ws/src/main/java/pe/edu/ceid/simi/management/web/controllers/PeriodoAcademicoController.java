@@ -32,7 +32,7 @@ public class PeriodoAcademicoController {
 	@PutMapping(path = {"/actualizarPeriodoAcademico/{id}"})
 	public PeriodoAcademico actualizarPeriodoAcademicoById(@RequestBody PeriodoAcademico periodo, @PathVariable int id) {
 		
-		periodo.setIdPeriodo(id);
+		periodo.setCperiodo(id);
 		return this.service.editPeriodoAcademico(periodo, id);
 	}
 

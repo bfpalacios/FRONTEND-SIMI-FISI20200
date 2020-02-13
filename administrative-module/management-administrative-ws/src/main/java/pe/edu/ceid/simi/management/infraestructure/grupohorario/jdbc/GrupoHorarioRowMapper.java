@@ -24,10 +24,10 @@ public class GrupoHorarioRowMapper implements RowMapper {
 	public List<GrupoHorario> mapRowGrupoHorario(List<Map<String, Object>> rows){
 		List<GrupoHorario> grupoHorario = new ArrayList<GrupoHorario>();
 		for(Map<String, Object> row: rows) {
-			int cgrupoHorario = Integer.parseInt(row.get("ID_GRUPOHORARIO").toString());
-			String nomGrupoHorario = row.get("NOM_GRUPOHORARIO").toString();
+			int cgrupoHorario = Integer.parseInt(row.get("CGRUPOHORARIO").toString());
+			int chorario = Integer.parseInt(row.get("CHORARIO").toString());
 			
-			GrupoHorario g = new GrupoHorario(cgrupoHorario, nomGrupoHorario);
+			GrupoHorario g = new GrupoHorario(cgrupoHorario, chorario);
 			
 			grupoHorario.add(g);
 		}

@@ -5,19 +5,24 @@ import { ModuleLoginRoutingModule } from './modulo-login-routing.module';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { BannerLoginComponent } from './login/banner-login/banner-login.component';
 import { SectionButtonsComponent } from './login/section-buttons/section-buttons.component';
-
-
-
+import { SectionButtonsResponsiveComponent } from './login/section-buttons-responsive/section-buttons-responsive.component';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     LoginComponent,
     CreateAccountComponent,
     BannerLoginComponent,
-    SectionButtonsComponent
+    SectionButtonsComponent,
+    SectionButtonsResponsiveComponent
   ],
   imports: [
     CommonModule,
     ModuleLoginRoutingModule,
+    FormsModule
+  ],
+  exports: [
+    MatSnackBarModule,
   ]
 })
 export class ModuloLoginModule { }

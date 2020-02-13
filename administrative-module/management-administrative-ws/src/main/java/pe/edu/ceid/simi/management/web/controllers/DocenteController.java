@@ -35,7 +35,7 @@ public class DocenteController {
 		docente.setCdocente(id);
 		return this.service.editDocente(docente, id);
 	}
-	
+
 	@DeleteMapping(path = {"/eliminarDocenteById/{id}"})
 	public boolean eliminarDocenteById(@PathVariable int id) {	
 			return this.service.deleteDocente(id);

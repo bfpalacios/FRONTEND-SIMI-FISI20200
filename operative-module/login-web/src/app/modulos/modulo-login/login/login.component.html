@@ -1,3 +1,7 @@
+<div *ngIf="loading" class="div-loading center-content" style="position:absolute">
+    <img class="loading" src="{{loadingGif}}" 
+    style="width: 100px;"/>
+</div>
 <div class="background-login-center center-content display-h-none">
     <div class="background-login-white display-h-none display-w-none">
         <div class="row height-100">
@@ -12,17 +16,20 @@
                         <br />
                         <br />
                         <div>
-                            <label class="f-16"><i class="mdi mdi-account f-18 primary-color"></i>Usuario</label>
-                            <input type="text" class="form-control form-control-md" />
+                            <label class="f-14"><i class="mdi mdi-account f-18 primary-color"></i>
+                                <span style="font-weight: initial;">Usuario</span>
+                            </label>
+                            <input type="text" name="email" [(ngModel)]="auth.email" class="form-control form-control-md" />
                         </div>
                         <div class="mt-3">
-                            <label class="f-16">
+                            <label class="f-14">
                                 <i class="mdi mdi-key-variant f-18 primary-color"></i>
-                                Contraseña</label>
-                            <input type="text" class="form-control form-control-md" />
+                                <span style="font-weight: initial;">Contraseña</span>
+                            </label>
+                            <input type="password" name="password" [(ngModel)]="auth.password" class="form-control form-control-md" />
                         </div>
                         <div class="text-center mt-3">
-                            <button class="btn btn-login btn-block">
+                            <button class="btn btn-login btn-block" (click)="ingresarSistema()">
                                 Ingresar al sistema
                             </button>
                         </div>
@@ -31,28 +38,13 @@
                                 me olvidé la contraseña
                             </button>
                         </div>
-                        <div class="text-center mt-3 display-show">
-                            <button class="btn btn-register-s btn-block">
+                        <div class="text-center mt-3">
+                            <button class="btn btn-register-s btn-block" (click)="registrarme()">
                                 Registrarme
                             </button>
                         </div>
                     </div>
-                    <br/>
-                    <div class="row display-show">
-                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink" style="color: #f44336">
-                            <i class="mdi mdi-border-color" style="font-size: 25px; "></i><br/>
-                            <span class="f-11">REGISTRAR</span>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink" style="color: #4caf50">
-                            <i class="mdi mdi-account-tie" style="font-size: 25px; "></i><br/>
-                            <span class="f-11">INVITADO</span>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-4 text-center p-1 oink">
-                            <i class="mdi mdi-restart" style="font-size: 25px; color: #212121;"></i>
-                            <br/>
-                            <span class="f-11">PRINCIPAL</span>
-                        </div>
-                    </div>
+                    <app-section-buttons-responsive></app-section-buttons-responsive>
                 </div>
 
             </div>

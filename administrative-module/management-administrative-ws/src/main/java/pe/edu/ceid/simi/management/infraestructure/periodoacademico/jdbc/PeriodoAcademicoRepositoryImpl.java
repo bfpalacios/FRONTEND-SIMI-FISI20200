@@ -35,10 +35,8 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public PeriodoAcademico editPeriodoAcademico(PeriodoAcademico periodo, int id) {
-		String query = "UPDATE tmperiodo_academico SET NOM_PERIODO = ?, FECHA_INICIO = ?, FECHA_FIN = ? "
-				+ "WHERE ID_PERIODO = " + id;
-		int update = this.jdbcTemplate.update(query, periodo.getNomPeriodo(),
-				periodo.getFechaInicio(), periodo.getFechaFin());
+		String query = "UPDATE tmperiodo_academico SET ANIO_PERIODO = ?, MES_PERIODO = ? WHERE CPERIODO = " + id;
+		int update = this.jdbcTemplate.update(query, periodo.getAnioPeriodo(), periodo.getMesPeriodo());
 		
 		if (update == 1) {
 			return periodo;
@@ -57,7 +55,7 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public boolean deletePeriodoAcademico(int cperiodo) {
-		String query = "DELETE FROM tmperiodo_academico WHERE ID_PERIODO = ?";
+		String query = "DELETE FROM tmperiodo_academico WHERE CPERIODO = ?";
 		int success = this.jdbcTemplate.update(query, cperiodo);
 		
 		if (success >= 0) {
@@ -69,7 +67,7 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public PeriodoAcademico getPeriodoAcademicoById(int id) {
-		String query ="SELECT * FROM tmperiodo_academico WHERE ID_PERIODO = " + id;
+		String query ="SELECT * FROM tmperiodo_academico WHERE CPERIODO = " + id;
 		List<PeriodoAcademico> periodo = this.row.mapRowPeriodoAcademico(this.jdbcTemplate.queryForList(query));
 		
 		if (periodo.size() > 0) {

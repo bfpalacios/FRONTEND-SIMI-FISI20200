@@ -24,12 +24,12 @@ public class SedeRowMapper implements RowMapper {
 	public List<Sede> mapRowSede(List<Map<String, Object>> rows){
 		List<Sede> sedess = new ArrayList<Sede>();
 		for(Map<String, Object> row: rows) {
-			int idSede = Integer.parseInt(row.get("ID_SEDE").toString());
-			String nomSede = row.get("NOM_SEDE").toString();
+			int csede = Integer.parseInt(row.get("CSEDE").toString());
 			String descSede =row.get("DESC_SEDE").toString();
+			String nomSede = row.get("NOM_SEDE").toString();
 			String dirSede = row.get("DIR_SEDE").toString();
 			
-			Sede s = new Sede(idSede, nomSede, descSede, dirSede);
+			Sede s = new Sede(csede,descSede,nomSede,dirSede);
 			sedess.add(s);
 		}
 		return sedess;
