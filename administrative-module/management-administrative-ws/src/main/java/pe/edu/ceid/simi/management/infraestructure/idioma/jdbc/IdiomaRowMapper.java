@@ -23,32 +23,15 @@ public class IdiomaRowMapper implements RowMapper {
 	public List<Idioma> mapRowIdioma(List<Map<String, Object>> rows){
 		List<Idioma> idiomass = new ArrayList<Idioma>();
 		for(Map<String, Object> row: rows) {
-			int cidioma = Integer.parseInt(row.get("CIDIOMA").toString());
-			String descIdioma =row.get("DESC_IDIOMA").toString();
+			int idIdioma = Integer.parseInt(row.get("ID_IDIOMA").toString());
 			String nomIdioma = row.get("NOM_IDIOMA").toString();
+			String descIdioma =row.get("DESC_IDIOMA").toString();
 			
 			
-			Idioma i = new Idioma(cidioma,descIdioma,nomIdioma);
+			Idioma i = new Idioma(idIdioma, nomIdioma, descIdioma);
 			idiomass.add(i);
 		}
 		return idiomass;
 	}
 	
-	/*
-	public List<TipoUsuarioPermiso> mapRowTipoUsuarioPermiso(List<Map<String, Object>> rows) {
-		List<TipoUsuarioPermiso> list = new ArrayList<TipoUsuarioPermiso>();
-		for(Map<String, Object> row: rows) {
-			int ctipouspermiso = Integer.parseInt(row.get("CTIPOUSPERMISO").toString()); 
-			int ctipousuario = Integer.parseInt(row.get("CTIPOUSUARIO").toString());
-			int cpermiso = Integer.parseInt(row.get("CPERMISO").toString());
-			TipoUsuarioPermiso tipouspermiso = new TipoUsuarioPermiso(ctipouspermiso, ctipousuario, cpermiso);
-			list.add(tipouspermiso);
-		}
-		return list;
-	}
-	
-	@Override
-	public int[] getRowsForPaths(TreePath[] path) {
-		return new int[0];
-	}*/
 }

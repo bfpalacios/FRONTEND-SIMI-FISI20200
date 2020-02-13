@@ -2,34 +2,26 @@ package pe.edu.ceid.simi.management.domain.tipoestudiante.model;
 
 public class TipoEstudiante {
 	
-	private int ctipoEstudiante;
+	private int idTipoEstudiante;
 	private String nomTipoEstudiante;
-	private float precioMatricula;
 	
-	public TipoEstudiante(int ctipoEstudiante, String nomTipoEstudiante, float precioMatricula) {
+	public TipoEstudiante(int ctipoEstudiante, String nomTipoEstudiante) {
 		super();
-		this.ctipoEstudiante = ctipoEstudiante;
+		this.idTipoEstudiante = ctipoEstudiante;
 		this.nomTipoEstudiante = nomTipoEstudiante;
-		this.precioMatricula = precioMatricula;
 	}
 	
 	public int getCtipoEstudiante() {
-		return ctipoEstudiante;
+		return idTipoEstudiante;
 	}
 	public void setCtipoEstudiante(int ctipoEstudiante) {
-		this.ctipoEstudiante = ctipoEstudiante;
+		this.idTipoEstudiante = ctipoEstudiante;
 	}
 	public String getNomTipoEstudiante() {
 		return nomTipoEstudiante;
 	}
 	public void setNomTipoEstudiante(String nomTipoEstudiante) {
 		this.nomTipoEstudiante = nomTipoEstudiante;
-	}
-	public float getPrecioMatricula() {
-		return precioMatricula;
-	}
-	public void setPrecioMatricula(float precioMatricula) {
-		this.precioMatricula = precioMatricula;
 	}
 	
 }

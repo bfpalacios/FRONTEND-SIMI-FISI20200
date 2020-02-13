@@ -31,7 +31,7 @@ public class DiasClaseRepositoryImpl implements DiasClaseRepository {
 
 	@Override
 	public DiasClase editDiasClase(DiasClase diasClase, int id) {
-		String query = "UPDATE txdias_clase  SET NOM_DIA = ? WHERE CDIA = "+ id;
+		String query = "UPDATE txdias_clase  SET NOM_DIA = ? WHERE ID_DIA = "+ id;
 		int update = this.jdbcTemplate.update(query,diasClase.getNomDia());
 		if (update == 1) {
 			return diasClase;
@@ -41,7 +41,7 @@ public class DiasClaseRepositoryImpl implements DiasClaseRepository {
 
 	@Override
 	public boolean deleteDiasClase(int cdia) {
-		String query = "DELETE FROM txdias_clase WHERE CDIA = ?";
+		String query = "DELETE FROM txdias_clase WHERE ID_DIA = ?";
 		int success = this.jdbcTemplate.update(query, cdia);
 		if (success >= 0) {
 			return true;
@@ -60,7 +60,7 @@ public class DiasClaseRepositoryImpl implements DiasClaseRepository {
 
 	@Override
 	public DiasClase getDiasClaseById(int id) {
-		String query = "SELECT * FROM txdias_clase WHERE CDIA = " + id;
+		String query = "SELECT * FROM txdias_clase WHERE ID_DIA = " + id;
 		List<DiasClase> dias = this.row.mapRowDiasClase(this.jdbcTemplate.queryForList(query));
 		if (dias.size() > 0) {
 			return dias.get(0);

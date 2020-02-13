@@ -22,12 +22,13 @@ public class NivelRepositoryImpl implements NivelRepository {
 		String query = "SELECT * FROM txnivel";
 		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
 		List<Nivel> nivel = row.mapRowNivel(rows);
+		
 		return nivel;
 	}
 
 	@Override
 	public Nivel getNivelById(int id) {
-		String find ="SELECT * FROM txnivel WHERE CNIVEL  = " + id;
+		String find ="SELECT * FROM txnivel WHERE ID_NIVEL  = " + id;
 		List<Nivel> nivel = this.row.mapRowNivel(this.jdbcTemplate.queryForList(find));
 		
 		if (nivel.size() > 0) {

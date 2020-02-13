@@ -1,7 +1,6 @@
 export class Aula {
-    caula: number;
-    csede: number;
+    idAula: number;
+    idSede: number;
     nomAula: string;
     refAula: string;
-    capacAula: number;
 }
