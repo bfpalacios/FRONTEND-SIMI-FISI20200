@@ -1,6 +1,5 @@
 package pe.edu.ceid.simi.management.infraestructure.periodoacademico.jdbc;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,11 +24,10 @@ public class PeriodoAcademicoRowMapper implements RowMapper {
 		List<PeriodoAcademico> periodoss = new ArrayList<PeriodoAcademico>();
 		
 		for(Map<String, Object> row: rows) {
-			int idPeriodo = Integer.parseInt(row.get("ID_PERIODO").toString());
-			String nomPeriodo = row.get("NOM_PERIODO").toString();
-			Date fechaInicio = (Date) row.get("FECHA_INICIO");
-			Date fechaFin = (Date) row.get("FECHA_FIN");
-			PeriodoAcademico p = new PeriodoAcademico(idPeriodo, nomPeriodo, fechaInicio, fechaFin);
+			int cperiodo = Integer.parseInt(row.get("CPERIODO").toString());
+			int anioPeriodo = Integer.parseInt(row.get("ANIO_PERIODO").toString());
+			int mesPeriodo = Integer.parseInt(row.get("MES_PERIODO").toString());
+			PeriodoAcademico p = new PeriodoAcademico(cperiodo, anioPeriodo, mesPeriodo);
 			periodoss.add(p);
 		}
 		

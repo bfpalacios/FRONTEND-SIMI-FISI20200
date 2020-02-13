@@ -32,7 +32,7 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 
 	@Override
 	public Idioma editIdioma(Idioma idioma, int id) {
-		String query = "UPDATE tmidioma SET DESC_IDIOMA = ?, NOM_IDIOMA = ? WHERE ID_IDIOMA = " + id;
+		String query = "UPDATE tmidioma SET DESC_IDIOMA = ?, NOM_IDIOMA = ? WHERE CIDIOMA = " + id;
 		int update = this.jdbcTemplate.update(query, idioma.getDescIdioma(), idioma.getNomIdioma());
 		
 		if (update == 1) {
@@ -53,7 +53,7 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 
 	@Override
 	public boolean deleteIdioma(int cidioma) {
-		String query = "DELETE FROM tmidioma WHERE ID_IDIOMA = ?";
+		String query = "DELETE FROM tmidioma WHERE CIDIOMA = ?";
 		int success = this.jdbcTemplate.update(query, cidioma);
 		
 		if (success >= 0) {
@@ -65,7 +65,7 @@ public class IdiomaRepositoryImpl implements IdiomaRepository {
 
 	@Override
 	public Idioma getIdiomaById(int id) {
-		String query ="SELECT * FROM tmidioma WHERE ID_IDIOMA = " + id;
+		String query ="SELECT * FROM tmidioma WHERE CIDIOMA  = " + id;
 		List<Idioma> idioma = this.row.mapRowIdioma(this.jdbcTemplate.queryForList(query));
 		
 		if (idioma.size() > 0) {

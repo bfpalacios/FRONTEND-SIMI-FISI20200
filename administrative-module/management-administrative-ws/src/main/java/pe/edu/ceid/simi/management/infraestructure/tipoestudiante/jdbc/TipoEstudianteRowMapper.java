@@ -23,10 +23,11 @@ public class TipoEstudianteRowMapper implements RowMapper {
 	public List<TipoEstudiante> mapRowTipoEstudiante(List<Map<String, Object>> rows){
 		List<TipoEstudiante> tiposs = new ArrayList<TipoEstudiante>();
 		for(Map<String, Object> row: rows) {
-			int ctipoEstudiante = Integer.parseInt(row.get("ID_TIPO_ESTUDIANTE").toString());
+			int ctipoEstudiante = Integer.parseInt(row.get("CTIPO_ESTUDIANTE").toString());
 			String nomTipoEstudiante =row.get("NOM_TIPO_ESTUDIANTE").toString();
+			float precioTipoEstudiante = Float.parseFloat(row.get("PRECIO_TIPO_ESTUDIANTE").toString());
 			
-			TipoEstudiante t = new TipoEstudiante(ctipoEstudiante, nomTipoEstudiante);
+			TipoEstudiante t = new TipoEstudiante(ctipoEstudiante,nomTipoEstudiante,precioTipoEstudiante);
 			tiposs.add(t);
 		}
 		return tiposs;

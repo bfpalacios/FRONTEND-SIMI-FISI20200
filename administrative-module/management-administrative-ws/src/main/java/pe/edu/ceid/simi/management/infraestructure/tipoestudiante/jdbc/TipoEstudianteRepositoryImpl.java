@@ -21,8 +21,10 @@ public class TipoEstudianteRepositoryImpl implements TipoEstudianteRepository {
 
 	@Override
 	public TipoEstudiante crearTipoEstudiante(TipoEstudiante tipoEstudiante) {
-		String insertQuery = "INSERT INTO tmtipo_estudiante (NOM_TIPO_ESTUDIANTE) VALUES (?)";
-		int success = this.jdbcTemplate.update(insertQuery, tipoEstudiante.getNomTipoEstudiante());
+		String insertQuery = "INSERT INTO tmtipo_estudiante (NOM_TIPO_ESTUDIANTE,"
+				+ "PRECIO_TIPO_ESTUDIANTE) VALUES (?, ?)";
+		int success = this.jdbcTemplate.update(insertQuery, tipoEstudiante.getNomTipoEstudiante(),
+				tipoEstudiante.getPrecioMatricula());
 		
 		if (success >= 0) {
 			return tipoEstudiante;
@@ -33,8 +35,10 @@ public class TipoEstudianteRepositoryImpl implements TipoEstudianteRepository {
 
 	@Override
 	public TipoEstudiante editTipoEstudiante(TipoEstudiante tipoEstudiante, int id) {
-		String query = "UPDATE tmtipo_estudiante SET NOM_TIPO_ESTUDIANTE = ? WHERE ID_TIPO_ESTUDIANTE = "+ id;
-		int update = this.jdbcTemplate.update(query, tipoEstudiante.getNomTipoEstudiante());
+		String query = "UPDATE tmtipo_estudiante SET NOM_TIPO_ESTUDIANTE = ?,"
+				+ "PRECIO_TIPO_ESTUDIANTE = ? WHERE CTIPO_ESTUDIANTE = "+ id;
+		int update = this.jdbcTemplate.update(query, tipoEstudiante.getNomTipoEstudiante(),
+				tipoEstudiante.getPrecioMatricula());
 		
 		if (update == 1) {
 			return tipoEstudiante;
@@ -45,7 +49,7 @@ public class TipoEstudianteRepositoryImpl implements TipoEstudianteRepository {
 
 	@Override
 	public boolean deleteTipoEstudiante(int ctipoEstudiante) {
-		String query = "DELETE FROM tmtipo_estudiante WHERE ID_TIPO_ESTUDIANTE = ?";
+		String query = "DELETE FROM tmtipo_estudiante WHERE CTIPO_ESTUDIANTE = ?";
 		int success = this.jdbcTemplate.update(query, ctipoEstudiante);
 		
 		if (success >= 0) {
@@ -65,7 +69,7 @@ public class TipoEstudianteRepositoryImpl implements TipoEstudianteRepository {
 
 	@Override
 	public TipoEstudiante getTipoEstudianteById(int id) {
-		String query = "SELECT * FROM tmtipo_estudiante WHERE ID_TIPO_ESTUDIANTE  = " + id;
+		String query = "SELECT * FROM tmtipo_estudiante WHERE CTIPO_CONTRATO  = " + id;
 		List<TipoEstudiante> tipoEstudiante = this.row.mapRowTipoEstudiante(this.jdbcTemplate.queryForList(query));
 		
 		if (tipoEstudiante.size() > 0) {
