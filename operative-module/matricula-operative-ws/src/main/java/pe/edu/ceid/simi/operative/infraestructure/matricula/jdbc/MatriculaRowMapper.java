@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.operative.domain.matricula.model.MatriculaDTO;
 
+@Component
 public class MatriculaRowMapper implements RowMapper {
 	@Override
 	public int[] getRowsForPaths(TreePath[] arg0) {

@@ -7,11 +7,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.operative.domain.programacion.model.ProgramacionDTO;
-import pe.edu.ceid.simi.operative.domain.plan.model.PlanDTO;
-import pe.edu.ceid.simi.operative.domain.programacion.model.Programacion;
 import pe.edu.ceid.simi.operative.domain.programacion.repository.ProgramacionRepository;
-import pe.edu.ceid.simi.operative.infraestructure.plan.jdbc.PlanRowMapper;
 
+@Component
 public class ProgramacionRepositoryImpl implements ProgramacionRepository{
 
 	@Autowired

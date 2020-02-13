@@ -10,6 +10,7 @@ import pe.edu.ceid.simi.operative.domain.plan.model.Plan;
 import pe.edu.ceid.simi.operative.domain.plan.model.PlanDTO;
 import pe.edu.ceid.simi.operative.domain.plan.repository.PlanRepository;
 
+@Component
 public class PlanRepositoryImpl implements PlanRepository{
 
 	@Autowired

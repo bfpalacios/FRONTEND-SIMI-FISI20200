@@ -9,7 +9,9 @@ import pe.edu.ceid.simi.operative.domain.matricula.model.Matricula;
 import pe.edu.ceid.simi.operative.domain.matricula.model.MatriculaDTO;
 import pe.edu.ceid.simi.operative.domain.matricula.repository.MatriculaRepository;
 
+@Service
 public class MatriculaServiceImpl implements MatriculaService{
+	
 	@Autowired
 	private MatriculaRepository repository;
 	
