@@ -1,6 +1,8 @@
 package pe.edu.ceid.simi.operative.infraestructure.matricula.jdbc;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -15,8 +17,8 @@ public class MatriculaRepositoryImpl implements MatriculaRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-//	@Autowired
-//	private MatriculaRowMapper row;
+	@Autowired
+	private MatriculaRowMapper row;
 	
 	@Override
 	public Matricula crearMatricula(Matricula matricula) {

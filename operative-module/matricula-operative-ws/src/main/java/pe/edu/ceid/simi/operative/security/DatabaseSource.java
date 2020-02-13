@@ -30,8 +30,10 @@ public class DatabaseSource {
 				(String)properties.get("ip") + ":" + (String)properties.get("port") + "/" + 
 				(String)properties.get("db")+"?autoReconnect=true&useSSL=false";
 		String username = (String)properties.get("username");
-		String password = encryp((String)properties.get("password"));
-		
+		String password ="";
+		if (properties.get("password").toString().length() != 0) {
+			password = encryp(properties.get("password").toString());
+		} 
 		return new DatabaseSourceBuilder().driver(driver).url(url).username(username).password(password).build();
 	}
 

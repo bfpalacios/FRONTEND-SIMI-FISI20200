@@ -17,7 +17,7 @@
   }
 
   .section-codigo{
-    background-color: #20639b;
+    background-color: #ea0a7a;
     border-radius: 7px;
     padding: 5.5px 9.5px;
     margin: 5px;
@@ -43,16 +43,6 @@
     color: white;
   }
 
-.btn-blue-d{
-    font-size: 13px;
-    width: 50%;
-    border: 0px;
-    background-color: #20639b;
-    color: white;
-    padding: 8px;
-    font-weight: lighter;
-}
-
 .btn-light-blue-d{
   font-size: 13px;
   width: 100%;
@@ -76,10 +66,24 @@
     font-size: 13px;
     width: 50%;
     border: 0px;
+    border-radius: 0px !important;
     background-color: #204564;
     color: white;
     padding: 8px;
     font-weight: lighter;
+    height: 95px;
+}
+
+.btn-blue-d{
+  font-size: 13px;
+  width: 50%;
+  border: 0px;
+  height: 95px;
+  background-color: #20639b;
+  color: white;
+  border-radius: 0px !important;
+  padding: 8px;
+  font-weight: lighter;
 }
 
 .btn-black-blue-d:hover{
