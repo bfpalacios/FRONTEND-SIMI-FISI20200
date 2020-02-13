@@ -10,7 +10,7 @@ import { Path } from 'src/app/infrastructure/constans/Path';
   styleUrls: ['./sedes.component.css']
 })
 export class SedesComponent implements OnInit {
-
+  public  pageActual : number ;
   estado: boolean;
   prueba : string;
   public id: number;
@@ -25,6 +25,8 @@ export class SedesComponent implements OnInit {
       this.load = true;
     this.loading = Path.loading;
     this.sede = new Sede();
+    this.pageActual = 1;
+
     }
 
 

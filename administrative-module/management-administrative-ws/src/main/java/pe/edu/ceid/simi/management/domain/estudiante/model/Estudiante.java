@@ -2,42 +2,42 @@ package pe.edu.ceid.simi.management.domain.estudiante.model;
 
 public class Estudiante {
 	
-	private int cestudiante;
-	private int cusuario;
-	private int ctipoEsudiante;
-	private String facultad;
+	private int codEstudiante;
+	private int idUsuario;
+	private int idTipoEstudiante;
+	private int codEstudianteAsm;
 	
-	public Estudiante(int cestudiante, int cusuario, int ctipoEsudiante, String facultad) {
+	public Estudiante(int cestudiante, int cusuario, int ctipoEsudiante, int codEstudianteAsm) {
 		super();
-		this.cestudiante = cestudiante;
-		this.cusuario = cusuario;
-		this.ctipoEsudiante = ctipoEsudiante;
-		this.facultad = facultad;
+		this.codEstudiante = cestudiante;
+		this.idUsuario = cusuario;
+		this.idTipoEstudiante = ctipoEsudiante;
+		this.codEstudianteAsm = codEstudianteAsm;
 	}
 	
 	public int getCestudiante() {
-		return cestudiante;
+		return codEstudiante;
 	}
 	public void setCestudiante(int cestudiante) {
-		this.cestudiante = cestudiante;
+		this.codEstudiante = cestudiante;
 	}
 	public int getCusuario() {
-		return cusuario;
+		return idUsuario;
 	}
 	public void setCusuario(int cusuario) {
-		this.cusuario = cusuario;
+		this.idUsuario = cusuario;
 	}
 	public int getCtipoEsudiante() {
-		return ctipoEsudiante;
+		return idTipoEstudiante;
 	}
 	public void setCtipoEsudiante(int ctipoEsudiante) {
-		this.ctipoEsudiante = ctipoEsudiante;
+		this.idTipoEstudiante = ctipoEsudiante;
 	}
-	public String getFacultad() {
-		return facultad;
+	public int getCodEstudianteAsm() {
+		return codEstudianteAsm;
 	}
-	public void setFacultad(String facultad) {
-		this.facultad = facultad;
+	public void setCodEstudianteAsm(int codEstudianteAsm) {
+		this.codEstudianteAsm = codEstudianteAsm;
 	}
 	
 }

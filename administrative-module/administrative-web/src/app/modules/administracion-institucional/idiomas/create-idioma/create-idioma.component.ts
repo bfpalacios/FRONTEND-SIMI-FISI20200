@@ -4,6 +4,7 @@ import { Path } from 'src/app/infrastructure/constans/Path';
 import { Idioma } from 'src/app/domain/Idioma';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
 import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/idioma.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-idioma',
@@ -39,6 +40,11 @@ export class CreateIdiomaComponent implements OnInit {
       .subscribe(data => {
         this.load = false;
         if (data) {
+          Swal.fire(
+            'Registro Exitoso!',
+            'El idioma '+this.idioma.nomIdioma +' se registro correctamente.',
+            'success'
+          );
           this.navigateList();
         } else {
           this.empty = true;

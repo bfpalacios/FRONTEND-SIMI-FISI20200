@@ -8,7 +8,7 @@
 			"db" : "dbsimi",
 			"type": "mysql",
 			"username": "root",
-			"password": "",
+			"password": "root",
 			"driver": "com.mysql.jdbc.Driver"
 		}
 	}

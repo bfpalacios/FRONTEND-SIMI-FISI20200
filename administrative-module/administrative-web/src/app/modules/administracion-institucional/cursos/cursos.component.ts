@@ -16,6 +16,7 @@ export class CursosComponent implements OnInit {
   public id: number;
   cursoDTO : CursoDTO;
   cursosDTO: CursoDTO[];
+  public  pageActual : number ;
 
   load: boolean;
   loading: string;
@@ -24,6 +25,8 @@ export class CursosComponent implements OnInit {
     // private serviceestadomesa: EstadoMesasService 
     ) {
      this.estado = false;
+     this.pageActual = 1;
+
     }
 
 
@@ -51,9 +54,9 @@ export class CursosComponent implements OnInit {
     this.router.navigate(['administracionInstitucional/cursos/crear']).then();
   }
   // editarAlumno(id: number) 
-  editarCurso() { 
+  editarCurso(id: number) { 
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/cursos/editar']).then();
+    this.router.navigate(['administracionInstitucional/cursos/editar/'+id]).then();
   }
 
   public eliminarCurso(id: number) {

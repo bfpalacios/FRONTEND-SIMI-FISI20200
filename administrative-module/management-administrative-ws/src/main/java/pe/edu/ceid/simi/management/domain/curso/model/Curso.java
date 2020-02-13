@@ -3,36 +3,40 @@ package pe.edu.ceid.simi.management.domain.curso.model;
 
 public class Curso {
 
-	private int ccurso;
-	private int cidioma;
-	private int cnivel;
+	private int idCurso;
+	private int idIdioma;
+	private int idNivel;
 	private int ciclo;
 	
 	public Curso(int ccurso, int cidioma, int cnivel, int ciclo) {
 		super();
-		this.ccurso = ccurso;
-		this.cidioma = cidioma;
-		this.cnivel = cnivel;
+		this.idCurso = ccurso;
+		this.idIdioma = cidioma;
+		this.idNivel = cnivel;
 		this.ciclo = ciclo;
 	}
 	
+	public Curso() {
+		super();
+	}
+
 	public int getCcurso() {
-		return ccurso;
+		return idCurso;
 	}
 	public void setCcurso(int ccurso) {
-		this.ccurso = ccurso;
+		this.idCurso = ccurso;
 	}
 	public int getCidioma() {
-		return cidioma;
+		return idIdioma;
 	}
 	public void setCidioma(int cidioma) {
-		this.cidioma = cidioma;
+		this.idIdioma = cidioma;
 	}
 	public int getCnivel() {
-		return cnivel;
+		return idNivel;
 	}
 	public void setCnivel(int cnivel) {
-		this.cnivel = cnivel;
+		this.idNivel = cnivel;
 	}
 	public int getCiclo() {
 		return ciclo;

@@ -4,42 +4,38 @@ package pe.edu.ceid.simi.management.domain.curso.model;
 
 public class CursoDTO {
 	
-	private int ccurso;
-	private int cidioma;
-	private String nomIdioma ; // cidioma;
-	private int cnivel;
-	private String nomNivel ; //cnivel;
+	private int idCurso;
+	private int idIdioma;
+	private String nomIdioma;	// idIdioma;
+	private int idNivel;
+	private String nomNivel;	//idNivel;
 	private int ciclo;
 	
 	public CursoDTO(int ccurso, int cidioma, String nomIdioma, int cnivel, String nomNivel, int ciclo) {
 		super();
-		this.ccurso = ccurso;
-		this.cidioma = cidioma;
+		this.idCurso = ccurso;
+		this.idIdioma = cidioma;
 		this.nomIdioma = nomIdioma;
-		this.cnivel = cnivel;
+		this.idNivel = cnivel;
 		this.nomNivel = nomNivel;
 		this.ciclo = ciclo;
 	}
-	
-	public CursoDTO(int ccurso, int cidioma,  int cnivel,int ciclo) {
+
+	public CursoDTO() {
 		super();
-		this.ccurso = ccurso;
-		this.cidioma = cidioma;
-		this.cnivel = cnivel;
-		this.ciclo = ciclo;
 	}
-	
+
 	public int getCcurso() {
-		return ccurso;
+		return idCurso;
 	}
 	public void setCcurso(int ccurso) {
-		this.ccurso = ccurso;
+		this.idCurso = ccurso;
 	}
 	public int getCidioma() {
-		return cidioma;
+		return idIdioma;
 	}
 	public void setCidioma(int cidioma) {
-		this.cidioma = cidioma;
+		this.idIdioma = cidioma;
 	}
 	public String getNomIdioma() {
 		return nomIdioma;
@@ -48,10 +44,10 @@ public class CursoDTO {
 		this.nomIdioma = nomIdioma;
 	}
 	public int getCnivel() {
-		return cnivel;
+		return idNivel;
 	}
 	public void setCnivel(int cnivel) {
-		this.cnivel = cnivel;
+		this.idNivel = cnivel;
 	}
 	public String getNomNivel() {
 		return nomNivel;

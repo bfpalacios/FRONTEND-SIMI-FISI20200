@@ -2,42 +2,42 @@ package pe.edu.ceid.simi.management.domain.progdoccurso.model;
 
 public class ProgDocCurso {
 
-	private int cprogDocCur;
-	private int cdocente;
-	private int ccurso;
-	private int cperiodo;
+	private int idProgDocCur;
+	private int idDocente;
+	private int idCurso;
+	private int idPeriodo;
 	
-	public ProgDocCurso(int cprogDocCur, int cdocente, int ccurso, int cperiodo) {
+	public ProgDocCurso(int idProgDocCur, int idDocente, int idCurso, int idPeriodo) {
 		super();
-		this.cprogDocCur = cprogDocCur;
-		this.cdocente = cdocente;
-		this.ccurso = ccurso;
-		this.cperiodo = cperiodo;
+		this.idProgDocCur = idProgDocCur;
+		this.idDocente = idDocente;
+		this.idCurso = idCurso;
+		this.idPeriodo = idPeriodo;
 	}
 	
 	public int getCprogDocCur() {
-		return cprogDocCur;
+		return idProgDocCur;
 	}
 	public void setCprogDocCur(int cprogDocCur) {
-		this.cprogDocCur = cprogDocCur;
+		this.idProgDocCur = cprogDocCur;
 	}
 	public int getCdocente() {
-		return cdocente;
+		return idDocente;
 	}
 	public void setCdocente(int cdocente) {
-		this.cdocente = cdocente;
+		this.idDocente = cdocente;
 	}
 	public int getCcurso() {
-		return ccurso;
+		return idCurso;
 	}
 	public void setCcurso(int ccurso) {
-		this.ccurso = ccurso;
+		this.idCurso = ccurso;
 	}
 	public int getCperiodo() {
-		return cperiodo;
+		return idPeriodo;
 	}
 	public void setCperiodo(int cperiodo) {
-		this.cperiodo = cperiodo;
+		this.idPeriodo = cperiodo;
 	}
 	
 }

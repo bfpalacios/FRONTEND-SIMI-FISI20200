@@ -22,17 +22,15 @@ public class NivelRowMapper implements RowMapper {
 
 	public List<Nivel> mapRowNivel(List<Map<String, Object>> rows){
 		List<Nivel> niveles = new ArrayList<Nivel>();
+		
 		for(Map<String, Object> row: rows) {
-			int cnivel = Integer.parseInt(row.get("CNIVEL").toString());
+			int idNivel = Integer.parseInt(row.get("ID_NIVEL").toString());
 			String nomNivel = row.get("NOM_NIVEL").toString();
-			String descNivel =row.get("DESC_NIVEL").toString();
-			
-			
-			Nivel i = new Nivel(cnivel,descNivel,nomNivel);
+			Nivel i = new Nivel(idNivel, nomNivel);
 			niveles.add(i);
 		}
+		
 		return niveles;
 	}
 	
-
 }

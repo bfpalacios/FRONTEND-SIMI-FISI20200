@@ -2,47 +2,26 @@ package pe.edu.ceid.simi.management.domain.nivel.model;
 
 public class Nivel {
 
-	private int cnivel;
-	private String descNivel;
+	private int idNivel;
 	private String nomNivel;
 	
-	
-	public Nivel(int cnivel, String descNivel, String nomNivel) {
+	public Nivel(int idNivel, String nomNivel) {
 		super();
-		this.cnivel = cnivel;
-		this.descNivel = descNivel;
+		this.idNivel = idNivel;
 		this.nomNivel = nomNivel;
 	}
 
-
 	public int getCnivel() {
-		return cnivel;
+		return idNivel;
 	}
-
-
 	public void setCnivel(int cnivel) {
-		this.cnivel = cnivel;
+		this.idNivel = cnivel;
 	}
-
-
-	public String getDescNivel() {
-		return descNivel;
-	}
-
-
-	public void setDescNivel(String descNivel) {
-		this.descNivel = descNivel;
-	}
-
-
 	public String getNomNivel() {
 		return nomNivel;
 	}
-
-
 	public void setNomNivel(String nomNivel) {
 		this.nomNivel = nomNivel;
 	}
-	
 	
 }

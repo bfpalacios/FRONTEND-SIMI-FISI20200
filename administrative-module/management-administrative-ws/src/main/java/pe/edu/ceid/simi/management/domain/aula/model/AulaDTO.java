@@ -3,67 +3,78 @@ package pe.edu.ceid.simi.management.domain.aula.model;
 
 public class AulaDTO {
 
-	private int caula;
+	private int idAula;
 	private String nomAula;
 	private String refAula;
-	private int csede;
+	private int idSede;
 	private String nomSede;
-	private int capacAula;
 	
-	public AulaDTO(int caula, String nomAula, String refAula, int csede, String nomSede, int capacAula) {
+	
+	
+
+	public AulaDTO(int idAula, String nomAula, String refAula, int idSede, String nomSede) {
 		super();
-		this.caula = caula;
+		this.idAula = idAula;
 		this.nomAula = nomAula;
 		this.refAula = refAula;
-		this.csede = csede;
+		this.idSede = idSede;
 		this.nomSede = nomSede;
-		this.capacAula = capacAula;
 	}
-		
-	public AulaDTO(int caula, String nomAula, String refAula, int csede, int capacAula) {
+	
+	
+	public AulaDTO() {
 		super();
-		this.caula = caula;
-		this.nomAula = nomAula;
-		this.refAula = refAula;
-		this.csede = csede;
-		this.capacAula = capacAula;
 	}
 
-	public int getCaula() {
-		return caula;
+
+	public int getIdAula() {
+		return idAula;
 	}
-	public void setCaula(int caula) {
-		this.caula = caula;
+
+
+	public void setIdAula(int idAula) {
+		this.idAula = idAula;
 	}
+
+
 	public String getNomAula() {
 		return nomAula;
 	}
+
+
 	public void setNomAula(String nomAula) {
 		this.nomAula = nomAula;
 	}
+
+
 	public String getRefAula() {
 		return refAula;
 	}
+
+
 	public void setRefAula(String refAula) {
 		this.refAula = refAula;
 	}
-	public int getCsede() {
-		return csede;
+
+
+	public int getIdSede() {
+		return idSede;
 	}
-	public void setCsede(int csede) {
-		this.csede = csede;
+
+
+	public void setIdSede(int idSede) {
+		this.idSede = idSede;
 	}
+
+
 	public String getNomSede() {
 		return nomSede;
 	}
+
+
 	public void setNomSede(String nomSede) {
 		this.nomSede = nomSede;
 	}
-	public int getCapacAula() {
-		return capacAula;
-	}
-	public void setCapacAula(int capacAula) {
-		this.capacAula = capacAula;
-	}
+
 	
 }
