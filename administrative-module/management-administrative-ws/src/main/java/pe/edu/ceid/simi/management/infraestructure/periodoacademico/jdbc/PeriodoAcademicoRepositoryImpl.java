@@ -21,9 +21,10 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public PeriodoAcademico crearPeriodoAcademico(PeriodoAcademico periodo) {
-		String insertQuery = "INSERT INTO tmperiodo_academico (ANIO_PERIODO, MES_PERIODO) VALUES (?, ?)";
-		int success = this.jdbcTemplate.update(insertQuery, periodo.getAnioPeriodo(),
-				periodo.getMesPeriodo());
+		String insertQuery = "INSERT INTO tmperiodo_academico (NOM_PERIODO, FECHA_INICIO, FECHA_FIN) "
+				+ "VALUES (?, ?)";
+		int success = this.jdbcTemplate.update(insertQuery, periodo.getNomPeriodo(),
+				periodo.getFechaInicio(), periodo.getFechaFin());
 		
 		if (success >= 0) {
 			return periodo;
@@ -34,8 +35,10 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public PeriodoAcademico editPeriodoAcademico(PeriodoAcademico periodo, int id) {
-		String query = "UPDATE tmperiodo_academico SET ANIO_PERIODO = ?, MES_PERIODO = ? WHERE CPERIODO = " + id;
-		int update = this.jdbcTemplate.update(query, periodo.getAnioPeriodo(), periodo.getMesPeriodo());
+		String query = "UPDATE tmperiodo_academico SET NOM_PERIODO = ?, FECHA_INICIO = ?, FECHA_FIN = ? "
+				+ "WHERE ID_PERIODO = " + id;
+		int update = this.jdbcTemplate.update(query, periodo.getNomPeriodo(),
+				periodo.getFechaInicio(), periodo.getFechaFin());
 		
 		if (update == 1) {
 			return periodo;
@@ -54,7 +57,7 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public boolean deletePeriodoAcademico(int cperiodo) {
-		String query = "DELETE FROM tmperiodo_academico WHERE CPERIODO = ?";
+		String query = "DELETE FROM tmperiodo_academico WHERE ID_PERIODO = ?";
 		int success = this.jdbcTemplate.update(query, cperiodo);
 		
 		if (success >= 0) {
@@ -66,7 +69,7 @@ public class PeriodoAcademicoRepositoryImpl implements PeriodoAcademicoRepositor
 
 	@Override
 	public PeriodoAcademico getPeriodoAcademicoById(int id) {
-		String query ="SELECT * FROM tmperiodo_academico WHERE CPERIODO = " + id;
+		String query ="SELECT * FROM tmperiodo_academico WHERE ID_PERIODO = " + id;
 		List<PeriodoAcademico> periodo = this.row.mapRowPeriodoAcademico(this.jdbcTemplate.queryForList(query));
 		
 		if (periodo.size() > 0) {

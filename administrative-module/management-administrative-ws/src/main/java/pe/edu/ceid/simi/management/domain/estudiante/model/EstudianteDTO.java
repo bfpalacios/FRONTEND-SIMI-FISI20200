@@ -2,47 +2,47 @@ package pe.edu.ceid.simi.management.domain.estudiante.model;
 
 public class EstudianteDTO {
 	
-	private int cestudiante;
-	private int cusuario;
-	private String nombre;				// cusuario
-	private String apellidoPat;			// cusuario
-	private String apellidoMat;			// cusuario
-	private int ctipoEsudiante;
-	private String nomTipoEstudiante;	// ctipoEsudiante
-	private String facultad;
+	private int codEstudiante;
+	private int idUsuario;
+	private String nombre;				// idUsuario -> idPersona
+	private String apellidoPat;			// idUsuario -> idPersona
+	private String apellidoMat;			// idUsuario -> idPersona
+	private int idTipoEstudiante;
+	private String nomTipoEstudiante;	// idTipoEstudiante
+	private int codEstudianteAsm;
 	
 	public EstudianteDTO(int cestudiante, int cusuario, String nombre, String apellidoPat, String apellidoMat,
-			int ctipoEsudiante, String nomTipoEstudiante, String facultad) {
+			int ctipoEsudiante, String nomTipoEstudiante, int codEstudianteAsm) {
 		super();
-		this.cestudiante = cestudiante;
-		this.cusuario = cusuario;
+		this.codEstudiante = cestudiante;
+		this.idUsuario = cusuario;
 		this.nombre = nombre;
 		this.apellidoPat = apellidoPat;
 		this.apellidoMat = apellidoMat;
-		this.ctipoEsudiante = ctipoEsudiante;
+		this.idTipoEstudiante = ctipoEsudiante;
 		this.nomTipoEstudiante = nomTipoEstudiante;
-		this.facultad = facultad;
+		this.codEstudianteAsm = codEstudianteAsm;
 	}
 	
-	public EstudianteDTO(int cestudiante, int cusuario, int ctipoEsudiante, String facultad) {
+	public EstudianteDTO(int cestudiante, int cusuario, int ctipoEsudiante, int codEstudianteAsm) {
 		super();
-		this.cestudiante = cestudiante;
-		this.cusuario = cusuario;
-		this.ctipoEsudiante = ctipoEsudiante;
-		this.facultad = facultad;
+		this.codEstudiante = cestudiante;
+		this.idUsuario = cusuario;
+		this.idTipoEstudiante = ctipoEsudiante;
+		this.codEstudianteAsm = codEstudianteAsm;
 	}
 	
 	public int getCestudiante() {
-		return cestudiante;
+		return codEstudiante;
 	}
 	public void setCestudiante(int cestudiante) {
-		this.cestudiante = cestudiante;
+		this.codEstudiante = cestudiante;
 	}
 	public int getCusuario() {
-		return cusuario;
+		return idUsuario;
 	}
 	public void setCusuario(int cusuario) {
-		this.cusuario = cusuario;
+		this.idUsuario = cusuario;
 	}
 	public String getNombre() {
 		return nombre;
@@ -63,10 +63,10 @@ public class EstudianteDTO {
 		this.apellidoMat = apellidoMat;
 	}
 	public int getCtipoEsudiante() {
-		return ctipoEsudiante;
+		return idTipoEstudiante;
 	}
 	public void setCtipoEsudiante(int ctipoEsudiante) {
-		this.ctipoEsudiante = ctipoEsudiante;
+		this.idTipoEstudiante = ctipoEsudiante;
 	}
 	public String getNomTipoEstudiante() {
 		return nomTipoEstudiante;
@@ -74,11 +74,11 @@ public class EstudianteDTO {
 	public void setNomTipoEstudiante(String nomTipoEstudiante) {
 		this.nomTipoEstudiante = nomTipoEstudiante;
 	}
-	public String getFacultad() {
-		return facultad;
+	public int getCodEstudianteAsm() {
+		return codEstudianteAsm;
 	}
-	public void setFacultad(String facultad) {
-		this.facultad = facultad;
+	public void setCodEstudianteAsm(int codEstudianteAsm) {
+		this.codEstudianteAsm = codEstudianteAsm;
 	}
 	
 }

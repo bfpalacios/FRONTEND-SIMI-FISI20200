@@ -23,11 +23,11 @@ public class HorasClaseRowMapper implements RowMapper {
 	public List<HorasClase> mapRowHorasClase(List<Map<String, Object>> rows){
 		List<HorasClase> horass = new ArrayList<HorasClase>();
 		for(Map<String, Object> row: rows) {
-			int chora = Integer.parseInt(row.get("CHORA").toString());
+			int idHora = Integer.parseInt(row.get("ID_HORA").toString());
 			String horaInicio = row.get("HORA_INICIO").toString();
 			String horaSalida = row.get("HORA_SALIDA").toString();
 						
-			HorasClase h = new HorasClase(chora,horaInicio,horaSalida);
+			HorasClase h = new HorasClase(idHora,horaInicio,horaSalida);
 			horass.add(h);
 		}
 		return horass;

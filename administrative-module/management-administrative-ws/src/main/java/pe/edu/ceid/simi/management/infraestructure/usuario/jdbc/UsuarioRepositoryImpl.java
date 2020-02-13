@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import pe.edu.ceid.simi.management.domain.usuario.model.Usuario;
+import pe.edu.ceid.simi.management.domain.usuario.model.UsuarioDTO;
 import pe.edu.ceid.simi.management.domain.usuario.repository.UsuarioRepository;
 
 @Component
@@ -21,11 +22,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
 	@Override
 	public Usuario crearUsuario(Usuario usuario) {
-		String insertQuery = "INSERT INTO tmusuario (NOMBRE, APELLIDOPAT, APELLIDOMAT, EMAIL, CONTRASENIA, "
-				+ "DNI, GENERO, CROL) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-		int success = this.jdbcTemplate.update(insertQuery, usuario.getNombre(), usuario.getApellidoPat(),
-				usuario.getApellidoMat(), usuario.getEmail(), usuario.getContrasenia(), usuario.getDni(),
-				usuario.getGenero(), usuario.getCrol());
+		String query = "INSERT INTO tmusuario (COD_USUARIO, FK_ID_PERSONA, EMAIL, CONTRASENIA, FK_ID_ROL, "
+				+ "ESTADO, FECHA_ALTA, FECHA_BAJA, FECHA_MOD, FK_ID_USUARIO_MOD) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		int success = this.jdbcTemplate.update(query, usuario.getCodUsuario(), usuario.getIdPersona(),
+				usuario.getEmail(), usuario.getContrasenia(), usuario.getIdRol(), usuario.getEstado(),
+				usuario.getFechaAlta(), usuario.getFechaBaja(), usuario.getFechaMod(), usuario.getIdUsuarioMod());
 		
 		if (success >= 0) {
 			return usuario;
@@ -36,10 +38,12 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
 	@Override
 	public Usuario editUsuario(Usuario usuario, int id) {
-		String query = "UPDATE tmusuario SET NOMBRE = ?, APELLIDOPAT = ?, APELLIDOMAT = ?, EMAIL = ?,"
-				+ " CONTRASENIA = ?, DNI = ?, GENERO = ?, CROL = ? WHERE CUSUARIO = "+ id;
-		int update = this.jdbcTemplate.update(query, usuario.getNombre(), usuario.getApellidoPat(), usuario.getApellidoMat(),
-				usuario.getEmail(), usuario.getContrasenia(), usuario.getDni(), usuario.getGenero(), usuario.getCrol());
+		String query = "UPDATE tmusuario SET COD_USUARIO = ?, FK_ID_PERSONA = ?, EMAIL = ?, CONTRASENIA = ?, "
+				+ "FK_ID_ROL = ?, ESTADO = ?, FECHA_ALTA = ? , FECHA_BAJA = ? , FECHA_MOD = ? , FK_ID_USUARIO_MOD = ? "
+				+ "WHERE ID_USUARIO = "+ id;
+		int update = this.jdbcTemplate.update(query, usuario.getCodUsuario(), usuario.getIdPersona(),
+				usuario.getEmail(), usuario.getContrasenia(), usuario.getIdRol(), usuario.getEstado(),
+				usuario.getFechaAlta(), usuario.getFechaBaja(), usuario.getFechaMod(), usuario.getIdUsuarioMod());
 		
 		if (update == 1) {
 			return usuario;
@@ -50,7 +54,7 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 
 	@Override
 	public boolean deleteUsuario(int cusuario) {
-		String query = "DELETE FROM tmusuario WHERE CUSUARIO = ?";
+		String query = "DELETE FROM tmusuario WHERE ID_USUARIO = ?";
 		int success = this.jdbcTemplate.update(query, cusuario);
 		
 		if (success >= 0) {
@@ -61,20 +65,37 @@ public class UsuarioRepositoryImpl implements UsuarioRepository{
 	}
 
 	@Override
-	public List<Usuario> getUsuarios() {
+	public List<UsuarioDTO> getUsuarios() {
 		String query = "SELECT * FROM tmusuario";
 		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
-		List<Usuario> usuario = row.mapRowUsuario(rows);
+		List<UsuarioDTO> usuario = row.mapRowUsuario(rows);
 		return usuario;
 	}
 
 	@Override
-	public Usuario getUsuarioById(int id) {
-		String query ="SELECT * FROM tmusuario WHERE CUSUARIO = " + id;
-		List<Usuario> usuario = this.row.mapRowUsuario(this.jdbcTemplate.queryForList(query));
+	public UsuarioDTO getUsuarioById(int id) {
+		String query ="SELECT * FROM tmusuario AS us " + 
+				"INNER JOIN tmpersona AS pe ON pe.ID_PERSONA = us.FK_ID_PERSONA " + 
+				"INNER JOIN tmrol AS ro ON ro.ID_ROL = us.FK_ID_ROL WHERE ID_USUARIO = " + id;
+		List<UsuarioDTO> usuario = this.row.mapRowUsuario(this.jdbcTemplate.queryForList(query));
 		
 		if (usuario.size() > 0) {
 			return usuario.get(0);
+		}
+		
+		return null;
+	}
+
+	@Override
+	public UsuarioDTO getUsuarioMod(UsuarioDTO usuario) {
+		String query ="SELECT * FROM tmusuario AS us " + 
+				"INNER JOIN tmpersona AS pe ON pe.ID_PERSONA = us.FK_ID_PERSONA " + 
+				"INNER JOIN tmrol AS ro ON ro.ID_ROL = us.FK_ID_ROL " +
+				"WHERE ID_USUARIO = " + usuario.getIdUsuarioMod();
+		List<UsuarioDTO> us = this.row.mapRowUsuario(this.jdbcTemplate.queryForList(query));
+		
+		if (us.size() > 0) {
+			return us.get(0);
 		}
 		
 		return null;

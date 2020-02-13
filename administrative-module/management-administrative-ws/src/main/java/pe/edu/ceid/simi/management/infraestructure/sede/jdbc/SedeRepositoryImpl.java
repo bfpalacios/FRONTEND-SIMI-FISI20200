@@ -22,9 +22,9 @@ public class SedeRepositoryImpl implements SedeRepository {
 
 	@Override
 	public Sede crearSede(Sede sede) {
-		String insertQuery = "INSERT INTO tmsede (DESC_SEDE, NOM_SEDE, DIR_SEDE) values (?, ?, ?)";
+		String insertQuery = "INSERT INTO tmsede (NOM_SEDE, DESC_SEDE, DIR_SEDE) values (?, ?, ?)";
 		
-		int success = this.jdbcTemplate.update(insertQuery,sede.getDescSede(),sede.getNomSede(),sede.getDirSede());
+		int success = this.jdbcTemplate.update(insertQuery, sede.getNomSede(), sede.getDescSede(), sede.getDirSede());
 		if (success >= 0) {
 			return sede;
 		}
@@ -34,8 +34,8 @@ public class SedeRepositoryImpl implements SedeRepository {
 
 	@Override
 	public Sede editSede(Sede sede, int id) {
-		String query = "UPDATE tmsede SET DESC_SEDE = ?, NOM_SEDE = ?, DIR_SEDE = ? WHERE CIDIOMA = "+ id;
-		int update = this.jdbcTemplate.update(query, sede.getDescSede(), sede.getNomSede(), sede.getDirSede());
+		String query = "UPDATE tmsede SET NOM_SEDE = ?, DESC_SEDE = ?, DIR_SEDE = ? WHERE ID_SEDE = "+ id;
+		int update = this.jdbcTemplate.update(query, sede.getNomSede(), sede.getDescSede(), sede.getDirSede());
 		
 		if (update == 1) {
 			return sede;
@@ -54,7 +54,7 @@ public class SedeRepositoryImpl implements SedeRepository {
 
 	@Override
 	public boolean deleteSede(int csede) {
-		String query = "DELETE FROM tmsede WHERE CSEDE = ?";
+		String query = "DELETE FROM tmsede WHERE ID_SEDE = ?";
 		int success = this.jdbcTemplate.update(query, csede);
 		
 		if (success >= 0) {
@@ -66,7 +66,7 @@ public class SedeRepositoryImpl implements SedeRepository {
 
 	@Override
 	public Sede getSedeById(int id) {
-		String query = "SELECT * FROM tmsede WHERE CSEDE  = " + id;
+		String query = "SELECT * FROM tmsede WHERE ID_SEDE  = " + id;
 		List<Sede> sede = this.row.mapRowSede(this.jdbcTemplate.queryForList(query));
 		
 		if (sede.size() > 0) {
