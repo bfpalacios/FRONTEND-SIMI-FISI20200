@@ -2,24 +2,24 @@ package pe.edu.ceid.simi.management.domain.sede.model;
 
 public class Sede {
 
-	private int idSede;
-	private String nomSede;
+	private int csede;
 	private String descSede;
+	private String nomSede;
 	private String dirSede;
 		
-	public Sede(int idSede, String nomSede, String descSede, String dirSede) {
+	public Sede(int csede, String descSede, String nomSede, String dirSede) {
 		super();
-		this.idSede = idSede;
-		this.nomSede = nomSede;
+		this.csede = csede;
 		this.descSede = descSede;
+		this.nomSede = nomSede;
 		this.dirSede = dirSede;
 	}
 	
 	public int getCsede() {
-		return idSede;
+		return csede;
 	}
 	public void setCsede(int csede) {
-		this.idSede = csede;
+		this.csede = csede;
 	}
 	public String getDescSede() {
 		return descSede;

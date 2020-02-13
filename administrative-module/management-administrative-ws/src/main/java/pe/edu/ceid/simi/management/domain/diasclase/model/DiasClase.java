@@ -2,20 +2,20 @@ package pe.edu.ceid.simi.management.domain.diasclase.model;
 
 public class DiasClase {
 
-	private int idDia;
+	private int cdia;
 	private String nomDia;
 	
 	public DiasClase(int cdia, String nomDia) {
 		super();
-		this.idDia = cdia;
+		this.cdia = cdia;
 		this.nomDia = nomDia;
 	}
 	
 	public int getCdia() {
-		return idDia;
+		return cdia;
 	}
 	public void setCdia(int cdia) {
-		this.idDia = cdia;
+		this.cdia = cdia;
 	}
 	public String getNomDia() {
 		return nomDia;

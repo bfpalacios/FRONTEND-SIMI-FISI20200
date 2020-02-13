@@ -10,7 +10,7 @@ import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/
   styleUrls: ['./idiomas.component.css']
 })
 export class IdiomasComponent implements OnInit {
-  public  pageActual : number ;
+
   estado: boolean;
   prueba: string;
   public id: number;
@@ -24,8 +24,6 @@ export class IdiomasComponent implements OnInit {
     this.load = true;
     this.loading = Path.loading;
     this.idioma = new Idioma();
-    this.pageActual = 1;
-
   }
 
 

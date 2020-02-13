@@ -32,7 +32,7 @@ public class HorasClaseRepositoryImpl implements HorasClaseRepository {
 
 	@Override
 	public HorasClase editHorasClase(HorasClase horasClase, int id) {
-		String query = "UPDATE txhoras_clase SET HORA_INICIO = ?, HORA_SALIDA = ? WHERE ID_HORA = "+ id;
+		String query = "UPDATE txhoras_clase SET HORA_INICIO = ?, HORA_SALIDA = ? WHERE CHORA = "+ id;
 		int update = this.jdbcTemplate.update(query, horasClase.getHoraInicio(), horasClase.getHoraSalida());
 		if (update == 1) {
 			return horasClase;
@@ -42,7 +42,7 @@ public class HorasClaseRepositoryImpl implements HorasClaseRepository {
 
 	@Override
 	public boolean deleteHorasClase(int chora) {
-		String query = "DELETE FROM txhoras_clase WHERE ID_HORA = ?";
+		String query = "DELETE FROM txhoras_clase WHERE CHORA = ?";
 		int success = this.jdbcTemplate.update(query, chora);
 		if (success >= 0) {
 			return true;
@@ -61,7 +61,7 @@ public class HorasClaseRepositoryImpl implements HorasClaseRepository {
 
 	@Override
 	public HorasClase getHorasClaseById(int id) {
-		String query = "SELECT * FROM txhoras_clase WHERE ID_HORA = " + id;
+		String query = "SELECT * FROM txhoras_clase WHERE CHORA = " + id;
 		List<HorasClase> horas = this.row.mapRowHorasClase(this.jdbcTemplate.queryForList(query));
 		if (horas.size() > 0) {
 			return horas.get(0);

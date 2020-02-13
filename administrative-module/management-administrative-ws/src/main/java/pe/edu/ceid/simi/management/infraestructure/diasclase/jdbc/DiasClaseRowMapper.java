@@ -23,7 +23,7 @@ public class DiasClaseRowMapper implements RowMapper {
 	public List<DiasClase> mapRowDiasClase(List<Map<String, Object>> rows){
 		List<DiasClase> diass = new ArrayList<DiasClase>();
 		for(Map<String, Object> row: rows) {
-			int cdia = Integer.parseInt(row.get("ID_DIA").toString());
+			int cdia = Integer.parseInt(row.get("CDIA").toString());
 			String descDia = row.get("NOM_DIA").toString();
 						
 			DiasClase d = new DiasClase(cdia,descDia);

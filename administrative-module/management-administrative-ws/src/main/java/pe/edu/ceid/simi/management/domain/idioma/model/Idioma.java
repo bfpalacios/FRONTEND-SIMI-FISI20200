@@ -2,34 +2,24 @@ package pe.edu.ceid.simi.management.domain.idioma.model;
 
 public class Idioma {
 
-	private int idIdioma;
-	private String nomIdioma;
+	private int cidioma;
 	private String descIdioma;
+	private String nomIdioma;
 	
-	public Idioma(int cidioma, String nomIdioma, String descIdioma) {
-		super();
-		this.idIdioma = cidioma;
-		this.nomIdioma = nomIdioma;
+	public Idioma(int cidioma, String descIdioma, String nomIdioma) {
+		this.cidioma = cidioma;
 		this.descIdioma = descIdioma;
+		this.nomIdioma = nomIdioma;
 	}
-	
 	
 	public Idioma() {
-		super();
+		
 	}
-
-
 	public int getCidioma() {
-		return idIdioma;
+		return cidioma;
 	}
 	public void setCidioma(int cidioma) {
-		this.idIdioma = cidioma;
-	}
-	public String getNomIdioma() {
-		return nomIdioma;
-	}
-	public void setNomIdioma(String nomIdioma) {
-		this.nomIdioma = nomIdioma;
+		this.cidioma = cidioma;
 	}
 	public String getDescIdioma() {
 		return descIdioma;
@@ -37,5 +27,12 @@ public class Idioma {
 	public void setDescIdioma(String descIdioma) {
 		this.descIdioma = descIdioma;
 	}
+	public String getNomIdioma() {
+		return nomIdioma;
+	}
+	public void setNomIdioma(String nomIdioma) {
+		this.nomIdioma = nomIdioma;
+	}
+	
 	
 }

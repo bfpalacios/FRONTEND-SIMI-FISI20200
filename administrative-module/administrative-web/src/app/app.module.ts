@@ -18,15 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
-import { DataTablesModule } from 'angular-datatables';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 // import { HttpModule} from '@angular/http';
-
-import {NgxPaginationModule} from 'ngx-pagination';
+// import {NgxPaginationModule} from 'ngx-pagination';
+import { MatFormFieldModule } from '@angular/material/form-field';
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
   {
@@ -85,11 +79,7 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatDialogModule,
     MatSliderModule,
-    MatFormFieldModule,
-     Ng2SearchPipeModule,
-    NgxPaginationModule,
-    MatSliderModule
-    // NgbModule
+    MatFormFieldModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-PE' }],
   bootstrap: [AppComponent]

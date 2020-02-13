@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pe.edu.ceid.simi.management.domain.usuario.model.Usuario;
-import pe.edu.ceid.simi.management.domain.usuario.model.UsuarioDTO;
 import pe.edu.ceid.simi.management.domain.usuario.repository.UsuarioRepository;
 
 
@@ -29,7 +28,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public List<UsuarioDTO> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		// TODO Auto-generated method stub
 		return this.repository.getUsuarios();
 	}
@@ -41,15 +40,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public UsuarioDTO getUsuarioById(int id) {
+	public Usuario getUsuarioById(int id) {
 		// TODO Auto-generated method stub
 		return this.repository.getUsuarioById(id);
-	}
-
-	@Override
-	public UsuarioDTO getUsuarioMod(UsuarioDTO usuario) {
-		// TODO Auto-generated method stubstub
-		return this.repository.getUsuarioMod(usuario);
 	}
 
 }

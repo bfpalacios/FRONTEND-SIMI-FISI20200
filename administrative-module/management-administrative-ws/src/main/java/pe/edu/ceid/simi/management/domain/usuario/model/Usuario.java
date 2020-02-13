@@ -1,54 +1,58 @@
 package pe.edu.ceid.simi.management.domain.usuario.model;
 
-import java.sql.Date;
-
 public class Usuario {
 	
-	private int idUsuario;
-	private String codUsuario;
-	private int idPersona;
+	private int cusuario;
+	private String nombre;
+	private String apellidoPat;
+	private String apellidoMat;
 	private String email;
 	private String contrasenia;
-	private int idRol;
-	private int estado;
-	private Date fechaAlta;
-	private Date fechaBaja;
-	private Date fechaMod;
-	private int idUsuarioMod;
+	private int dni;
+	private int genero;
+	private int crol;
 	
-	public Usuario(int idUsuario, String codUsuario, int idPersona, String email, String contrasenia, int idRol,
-			int estado, Date fechaAlta, Date fechaBaja, Date fechaMod, int idUsuarioMod) {
+	public Usuario(int cusuario, String nombre, String apellidoPat, String apellidoMat, String email,
+			String contrasenia, int dni, int genero, int crol) {
 		super();
-		this.idUsuario = idUsuario;
-		this.codUsuario = codUsuario;
-		this.idPersona = idPersona;
+		this.cusuario = cusuario;
+		this.nombre = nombre;
+		this.apellidoPat = apellidoPat;
+		this.apellidoMat = apellidoMat;
 		this.email = email;
 		this.contrasenia = contrasenia;
-		this.idRol = idRol;
-		this.estado = estado;
-		this.fechaAlta = fechaAlta;
-		this.fechaBaja = fechaBaja;
-		this.fechaMod = fechaMod;
-		this.idUsuarioMod = idUsuarioMod;
+		this.dni = dni;
+		this.genero = genero;
+		this.crol = crol;
+	}
+
+	public Usuario() {
+		super();
 	}
 	
-	public int getIdUsuario() {
-		return idUsuario;
+	public int getCusuario() {
+		return cusuario;
 	}
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setCusuario(int cusuario) {
+		this.cusuario = cusuario;
 	}
-	public String getCodUsuario() {
-		return codUsuario;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setCodUsuario(String codUsuario) {
-		this.codUsuario = codUsuario;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public int getIdPersona() {
-		return idPersona;
+	public String getApellidoPat() {
+		return apellidoPat;
 	}
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
+	public void setApellidoPat(String apellidoPat) {
+		this.apellidoPat = apellidoPat;
+	}
+	public String getApellidoMat() {
+		return apellidoMat;
+	}
+	public void setApellidoMat(String apellidoMat) {
+		this.apellidoMat = apellidoMat;
 	}
 	public String getEmail() {
 		return email;
@@ -62,41 +66,23 @@ public class Usuario {
 	public void setContrasenia(String contrasenia) {
 		this.contrasenia = contrasenia;
 	}
-	public int getIdRol() {
-		return idRol;
+	public int getDni() {
+		return dni;
 	}
-	public void setIdRol(int idRol) {
-		this.idRol = idRol;
+	public void setDni(int dni) {
+		this.dni = dni;
 	}
-	public int getEstado() {
-		return estado;
+	public int getGenero() {
+		return genero;
 	}
-	public void setEstado(int estado) {
-		this.estado = estado;
+	public void setGenero(int genero) {
+		this.genero = genero;
 	}
-	public Date getFechaAlta() {
-		return fechaAlta;
+	public int getCrol() {
+		return crol;
 	}
-	public void setFechaAlta(Date fechaAlta) {
-		this.fechaAlta = fechaAlta;
+	public void setCrol(int crol) {
+		this.crol = crol;
 	}
-	public Date getFechaBaja() {
-		return fechaBaja;
-	}
-	public void setFechaBaja(Date fechaBaja) {
-		this.fechaBaja = fechaBaja;
-	}
-	public Date getFechaMod() {
-		return fechaMod;
-	}
-	public void setFechaMod(Date fechaMod) {
-		this.fechaMod = fechaMod;
-	}
-	public int getIdUsuarioMod() {
-		return idUsuarioMod;
-	}
-	public void setIdUsuarioMod(int idUsuarioMod) {
-		this.idUsuarioMod = idUsuarioMod;
-	}
-	
+
 }

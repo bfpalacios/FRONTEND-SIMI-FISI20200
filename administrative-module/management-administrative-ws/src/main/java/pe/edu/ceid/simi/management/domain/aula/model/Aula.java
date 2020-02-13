@@ -3,37 +3,26 @@ package pe.edu.ceid.simi.management.domain.aula.model;
 
 public class Aula {
 
-	private int idAula;
-	private int idSede;
+	private int caula;
+	private int csede;
 	private String nomAula;
 	private String refAula;
+	private int capacAula;
 	
-	
-	public Aula(int idAula, int idSede, String nomAula, String refAula) {
+	public Aula(int caula, String nomAula, String refAula, int csede, int capacAula) {
 		super();
-		this.idAula = idAula;
-		this.idSede = idSede;
+		this.caula = caula;
 		this.nomAula = nomAula;
 		this.refAula = refAula;
+		this.csede = csede;
+		this.capacAula = capacAula;
 	}
 	
-	
-	public Aula() {
-		super();
+	public int getCaula() {
+		return caula;
 	}
-
-
-	public int getIdAula() {
-		return idAula;
-	}
-	public void setIdAula(int idAula) {
-		this.idAula = idAula;
-	}
-	public int getIdSede() {
-		return idSede;
-	}
-	public void setIdSede(int idSede) {
-		this.idSede = idSede;
+	public void setCaula(int caula) {
+		this.caula = caula;
 	}
 	public String getNomAula() {
 		return nomAula;
@@ -47,6 +36,17 @@ public class Aula {
 	public void setRefAula(String refAula) {
 		this.refAula = refAula;
 	}
-	
+	public int getCsede() {
+		return csede;
+	}
+	public void setCsede(int csede) {
+		this.csede = csede;
+	}
+	public int getCapacAula() {
+		return capacAula;
+	}
+	public void setCapacAula(int capacAula) {
+		this.capacAula = capacAula;
+	}
 	
 }

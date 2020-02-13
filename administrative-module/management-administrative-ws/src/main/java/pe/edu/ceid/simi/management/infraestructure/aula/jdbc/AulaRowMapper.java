@@ -24,13 +24,13 @@ public class AulaRowMapper implements RowMapper {
 	public List<AulaDTO> mapRowAula(List<Map<String, Object>> rows){
 		List<AulaDTO> aulas = new ArrayList<AulaDTO>();
 		for(Map<String, Object> row: rows) {
-			int idAula = Integer.parseInt(row.get("ID_AULA").toString());
+			int caula = Integer.parseInt(row.get("CAULA").toString());
+			int csede = Integer.parseInt(row.get("CSEDE").toString());
+			String nomSede = row.get("NOM_SEDE").toString();
 			String nomAula =row.get("NOM_AULA").toString();
 			String refAula = row.get("REF_AULA").toString();
-
-			int idSede = Integer.parseInt(row.get("FK_ID_SEDE").toString());
-			String nomSede = row.get("NOM_SEDE").toString();
-			AulaDTO a = new AulaDTO(idAula, nomAula, refAula, idSede, nomSede);
+			int capacAula = Integer.parseInt(row.get("CAPAC_AULA").toString());
+			AulaDTO a = new AulaDTO(caula, nomAula, refAula, csede, nomSede, capacAula);
 			
 			aulas.add(a);
 		}

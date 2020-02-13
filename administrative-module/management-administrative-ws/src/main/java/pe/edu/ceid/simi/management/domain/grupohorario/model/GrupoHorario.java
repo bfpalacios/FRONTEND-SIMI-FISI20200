@@ -2,26 +2,26 @@ package pe.edu.ceid.simi.management.domain.grupohorario.model;
 
 public class GrupoHorario {
 
-	private int idGrupoHorario;
-	private String nomGrupoHorario;
+	private int cgrupoHorario;
+	private int chorario;
 	
-	public GrupoHorario(int cgrupoHorario, String nomGrupoHorario) {
+	public GrupoHorario(int cgrupoHorario, int chorario) {
 		super();
-		this.idGrupoHorario = cgrupoHorario;
-		this.nomGrupoHorario = nomGrupoHorario;
+		this.cgrupoHorario = cgrupoHorario;
+		this.chorario = chorario;
 	}
 	
 	public int getCgrupoHorario() {
-		return idGrupoHorario;
+		return cgrupoHorario;
 	}
 	public void setCgrupoHorario(int cgrupoHorario) {
-		this.idGrupoHorario = cgrupoHorario;
+		this.cgrupoHorario = cgrupoHorario;
 	}
-	public String getNomGrupoHorario() {
-		return nomGrupoHorario;
+	public int getChorario() {
+		return chorario;
 	}
-	public void setNomGrupoHorario(String nomGrupoHorario) {
-		this.nomGrupoHorario = nomGrupoHorario;
+	public void setChorario(int chorario) {
+		this.chorario = chorario;
 	}
 	
 }
