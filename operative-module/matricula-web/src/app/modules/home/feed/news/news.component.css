@@ -5,6 +5,7 @@
 .btn-examen-clasificacion{
     background-color: #ee7600;
     font-size: 20px;
+    border-radius: 0px !important;
     color: white;
     border: 0px;
     padding: 8px;
@@ -34,12 +35,6 @@
 .card-feed{
     background-color: white;
 }
-
-.section-feed-news{
-
-    padding: 10px 10px 10px 10px;
-    color: white;
-  }
 
   .section-photo-new{
     background-color: #ebebeb;
