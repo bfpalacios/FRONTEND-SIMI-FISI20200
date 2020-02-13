@@ -41,7 +41,7 @@ const routes: Routes = [
 {  path: 'horarios/editar',  component: EditarHorarioComponent},
 {  path: 'idiomas',  component: IdiomasComponent},
 {  path: 'idiomas/crear',  component: CreateIdiomaComponent},
-{  path: 'idiomas/editar',  component: EditarIdiomaComponent},
+{  path: 'idiomas/editar/:id',  component: EditarIdiomaComponent},
 {  path: 'sedes',  component: SedesComponent},
 {  path: 'sedes/crear',  component: CreateSedeComponent},
 {  path: 'sedes/editar',  component: EditarSedeComponent},
