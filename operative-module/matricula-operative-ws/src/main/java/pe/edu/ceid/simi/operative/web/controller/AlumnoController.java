@@ -24,7 +24,7 @@ public class AlumnoController {
 	@Autowired
 	private AlumnoService service;
 	
-	@GetMapping(path= {"/obtenerMatriculaById/{id}"})
+	@GetMapping(path= {"/{id}"})
 	public AlumnoDTO obtenerAlumnoById(@PathVariable int id) {
 		return this.service.getAlumnoById(id);
 	}

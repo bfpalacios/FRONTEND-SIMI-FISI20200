@@ -3,12 +3,12 @@
 	{
 		"version": "1.0.0",
 		"database": {
-			"ip" : "dev-fisi.mysql.database.azure.com",
+			"ip" : "localhost",
 			"port": "3306",
 			"db" : "dbsimi",
 			"type": "mysql",
-			"username": "dev01@dev-fisi",
-			"password": "4x5ekREtTps2subelUdaf/46YcGQPWtj",
+			"username": "root",
+			"password": "",
 			"driver": "com.mysql.jdbc.Driver"
 		}
 	}
