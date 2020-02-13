@@ -26,12 +26,17 @@ public class ProgramacionRowMapper implements RowMapper{
 			int idaula = Integer.parseInt(row.get("FK_ID_AULA").toString());
 			int idgrupohorario = Integer.parseInt(row.get("FK_ID_GRUPOHORARIO").toString());
 			int estadoprog = Integer.parseInt(row.get("FK_ID_ESTADO_PROGCURSO").toString());
-			String nomCurso= row.get("NOM_CURSO").toString();
+			String nomIdioma= row.get("NOM_IDIOMA").toString();
 			String nomNivel= row.get("NOM_NIVEL").toString();
-			String nomDocente= row.get("NOM_DOCENTE").toString();
+			String nomDocente= row.get("NOMBRE").toString();
+			String appatDocente= row.get("APELLIDO_PAT").toString();
+			String apmatDocente= row.get("APELLIDO_MAT").toString();
+			String nomGrupoH = row.get("NOM_GRUPOHORARIO").toString();
+			String horaInicio = row.get("HORA_INICIO").toString();
+			String horaFin = row.get("HORA_SALIDA").toString();
 			
 			
-			ProgramacionDTO i = new ProgramacionDTO(idprogramacionCurso, iddocProg, idaula, estadoprog, idgrupohorario, nomCurso, nomNivel, nomDocente);
+			ProgramacionDTO i = new ProgramacionDTO(idprogramacionCurso, iddocProg, idaula, idgrupohorario, estadoprog, nomIdioma, nomNivel, nomDocente, appatDocente, apmatDocente, nomGrupoH, horaInicio, horaFin);
 			
 			programacion.add(i);
 		}
