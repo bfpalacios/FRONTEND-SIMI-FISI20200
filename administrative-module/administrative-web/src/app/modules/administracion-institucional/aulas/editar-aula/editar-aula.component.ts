@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Path } from 'src/app/infrastructure/constans/Path';
 import Swal from 'sweetalert2';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
@@ -13,7 +13,8 @@ import { Sede } from 'src/app/domain/Sede';
   templateUrl: './editar-aula.component.html',
   styleUrls: ['./editar-aula.component.css']
 })
-export class EditarAulaComponent implements OnInit { public id: number;
+export class EditarAulaComponent implements OnInit {
+    public id: number;
   public load: boolean;
   public loading: string;
   public empty: boolean;
@@ -21,23 +22,23 @@ export class EditarAulaComponent implements OnInit { public id: number;
   public aula: Aula;
 
   // public pmcompuesta : boolean;
-   public success: boolean;  
-   public selectedTypeIdSede : number;
-   public sedes : Sede[];
+  public success: boolean;
+  public selectedTypeIdSede: number;
+  public sedes: Sede[];
 
-  constructor(private router: Router,  private serviceAula: AulaService  ,
-    private activedRouter: ActivatedRoute,  private serviceSede: SedeService)  {
+  constructor(private router: Router, private serviceAula: AulaService,
+    private activedRouter: ActivatedRoute, private serviceSede: SedeService) {
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
     this.success = false;
     this.aula = new Aula();
 
-  }  
+  }
   ngOnInit() {
     // this.load = false;
-   this.getAula();
-   this.getSedes();
+    this.getAula();
+    this.getSedes();
 
   }
   private getSedes() {
@@ -49,11 +50,11 @@ export class EditarAulaComponent implements OnInit { public id: number;
 
   private getAula() {
     this.activedRouter.params.subscribe(data => {
-    console.log("data",data);
+      console.log("data", data);
       if (data.id !== 0) {
         this.id = data.id;
-        console.log("id ",this.id);
-        console.log("data ",data);
+        console.log("id ", this.id);
+        console.log("data ", data);
 
         this.serviceAula.getAulaById(this.id).subscribe(data => {
           this.load = false;
@@ -62,12 +63,13 @@ export class EditarAulaComponent implements OnInit { public id: number;
             this.aula = data;
             this.selectedTypeIdSede = this.aula.idSede;
             console.log(this.aula);
-           
-             } else {  this.navigateList();    }
-       
-      } ) ;  }
+
+          } else { this.navigateList(); }
+
+        });
+      }
       else {
-         this.navigateList();
+        this.navigateList();
       }
     });
   }
@@ -78,7 +80,7 @@ export class EditarAulaComponent implements OnInit { public id: number;
       return true;
     }
   }
- 
+
   private isEmpytNum(info: number, msg: string) {
     if (info === undefined || info == 0) {
       this.successText = msg;
@@ -87,7 +89,7 @@ export class EditarAulaComponent implements OnInit { public id: number;
   }
 
   private isEmpty() {
-    
+
     if (this.isEmpytText(this.aula.nomAula, Mensaje.emptyNomAula)) {
       return true;
     }
@@ -96,18 +98,18 @@ export class EditarAulaComponent implements OnInit { public id: number;
     }
 
     if (this.isEmpytNum(this.selectedTypeIdSede, Mensaje.emptySede)) {
-      
+
       return true;
     }
-   
-  } 
+
+  }
 
 
 
-  cancelar(){
+  cancelar() {
     this.navigateList();
   }
- 
+
   public guardar() {
     this.success = this.isEmpty();
     this.empty = this.isEmpty();
@@ -115,18 +117,18 @@ export class EditarAulaComponent implements OnInit { public id: number;
       //entro
       this.load = true;
       this.aula.idSede = this.selectedTypeIdSede;
-      console.log("this.aula al guardar",this.aula);
+      console.log("this.aula al guardar", this.aula);
 
       this.serviceAula.editarAulaById(this.aula, this.aula.idAula).subscribe(data => {
         if (data != null) {
-          console.log("data",data);
+          console.log("data", data);
           Swal.fire(
             'Edición Exitosa!',
-            'El aula '+this.aula.nomAula +' se edito correctamente.',
+            'El aula ' + this.aula.nomAula + ' se edito correctamente.',
             'success'
           );
-           // this.guardarCliente();
-           this.navigateList();
+          // this.guardarCliente();
+          this.navigateList();
         } else {
           this.load = false;
           this.empty = true;
@@ -141,10 +143,10 @@ export class EditarAulaComponent implements OnInit { public id: number;
     this.router.navigate(['administracionInstitucional/aulas']).then();
   }
   public eliminar() {
- console.log("this.aula",this.aula);
- 
+    console.log("this.aula", this.aula);
+
     Swal.fire({
-      title: 'Estas seguro que deseas eliminar el aula '+this.aula.nomAula +' ?',
+      title: 'Estas seguro que deseas eliminar el aula ' + this.aula.nomAula + ' ?',
       // text: "S",
       icon: 'warning',
       showCancelButton: true,
@@ -160,7 +162,7 @@ export class EditarAulaComponent implements OnInit { public id: number;
           if (data) {
             Swal.fire(
               'Eliminación Exitosa!',
-              'El aula '+this.aula.nomAula +' se eliminó correctamente.',
+              'El aula ' + this.aula.nomAula + ' se eliminó correctamente.',
               'success'
             );
             this.navigateList();
@@ -176,12 +178,13 @@ export class EditarAulaComponent implements OnInit { public id: number;
             this.successText = 'Sucedió un error con el servidor';
           }
         });
-      
-       
-      }})
-
-  } 
 
 
-  
+      }
+    })
+
+  }
+
+
+
 }
