@@ -76,10 +76,17 @@
                             <th>Idioma</th>
                             <th>Nivel</th>
                             <th>Ciclo</th>
-                            <th>Libro</th>
                         </tr>
                     </thead>
-                    <tr class="idioma">
+                    
+                    <tbody>
+                        <tr *ngFor="let plan of planes">
+                            <td>{{plan.nomIdioma}}</td>
+                            <td>{{plan.nomNivel}}</td>
+                            <td>{{plan.countCiclo}}</td>
+                        </tr>
+                    </tbody>
+                    <!-- <tr class="idioma">
                         <td rowspan="5">{{ idioma[0] }}</td>
                     </tr>
                     <tr>
@@ -240,7 +247,7 @@
                         <td> {{ ciclo[7][2] }} </td>
                         <td> {{ libro[7][0] }} </td>
                     </tr>
-
+ -->
                 </table>
             </div>
         </div>

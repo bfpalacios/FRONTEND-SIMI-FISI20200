@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlanEstudioService } from 'src/app/services/centro-idiomas/plan-estudio.service';
 
 @Component({
   selector: 'app-plan-estudio',
@@ -6,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plan-estudio.component.css']
 })
 export class PlanEstudioComponent implements OnInit {
-  Itali
-  constructor() { }
+  
+  public planes : any[];
+  constructor(private servicePlan: PlanEstudioService) { }
   ngOnInit() {
+    this.getPlanEstudio();  
+  }
+
+  public getPlanEstudio() {
+    this.servicePlan.getPlanDeEstudios().subscribe(data => {
+      this.planes = data;
+      console.log(this.planes);
+    }, error => {
+      console.log(error);
+    });
   }
   idioma = ['Inglés', 'Portugués', 'Francés', 'Italiano', 'Quechua', 'Alemán', 'Coreano', 'Japonés']
   nivel = ['Básico', 'Intermedio', 'Avanzado', 'Posgrado']

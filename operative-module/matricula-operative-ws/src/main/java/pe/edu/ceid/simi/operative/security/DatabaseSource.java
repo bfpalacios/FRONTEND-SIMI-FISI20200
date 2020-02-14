@@ -31,9 +31,13 @@ public class DatabaseSource {
 				(String)properties.get("db")+"?autoReconnect=true&useSSL=false";
 		String username = (String)properties.get("username");
 		String password ="";
+		if (properties.get("password").toString().equals("root")) {
+			password= "root";
+		} else
 		if (properties.get("password").toString().length() != 0) {
 			password = encryp(properties.get("password").toString());
 		} 
+
 		return new DatabaseSourceBuilder().driver(driver).url(url).username(username).password(password).build();
 	}
 
