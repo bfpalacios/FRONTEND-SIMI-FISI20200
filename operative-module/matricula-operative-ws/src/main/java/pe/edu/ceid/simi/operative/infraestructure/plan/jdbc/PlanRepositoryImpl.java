@@ -1,12 +1,13 @@
 package pe.edu.ceid.simi.operative.infraestructure.plan.jdbc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
-
-import pe.edu.ceid.simi.operative.domain.plan.model.Plan;
+import org.springframework.util.LinkedCaseInsensitiveMap;
 import pe.edu.ceid.simi.operative.domain.plan.model.PlanDTO;
 import pe.edu.ceid.simi.operative.domain.plan.repository.PlanRepository;
 
@@ -19,12 +20,16 @@ public class PlanRepositoryImpl implements PlanRepository{
 	@Autowired
 	private PlanRowMapper row;
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<PlanDTO> getPlan() {
-		String query = "CALL SP_PLAN_LIST";
 		
-		List<Map<String, Object>> rows = this.jdbcTemplate.queryForList(query);
-		List<PlanDTO> plan = row.mapRowPlan(rows);
-		return plan;
+		SimpleJdbcCall jdbcCall = new SimpleJdbcCall(jdbcTemplate).withProcedureName("SP_PLAN_LIST");
+		
+		 Map<String, Object> result = jdbcCall.execute();
+		 List<PlanDTO> plan = new ArrayList<>();
+		 List<LinkedCaseInsensitiveMap> r = (List<LinkedCaseInsensitiveMap>) result.values().toArray()[0];
+		 r.forEach((v) -> plan.add(row.mapRowPlan(v)));
+		 return plan;
 	}
 }

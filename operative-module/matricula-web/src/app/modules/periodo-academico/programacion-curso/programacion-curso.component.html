@@ -1,6 +1,3 @@
-
-
-
 <div>
     <div id="descargar">
         <button>Descargar en PDF</button>
@@ -8,9 +5,31 @@
 </div>
 
 <div id="container">
-    <div class="idioma">
-        <button>INGLÉS</button>
-    </div>
+
+    <table class="hitorial">
+        <thead>
+            <tr class="head">
+                <th>Idioma</th>
+                <th>Nivel</th>
+                <th>Ciclo</th>
+                <th>Docente</th>
+                <th>Horario</th>
+                <th>Matriculados </th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor="let programacion of programacion">
+                <td>{{programacion.nomIdioma}}</td>
+                <td>{{programacion.nomNivel}}</td>
+                <td>{{programacion.ciclo}}</td>
+                <td>{{programacion.nomDocente}} {{programacion.appatDocente}} {{programacion.apmatDocente}}  </td>
+                <td>{{programacion.nomGrupoH}} <br> ({{programacion.horaInicio}} - {{programacion.horaFin}})  </td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+     <!--
     <table class="hitorial">
         <thead>
             <tr class="head">
@@ -33,6 +52,7 @@
             <td><button class="btn btn-primary btn-sm " >Horario</button></td>
         </tr>
     </table>
+    
     <div class="idioma">
         <button>INGLÉS</button>
     </div>
@@ -45,7 +65,7 @@
                 <th>Horario</th>
             </tr>
         </thead>
-        <tr>
+        /<tr>
             <td>Básico I</td>
             <td>Gabriela Betorran Diaz</td>
             <td>15</td>
@@ -159,6 +179,7 @@
         </tr>
         
     </table>
+    -->
     <div id="aperturar">
         <td><button class="btn btn-primary btn-sm "  (click)="solicitarApertura()">Solicitar apertura</button></td>
     </div>

@@ -3,21 +3,21 @@ package pe.edu.ceid.simi.operative.domain.plan.model;
 public class PlanDTO {
 	private int idCurso;
 	private int idIdioma;
-	private String nomIdioma;
 	private int idNivel;
-	private String nomNivel;
 	private int ciclo;
+	private String nomIdioma;
+	private String nomNivel;
 	private int countCiclo;
 	
-	public PlanDTO(int idCurso, int idIdioma, String nomIdioma, int idNivel, String nomNivel, int ciclo,
+	public PlanDTO(int idCurso, int idIdioma, int idNivel, int ciclo, String nomIdioma, String nomNivel,
 			int countCiclo) {
 		super();
 		this.idCurso = idCurso;
 		this.idIdioma = idIdioma;
-		this.nomIdioma = nomIdioma;
 		this.idNivel = idNivel;
-		this.nomNivel = nomNivel;
 		this.ciclo = ciclo;
+		this.nomIdioma = nomIdioma;
+		this.nomNivel = nomNivel;
 		this.countCiclo = countCiclo;
 	}
 
@@ -37,28 +37,12 @@ public class PlanDTO {
 		this.idIdioma = idIdioma;
 	}
 
-	public String getNomIdioma() {
-		return nomIdioma;
-	}
-
-	public void setNomIdioma(String nomIdioma) {
-		this.nomIdioma = nomIdioma;
-	}
-
 	public int getIdNivel() {
 		return idNivel;
 	}
 
 	public void setIdNivel(int idNivel) {
 		this.idNivel = idNivel;
-	}
-
-	public String getNomNivel() {
-		return nomNivel;
-	}
-
-	public void setNomNivel(String nomNivel) {
-		this.nomNivel = nomNivel;
 	}
 
 	public int getCiclo() {
@@ -69,6 +53,22 @@ public class PlanDTO {
 		this.ciclo = ciclo;
 	}
 
+	public String getNomIdioma() {
+		return nomIdioma;
+	}
+
+	public void setNomIdioma(String nomIdioma) {
+		this.nomIdioma = nomIdioma;
+	}
+
+	public String getNomNivel() {
+		return nomNivel;
+	}
+
+	public void setNomNivel(String nomNivel) {
+		this.nomNivel = nomNivel;
+	}
+
 	public int getCountCiclo() {
 		return countCiclo;
 	}
@@ -76,5 +76,7 @@ public class PlanDTO {
 	public void setCountCiclo(int countCiclo) {
 		this.countCiclo = countCiclo;
 	}
+	
+	
 	
 }

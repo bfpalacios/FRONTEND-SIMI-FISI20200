@@ -26,6 +26,8 @@ public class PlanController {
 	@Autowired
 	private PlanService service;
 	
+	
+	//@GetMapping(path = {"/listPlan/{id}"})
 	@GetMapping(path = {"/listPlan"})
 	public List<PlanDTO> getPlan() {
 		return this.service.getPlan();
