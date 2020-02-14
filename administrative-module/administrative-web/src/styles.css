@@ -356,3 +356,10 @@ color: white;
   width: 35px;
   height: 35px;
 }
+
+.header-user-list {
+  background-color: #e6e6e6;
+  color: white;
+  font-size: 17px;
+  height: 50px;
+}

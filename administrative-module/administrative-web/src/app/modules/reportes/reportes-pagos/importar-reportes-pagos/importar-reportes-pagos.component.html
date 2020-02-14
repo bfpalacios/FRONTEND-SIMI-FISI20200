@@ -1,18 +1,19 @@
 <div class="header-user-list" style="font-weight: lighter;">
-    <button 
-    class="btn btn-import" (click)="importarPagos()">
-    <i class="mdi mdi-upload mr-1"></i>
-    Importar pagos
-</button> 
+    <button *ngIf="fileLoaded" class="btn btn-import" (click)="guardar()">
+        <i class="mdi mdi-content-save mr-1"></i>
+        Guardar
+    </button>
+    <button class="btn btn-import" (click)="reportPagos()">
+        <i class="mdi mdi-close mr-1"></i>
+        Cancelar
+    </button>
 </div>
 
-<div class="m-3">
-    <select class="form-control form-control-md">
-        <option>Seleccionar Ciclo Académico</option>
-        <option>Febrero 2020</option>
-        <option>Enero 2020</option>
-        <option>Diciembre 2019</option>
-    </select>
+<div *ngIf="!fileLoaded" style="height: 100%; display: flex; justify-content: center; align-items: center;">
+    <div *ngIf="load" class="div-loading"><img class="loading" src="{{loading}}" /></div>
+    <ejs-uploader #defaultupload (selected)='onFileRemove($event)' (change)="onSuccess($event)"></ejs-uploader>
+</div>
+<div *ngIf="fileLoaded" class="table-responsive">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -24,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr *ngFor="let pago of pagos">
+            <tr *ngFor="let pago of pagos">
                 <td>
                     {{pago.cod}}
                 </td>
@@ -40,7 +41,7 @@
                 <td>
                     {{pago.importe}}
                 </td>
-            </tr> -->
+            </tr>
         </tbody>
     </table>
 </div>
