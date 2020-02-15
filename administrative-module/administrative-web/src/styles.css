@@ -152,7 +152,7 @@
   background: rgb(252, 64, 74);
 }
 .btn-nuevo:hover{
-  background: silver;
+  background: rgb(168, 168, 168);
 }
 
 .btn-habilitado{
@@ -355,11 +355,4 @@ color: white;
 .loading{
   width: 35px;
   height: 35px;
-}
-
-.header-user-list {
-  background-color: #e6e6e6;
-  color: white;
-  font-size: 17px;
-  height: 50px;
 }
