@@ -3,6 +3,8 @@ import * as XLSX from 'xlsx';
 import { UploaderComponent } from '@syncfusion/ej2-angular-inputs';
 import { Router } from '@angular/router';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import { ReportePagosService } from 'src/app/services/reportes/reporte-pagos.service';
+import { Voucher } from 'src/app/domain/Voucher';
 @Component({
   selector: 'app-importar-reportes-pagos',
   templateUrl: './importar-reportes-pagos.component.html',
@@ -10,19 +12,21 @@ import { Path } from 'src/app/infrastructure/constans/Path';
 })
 export class ImportarReportesPagosComponent implements OnInit {
 
-  @ViewChild('defaultupload', {static: true}) uploadObj: UploaderComponent;
+  @ViewChild('defaultupload', { static: true }) uploadObj: UploaderComponent;
 
   public fileLoaded: boolean;
-  public pagos: any[];
+  public vouchers: any[];
+  public vouchersR: Voucher[];
   public load: boolean;
   public loading: string;
   constructor(
-    private router: Router
+    private router: Router,
+    private servicePagos: ReportePagosService
   ) {
     this.load = false;
     this.loading = Path.loading;
     this.fileLoaded = false;
-   }
+  }
 
   ngOnInit() {
   }
@@ -39,9 +43,9 @@ export class ImportarReportesPagosComponent implements OnInit {
       const workbook = XLSX.read(data, {
         type: 'binary'
       });
-      workbook.SheetNames.forEach(( (sheetName) => {
+      workbook.SheetNames.forEach(((sheetName) => {
         const xlRowObject = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);
-        this.pagos = xlRowObject;
+        this.vouchers = xlRowObject;
         this.fileLoaded = true;
         this.load = false;
       }).bind(this), this);
@@ -58,12 +62,39 @@ export class ImportarReportesPagosComponent implements OnInit {
     this.parseExcel(files[0]);
   }
 
+  private savePagos() {
+    this.vouchersR = [];
+    console.log(this.vouchers);
+    let vouchercito: Voucher;
+    this.vouchers.forEach(v => {
+      vouchercito = new Voucher();
+      vouchercito.transformatVoucher(v);
+      this.vouchersR.push(vouchercito);
+    });
+    console.log(this.vouchersR);
+    this.servicePagos.saveVouchers(this.vouchersR).subscribe(data => {
+      if (data) {
+        this.load = false;
+        this.router.navigate(['reportes/pagos']).then();
+      } else {
+        console.log('No guardado');
+      }
+    }, () => {
+      console.log('ERROR');
+    });
+  }
   public reportPagos() {
     this.router.navigate(['reportes/pagos']).then();
   }
 
   public guardar() {
-    this.router.navigate(['reportes/pagos']).then();
+    this.load = true;
+    if (this.vouchers === undefined || this.vouchers.length === 0) {
+      this.load = false;
+    } else {
+      this.load = true;
+      this.savePagos();
+    }
   }
 
 }
