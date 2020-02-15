@@ -8,9 +8,10 @@ public class PlanDTO {
 	private String nomIdioma;
 	private String nomNivel;
 	private int countCiclo;
+	private String libro;
 	
-	public PlanDTO(int idCurso, int idIdioma, int idNivel, int ciclo, String nomIdioma, String nomNivel,
-			int countCiclo) {
+	public PlanDTO(int idCurso, int idIdioma, int idNivel, int ciclo, String nomIdioma, String nomNivel, int countCiclo,
+			String libro) {
 		super();
 		this.idCurso = idCurso;
 		this.idIdioma = idIdioma;
@@ -19,6 +20,7 @@ public class PlanDTO {
 		this.nomIdioma = nomIdioma;
 		this.nomNivel = nomNivel;
 		this.countCiclo = countCiclo;
+		this.libro = libro;
 	}
 
 	public int getIdCurso() {
@@ -76,7 +78,13 @@ public class PlanDTO {
 	public void setCountCiclo(int countCiclo) {
 		this.countCiclo = countCiclo;
 	}
-	
-	
+
+	public String getLibro() {
+		return libro;
+	}
+
+	public void setLibro(String libro) {
+		this.libro = libro;
+	}
 	
 }

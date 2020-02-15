@@ -6,10 +6,10 @@
         <hr />
     </div>
 
-    <!-- <div>
-    <button>Descargar en PDF</button>
-</div> -->
-    <div class="row">
+    <div>
+        <button>Descargar en PDF</button>
+    </div>
+    <div class="row" style="margin-right: 80px; margin-left: 80px; margin-top: 50px;">
         <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
             <div class="section-matricula">
                 <span>
@@ -68,22 +68,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-5 col-md-6 col-sm-12 mb-3">
-            <div id="container">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+            <div id="container" class="section-matricula">
                 <table>
                     <thead>
                         <tr class="head">
                             <th>Idioma</th>
                             <th>Nivel</th>
                             <th>Ciclo</th>
+                            <th>Libro</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         <tr *ngFor="let plan of planes">
                             <td>{{plan.nomIdioma}}</td>
                             <td>{{plan.nomNivel}}</td>
                             <td>{{plan.countCiclo}}</td>
+                            <td> {{plan.libro}} </td>
                         </tr>
                     </tbody>
                     <!-- <tr class="idioma">

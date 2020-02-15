@@ -23,13 +23,21 @@ hr {
 }
 
 #container {
-    width: 600px;
+    width: 1200px;
     margin: 150px auto;
     margin-top: 40px;
 }
 
-button {
+.btn-descargar {
     background: #00CC99;
+    border-radius: 5px;
+    border-style: none;
+    color: #ffffff;
+    float: right;
+}
+
+button {
+    background: #197dda;
     border-radius: 5px;
     border-style: none;
     color: #ffffff;
@@ -39,7 +47,7 @@ button {
     width: 100%;
     text-align: center;
     background-color: white;
-width: 800px;
+    width: 800px;
 }
 
 thead {
@@ -52,14 +60,17 @@ th {
     border-bottom: rgb(148, 148, 148) solid 1px;
     border-top: rgb(148, 148, 148) solid 1px;
 }
-#descargar{
+
+#descargar {
     float: right;
     margin-right: 30px;
 }
-.idioma{
-    float: left; 
-    margin-bottom: 20px;  
+
+.idioma {
+    float: left;
+    margin-bottom: 20px;
 }
+
 tr {
     /* border-radius: 10px; */
     padding: 8px;
@@ -73,7 +84,20 @@ tr {
 tr:hover {
     background: rgb(238, 236, 236);
 }
-#aperturar{
+
+#aperturar {
     margin-top: 20px;
-    float:right;
+    float: right;
+}
+
+.btn-none {
+    border-radius: 8px;
+    border: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 35px;
+    height: 35px;
+    cursor: inherit;
 }

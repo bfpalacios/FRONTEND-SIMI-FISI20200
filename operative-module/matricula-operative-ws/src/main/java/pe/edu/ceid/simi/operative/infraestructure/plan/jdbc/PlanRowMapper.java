@@ -25,8 +25,9 @@ public class PlanRowMapper implements RowMapper{
 			String nomIdioma =row.get("NOM_IDIOMA").toString();
 			String nomNivel = row.get("NOM_NIVEL").toString();
 			int countCiclo = Integer.parseInt(row.get("COUNTCICLO").toString());
+			String libro = row.get("LIBRO").toString();
 			
-			PlanDTO i = new PlanDTO(idCurso, idIdioma, idNivel, ciclo, nomIdioma, nomNivel, countCiclo);
+			PlanDTO i = new PlanDTO(idCurso, idIdioma, idNivel, ciclo, nomIdioma, nomNivel, countCiclo, libro);
 
 		
 		return i;
