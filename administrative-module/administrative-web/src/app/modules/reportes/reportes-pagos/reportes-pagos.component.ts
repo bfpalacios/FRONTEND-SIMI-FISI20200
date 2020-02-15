@@ -8,11 +8,20 @@ import { Router } from '@angular/router';
 })
 export class ReportesPagosComponent implements OnInit {
 
+  public pagosEmty: boolean;
+  public pagos: any[];
+
   constructor(
     private router: Router
-  ) { }
+  ) {
+   }
 
   ngOnInit() {
+    this.loadPagos();
+  }
+
+  private loadPagos() {
+    this.pagos = [];
   }
 
   public importarPagos() {
