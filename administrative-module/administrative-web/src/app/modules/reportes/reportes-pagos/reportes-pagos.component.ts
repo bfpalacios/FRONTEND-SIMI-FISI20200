@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReportePagosService } from 'src/app/services/reportes/reporte-pagos.service';
+import { Path } from 'src/app/infrastructure/constans/Path';
 
 @Component({
   selector: 'app-reportes-pagos',
@@ -11,9 +13,14 @@ export class ReportesPagosComponent implements OnInit {
   public pagosEmty: boolean;
   public pagos: any[];
 
+  load: boolean;
+  loading: string;
   constructor(
-    private router: Router
+    private router: Router,
+    private servicePagos: ReportePagosService
   ) {
+    this.load = true;
+    this.loading = Path.loading;
    }
 
   ngOnInit() {
@@ -21,7 +28,10 @@ export class ReportesPagosComponent implements OnInit {
   }
 
   private loadPagos() {
-    this.pagos = [];
+    this.servicePagos.getVouchers().subscribe(data => {
+      this.load = false;
+      this.pagos = data;
+    });
   }
 
   public importarPagos() {

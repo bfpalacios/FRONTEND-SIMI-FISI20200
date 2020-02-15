@@ -5,6 +5,8 @@
     Importar pagos
 </button> 
 </div>
+<div *ngIf="load" class="div-loading">
+    <img class="loading" src="{{loading}}" /></div>
 
 <div class="simi-card">
     <div *ngIf="pagos?.length === 0">

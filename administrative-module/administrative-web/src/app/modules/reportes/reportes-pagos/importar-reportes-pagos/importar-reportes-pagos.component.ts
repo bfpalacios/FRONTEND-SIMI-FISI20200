@@ -3,6 +3,7 @@ import * as XLSX from 'xlsx';
 import { UploaderComponent } from '@syncfusion/ej2-angular-inputs';
 import { Router } from '@angular/router';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import { ReportePagosService } from 'src/app/services/reportes/reporte-pagos.service';
 @Component({
   selector: 'app-importar-reportes-pagos',
   templateUrl: './importar-reportes-pagos.component.html',
@@ -17,7 +18,8 @@ export class ImportarReportesPagosComponent implements OnInit {
   public load: boolean;
   public loading: string;
   constructor(
-    private router: Router
+    private router: Router,
+    private servicePagos: ReportePagosService
   ) {
     this.load = false;
     this.loading = Path.loading;
@@ -58,6 +60,15 @@ export class ImportarReportesPagosComponent implements OnInit {
     this.parseExcel(files[0]);
   }
 
+  private savePagos() {
+    this.servicePagos.savePagos(vouchers).subscribe(data => {
+      if (data) {
+        console.log('Guardado');
+      } else {
+        console.log('No guardado');
+      }
+    });
+  }
   public reportPagos() {
     this.router.navigate(['reportes/pagos']).then();
   }
