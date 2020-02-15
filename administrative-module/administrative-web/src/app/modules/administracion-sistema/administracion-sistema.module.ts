@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdministracionSistemaRoutingModule } from './administracion-sistema-routing.module';
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { SistemaGeneralComponent } from './sistema-general/sistema-general.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,8 @@ import { SistemaGeneralComponent } from './sistema-general/sistema-general.compo
   declarations: [ConfiguracionComponent, SistemaGeneralComponent],
   imports: [
     CommonModule,
-    AdministracionSistemaRoutingModule
+    AdministracionSistemaRoutingModule,
+    FormsModule
   ]
 })
 export class AdministracionSistemaModule { }
