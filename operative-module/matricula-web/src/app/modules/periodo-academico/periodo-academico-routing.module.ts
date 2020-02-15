@@ -4,7 +4,7 @@ import { MatriculaOnlineComponent } from './matricula-online/matricula-online.co
 import { MatricularComponent } from './matricula-online/matricular/matricular.component';
 import { VerificarMatriculaComponent } from './matricula-online/matricular/verificar-matricula/verificar-matricula.component';
 import { ProgramacionCursoComponent } from './programacion-curso/programacion-curso.component';
-import { SolicitarAperturaCursoComponent } from './programacion-cuso/solicitar-apertura-curso/solicitar-apertura-curso.component';
+import { SolicitarAperturaCursoComponent } from './programacion-curso/solicitar-apertura-curso/solicitar-apertura-curso.component';
 
 const routes: Routes = [
   {

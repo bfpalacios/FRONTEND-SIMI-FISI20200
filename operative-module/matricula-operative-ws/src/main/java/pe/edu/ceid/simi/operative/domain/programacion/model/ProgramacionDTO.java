@@ -9,16 +9,12 @@ public class ProgramacionDTO {
 	private String nomIdioma;
 	private String nomNivel;
 	private int ciclo;
-	private String nomDocente;
-	private String appatDocente;
-	private String apmatDocente;
+	private String docente;
 	private String nomGrupoH;
-	private String horaInicio;
-	private String horaFin;
+	private String hora;
 	
 	public ProgramacionDTO(int idpProgramacionCurso, int idDocProg, int idAula, int idGrupohorario, int estadoProg,
-			String nomIdioma, String nomNivel, int ciclo, String nomDocente, String appatDocente, String apmatDocente,
-			String nomGrupoH, String horaInicio, String horaFin) {
+			String nomIdioma, String nomNivel, int ciclo, String docente, String nomGrupoH, String hora) {
 		super();
 		this.idpProgramacionCurso = idpProgramacionCurso;
 		this.idDocProg = idDocProg;
@@ -28,12 +24,9 @@ public class ProgramacionDTO {
 		this.nomIdioma = nomIdioma;
 		this.nomNivel = nomNivel;
 		this.ciclo = ciclo;
-		this.nomDocente = nomDocente;
-		this.appatDocente = appatDocente;
-		this.apmatDocente = apmatDocente;
+		this.docente = docente;
 		this.nomGrupoH = nomGrupoH;
-		this.horaInicio = horaInicio;
-		this.horaFin = horaFin;
+		this.hora = hora;
 	}
 
 	public int getIdpProgramacionCurso() {
@@ -100,28 +93,12 @@ public class ProgramacionDTO {
 		this.ciclo = ciclo;
 	}
 
-	public String getNomDocente() {
-		return nomDocente;
+	public String getDocente() {
+		return docente;
 	}
 
-	public void setNomDocente(String nomDocente) {
-		this.nomDocente = nomDocente;
-	}
-
-	public String getAppatDocente() {
-		return appatDocente;
-	}
-
-	public void setAppatDocente(String appatDocente) {
-		this.appatDocente = appatDocente;
-	}
-
-	public String getApmatDocente() {
-		return apmatDocente;
-	}
-
-	public void setApmatDocente(String apmatDocente) {
-		this.apmatDocente = apmatDocente;
+	public void setDocente(String docente) {
+		this.docente = docente;
 	}
 
 	public String getNomGrupoH() {
@@ -132,22 +109,12 @@ public class ProgramacionDTO {
 		this.nomGrupoH = nomGrupoH;
 	}
 
-	public String getHoraInicio() {
-		return horaInicio;
+	public String getHora() {
+		return hora;
 	}
 
-	public void setHoraInicio(String horaInicio) {
-		this.horaInicio = horaInicio;
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
-
-	public String getHoraFin() {
-		return horaFin;
-	}
-
-	public void setHoraFin(String horaFin) {
-		this.horaFin = horaFin;
-	}
-	
-	
 	
 }
