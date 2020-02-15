@@ -34,9 +34,9 @@ public class ProgramacionRowMapper implements RowMapper{
 			String docente= row.get("DOCENTE").toString();
 			String nomGrupoH = row.get("NOM_GRUPOHORARIO").toString();
 			String hora = row.get("HORA").toString();
+			int matriculados = Integer.parseInt(row.get("MATRICULADOS").toString());
 			
-			
-			ProgramacionDTO i = new ProgramacionDTO(idProgramacionCurso, idDocProg, idAula, idGrupohorario, estadoProg, nomIdioma, nomNivel,ciclo, docente, nomGrupoH, hora);
+			ProgramacionDTO i = new ProgramacionDTO(idProgramacionCurso, idDocProg, idAula, idGrupohorario, estadoProg, nomIdioma, nomNivel,ciclo, docente, nomGrupoH, hora, matriculados);
 			
 		
 		return i;
