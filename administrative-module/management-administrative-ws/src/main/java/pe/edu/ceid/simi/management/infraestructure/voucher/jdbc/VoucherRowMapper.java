@@ -13,9 +13,9 @@ public class VoucherRowMapper {
 			int secuencia = Integer.parseInt(row.get("SECUENCIA").toString());
 			String descripcion = row.get("DESCRIPCION").toString();
 			String nroDocumento = row.get("NRODOCUMENTO").toString();
-			float importe = Float.parseFloat(row.get("NOM_IDIOMA").toString());
-			String fecha = row.get("NOM_NIVEL").toString();
-			String hora = row.get("COUNTCICLO").toString();
+			float importe = Float.parseFloat(row.get("IMPORTE").toString());
+			String fecha = row.get("FECHA").toString();
+			String hora = row.get("HORA").toString();
 
 		return VoucherDTO.builder().codigo(codigo).secuencia(secuencia).descripcion(descripcion).nroDocumento(nroDocumento).importe(importe).fecha(fecha).hora(hora).build();
 	}

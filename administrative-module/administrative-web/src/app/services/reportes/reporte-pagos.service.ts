@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import { Voucher } from 'src/app/domain/Voucher';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,10 @@ export class ReportePagosService {
   }
 
   public getVouchers() {
-    return this.http.get<any[]>(this.url + '/vouchers');
+    return this.http.get<Voucher[]>(this.url + '/vouchers');
   }
 
-  public saveVouchers(vouchers: any) {
+  public saveVouchers(vouchers: Voucher[]) {
     return this.http.post<boolean>(this.url + '/vouchers', vouchers);
   }
 }

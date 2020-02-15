@@ -39,15 +39,18 @@ public class VoucherRepositoryImpl implements VoucherRepository {
 
 	@Override
 	public boolean saveVouchers(List<Voucher> vouchers) {
+		System.out.println("Entrando ->" + vouchers.size());
 		this.statusInsert = 0;
-		String query = "INSERT INTO TMVOUCHERS " +
-				" (`COD`, `SEC`, `DESCRIPCION`, `T`, `NRODOCUMENTO`, `NR`, `IMPORTE`, `COMILLA`,`FECHA`, `HORA`, `C`, `AGENCIA`, `CAJERO`, `FILLER`, `MOD_MANUAL`)" +
-				" VALUES ('?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?')";
+		String query = "INSERT INTO TMVOUCHER " +
+				" (COD, SEC, DESCRIPCION, T, NRODOCUMENTO, NR, IMPORTE, COMILLA,FECHA, HORA, C, AGENCIA, CAJERO, FILLER, MOD_MANUAL)" +
+				" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		vouchers.forEach(v -> {
+			System.out.println("Entrando -> " + v.getCodigo());
 			this.statusInsert = 
 			this.jdbcTemplate.update(query, 
 					v.getCodigo(),
 					v.getSecuencia(),
+					v.getDescripcion(),
 					v.getT(),
 					v.getNroDocumento(),
 					v.getNr(),
