@@ -39,7 +39,7 @@ export class ImportarReportesPagosComponent implements OnInit {
     this.load = true;
     const reader = new FileReader();
     reader.onload = (e) => {
-      const data = (<any>e.target).result;
+      const data = (e.target as any).result;
       const workbook = XLSX.read(data, {
         type: 'binary'
       });
