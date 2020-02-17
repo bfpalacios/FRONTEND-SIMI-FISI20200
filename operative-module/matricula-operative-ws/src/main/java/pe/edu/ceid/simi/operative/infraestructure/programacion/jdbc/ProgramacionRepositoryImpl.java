@@ -8,8 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedCaseInsensitiveMap;
-
-import pe.edu.ceid.simi.operative.domain.plan.model.PlanDTO;
 import pe.edu.ceid.simi.operative.domain.programacion.model.ProgramacionDTO;
 import pe.edu.ceid.simi.operative.domain.programacion.repository.ProgramacionRepository;
 

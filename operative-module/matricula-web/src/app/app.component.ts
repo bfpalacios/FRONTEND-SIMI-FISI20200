@@ -2,7 +2,6 @@ import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { AutorizacionServiceService } from './services/autorizacion-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,8 +18,7 @@ export class AppComponent implements OnInit {
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    private router: Router,
-    private autorizacion: AutorizacionServiceService) {
+    private router: Router) {
     this.date = Date.now();
     this.mobile = media.matchMedia('(max-width: 500px)');
     this.mobileListener = () => changeDetectorRef.detectChanges();
@@ -28,12 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.autorizacion.accederSistema('U000001', '1').subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  oink(){
   }
 
   ngOnDestroy(): void {

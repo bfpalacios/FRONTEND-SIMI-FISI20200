@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 
 import localePe from '@angular/common/locales/es-PE';
 import { HttpClientModule } from '@angular/common/http';
+import { DataServiceService } from './services/data-service.service';
 
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
@@ -44,6 +45,10 @@ const appRoutes: Routes = [
   },
 ];
 
+export function get_settings(dataService: DataServiceService) {
+  return () => dataService.accederSistema();
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +68,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'es-PE' } ],
+  providers: [
+  { provide: LOCALE_ID, useValue: 'es-PE' },
+  { provide: APP_INITIALIZER, useFactory: get_settings, deps: [DataServiceService], multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

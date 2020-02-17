@@ -11,7 +11,9 @@ public class AutenticacionRowMapper {
 
 	public Autorizacion mapRow(Map<String, Object> row){
 		return Autorizacion.builder()
-                .codigo(row.get("CCODIGO").toString())
-                .tipo(Integer.parseInt(row.get("CTIPOUSUARIO").toString())).build();
+				.email(row.get("EMAIL").toString())
+                .codigo(Integer.parseInt(row.get("ID_USUARIO").toString()))
+                .codPersona(Integer.parseInt(row.get("FK_ID_PERSONA").toString()))
+                .tipo(Integer.parseInt(row.get("FK_ID_ROL").toString())).build();
 	}
 }
