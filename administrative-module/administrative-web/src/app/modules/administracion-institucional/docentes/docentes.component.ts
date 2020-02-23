@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DocenteDTO } from 'src/app/domain/DocenteDTO';
-import { DocenteService } from 'src/app/services/administracion/AdmInstitucional/docente.service';
+import { DocenteUPService } from 'src/app/services/administracion/AdmInstitucional/docenteUP.service';
 import Swal from 'sweetalert2';
+import { DocenteUP } from 'src/app/domain/DocenteUP';
 
 @Component({
   selector: 'app-docentes',
@@ -13,16 +13,16 @@ export class DocentesComponent implements OnInit {
   estado: boolean;
   prueba : string;
   public id: number;
-  docente: DocenteDTO;
-   docentesdto: DocenteDTO[];
+  docenteUP: DocenteUP;
+   docentesUP: DocenteUP[];
   // estadomesa : EstadoMesa;
   load: boolean;
   loading: string;
-   constructor(private router: Router  ,private docenteService: DocenteService , 
+   constructor(private router: Router  ,private docenteUPService: DocenteUPService , 
     // private serviceestadomesa: EstadoMesasService 
     ) {
      this.estado = false;
-     this.docente = new DocenteDTO();
+     this.docenteUP = new DocenteUP();
     }
 
 
@@ -35,29 +35,29 @@ export class DocentesComponent implements OnInit {
   }
   obtenerDocentes() {
     console.log("antes");
-    this.docenteService.getDocentes().subscribe(data => {
+    this.docenteUPService.getDocentesUP().subscribe(data => {
       this.load = false;
-      this.docentesdto = data;
+      this.docentesUP = data;
 
-      console.log("docentesdto", this.docentesdto);
+      console.log("docentesUP", this.docentesUP);
 
     }
     )
   }
 
-  nuevoCurso() {
+  nuevoDocente() {
     
     this.router.navigate(['administracionInstitucional/docentes/crear']).then();
   }
   // editarAlumno(id: number) 
-  editarDocente() { 
+  editar(id: number) { 
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/docentes/editar']).then();
+    this.router.navigate(['administracionInstitucional/docentes/editar/' + id]).then();
   }
 
   public eliminarDocente(id: number) {
     console.log(id);
-    
+    /*
     this.docenteService.getDocenteById(id).subscribe(o => {
       if (o !== null) {
         this.docente  = o; 
@@ -108,7 +108,7 @@ export class DocentesComponent implements OnInit {
 
          } else {  this.navigateList();    }
    
-  } ) ;
+  } ) ;*/
 
   }
   private navigateList() {

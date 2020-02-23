@@ -9,21 +9,10 @@ import { SistemaMatriculaService } from './services/sistema/sistema-matricula.se
 export class AppComponent implements OnInit {
   title = 'login-web';
 
-  constructor(private service: SistemaMatriculaService) {
+  constructor() {
 
   }
 
   ngOnInit() {
-    this.verificarSistema();
-  }
-
-  public verificarSistema() {
-    this.service.verificarSistemaMatricula().subscribe(data => {
-      if (data) {
-        console.log(data);
-      }
-    }, error => {
-      console.log(error);
-    });
   }
 }

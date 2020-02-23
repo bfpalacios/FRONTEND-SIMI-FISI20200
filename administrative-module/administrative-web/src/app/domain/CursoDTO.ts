@@ -1,8 +1,9 @@
 export class CursoDTO {
-    ccurso: number;
-    cidioma: number;
+    idCurso: number;
+    idIdioma: number;
     nomIdioma: string;
-    cnivel: number;
+    idNivel: number;
     nomNivel: string;
     ciclo: number;
+    libro: string;
 }

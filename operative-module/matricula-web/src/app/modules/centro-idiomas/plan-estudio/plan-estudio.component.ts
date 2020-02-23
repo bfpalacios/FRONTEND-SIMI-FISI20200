@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanEstudioService } from 'src/app/services/centro-idiomas/plan-estudio.service';
 
+
 @Component({
   selector: 'app-plan-estudio',
   templateUrl: './plan-estudio.component.html',

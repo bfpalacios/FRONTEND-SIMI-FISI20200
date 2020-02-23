@@ -6,7 +6,8 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { BannerLoginComponent } from './login/banner-login/banner-login.component';
 import { SectionButtonsComponent } from './login/section-buttons/section-buttons.component';
 import { SectionButtonsResponsiveComponent } from './login/section-buttons-responsive/section-buttons-responsive.component';
-
+import { FormLoginComponent } from './login/form-login/form-login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +16,13 @@ import { SectionButtonsResponsiveComponent } from './login/section-buttons-respo
     CreateAccountComponent,
     BannerLoginComponent,
     SectionButtonsComponent,
-    SectionButtonsResponsiveComponent
+    SectionButtonsResponsiveComponent,
+    FormLoginComponent,
   ],
   imports: [
     CommonModule,
     ModuleLoginRoutingModule,
+    FormsModule
   ]
 })
 export class ModuloLoginModule { }

@@ -1,26 +1,27 @@
-
-#all{
-    width: 800px;
-    margin: 70px auto;
+#all {
+    width: 1000px;
+    margin: auto auto;
     height: 400px;
-
-    
 }
-h2{
+
+h2 {
     font-size: 50px;
     margin-top: 30px;
 }
+
 hr {
     text-align: center;
 }
-.contenedor{
+
+.contenedor {
     width: 900px;
-    height: 110px;
+    height: 200px;
+    padding-bottom: 300px;
     margin: auto;
     margin-top: 40px;
-
-    margin-bottom: 20px;
+    margin-bottom: 300px;
 }
+
 table {
     width: 100%;
     background-color: white;
@@ -28,40 +29,42 @@ table {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.combo{
-    width: 800px;
+
+.combo {
+    width: 1000px;
     height: 150px;
-    margin: auto;
-    margin-top: 80px;
-
-
+    margin: 50px;
+    margin-top: 150px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
-.boton{
+
+.boton {
     width: 800px;
     height: 30px;
     margin: auto;
-
     margin-bottom: 10px;
 }
 
-p{
+p {
     margin-top: 50px;
     margin-left: 400px;
 }
 
-
-#botonEnvvio{
+#botonEnvvio {
     margin-top: 80px;
 }
 
-.combito{
+.combito {
     float: left;
-    margin-left: 83px;
+    margin-left: 20px;
     margin-top: 30px;
 }
-#botonSolicitar{
+
+#botonSolicitar {
     font-size: 20px;
 }
+
 thead {
     background-color: #096AC6;
     color: white;
@@ -86,13 +89,16 @@ tr {
 tr:hover {
     background: rgb(238, 236, 236);
 }
-button:hover{
+
+button:hover {
     background-color: #333333;
 }
-td{
+
+td {
     padding-top: 12px;
     padding-bottom: 12px;
 }
-label{
+
+label {
     font-size: 20px;
 }

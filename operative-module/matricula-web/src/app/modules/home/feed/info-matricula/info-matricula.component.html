@@ -1,16 +1,10 @@
-<div class="info-matricula">
-    <div>
-        <button class="btn-blue-d mb-2" (click)="goMatriculaOnline()">
-            <i class="mdi mdi-book-variant-multiple" style="font-size: 25px;"></i><br />
-            Matrícula Online
-        </button>
-        <button class="btn-blue-d mb-2" (click)="goCicloAcademico()">
-            <i class="mdi mdi-book-open-variant" style="font-size: 25px;"></i><br />
-            Ciclo Académico
-        </button>
-        <button class="btn-blue-d mb-2" (click)="goConceptoPago()">
-            <i class="mdi mdi-credit-card-outline" style="font-size: 25px;"></i><br />
-            Conceptos de Pago
-        </button>
+<div class="simi-card">
+    <div class="row">
+        <div *ngFor="let buttonInfo of buttonsInfo" class="col-md-6 col-lg-12">
+            <button class="btn" [ngClass]="buttonInfo.color" (click)="navigate(buttonInfo.router)" style="width: 100%;">
+                <i class="mdi" [ngClass]="buttonInfo.icon" style="font-size: 25px;"></i><br />
+                {{buttonInfo.title}}
+            </button>
+        </div>
     </div>
 </div>

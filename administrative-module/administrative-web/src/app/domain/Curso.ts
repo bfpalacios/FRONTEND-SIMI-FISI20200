@@ -1,6 +1,7 @@
 export class Curso {
-    ccurso: number;
-    cidioma: number;
-    cnivel: number;
+    idCurso: number;
+    idIdioma: number;
+    idNivel: number;
     ciclo: number; 
+    libro:string;
 }

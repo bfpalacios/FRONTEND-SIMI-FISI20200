@@ -77,9 +77,9 @@ export class EditarIdiomaComponent implements OnInit {
     if (this.isEmpytText(this.idioma.nomIdioma, Mensaje.emptyNomIdioma)) {
       return true;
     }
-    if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
-      return true;
-    }
+    // if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
+    //   return true;
+    // }
    
   } 
 
@@ -96,7 +96,7 @@ export class EditarIdiomaComponent implements OnInit {
       //entro
       this.load = true;
       console.log("this.idioma al guardar",this.idioma);
-      this.idiomaService.editarIdiomaById(this.idioma, this.idioma.cidioma).subscribe(data => {
+      this.idiomaService.editarIdiomaById(this.idioma, this.idioma.idIdioma).subscribe(data => {
         if (data != null) {
           console.log("data",data);
           Swal.fire(
@@ -135,7 +135,7 @@ export class EditarIdiomaComponent implements OnInit {
       if (result.value) {
 
         this.load = true;
-        this.idiomaService.deleteIdiomaById(this.idioma.cidioma).subscribe(data => {
+        this.idiomaService.deleteIdiomaById(this.idioma.idIdioma).subscribe(data => {
           if (data) {
             Swal.fire(
               'Eliminación Exitosa!',

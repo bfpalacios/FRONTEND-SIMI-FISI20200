@@ -1,4 +1,4 @@
-<div style="height: 92%;">
+<div style="height: 92%; margin-top: 55px;">
     <mat-sidenav-container class="sidenav-container" style="height: 100%;">
         <mat-sidenav #snav [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
             style="background: #e9ebee; width: 280px;">
@@ -74,13 +74,15 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
                         <div>
                             <span>Máximo de Cursos:</span>
-                            <span class="ml-2"><b>2</b></span>
+                            <span class="ml-2">
+                                <b>{{maxCursos}}</b>
+                            </span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
                         <div>
                             <span>Cursos seleccionados:</span>
-                            <span class="ml-2"><b>0</b></span>
+                            <span class="ml-2"><b>{{cursosSeleccionados}}</b></span>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-12">
@@ -101,60 +103,26 @@
                 <div class="table-responsive">
                     <table class="table table-hover text-center table-matricular">
                         <thead class="thead-dark" style=" border: solid 1px #acacac;">
-                            <tr>
+                            <tr class="head">
                                 <th></th>
-                                <th>Sede</th>
                                 <th>Idioma</th>
                                 <th>Nivel</th>
+                                <th>Ciclo</th>
                                 <th>Docente</th>
-                                <th>Matriculados</th>
                                 <th>Horario</th>
+                                <th>Matriculados </th>
                             </tr>
                         </thead>
-                        <tbody style=" border: solid 1px #acacac;">
-                            <tr>
-                                <td>
-                                    <mat-checkbox class="oink"></mat-checkbox>
-                                </td>
-                                <td>Ciudad Universitaria</td>
-                                <td>Francés</td>
-                                <td>Intermedio V</td>
-                                <td>Duvan Saenz Falcón</td>
-                                <td><button class="btn-none">-</button></td>
-                                <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-checkbox class="oink"></mat-checkbox>
-                                </td>
-                                <td>Ciudad Universitaria</td>
-                                <td>Francés</td>
-                                <td>Intermedio V</td>
-                                <td>Duvan Saenz Falcón</td>
-                                <td><button class="btn-matriculados-top">15</button></td>
-                                <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-checkbox class="oink"></mat-checkbox>
-                                </td>
-                                <td>Ciudad Universitaria</td>
-                                <td>Francés</td>
-                                <td>Intermedio V</td>
-                                <td>Duvan Saenz Falcón</td>
-                                <td><button class="btn-matriculados-none">5</button></td>
-                                <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-checkbox class="oink"></mat-checkbox>
-                                </td>
-                                <td>Ciudad Universitaria</td>
-                                <td>Francés</td>
-                                <td>Intermedio V</td>
-                                <td>Duvan Saenz Falcón</td>
-                                <td><button class="btn-matriculados-empty">0</button></td>
-                                <td><button class="btn-cancel">Seleccionar Horario</button></td>
+    
+                        <tbody class="text-center">
+                            <tr *ngFor=" let programacion of programacion ">
+                                <td><mat-checkbox (change)="seleccionarCurso()  "></mat-checkbox></td>
+                                <td>{{programacion.nomIdioma}}</td>
+                                <td>{{programacion.nomNivel}}</td>
+                                <td>{{programacion.ciclo}}</td>
+                                <td>{{programacion.docente}}</td>
+                                <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
+                                <td><button class="btn-none "> {{programacion.matriculados}} </button></td>
                             </tr>
                         </tbody>
                     </table>

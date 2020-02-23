@@ -1,5 +1,5 @@
 export class Nivel {
-    cnivel: number;
+    idNivel: number;
     nomNivel: string; 
 }
 

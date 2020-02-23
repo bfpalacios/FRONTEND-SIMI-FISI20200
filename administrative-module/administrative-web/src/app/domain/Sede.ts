@@ -1,5 +1,5 @@
 export class Sede {
-    csede: number;
+    idSede: number;
     descSede: string;
     nomSede: string;
     dirSede: number;

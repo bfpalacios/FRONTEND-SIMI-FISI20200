@@ -93,9 +93,9 @@ export class EditarAulaComponent implements OnInit {
     if (this.isEmpytText(this.aula.nomAula, Mensaje.emptyNomAula)) {
       return true;
     }
-    if (this.isEmpytText(this.aula.refAula, Mensaje.emptyRefAula)) {
-      return true;
-    }
+    // if (this.isEmpytText(this.aula.refAula, Mensaje.emptyRefAula)) {
+    //   return true;
+    // }
 
     if (this.isEmpytNum(this.selectedTypeIdSede, Mensaje.emptySede)) {
 

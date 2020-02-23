@@ -8,7 +8,7 @@ export class PlanEstudioService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/plan';
+    this.url = 'simi/matricula/api/v1/programacionCurso/plan';
    }
 
    getPlanDeEstudios(){

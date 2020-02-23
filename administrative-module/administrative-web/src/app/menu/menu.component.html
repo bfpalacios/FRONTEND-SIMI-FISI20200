@@ -18,10 +18,10 @@
     <button (click)="show(3)" class="list-group-item btn-item">  Administración Institucional</button>
       <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(6)"   [routerLink]="['administracionInstitucional/idiomas']">Idiomas</button>
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(7)"   [routerLink]="['administracionInstitucional/horarios']">Horarios</button>
+        <!-- <button class="list-group-item btn-light subitem w-100" (click)="setTitle(7)"   [routerLink]="['administracionInstitucional/horarios']">Horarios</button> -->
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(8)"   [routerLink]="['administracionInstitucional/cursos']">Cursos</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(9)"   [routerLink]="['administracionInstitucional/docentes']">Docentes</button>
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(10)"   [routerLink]="['administracionInstitucional/alumnos']">Alumnos</button>
+        <!-- <button class="list-group-item btn-light subitem w-100" (click)="setTitle(10)"   [routerLink]="['administracionInstitucional/alumnos']">Alumnos</button> -->
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(11)"   [routerLink]="['administracionInstitucional/sedes']">Sedes</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(12)"   [routerLink]="['administracionInstitucional/aulas']">Aulas</button>
     </div>
@@ -29,7 +29,9 @@
     <div *ngIf="modules[3].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(13)"      [routerLink]="['periodoAcademico/cicloAcademico']">Ciclo Académico</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(14)"   [routerLink]="['periodoAcademico/matriculados']">Matriculados</button>
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(15)"  [routerLink]="['periodoAcademico/programacionCursos']">Programación de cursos</button>
+        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(15)"  [routerLink]="['periodoAcademico/programacionCursos']">Programación de Cursos</button>
+        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(152)"  [routerLink]="['periodoAcademico/programacionDocente']">Programación de Docentes</button>
+
     </div>
     <button (click)="show(5)" class="list-group-item btn-item"> Administración de Matrícula</button>
     <div *ngIf="modules[4].state" class="ele">

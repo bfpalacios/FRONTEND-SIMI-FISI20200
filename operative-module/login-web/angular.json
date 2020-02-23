@@ -24,6 +24,8 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/styles.scss",
+              "src/simi.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@mdi/font/scss/materialdesignicons.scss"
             ],
@@ -121,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "login-web"
+    }
+  },
+  "defaultProject": "login-web",
+  "cli": {
+    "analytics": "1efda703-2a3e-4567-b674-fcff8c60aa2e"
+  }
 }

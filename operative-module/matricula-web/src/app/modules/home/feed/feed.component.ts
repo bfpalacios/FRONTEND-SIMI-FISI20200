@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -8,23 +7,12 @@ import { Router } from '@angular/router';
 })
 export class FeedComponent implements OnInit {
 
+  public userDates: any;
   
-  constructor(private router: Router) {
-   
+  constructor() {
+    this.userDates = new Object;
    }
 
   ngOnInit() {
-  }
-
-  public informacionAcademica() {
-    this.router.navigate(['profile/informacionAcademica']).then();
-  }
-
-  public programacionCursos() {
-    this.router.navigate(['periodo-academico/programacionCurso']).then();
-  }
-
-  public planEstudios() {
-    this.router.navigate(['centro-idiomas/planEstudio']).then();
   }
 }

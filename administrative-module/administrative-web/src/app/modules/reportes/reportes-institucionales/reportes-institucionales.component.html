@@ -1,1 +1,85 @@
-<p>reportes-institucionales works!</p>
+<tr >
+    <th><label for="usuarios">Tipo Usuario</label>
+
+        <select id="usuarios">
+          <option value="docente">Docente</option>
+          <option value="alumno">Alumno</option>
+          
+        </select>
+    </th>
+    <th><label for="periodos">Periodo Academico</label>
+
+        <select id="periodos">
+          <option value="">2018-1</option>
+          <option value="">2018-2</option>
+          
+        </select>
+    </th>
+    <th>
+    <input type="search" id="miBusqueda" name="q">
+    <button>Buscar DNI</button>
+    </th>
+    
+</tr>
+
+
+<div id="content" #content>
+  
+    <table id='tblArticles' >
+        
+        <thead>
+            <tr>
+                <th>Periodo</th>
+                <th>Centro</th>
+                <th>Idioma</th>
+                <th>Nivel</th>
+                <th>Ciclo</th>
+                <th>Aula</th>
+                <th>Nota</th>
+      
+              </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2018-1</td>
+                <td>Ciudad Universitaria</td>
+                <td>Ingles</td>
+                <td>Basico</td>
+                <td>6</td>
+                <td>108</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                  <td>2018-1    </td>
+                  <td>Ciudad Universitaria</td>
+                  <td>Ingles</td>
+                  <td>Basico</td>
+                  <td>7</td>
+                  <td>111</td>
+                  <td>16</td>
+              </tr>
+              <tr>
+                  <td>2018-2</td>
+                  <td>Ciudad Universitaria</td>
+                  <td>Frances</td>
+                  <td>Intermedio</td>
+                  <td>1</td>
+                  <td>118</td>
+                  <td>18</td>
+              </tr>
+              <tr>
+                  <td>2018-2</td>
+                  <td>Ciudad Universitaria</td>
+                  <td>Frances</td>
+                  <td>Intermedio</td>
+                  <td>4</td>
+                  <td>151</td>
+                  <td>17</td>
+              </tr>
+            
+        </tbody>
+        
+      </table>
+    </div>
+    <p></p>
+    <button (click)="downloadPDF()">Export to PDF</button>

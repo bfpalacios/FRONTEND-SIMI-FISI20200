@@ -95,6 +95,9 @@ export class MenuComponent implements OnInit {
       case 15:
         this.setLocalStorageTitle('Periódo Académico - Programación de Cursos');
         break;
+        case 152:
+          this.setLocalStorageTitle('Periódo Académico - Programación de Docentes');
+          break;
       case 16:
         this.setLocalStorageTitle('Admin. de Matrícula - Matricula Online');
         break;

@@ -1,11 +1,14 @@
-<div class="m-3">
+<div class="m-3 pt-5">
     <div>
         <span class="title-module">
             <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
         </span>
         <hr />
     </div>
-    <div>
+    <div *ngIf="error">
+        <span>Ocurrió un error con el servidor.</span>
+    </div>
+    <div *ngIf="!load && !error">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                 <div class="section-matricula">
@@ -84,7 +87,7 @@
                                         </td>
                                         <td>
                                             <span><b>Fecha de pago</b></span> <br />
-                                            03/02/2020 10:02 a. m.
+                                            {{pagos.fecha}} 10:02 a. m.
                                         </td>
                                         <td rowspan="2">
                                             <button class="btn-disponible">
@@ -95,7 +98,7 @@
                                     <tr>
                                         <td></td>
                                         <td> <span><b>Descripción</b></span><br />
-                                            <span class="mr-3">Matrícula sanmarquino</span>
+                                            <span class="mr-3">{{pagos.descripcion}}</span>
                                         </td>
                                     </tr>
                                 </tbody>

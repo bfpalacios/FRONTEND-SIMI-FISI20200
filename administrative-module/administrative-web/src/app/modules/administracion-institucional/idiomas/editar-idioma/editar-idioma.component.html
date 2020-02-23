@@ -14,31 +14,31 @@
 <span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
     {{successText}} <br /></span>
 
-<div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-6 ">
-        <form class="bg-form p-4 border rounded-sm">
-            <div class="form-group row mx-3">
-                <label class="col-sm-2 col-form-label text-sm-right">Nombre</label>
-                <div class="col-sm-9">
+
+    
+    <h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Idioma </h5>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-6">
+        <div class="form-group row mx-3">
+            <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                <i class="mdi mdi-library-books f-16"></i>  Nombre </label>
+                <div class="col-sm-11 ">
                     <input name="nomIdioma" [(ngModel)]="idioma.nomIdioma" 
                     type="text" class="form-control">
                 </div>
-            </div>
-
-
+        </div>
+    </div>
+        <div class="col-md-6">
 
             <div class="form-group row mx-3">
-                <label class="col-sm-2 col-form-label text-sm-right">Descripcion</label>
-                <div class="col-sm-9">
-                    <textarea name="descIdioma"  [(ngModel)]="idioma.descIdioma" 
-                    class="form-control" rows="3"></textarea>
-                </div>
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                    <i class="mdi mdi-rotate-right-variant f-16"></i>  Descripcion</label>
+                    <div class="col-sm-11 ">
+                        <textarea name="descIdioma"  [(ngModel)]="idioma.descIdioma" 
+                        class="form-control" rows="3"></textarea>
+                    </div>
             </div>
-
-
-        </form>
-    </div>
-    <div class="col-sm-3"></div>
-</div>
-
+        </div>
+      </div>

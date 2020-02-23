@@ -29,7 +29,7 @@ export class EditarCursoComponent implements OnInit {
   public curso: Curso;
   public niveles : Nivel[];
   public idiomas : Idioma[];
-
+  public title: string;
 
   constructor(private router: Router , private serviceCurso: CursoService,
     private activedRouter: ActivatedRoute,
@@ -76,8 +76,8 @@ export class EditarCursoComponent implements OnInit {
 
           if (data !== null) {
             this.curso = data;
-            this.selectedTypeIdNivel = this.curso.cnivel;
-            this.selectedTypeIdIdioma = this.curso.cidioma;
+            this.selectedTypeIdNivel = this.curso.idNivel;
+            this.selectedTypeIdIdioma = this.curso.idIdioma;
             console.log(this.curso);
            
              } else {  this.navigateList();    }
@@ -128,12 +128,12 @@ export class EditarCursoComponent implements OnInit {
     if (!this.empty) {
       //entro
       this.load = true;
-      this.curso.ccurso = this.selectedTypeIdIdioma;
-      this.curso.cnivel = this.selectedTypeIdNivel;
+      this.curso.idIdioma = this.selectedTypeIdIdioma;
+      this.curso.idNivel = this.selectedTypeIdNivel;
 
       console.log("this.curso al guardar",this.curso);
 
-      this.serviceCurso.editarCursoById(this.curso, this.curso.ccurso).subscribe(data => {
+      this.serviceCurso.editarCursoById(this.curso, this.curso.idCurso).subscribe(data => {
         if (data != null) {
           console.log("data",data);
           Swal.fire(
@@ -152,9 +152,14 @@ export class EditarCursoComponent implements OnInit {
     }
   }
 
+  setLocalStorageParamIdioma(title: string) {
+    this.title = title;
+    localStorage.setItem('parametro', this.title);
+  }
 
   private navigateList() {
     this.router.navigate(['administracionInstitucional/cursos']).then();
+    this.setLocalStorageParamIdioma(this.curso.idIdioma.toString());
   }
 
   public eliminar() {
@@ -173,7 +178,7 @@ export class EditarCursoComponent implements OnInit {
          if (result.value) {
    
            this.load = true;
-           this.serviceCurso.deleteCursoById(this.curso.ccurso).subscribe(data => {
+           this.serviceCurso.deleteCursoById(this.curso.idCurso).subscribe(data => {
              if (data) {
                Swal.fire(
                  'Eliminación Exitosa!',
@@ -181,6 +186,7 @@ export class EditarCursoComponent implements OnInit {
                  'success'
                );
                this.navigateList();
+               
              } else {
                this.load = false;
                this.success = true;

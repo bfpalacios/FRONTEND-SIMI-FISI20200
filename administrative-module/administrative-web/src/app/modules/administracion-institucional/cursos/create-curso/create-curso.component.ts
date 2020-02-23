@@ -27,6 +27,9 @@ export class CreateCursoComponent implements OnInit {
   public selectedTypeIdIdioma : number;
   public niveles : Nivel[];
   public idiomas : Idioma[];
+  public title: string;
+
+  
   constructor(private router: Router , private serviceCurso: CursoService,
     private serviceIdiomas: IdiomaService,  private serviceNivel: NivelService )   {
       this.curso = new Curso();
@@ -58,16 +61,18 @@ export class CreateCursoComponent implements OnInit {
   }
   private crear(){
     this.empty = this.isEmpty();
-    this.curso.cnivel = this.selectedTypeIdNivel;
-    this.curso.cidioma = this.selectedTypeIdIdioma;
+    // this.curso.cnivel = this.selectedTypeIdNivel;
+    // this.c      console.log("entro no vacio");
 
-    // console.log("this.selectedTypeIdNivel",this.selectedTypeIdNivel);
-    // console.log("(this.selectedTypeIdIdioma",this.selectedTypeIdIdioma);
+console.log("emprty",this.empty);
+console.log("selectedTypeIdNivel", this.selectedTypeIdNivel);
+console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
+
     if (!this.empty) {
       console.log("entro no vacio");
       this.load = true;
-      this.curso.cnivel = this.selectedTypeIdNivel;
-      this.curso.cidioma = this.selectedTypeIdIdioma;
+      this.curso.idNivel = this.selectedTypeIdNivel;
+      this.curso.idIdioma = this.selectedTypeIdIdioma;
       
       console.log(this.curso);
       this.crearCurso();
@@ -86,12 +91,19 @@ export class CreateCursoComponent implements OnInit {
               'success'
             );
             this.navigateList();
+            this.setLocalStorageParamIdioma(this.curso.idIdioma.toString());
+
           } else {
             this.empty = true;
             this.successText = 'El curso ya existe, ingrese otro.';
           }
         });
     }
+    setLocalStorageParamIdioma(title: string) {
+      this.title = title;
+      localStorage.setItem('parametro', this.title);
+    }
+
     cancelar(){
       this.navigateList();
       this.load = false;

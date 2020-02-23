@@ -45,8 +45,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
    FormsModule,
    Ng2SearchPipeModule,
    NgxPaginationModule,
-   MatSliderModule,
-   MatFormFieldModule
+  //  MatSliderModule,
+  //  MatFormFieldModule
   //  NgbModule
   ]
 })

@@ -1,5 +1,5 @@
 export class Idioma {
-    cidioma: number;
+    idIdioma: number;
     descIdioma: string;
     nomIdioma: string;
 }

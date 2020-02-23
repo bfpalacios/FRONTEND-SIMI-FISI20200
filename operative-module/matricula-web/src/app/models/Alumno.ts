@@ -3,6 +3,6 @@ export class Alumno {
     nomPersona: string;
     apPaterno: string;
     apMaterno: string;
-    dni: numbr
+    dni: number;
     nomTipo: string;
 }

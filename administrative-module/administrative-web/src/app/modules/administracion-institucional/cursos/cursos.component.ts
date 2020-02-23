@@ -4,6 +4,8 @@ import { Curso } from 'src/app/domain/Curso';
 import { CursoService } from 'src/app/services/administracion/AdmInstitucional/curso.service';
 import { CursoDTO } from 'src/app/domain/CursoDTO';
 import Swal from 'sweetalert2';
+import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/idioma.service';
+import { Idioma } from 'src/app/domain/Idioma';
 
 @Component({
   selector: 'app-cursos',
@@ -17,29 +19,41 @@ export class CursosComponent implements OnInit {
   cursoDTO : CursoDTO;
   cursosDTO: CursoDTO[];
   public  pageActual : number ;
-
+  public selectedTypeIdIdioma : number;
+  public idiomas : Idioma[];
   load: boolean;
   loading: string;
-   constructor(private router: Router 
-    ,private cursoService: CursoService , 
-    // private serviceestadomesa: EstadoMesasService 
-    ) {
+  parametro : number ;
+   constructor(private router: Router, private serviceIdiomas: IdiomaService,
+    private cursoService: CursoService    ) {
      this.estado = false;
      this.pageActual = 1;
-
+     this.load = true;
+     this.selectedTypeIdIdioma = 0;
+     this.parametro = 1;
     }
 
 
   // constructor() { }
 
   ngOnInit() {
-    this.obtenerCursos();
+    this.parametro = parseInt( localStorage.getItem('parametro'));
+    this.obtenerCursos(this.parametro);
+    this.getIdiomas();
 
 
   }
-  obtenerCursos() {
+
+  private getIdiomas() {
+    this.serviceIdiomas.getIdiomas().subscribe(data => {
+      this.idiomas = data;
+      this.load = false;
+    });
+  }
+
+  obtenerCursos(id:number) {
     console.log("antes");
-    this.cursoService.getCursos().subscribe(data => {
+    this.cursoService.getCursosByIdioma(id).subscribe(data => {
       this.load = false;
       this.cursosDTO = data;
 
@@ -48,6 +62,10 @@ export class CursosComponent implements OnInit {
     }
     )
   }
+  cambiarTabla(){
+    console.log("selectedTypeIdIdioma", this.selectedTypeIdIdioma);
+    this.obtenerCursos(this.selectedTypeIdIdioma);
+  }
 
   nuevoCurso() {
     
@@ -55,6 +73,8 @@ export class CursosComponent implements OnInit {
   }
   // editarAlumno(id: number) 
   editarCurso(id: number) { 
+        console.log(id);
+
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
     this.router.navigate(['administracionInstitucional/cursos/editar/'+id]).then();
   }
@@ -86,7 +106,7 @@ export class CursosComponent implements OnInit {
                   'El Registro se elimino correctamente.',
                   'success'
                 );
-                this.obtenerCursos();
+                this.obtenerCursos(this.selectedTypeIdIdioma);
                 Swal.fire(
                   'Curso Eliminado!',
                     'El Registro se elimino correctamente.',

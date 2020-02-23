@@ -35,7 +35,7 @@
         </thead>
         <tbody class="header-body">
             <tr *ngFor="let idioma of idiomas | filter:busquedaTexto 
-            | paginate : {itemsPerPage :4,currentPage : pageActual}; let i = index">
+            | paginate : {itemsPerPage :8,currentPage : pageActual}; let i = index">
             <td>
                <div class="center-body">{{i+1}}</div> 
            </td>  
@@ -51,13 +51,13 @@
                <td>
                    <div class="row">
                        <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;"
-                           (click)="editarIdioma(idioma.cidioma)"  >
+                           (click)="editarIdioma(idioma.idIdioma)"  >
                            <i class="mdi mdi-border-color"
                                style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
                        </button>
 
                        <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;"
-                           (click)="eliminarIdioma(idioma.cidioma)">
+                           (click)="eliminarIdioma(idioma.idIdioma)">
                            <i class="mdi mdi-delete  "
                                style="color : white ; font-size: 20px; display: inline-block !important;"></i>
                        </button>

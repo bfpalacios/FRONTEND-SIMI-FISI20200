@@ -15,18 +15,10 @@ export class ProgramacionCursoComponent implements OnInit {
 
   constructor(private serviceProgramacion: ProgramacionCursoService, private router:Router, ) { }
 
-  public arregloProgramacion: [] = [];
-
   ngOnInit() {
     this.getProgramacion();
   }
-    //console.log("Hola");
-    //this.programacionCursoService.getProgramacionCursos()
-      //.subscribe(
-        // res => {
-          //console.log(res);
-          //this.arregloProgramacion = res;
-        //});
+  
   public getProgramacion() {
     this.serviceProgramacion.getProgramacion().subscribe(data => {
       this.programacion = data;

@@ -1,0 +1,179 @@
+ <div class="header-user-list">
+    <button *ngIf="nuevoCurso==false && actualizar==false" class="btn-nuevo ml-1 mr-1" (click)="nuevo()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nuevo Curso
+    </button>
+    <!-- <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1"  (click)="editar()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Editar Curso
+    </button> -->
+    <button  *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1" (click)="guardar()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
+    </button>
+    <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
+    </button>
+    <button  *ngIf="actualizar" type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarActualizada()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+    </button>
+    <button  *ngIf="nuevoCurso " type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarNuevo()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+    </button>
+</div>
+
+
+<div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3" >
+    <h5  *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Programacion Docente y Curso </h5>
+    <h5  *ngIf="actualizar"class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de Programacion Docente y Curso </h5>
+<hr>
+<div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
+<span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
+    {{successText}} <br /></span>
+
+
+       <div class="row col-sm-12">
+        <div class="col-sm-5">
+            <label  class="col-sm-12  col-form-label">Docente</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdDocente">
+                <option [ngValue]="0">Seleccionar el Docente</option>
+                <option [ngValue]="docente.codDocente" *ngFor="let docente of docentes">{{docente.codDocente}} -- {{docente.nombre}}  {{docente.apellidoPat}}  {{docente.apellidoMat}} 
+                </option>
+            </select>       
+         </div>
+    
+        <div class="col-sm-4">
+            <label  class="col-sm-12  col-form-label">Periodo Academico</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo">
+                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
+                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
+                </option>
+            </select>       
+         </div>
+         <div class="col-sm-3">
+            <label  class="col-sm-12  col-form-label">Curso</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdCurso">
+                <option [ngValue]="0">Seleccionar el Curso</option>
+                <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">{{curso.nomIdioma}}  {{curso.nomNivel}} - {{curso.ciclo}}
+                </option>
+            </select>       
+         </div>
+
+       </div>
+       <hr>
+     
+  </div>
+
+
+
+ <div  *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3" >
+    
+    <div class="row col-md-12">
+        <div class="col-md-5"> 
+                 <div class="col-md-12">
+                    <label  class="col-sm-12  col-form-label">Filtro</label>
+                    <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" [(ngModel)]="busquedaTexto"/>      
+                </div>
+        </div>
+
+        <div class="col-md-3">
+            <label  class="col-sm-12  col-form-label">Idioma</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdIdioma">
+                <option [ngValue]="0">Seleccionar el Idioma</option>
+                <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
+                </option>
+            </select>       
+       </div>
+    
+        <div class="col-md-3">
+            <label  class="col-sm-12  col-form-label">Periodo Academico</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdPeriodo">
+                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
+                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
+                </option>
+            </select>       
+        </div>
+        <div class="col-md-1">
+             <button class="btn-nuevo" (click)="editar()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+         </div>
+      </div>
+
+  
+    
+  </div> 
+
+
+
+
+<div class="w-100 mt-3 table-responsive" style="margin: auto;">
+    <table class="table table-hover table-bordered">
+        <thead class="header-table " style ="background: #dfe3e7;">
+            <tr>
+                
+                <td>
+                    <div class="center-head">N°</div>
+                </td>
+                <td>
+                    <div class="center-head">Codigo Docente</div>
+                </td>
+
+                <td>
+                    <div class="center-head">Docente</div>
+                </td>
+                <td>
+                    <div class="center-head">Email</div>
+                </td>
+                <td>
+                    <div class="center-head">Curso</div>
+                </td>
+                <td>
+                    <div class="center-head">Periodo</div>
+                </td>
+       
+
+                <td style="width: 100px;" class="text-center"></td>
+
+
+            </tr>
+        </thead>
+        <tbody class="header-body">
+            <tr *ngFor= "let progDocCurso of progDocCursos | filter:busquedaTexto
+            | paginate : {itemsPerPage :15,currentPage : pageActual}; let i = index">
+            <td>
+                <div class="center-body">{{i+1}}</div> 
+            </td> 
+            <td>
+                <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:110%;"> {{progDocCurso.idDocente}}   </span> </div>
+             </td>
+
+                <td>
+                    <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progDocCurso.nombre}}   {{progDocCurso.apellidoPat}}  {{progDocCurso.apellidoMat}}</span> </div>
+                 </td>
+                 <td>
+                    <div class="center-body"> <span class = "  border-blue mr-1 text-muted" style="font-size:110%; font-style: italic;"> 
+                        <i class="mdi mdi-email-outline  " style="color : black ; font-size: 20px; display: inline-block !important;"></i> 
+                         {{progDocCurso.email}} </span> </div>
+                 </td>
+
+                <td>
+                    <div class="center-body">{{progDocCurso.nomIdioma}}  {{progDocCurso.nomNivel}}  {{progDocCurso.ciclo}}° ciclo </div>
+                </td>
+                <td>
+                    <div class="center-body">  {{progDocCurso.nomPeriodo}}   </div> 
+                </td> 
+              <td>
+                <div class="row" >
+                        <button class="btn-edit mt-1 ml-3 " style ="background: #27c68f ;" (click)="editar(progDocCurso.idProgDocCur)">
+                                <i class="mdi mdi-border-color" style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
+                            </button>
+                            
+                            <button type="button" class="btn-edit mt-1 ml-2" style ="background: #dd2f18 ;" (click)="eliminar(progDocCurso.idProgDocCur)">
+                                    <i class="mdi mdi-delete  " style="color : white ; font-size: 20px; display: inline-block !important;"></i> 
+                            </button>
+
+                </div>
+            </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
+</div>  

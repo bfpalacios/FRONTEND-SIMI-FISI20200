@@ -73,8 +73,8 @@ export class CreateIdiomaComponent implements OnInit {
     if (this.isEmpytText(this.idioma.nomIdioma, Mensaje.emptyNomIdioma)) {
       return true;
     }
-    if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
-      return true;
-    }
+    // if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
+    //   return true;
+    // }
   }
 }

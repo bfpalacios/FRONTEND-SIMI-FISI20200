@@ -1,0 +1,40 @@
+<div class="simi-card text-center">
+    <div style="text-align: left; height: 56px;" class="mb-4">
+        <button class="btn simi-btn-primary" (click)="informacionAcademica()"
+        style="width: 50%; height: 100%;"
+        >Información Académica</button>
+        <button class="btn simi-btn-silver" (click)="cuentaUsuario()"
+         style="width: 50%; height: 100%;">Cuenta de Usuario</button>
+    </div>
+    <div>
+        <div class="simi-bg-gray-circle">
+        </div>
+        <div>
+            <span class="f-17"><b>{{userDates.nombre}} {{userDates.apPaterno}} {{userDates.apMaterno}}</b></span>
+        </div>
+        <div class="table-responsive">
+            <div class="mt-1">
+                <div>
+                    <label class="simi-section-label-rose">{{userDates.dni}}</label>
+                </div>
+            </div>
+            <div class="mt-1">
+                <i class="mdi mdi-school-outline" style="font-size: 22px;"></i><br />
+                <label class="simi-section-label-blue">{{userDates.university}}</label>
+            </div>
+            <div class="mt-1">
+                <i class="mdi mdi-email-outline" style="font-size: 22px;"></i><br />
+                <label class="simi-section-label-blue">{{userDates.email}}</label>
+    
+            </div>
+            <div class="mt-1 mb-1">
+                <i class="mdi mdi-cellphone" style="font-size: 22px;"></i><br />
+                <label class="simi-section-label-blue">{{userDates.phone}}</label>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: left; height: 56px;">
+        <button class="btn simi-btn-primary" (click)="historialAcademico()"
+        style="width: 100%; height: 100%;">Historial Académico</button>
+    </div>
+</div>

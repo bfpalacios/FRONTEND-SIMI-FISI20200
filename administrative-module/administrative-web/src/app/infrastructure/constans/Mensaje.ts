@@ -35,6 +35,10 @@ export class Mensaje {
     public static emptySelectNivel = 'Seleccione una Nivel';
     public static emptySelectIdioma = 'Seleccione una Idioma';
 
+    public static emptyDocente= 'Seleccione un docente';
+    public static emptyPeriodo = 'Seleccione un periodo académico';
+    public static emptySelectCurso = 'Seleccione una curso';
+
 
 
 

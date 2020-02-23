@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,19 +6,20 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit{
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  public loading: string;
+  public load: boolean;
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.loading = 'assets/loading/loading.gif';
+    this.load = true;
+   }
 
   ngOnInit() {
   }
 
-  prueba() {
-    this.router.navigate(['prueba'], {relativeTo: this.route}).then();
+  ngAfterContentInit($event) {
+    this.load = $event === 'true' ? true : false;
   }
-
-  onIngresar(){
-    this.router.navigate(['/createAccount']);
-  }
-
 }

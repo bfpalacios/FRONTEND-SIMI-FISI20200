@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
+import Swal from 'sweetalert2';
+import { HoraService } from 'src/app/services/administracion/AdmInstitucional/hora.service';
+import { DiaService } from 'src/app/services/administracion/AdmInstitucional/dia.service';
+import { Hora } from 'src/app/domain/Hora';
+import { Dia } from 'src/app/domain/Dia';
 
 @Component({
   selector: 'app-create-horario',
@@ -14,12 +20,16 @@ export class CreateHorarioComponent implements OnInit {
   public empty: boolean;
   public successText: string;
   public pmcompuesta : boolean;
-  public selectedTypeIdPerfil : number;
-  public selectedTypeIdEstado : number;
+  public selectedTypeIdDia : number;
+  public selectedTypeIdHora : number;
+  public dias : Dia[];
+  public horas : Hora[];
 
-  constructor(private router: Router )  {
-    this.selectedTypeIdPerfil = 0;
-    this.selectedTypeIdEstado = 0;
+
+
+  constructor(private router: Router, private serviceDias: DiaService, private serviceHoras: HoraService )  {
+    this.selectedTypeIdDia = 0;
+    this.selectedTypeIdHora = 0;
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
@@ -28,8 +38,25 @@ export class CreateHorarioComponent implements OnInit {
   
 
   ngOnInit() {//lenar cmbs
+    this.getDias();
+    this.getHoras();
+
+  }
+  private getDias() {
+    this.serviceDias.getDias().subscribe(data => {
+      this.dias = data;
+      this.load = false;
+    });
   }
 
+  private getHoras() {
+    this.serviceHoras.getHoras().subscribe(data => {
+      this.horas = data;
+      this.load = false;
+    });
+  }
+
+  
   crearHorario(){
       this.navigateList();
       this.load = false;

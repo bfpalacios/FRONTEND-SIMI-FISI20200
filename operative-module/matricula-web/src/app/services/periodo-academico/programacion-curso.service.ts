@@ -8,7 +8,7 @@ export class ProgramacionCursoService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/programacion';
+    this.url = 'simi/matricula/api/v1/programacionCurso/programacion';
    }
 
    getProgramacion(){
