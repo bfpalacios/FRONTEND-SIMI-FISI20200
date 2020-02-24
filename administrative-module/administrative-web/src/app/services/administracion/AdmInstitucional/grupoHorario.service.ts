@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GrupoHorario } from 'src/app/domain/GrupoHorario';
+import { GrupoHorarioDTO } from 'src/app/domain/GrupoHorarioDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,11 @@ export class GrupoHorarioService {
   }
 
   getGrupoHorarios() {
-    return this.http.get<GrupoHorario[]>(this.url + '/' + 'listGrupoHorario');
+    return this.http.get<GrupoHorarioDTO[]>(this.url + '/' + 'listGrupoHorario');
   }
   
   public getGrupoHorarioById(id: number) {
-    return this.http.get<GrupoHorario>(this.url + '/' + 'obtenerCursoById' + '/' + id);
+    return this.http.get<GrupoHorarioDTO>(this.url + '/' + 'obtenerCursoById' + '/' + id);
   }
 
   public deleteGrupoHorarioById(id: number) {

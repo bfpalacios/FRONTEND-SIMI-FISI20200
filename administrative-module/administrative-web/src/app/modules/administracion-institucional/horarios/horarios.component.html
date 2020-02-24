@@ -101,7 +101,7 @@
             </tr>
         </thead>
         <tbody class="header-body">
-            <tr *ngFor= "let horario of grupoHorarios | filter:busquedaTexto
+            <tr *ngFor= "let horario of grupoHorariosDTO | filter:busquedaTexto
             | paginate : {itemsPerPage :10,currentPage : pageActual}; let i = index">
             <td>
                 <div class="center-body">{{i+1}}</div> 

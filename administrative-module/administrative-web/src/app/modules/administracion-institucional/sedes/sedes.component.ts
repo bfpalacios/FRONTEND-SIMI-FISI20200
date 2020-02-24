@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Sede } from 'src/app/domain/Sede';
 import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
 import { Path } from 'src/app/infrastructure/constans/Path';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sedes',
@@ -55,14 +56,67 @@ export class SedesComponent implements OnInit {
   }
 
 
-  // editarAlumno(id: number) 
-  editarSede() { 
-    // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/sedes/editar']).then();
+
+  editarSede(id:number) {
+    console.log("editaridioma");
+    console.log(id);
+    this.router.navigate(['administracionInstitucional/sedes/editar/'+id]).then();
+    // this.router.navigate(['administracionInstitucional/idiomas/editar']).then();
+
   }
 
   private navigateList() {
     this.router.navigate(['administracionInstitucional/sedes']);
+  }
+
+  public eliminarSede(id: number) {
+    console.log(id);
+    
+    this.sedeService.getSedeById(id).subscribe(o => {
+      if (o !== null) {
+        this.sede = o;console.log(this.sede);
+        Swal.fire({
+          title: 'Estas seguro que desea eliminar la sede '+ this.sede.nomSede+' ?',
+          // text: "S",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            this.load = true;
+            this.sedeService.deleteSedeById(id).subscribe(data => {
+              
+              if (data) {
+                this.load = false;
+                Swal.fire(
+                  'Idioma Eliminado!',
+                  'La sede '+ this.sede.nomSede+' se elimino correctamente.',
+                  'success'
+                );
+                this.obtenerSedes();
+        
+              } else {
+                this.load = false;
+                // this.obtenerIdiomas();
+              }
+            }, error => {
+              if (error) {
+                this.load = false;
+                // this.obtenerIdiomas();
+               
+              }
+            });
+           
+          }
+          })
+
+         } else {  this.navigateList();    }
+   
+  } ) ;
+
   }
 
 }

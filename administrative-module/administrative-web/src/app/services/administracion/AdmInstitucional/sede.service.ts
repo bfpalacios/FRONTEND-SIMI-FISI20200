@@ -20,17 +20,17 @@ export class SedeService {
     return this.http.get<Sede>(this.url + '/' + 'obtenerSedeById' + '/' + id);
   }
 
-  // public crearIdioma(idioma: Sede) {
-  //   return this.http.post<Sede>(this.url + '/' + 'crearIdioma', idioma);
-  // }
+   public crearSede(idioma: Sede) {
+     return this.http.post<Sede>(this.url + '/' + 'crearSede', idioma);
+   }
 
 
-  // public editarIdiomaById(idioma: Sede,id: number) {
-  //   return this.http.put<Sede>(this.url + '/' + 'actualizarIdioma'+ '/' + id, idioma);
-  // }
+   public editarSedeById(idioma: Sede,id: number) {
+     return this.http.put<Sede>(this.url + '/' + 'actualizarSede'+ '/' + id, idioma);
+   }
 
-  // public deleteIdiomaById(id: number) {
-  //   return this.http.delete<boolean>(this.url + '/' + 'eliminarIdiomaById' + '/' + id);
-  // }
+   public deleteSedeById(id: number) {
+     return this.http.delete<boolean>(this.url + '/' + 'eliminarSedeById' + '/' + id);
+   }
 
 }

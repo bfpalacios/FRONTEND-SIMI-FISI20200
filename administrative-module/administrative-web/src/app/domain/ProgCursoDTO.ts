@@ -9,6 +9,7 @@ export class ProgCursoDTO {
     nomPeriodo: string;
     ciclo: number;
     idAula: number;
+    
     nomAula: string;
     nomSede: string;
     idHorarioGrupoHorario: number;

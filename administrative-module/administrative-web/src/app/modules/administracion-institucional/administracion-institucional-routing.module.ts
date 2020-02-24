@@ -44,7 +44,7 @@ const routes: Routes = [
 {  path: 'idiomas/editar/:id',  component: EditarIdiomaComponent},
 {  path: 'sedes',  component: SedesComponent},
 {  path: 'sedes/crear',  component: CreateSedeComponent},
-{  path: 'sedes/editar',  component: EditarSedeComponent},
+{  path: 'sedes/editar/:id',  component: EditarSedeComponent},
 
 {  path: '**',  redirectTo: 'alumnos'},
 {  path: '**',  redirectTo: 'aulas'},

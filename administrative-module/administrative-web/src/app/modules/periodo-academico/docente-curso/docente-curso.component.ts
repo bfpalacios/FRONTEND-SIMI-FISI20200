@@ -119,6 +119,10 @@ export class DocenteCursoComponent implements OnInit {
    private nuevo(){
 
     this.nuevoCurso = !this.nuevoCurso ;
+    this.selectedTypeIdDocente = " " ;
+    this.selectedTypeIdPeriodo = 0;
+    this.selectedTypeIdCurso = 0;
+
      }
     private guardar()
     {

@@ -40,6 +40,10 @@ export class Mensaje {
     public static emptySelectCurso = 'Seleccione una curso';
 
 
-
+    public static emptyProgDocenteCurso = 'Seleccione un Docente-Curso';
+    public static emptyAulaSelect = 'Seleccione un aula';
+    public static emptyHorario = 'Seleccione un horario';
+    public static emptyEstadoProgCurso = 'Seleccione un estado de Curso';
+    public static emptySedeInput = 'Ingrese nombre de Sede';
 
 }

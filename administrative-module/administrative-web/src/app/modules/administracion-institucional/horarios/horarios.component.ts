@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GrupoHorarioService } from 'src/app/services/administracion/AdmInstitucional/grupoHorario.service';
-import { GrupoHorario } from 'src/app/domain/GrupoHorario';
+import { GrupoHorarioDTO } from 'src/app/domain/GrupoHorarioDTO';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,8 +13,8 @@ export class HorariosComponent implements OnInit {
   estado: boolean;
   prueba : string;
   public id: number;
-  grupoHorarios: GrupoHorario[];
-  grupoHorario: GrupoHorario;
+  grupoHorarios: GrupoHorarioDTO[];
+  grupoHorario: GrupoHorarioDTO;
   public  pageActual : number ;
 
   load: boolean;
