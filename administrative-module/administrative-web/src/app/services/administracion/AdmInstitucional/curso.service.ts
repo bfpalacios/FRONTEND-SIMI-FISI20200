@@ -10,7 +10,7 @@ export class CursoService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/curso';
+    this.url = 'simi/api/v1/programacionCurso/curso';
   }
 
   getCursos() {

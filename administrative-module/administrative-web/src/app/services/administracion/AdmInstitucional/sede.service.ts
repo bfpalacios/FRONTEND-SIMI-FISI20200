@@ -9,7 +9,7 @@ export class SedeService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/sede';
+    this.url = 'simi/api/v1/programacionCurso/sede';
   }
 
   getSedes() {

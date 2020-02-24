@@ -8,7 +8,7 @@ export class DiaService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/diasclase';
+    this.url = 'simi/api/v1/programacionCurso/diasclase';
   }
 
   getDias() {

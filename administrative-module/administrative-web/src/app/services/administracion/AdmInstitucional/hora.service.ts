@@ -10,7 +10,7 @@ export class HoraService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/horasclase';
+    this.url = 'simi/api/v1/programacionCurso/horasclase';
   }
 
   getHoras() {

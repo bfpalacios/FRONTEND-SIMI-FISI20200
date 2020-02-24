@@ -9,7 +9,7 @@ export class AulaService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/aula';
+    this.url = 'simi/api/v1/programacionCurso/aula';
   }
 
   getAulas() {

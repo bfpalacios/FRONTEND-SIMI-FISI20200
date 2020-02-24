@@ -9,7 +9,7 @@ export class GrupoHorarioService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/grupoHorario';
+    this.url = 'simi/api/v1/programacionCurso/grupoHorario';
   }
 
   getGrupoHorarios() {

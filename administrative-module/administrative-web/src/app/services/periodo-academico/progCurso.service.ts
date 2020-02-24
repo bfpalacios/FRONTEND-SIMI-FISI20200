@@ -10,7 +10,7 @@ export class ProgCursoService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/progcurso';
+    this.url = 'simi/api/v1/programacionCurso/progcurso';
   }
 
   getProgCurso() {

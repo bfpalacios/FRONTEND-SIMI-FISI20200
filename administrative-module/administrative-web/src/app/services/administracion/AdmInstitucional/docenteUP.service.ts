@@ -9,7 +9,7 @@ export class DocenteUPService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/docenteusuariopersona';
+    this.url = 'simi/api/v1/programacionDocente/docenteusuariopersona';
   }
 
   getDocentesUP() {

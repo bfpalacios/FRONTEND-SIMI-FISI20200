@@ -8,7 +8,7 @@ export class IdiomaService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/idioma';
+    this.url = 'simi/api/v1/programacionCurso/idioma';
   }
 
   getIdiomas() {

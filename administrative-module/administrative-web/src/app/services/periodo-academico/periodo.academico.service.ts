@@ -9,7 +9,7 @@ export class PeriodoAcademicoService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/periodoacademico';
+    this.url = 'simi/api/v1/programacionCurso/periodoacademico';
   }
 
   getPeriodosAcademicos() {
