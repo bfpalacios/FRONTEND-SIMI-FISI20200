@@ -71,7 +71,10 @@
                          {{docente.email}} </span> </div>
                  </td>
                  <td>
-                    <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.genero}} </span> </div>
+                    <div class="center-body "   *ngIf="docente.genero==0">Femenino </div>
+                    <div class="center-body" *ngIf="docente.genero==1">Masculino </div>
+
+
                  </td>
                  <td>
                     <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.edad}} </span> </div>

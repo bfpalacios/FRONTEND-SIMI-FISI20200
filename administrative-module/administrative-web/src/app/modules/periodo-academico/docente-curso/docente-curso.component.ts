@@ -295,7 +295,7 @@ private getProgDocente(id: number) {
               if (data) {
                 this.load = false;
                 Swal.fire(
-                  'Idioma Eliminado!',
+                  'Programacion Docente Curso Eliminado!',
                   'La programacion docente - curso se elimino correctamente.',
                   'success'
                 );
