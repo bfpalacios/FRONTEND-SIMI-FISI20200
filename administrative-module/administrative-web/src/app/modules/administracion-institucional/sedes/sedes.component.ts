@@ -92,7 +92,7 @@ export class SedesComponent implements OnInit {
               if (data) {
                 this.load = false;
                 Swal.fire(
-                  'Idioma Eliminado!',
+                  'Sede Eliminada!',
                   'La sede '+ this.sede.nomSede+' se elimino correctamente.',
                   'success'
                 );

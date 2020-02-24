@@ -19,7 +19,7 @@ export class CreateDocenteComponent implements OnInit {
   public loading: string;
   public empty: boolean;
   public successText: string;
-  public pmcompuesta : boolean;
+  
   public selectedTypeIdGenero : number;
   public selectedTypeIRol : number;
   public selectedTypeIdDepartamento : string;
@@ -43,11 +43,16 @@ export class CreateDocenteComponent implements OnInit {
   }
 
   crear() {
-    this.load = true;
+    // this.load = true;
     this.empty = this.isEmpty();
-    if (!this.empty) {
-      this.crearDocente();
+       if (!this.empty) {
+      
       this.docente.departamento = this.selectedTypeIdDepartamento;
+      console.log("dep",  this.docente.departamento );
+      console.log("todo",  this.docente );
+    
+     
+      this.crearDocente();
       // this.docente.genero = this.selectedTypeIRol;
       // this.docente.idRol = this.selectedTypeIdGenero;
     }
@@ -56,13 +61,13 @@ export class CreateDocenteComponent implements OnInit {
   private crearDocente() {
     this.docenteUPService.crearDocente(this.docente)
       .subscribe(data => {
+        // this.load = false;
 
-
-        this.load = false;
+      
         if (data) {
           Swal.fire(
             'Registro Exitoso!',
-            'El docente '+this.docente.codDocente+ ' ' +this.docente.apellidoPat + ' ' 
+            'El docente ' +this.docente.apellidoPat + ' ' 
             +this.docente.apellidoMat + ' ' +this.docente.nombre +' se registro correctamente.',
             'success'
           );
@@ -109,7 +114,7 @@ export class CreateDocenteComponent implements OnInit {
       if (this.isEmpytNum(this.docente.dni, Mensaje.emptyDNIDoc)) {
         return true;
       }
-      if (this.isEmpytText(this.docente.departamento, Mensaje.emptyDepDoc)) {
+      if (this.isEmpytText(this.selectedTypeIdDepartamento, Mensaje.emptyDepDoc)) {
         return true;
       }  
   

@@ -26,7 +26,7 @@ export class DocenteUPService {
    }
 
 
-   public editarDocenteById(docente: DocenteUP,id: number) {
+   public editarDocenteById(docente: DocenteUP,id: string) {
      return this.http.put<DocenteUP>(this.url + '/' + 'actualizarDocenteUsuarioPersona'+ '/' + id, docente);
    }
 

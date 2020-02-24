@@ -14,8 +14,9 @@ export class DocentesComponent implements OnInit {
   estado: boolean;
   prueba : string;
   public id: number;
-  docenteUP: DocenteUP;
+
    docentesUP: DocenteUP[];
+   docenteUP: DocenteUP;
   // estadomesa : EstadoMesa;
   load: boolean;
   loading: string;
@@ -23,7 +24,7 @@ export class DocentesComponent implements OnInit {
     // private serviceestadomesa: EstadoMesasService 
     ) {
      this.estado = false;
-     this.docenteUP = new DocenteUP();
+      this.docenteUP = new DocenteUP();
     }
 
 
@@ -58,13 +59,13 @@ export class DocentesComponent implements OnInit {
 
   public eliminarDocente(id: number) {
     console.log(id);
-    /*
-    this.docenteService.getDocenteById(id).subscribe(o => {
+    
+    this.docenteUPService.getDocenteUPById(id).subscribe(o => {
       if (o !== null) {
-        this.docente  = o; 
-        console.log(this.docente);
+        this.docenteUP  = o; 
+        console.log(this.docentesUP);
         Swal.fire({
-          title: 'Estas seguro que desea eliminar al docente '+ this.docente.nombre + ' ' + this.docente.apellidoPat + ' '+this.docente.apellidoMat +' ?',
+          title: 'Estas seguro que desea eliminar al docente '+ this.docenteUP.nombre + ' ' + this.docenteUP.apellidoPat + ' '+this.docenteUP.apellidoMat +' ?',
           // text: "S",
           icon: 'warning',
           showCancelButton: true,
@@ -75,7 +76,7 @@ export class DocentesComponent implements OnInit {
         }).then((result) => {
           if (result.value) {
             this.load = true;
-            this.docenteService.deleteDocenteById(id).subscribe(data => {
+            this.docenteUPService.deleteDocenteById(id).subscribe(data => {
               
               if (data) {
                 this.load = false;
@@ -109,7 +110,7 @@ export class DocentesComponent implements OnInit {
 
          } else {  this.navigateList();    }
    
-  } ) ;*/
+  } ) ;
 
   }
   private navigateList() {

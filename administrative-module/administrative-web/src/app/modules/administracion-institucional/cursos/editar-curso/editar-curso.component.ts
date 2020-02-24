@@ -35,7 +35,7 @@ export class EditarCursoComponent implements OnInit {
     private activedRouter: ActivatedRoute,
     private serviceIdiomas: IdiomaService,  private serviceNivel: NivelService )   {
      
-     this.load = true;
+    this.load = true;
     this.empty = false;
     this.loading = Path.loading;
     this.success = false;
