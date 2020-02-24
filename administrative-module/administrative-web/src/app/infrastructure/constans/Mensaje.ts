@@ -46,4 +46,16 @@ export class Mensaje {
     public static emptyEstadoProgCurso = 'Seleccione un estado de Curso';
     public static emptySedeInput = 'Ingrese nombre de Sede';
 
+
+    public static emptyNomDoc = 'Ingrese Nombre de Docente';
+    public static emptyApPatomDoc = 'Ingrese Apellido Paterno de Docente';
+    public static emptyApMatDoc = 'Ingrese Apellido Materno de Docente';;
+    public static emptyDNIDoc = 'Ingrese DNI de Docente';
+    public static emptyDepDoc = 'Seleccione Departamento de Docente';
+    public static emptyEmailDoc = 'Ingrese Email de Docente';
+    public static emptyContraDoc = 'Ingrese Contraseña de Docente';
+
+    
+  
+
 }

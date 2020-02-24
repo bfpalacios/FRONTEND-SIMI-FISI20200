@@ -37,8 +37,17 @@
                     <div class="center-head">Email</div>
                 </td>
                 <td>
+                    <div class="center-head">Genero</div>
+                </td>
+                <td>
+                    <div class="center-head">Edad</div>
+                </td>
+                <td>
                     <div class="center-head">Departamento</div>
                 </td>
+                <!-- <td>
+                    <div class="center-head">Rol</div>
+                </td> -->
                 <td style="width: 100px;" class="text-center"></td>
 
 
@@ -62,9 +71,17 @@
                          {{docente.email}} </span> </div>
                  </td>
                  <td>
+                    <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.genero}} </span> </div>
+                 </td>
+                 <td>
+                    <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.edad}} </span> </div>
+                 </td>
+                 <td>
                     <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.departamento}} </span> </div>
                  </td>
-
+                 <!-- <td>
+                    <div class="center-body"> <span class = " border-blue mr-1 " style="font-size:110%;"> {{docente.nomRol}} </span> </div>
+                 </td> -->
             <td>
                 <div class="row" >
                         <button class="btn-edit mt-1 ml-3 " style ="background: #27c68f ;" (click)="editar(docente.codDocente)">

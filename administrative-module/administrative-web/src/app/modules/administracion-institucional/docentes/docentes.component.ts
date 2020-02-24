@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DocenteUPService } from 'src/app/services/administracion/AdmInstitucional/docenteUP.service';
-import Swal from 'sweetalert2';
 import { DocenteUP } from 'src/app/domain/DocenteUP';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-docentes',
