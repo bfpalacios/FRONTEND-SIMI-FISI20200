@@ -81,6 +81,8 @@ export class ProgramacionCursosComponent implements OnInit {
      this.actualizar = false;
 
      this.progCurso = new ProgCurso();
+     this.progCursoDTO = new ProgCursoDTO();
+     
 
      this.empty = false;
      this.load = true;
@@ -294,16 +296,19 @@ private getProgDocente(id: number) {
     } ) ;  
   
 }
-
+*/
   public eliminar(id: number) {
     console.log(id);
     
-    this.progdoccurService.getProgDocCursoById(id).subscribe(o => {
+    this.progcurService.getProgCursoById(id).subscribe(o => {
       if (o !== null) {
-        this.progDocCursoDTO = o; console.log(this.progDocCursoDTO);
+        this.progCursoDTO = o; console.log(this.progCursoDTO);
         Swal.fire({
-          text: 'Estas seguro que desea eliminar la programacion del docente '+ this.progDocCursoDTO.idDocente + ' '+  this.progDocCursoDTO.nombre +  ' '+ this.progDocCursoDTO.apellidoPat  +  ' '+ this.progDocCursoDTO.apellidoMat
-          + ' -- '+ this.progDocCursoDTO.nomIdioma+  ' '+      this.progDocCursoDTO.nomNivel+ ' '+ this.progDocCursoDTO.ciclo+ ' ?',
+          text: 'Estas seguro que desea eliminar la programacion del Curso '+ this.progCursoDTO.nomIdioma + ' '+  this.progCursoDTO.nomNivel 
+          +  ' '+ this.progCursoDTO.ciclo  
+          + ' , Aula:  '+ this.progCursoDTO.nomAula+  ' -- Horario : '+      this.progCursoDTO.nomGrupoHorario+ ' De '+ this.progCursoDTO.horaInicio+ ' a '+ this.progCursoDTO.horaSalida
+          + ' , Docente:  '+ this.progCursoDTO.nombre+  ''+      this.progCursoDTO.apellidoPat+ ' '+ this.progCursoDTO.apellidoMat +' ?',
+
           // title: "S",
           icon: 'warning',
           showCancelButton: true,
@@ -315,16 +320,16 @@ private getProgDocente(id: number) {
           if (result.value) {
             console.log("entro a true ");
             this.load = true;
-            this.progdoccurService.deleteProgDocCursoById(id).subscribe(data => {
+            this.progcurService.deleteProgCursoById(id).subscribe(data => {
               console.log("data", data);
               if (data) {
                 this.load = false;
                 Swal.fire(
-                  'Idioma Eliminado!',
-                  'La programacion docente - curso se elimino correctamente.',
+                  'Programación Curso Eliminado!',
+                  'La programacion curso se elimino correctamente.',
                   'success'
                 );
-                this.obtenerProgDocCurso();
+                this.obtenerProgCursos();
         
               } else {
                 this.load = false;
@@ -349,9 +354,9 @@ private getProgDocente(id: number) {
 
   }
 
-  // private navigateList() {
-  //   this.router.navigate(['administracionInstitucional/aulas']);
-  // }
-*/
+  //  private navigateList() {
+  //    this.router.navigate(['administracionInstitucional/aulas']);
+  //  }
+
 
 }

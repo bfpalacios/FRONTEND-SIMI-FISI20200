@@ -53,7 +53,7 @@
             <label  class="col-sm-12  col-form-label"> Horario </label>
             <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
                 <option [ngValue]="0">Seleccionar Horario </option>
-                <option [ngValue]="horario.idGrupoHorario" *ngFor="let horario of horarios">  {{horario.listaHorarios}}
+                <option [ngValue]="horario.idGrupoHorario" *ngFor="let horario of horarios">  {{horario.listaHorarios}}  
                 </option>
             </select>       
          </div>
@@ -165,10 +165,12 @@
                     <div class="center-body">  {{progCurso.nomPeriodo}}   </div> 
                 </td> 
                 <td>
-                    <div class="center-body">  {{progCurso.nomAula}}  --  {{progCurso.nomSede}}   </div> 
+                    <div class="center-body">  {{progCurso.nomAula}}   </div> 
+                    <!-- --  {{progCurso.nomSede}}  -->
                 </td> 
                 <td>
                     <div class="center-body">  {{progCurso.nomGrupoHorario}}  </div> 
+                    <div class="center-body">  De {{progCurso.horaInicio}} a {{progCurso.horaSalida}} </div> 
                 </td>
                 <td>
                     <div class="center-body">  {{progCurso.nomEstado}}  </div> 
