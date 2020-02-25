@@ -12,4 +12,12 @@ export class SectionButtonsComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  href() {
+    location.href ="https://ceidletras.unmsm.edu.pe/";
+  }
+
+  signInLikeInvited() {
+    location.href = "ip:8091";
+  }
 }

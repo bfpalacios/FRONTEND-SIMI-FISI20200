@@ -35,7 +35,9 @@ export function sistemaMatriculaDisponible(matriculaOnline: SistemaMatriculaServ
       preventDuplicates: true,
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true, deps: [ToastrService] },
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor,
+      multi: true, deps: [ToastrService] },
   { provide: APP_INITIALIZER, useFactory: sistemaMatriculaDisponible, deps: [SistemaMatriculaService], multi: true },],
   bootstrap: [AppComponent]
 })
