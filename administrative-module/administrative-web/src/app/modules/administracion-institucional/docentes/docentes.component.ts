@@ -14,6 +14,7 @@ export class DocentesComponent implements OnInit {
   estado: boolean;
   prueba : string;
   public id: number;
+  busquedaTexto: any;
 
    docentesUP: DocenteUP[];
    docenteUP: DocenteUP;

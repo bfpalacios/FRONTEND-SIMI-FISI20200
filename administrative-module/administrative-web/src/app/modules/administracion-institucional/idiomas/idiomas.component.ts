@@ -18,6 +18,7 @@ export class IdiomasComponent implements OnInit {
   idioma : Idioma;
   load: boolean;
   loading: string;
+  busquedaTexto: any;
   constructor(
     private router: Router,
     private serviceIdioma: IdiomaService) {

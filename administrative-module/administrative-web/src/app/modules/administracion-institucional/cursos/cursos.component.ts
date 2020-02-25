@@ -13,6 +13,7 @@ import { Idioma } from 'src/app/domain/Idioma';
   styleUrls: ['./cursos.component.css']
 })
 export class CursosComponent implements OnInit {
+  busquedaTexto: any;
   estado: boolean;
   prueba : string;
   public id: number;

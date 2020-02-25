@@ -19,6 +19,7 @@ export class AulasComponent implements OnInit {
    auladto : AulaDTO;
   load: boolean;
   loading: string;
+  busquedaTexto: any;
    constructor(private router: Router 
     ,private serviceAula: AulaService  
     ) {

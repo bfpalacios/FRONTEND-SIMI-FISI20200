@@ -7,38 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./alumnos.component.css']
 })
 export class AlumnosComponent implements OnInit {
-  estado: boolean;
-  prueba : string;
-  public id: number;
-  // mesas: Mesa[];
-  // mesasdto: MesaDTO[];
-  // estadomesa : EstadoMesa;
-  load: boolean;
-  loading: string;
-   constructor(private router: Router 
-    // ,private serviceMesas: MesasService , 
-    // private serviceestadomesa: EstadoMesasService 
+
+   constructor(
+ 
     ) {
-     this.estado = false;
+
     }
 
 
-  // constructor() { }
+
 
   ngOnInit() {
-    //obtener Listado de Alumnos
-    // this.router.navigate(['home/feed']).then();
 
   }
-  nuevoAlumno() {
-    
-    this.router.navigate(['administracionInstitucional/alumnos/crear']).then();
-  }
-  // editarAlumno(id: number) 
-  editarAlumno() { 
-    // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/alumnos/editar']).then();
-  }
-
-
 }

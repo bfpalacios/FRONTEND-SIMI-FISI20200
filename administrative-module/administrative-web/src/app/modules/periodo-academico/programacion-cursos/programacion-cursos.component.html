@@ -8,9 +8,9 @@
     <button  *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1" (click)="guardar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
     </button>
-    <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
+<!--     <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
-    </button>
+    </button> -->
     <button  *ngIf="actualizar" type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarActualizada()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
@@ -80,31 +80,10 @@
         <div class="col-md-5"> 
                  <div class="col-md-12">
                     <label  class="col-sm-12  col-form-label">Filtro</label>
-                    <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" [(ngModel)]="busquedaTexto"/>      
+                    <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" />      
                 </div>
         </div>
-<!-- 
-        <div class="col-md-3">
-            <label  class="col-sm-12  col-form-label">Idioma</label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdIdioma">
-                <option [ngValue]="0">Seleccionar el Idioma</option>
-                <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
-                </option>
-            </select>       
-       </div>
-    
-        <div class="col-md-3">
-            <label  class="col-sm-12  col-form-label">Periodo Academico</label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdPeriodo">
-                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
-                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
-                </option>
-            </select>       
-        </div>
-        <div class="col-md-1">
-             <button class="btn-nuevo" (click)="editar()"> <i class="mdi mdi-magnify f-16"></i>    </button>
-         </div> -->
-      </div>
+    </div>
 
   
     

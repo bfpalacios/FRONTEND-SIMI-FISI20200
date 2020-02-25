@@ -16,7 +16,7 @@ export class HorariosComponent implements OnInit {
   grupoHorarios: GrupoHorarioDTO[];
   grupoHorario: GrupoHorarioDTO;
   public  pageActual : number ;
-
+  busquedaTexto: any;
   load: boolean;
   loading: string;
    constructor(private router: Router , private serviceHorarios: GrupoHorarioService , 

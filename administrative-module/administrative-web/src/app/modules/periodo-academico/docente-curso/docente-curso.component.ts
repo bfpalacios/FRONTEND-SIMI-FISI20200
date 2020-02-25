@@ -35,8 +35,10 @@ export class DocenteCursoComponent implements OnInit {
   progDocCursos : ProgDocCursoDTO[];
   progDocCursoDTO : ProgDocCursoDTO;
   progDocCurso : ProgDocCurso;
-
+  busquedaTexto: any;
   public empty: boolean;
+  selectedTypeFILTROIdIdioma: any;
+  selectedTypeFILTROIdPeriodo: any;
   idiomas: Idioma[]
   public  pageActual : number ;
   nuevoCurso : boolean;
