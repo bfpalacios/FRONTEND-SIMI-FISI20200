@@ -39,19 +39,20 @@
             </select>       
          </div>
     
-        <div class="col-sm-4">
-            <label  class="col-sm-12  col-form-label">Periodo Academico</label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo">
-                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
-                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
-                </option>
-            </select>       
-         </div>
-         <div class="col-sm-3">
+        
+         <div class="col-sm-4">
             <label  class="col-sm-12  col-form-label">Curso</label>
             <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdCurso">
                 <option [ngValue]="0">Seleccionar el Curso</option>
                 <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">{{curso.nomIdioma}}  {{curso.nomNivel}} - {{curso.ciclo}}
+                </option>
+            </select>       
+         </div>
+         <div class="col-sm-3">
+            <label  class="col-sm-12  col-form-label">Periodo Academico</label>
+            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo">
+                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
+                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
                 </option>
             </select>       
          </div>
@@ -77,6 +78,7 @@
             <label  class="col-sm-12  col-form-label">Idioma</label>
             <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdIdioma">
                 <option [ngValue]="0">Seleccionar el Idioma</option>
+                <option [ngValue]="-1">Todos los Idiomas</option>
                 <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
                 </option>
             </select>       
@@ -91,7 +93,7 @@
             </select>       
         </div>
         <div class="col-md-1">
-             <button class="btn-nuevo" (click)="editar()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+             <button class="btn-nuevo" (click)="filtrarPeriodoIdioma()"> <i class="mdi mdi-magnify f-16"></i>    </button>
          </div>
       </div>
 
@@ -110,9 +112,9 @@
                 <td>
                     <div class="center-head">N°</div>
                 </td>
-                <td>
+                <!-- <td>
                     <div class="center-head">Codigo Docente</div>
-                </td>
+                </td> -->
 
                 <td>
                     <div class="center-head">Docente</div>
@@ -139,9 +141,9 @@
             <td>
                 <div class="center-body">{{i+1}}</div> 
             </td> 
-            <td>
+            <!-- <td>
                 <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:110%;"> {{progDocCurso.idDocente}}   </span> </div>
-             </td>
+             </td> -->
 
                 <td>
                     <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progDocCurso.nombre}}   {{progDocCurso.apellidoPat}}  {{progDocCurso.apellidoMat}}</span> </div>
@@ -153,7 +155,15 @@
                  </td>
 
                 <td>
-                    <div class="center-body">{{progDocCurso.nomIdioma}}  {{progDocCurso.nomNivel}}  {{progDocCurso.ciclo}}° ciclo </div>
+                    <div class="center-body"> 
+                        <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progDocCurso.nomIdioma}} </span>
+
+                        <span  class=" border-bottom  border-primary  " style="font-size:100%;" *ngIf="progDocCurso.nomNivel=='Basico'"> {{progDocCurso.nomNivel}}    {{progDocCurso.ciclo}} </span>
+                        <span class=" border-bottom  border-success  " style="font-size:100%;" *ngIf="progDocCurso.nomNivel=='Intermedio'"> {{progDocCurso.nomNivel}}   {{progDocCurso.ciclo}} </span>
+                        <span  class=" border-bottom  border-warning   " style="font-size:100%;" *ngIf="progDocCurso.nomNivel=='Avanzado'"> {{progDocCurso.nomNivel}}   {{progDocCurso.ciclo}} </span>
+                        <span  class=" border-bottom  border-danger " style="font-size:100%;" *ngIf="progDocCurso.nomNivel=='Posgrado'"> {{progDocCurso.nomNivel}}  {{progDocCurso.ciclo}}  </span>
+                      
+                         </div>
                 </td>
                 <td>
                     <div class="center-body">  {{progDocCurso.nomPeriodo}}   </div> 

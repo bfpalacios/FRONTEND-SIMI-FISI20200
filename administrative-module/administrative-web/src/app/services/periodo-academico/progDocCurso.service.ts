@@ -20,7 +20,10 @@ export class ProgDocCursoService {
     return this.http.get<ProgDocCursoDTO[]>(this.url + '/' + 'listProgDocCursosByPeriodo' + '/' + id);
   }
 
-  
+  getProgDocCursoByPeriodoByIdioma(idPeriodo: number,idIdioma: number) {
+    return this.http.get<ProgDocCursoDTO[]>(this.url + '/' + 'listProgDocCursosByPeriodoIdioma' + '/' + idPeriodo+ '/' + idIdioma);
+  }
+
   public getProgDocCursoById(id: number) {
     return this.http.get<ProgDocCursoDTO>(this.url + '/' + 'obtenerProgDocCursoById' + '/' + id);
   }

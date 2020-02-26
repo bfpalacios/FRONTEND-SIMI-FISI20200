@@ -37,8 +37,8 @@ export class DocenteCursoComponent implements OnInit {
   progDocCurso : ProgDocCurso;
   busquedaTexto: any;
   public empty: boolean;
-  selectedTypeFILTROIdIdioma: any;
-  selectedTypeFILTROIdPeriodo: any;
+  selectedTypeFILTROIdIdioma: number;
+  selectedTypeFILTROIdPeriodo: number;
   idiomas: Idioma[]
   public  pageActual : number ;
   nuevoCurso : boolean;
@@ -55,6 +55,10 @@ export class DocenteCursoComponent implements OnInit {
      private periodoacademicoService: PeriodoAcademicoService , private progdoccurService: ProgDocCursoService ,
     private idiomaService : IdiomaService
     ) {
+
+  this.selectedTypeFILTROIdIdioma = -1;
+  this.selectedTypeFILTROIdPeriodo = 5;
+
       this.selectedTypeIdDocente = "";
       this.selectedTypeIdPeriodo = 0;
       this.selectedTypeIdCurso = 0;
@@ -77,9 +81,10 @@ export class DocenteCursoComponent implements OnInit {
     this.getDocentes();
      this.getPeriodo();
      this.getIdiomas();
-     this.obtenerProgDocCurso();
+     this.obtenerProgDocCurso( this.selectedTypeFILTROIdPeriodo, this.selectedTypeFILTROIdIdioma);
     
   }
+  
 
   private getCursos() {
     this.cursoService.getCursos().subscribe(data => {
@@ -107,16 +112,29 @@ export class DocenteCursoComponent implements OnInit {
       this.load = false;
     });
   }
-   obtenerProgDocCurso() {
-     console.log("antes");
-     this.progdoccurService.getProgDocCurso().subscribe(data => {
-      this.load = false;
-       this.progDocCursos = data;
+   obtenerProgDocCurso(idPeriodo:number, idIdioma : number) {
 
-       console.log("docentesdto", this.progDocCursos);
-
-     }
-     )
+    if(idIdioma == -1){ // filtrar todos los cursos del periodo academico
+    
+      this.progdoccurService.getProgDocCursoByPeriodo(idPeriodo).subscribe(data => {
+        this.load = false;
+         this.progDocCursos = data;
+  
+         console.log("docentesdto", this.progDocCursos);
+  
+       }
+       )
+    }else{
+              this.progdoccurService.getProgDocCursoByPeriodoByIdioma(idPeriodo,idIdioma).subscribe(data => {
+                this.load = false;
+                this.progDocCursos = data;
+          
+                console.log("docentesdto", this.progDocCursos);
+          
+              }
+              )
+       }
+ 
    }
    private nuevo(){
 
@@ -127,7 +145,7 @@ export class DocenteCursoComponent implements OnInit {
 
      }
     private guardar()
-    {
+    { console.log("entro a guardar");
       this.empty = this.isEmpty();
       // this.aula.idSede = this.selectedTypeIdSede;
       console.log("this.selectedTypeIdDocente",this.selectedTypeIdDocente);
@@ -157,9 +175,20 @@ export class DocenteCursoComponent implements OnInit {
             'Programación Docente-Curso se registro correctamente.',
             'success'
           );
-          this.obtenerProgDocCurso();
-          this.nuevoCurso = !this.nuevoCurso ;
-          // this.setLocalStorageParamIdioma(this.curso.idIdioma.toString());
+          this.cursoService.getCursoById(this.progDocCurso.idCurso).subscribe(data => {
+            console.log("data",data);
+            this.load = false;
+            if (data) {
+             console.log("filtro idioma", this.selectedTypeFILTROIdIdioma);
+              this.obtenerProgDocCurso(this.progDocCurso.idPeriodo ,this.selectedTypeFILTROIdIdioma );
+              this.nuevoCurso = !this.nuevoCurso ;
+              
+            } else {
+              this.empty = true;
+              this.successText = 'El curso ya existe, ingrese otro.';
+            }
+          });
+
 
         } else {
           this.empty = true;
@@ -232,8 +261,21 @@ actualizarProg() {
           'Programacion Docente Curso se edito correctamente.',
           'success'
         );
-         // this.guardarCliente();
-         this.obtenerProgDocCurso();
+
+        this.cursoService.getCursoById(this.progDocCurso.idCurso).subscribe(data => {
+          console.log("data",data);
+          this.load = false;
+          if (data) {
+           
+            this.obtenerProgDocCurso(this.progDocCurso.idPeriodo ,this.selectedTypeFILTROIdIdioma);
+            // this.nuevoCurso = !this.nuevoCurso ;
+            
+          } else {
+            this.empty = true;
+            this.successText = 'El curso ya existe, ingrese otro.';
+          }
+        });
+               //  this.obtenerProgDocCurso();
       } else {
         this.load = false;
         this.empty = true;
@@ -301,7 +343,22 @@ private getProgDocente(id: number) {
                   'La programacion docente - curso se elimino correctamente.',
                   'success'
                 );
-                this.obtenerProgDocCurso();
+
+                this.cursoService.getCursoById(this.progDocCursoDTO.idCurso).subscribe(data => {
+                  console.log("data",data);
+                  this.load = false;
+                  if (data) {
+                   
+                    this.obtenerProgDocCurso(this.progDocCursoDTO.idPeriodo ,this.selectedTypeFILTROIdIdioma );
+                    // this.nuevoCurso = !this.nuevoCurso ;
+                    
+                  } else {
+                    this.empty = true;
+                    this.successText = 'El curso ya existe, ingrese otro.';
+                  }
+                });
+
+                // this.obtenerProgDocCurso();
         
               } else {
                 this.load = false;
@@ -326,6 +383,15 @@ private getProgDocente(id: number) {
 
   }
 
+  public filtrarPeriodoIdioma(){
+    console.log("periodo",this.selectedTypeFILTROIdPeriodo );
+    console.log("idioma",this.selectedTypeFILTROIdIdioma);
+  
+   
+      this.obtenerProgDocCurso( this.selectedTypeFILTROIdPeriodo  , this.selectedTypeFILTROIdIdioma );
+    
+   
+  }
   // private navigateList() {
   //   this.router.navigate(['administracionInstitucional/aulas']);
   // }
