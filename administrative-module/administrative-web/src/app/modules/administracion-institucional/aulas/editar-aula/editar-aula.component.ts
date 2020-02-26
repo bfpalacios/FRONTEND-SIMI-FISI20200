@@ -20,6 +20,7 @@ export class EditarAulaComponent implements OnInit {
   public empty: boolean;
   public successText: string;
   public aula: Aula;
+  public title: string;
 
   // public pmcompuesta : boolean;
   public success: boolean;
@@ -35,6 +36,12 @@ export class EditarAulaComponent implements OnInit {
     this.aula = new Aula();
 
   }
+
+  setLocalStorageParamSede(title: string) {
+    this.title = title;
+    localStorage.setItem('parametro', this.title);
+  }
+
   ngOnInit() {
     // this.load = false;
     this.getAula();
@@ -140,6 +147,8 @@ export class EditarAulaComponent implements OnInit {
 
 
   private navigateList() {
+    
+    this.setLocalStorageParamSede(this.aula.idSede.toString());
     this.router.navigate(['administracionInstitucional/aulas']).then();
   }
   public eliminar() {

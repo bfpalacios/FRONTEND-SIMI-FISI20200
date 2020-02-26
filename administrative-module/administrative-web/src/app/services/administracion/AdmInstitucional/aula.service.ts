@@ -15,6 +15,10 @@ export class AulaService {
   getAulas() {
     return this.http.get<AulaDTO[]>(this.url + '/' + 'listAulas');
   }
+  
+  getAulasbySede(id: number) {
+    return this.http.get<AulaDTO[]>(this.url + '/' + 'listAulasBySede'+ '/' + id);
+  }
 
   public crearAula(aula: Aula) {
     return this.http.post<Aula>(this.url + '/' + 'crearAula', aula);

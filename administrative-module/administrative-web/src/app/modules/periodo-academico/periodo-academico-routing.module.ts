@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-
 import { Routes, RouterModule } from '@angular/router';
+
 import { MatriculadosComponent } from './matriculados/matriculados.component';
 import { CicloAcademicoComponent } from './ciclo-academico/ciclo-academico.component';
 import { ProgramacionCursosComponent } from './programacion-cursos/programacion-cursos.component';
@@ -29,30 +29,6 @@ const routes: Routes = [
 
 
 {  path: '**',  redirectTo: 'programacionCursos'},
-
-/*
-{  path: 'alumnos',  component: AlumnosComponent},
-{  path: 'alumnos/crear',  component: CreateAlumnoComponent},
-{  path: 'alumnos/editar/:id',  component: EditarAlumnoComponent},
-{  path: 'aulas',  component: AulasComponent},
-{  path: 'aulas/crear',  component: CreateAulaComponent},
-{  path: 'aulas/editar/:id',  component: EditarAulaComponent},
-{  path: 'cursos',  component: CursosComponent},
-{  path: 'cursos/crear',  component: CreateCursoComponent},
-{  path: 'cursos/editar/:id',  component: EditarCursoComponent},
-{  path: 'docentes',  component: DocentesComponent},
-{  path: 'docentes/crear',  component: CreateDocenteComponent},
-{  path: 'docentes/editar/:id',  component: EditarDocenteComponent},
-{  path: 'horarios',  component: HorariosComponent},
-{  path: 'horarios/crear',  component: CreateHorarioComponent},
-{  path: 'horarios/editar/:id',  component: EditarHorarioComponent},
-{  path: 'idiomas',  component: IdiomasComponent},
-{  path: 'idiomas/crear',  component: CreateIdiomaComponent},
-{  path: 'idiomas/editar/:id',  component: EditarIdiomaComponent},
-{  path: 'sedes',  component: SedesComponent},
-{  path: 'sedes/crear',  component: CreateSedeComponent},
-{  path: 'sedes/editar',  component: EditarSedeComponent}, */
-
 
 ];
 

@@ -15,6 +15,7 @@ export class IdiomaService {
     return this.http.get<Idioma[]>(this.url + '/' + 'listIdiomas');
   }
 
+ 
   public crearIdioma(idioma: Idioma) {
     return this.http.post<Idioma>(this.url + '/' + 'crearIdioma', idioma);
   }

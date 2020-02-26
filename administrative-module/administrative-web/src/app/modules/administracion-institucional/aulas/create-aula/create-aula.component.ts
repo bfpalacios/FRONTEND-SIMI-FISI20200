@@ -22,7 +22,7 @@ export class CreateAulaComponent implements OnInit {
   public sedes : Sede[];
   // public pmcompuesta : boolean;
   public selectedTypeIdSede : number;
-
+  public title: string;
 
   constructor(private router: Router , private serviceAula: AulaService,
     private serviceSede: SedeService) {
@@ -33,7 +33,10 @@ export class CreateAulaComponent implements OnInit {
     this.loading = Path.loading;
   }
 
-  
+  setLocalStorageParamSede(title: string) {
+    this.title = title;
+    localStorage.setItem('parametro', this.title);
+  }
 
   ngOnInit() {//lenar cmbs
     this.getSedes();
@@ -72,6 +75,7 @@ export class CreateAulaComponent implements OnInit {
               'success'
             );
             this.navigateList();
+           
           } else {
             this.empty = true;
             this.successText = 'El nombre del aula ya existe, ingrese otro.';
@@ -84,6 +88,7 @@ export class CreateAulaComponent implements OnInit {
     }
     
     private navigateList() {
+      this.setLocalStorageParamSede(this.aula.idSede.toString());
       this.router.navigate(['administracionInstitucional/aulas']).then();
     }
 

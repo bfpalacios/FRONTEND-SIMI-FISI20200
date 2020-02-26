@@ -8,10 +8,13 @@ import { CreateMatriculaaComponent } from './matriculas/create-matricula/create-
 
 
 @NgModule({
-  declarations: [MatriculasComponent, MonitoreoMatriculaComponent,CreateMatriculaaComponentg],
+  declarations: [MatriculasComponent, MonitoreoMatriculaComponent,CreateMatriculaaComponent],
     imports: [
     CommonModule,
-    AdministracionMatriculaRoutingModule
+    AdministracionMatriculaRoutingModule,
+    // FormsModule,
+    // Ng2SearchPipeModule,
+    // NgxPaginationModule,
   ]
 })
 export class AdministracionMatriculaModule { }
