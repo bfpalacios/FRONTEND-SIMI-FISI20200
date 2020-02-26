@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit{
   public load: boolean;
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    this.loading = 'assets/loading/loading.gif';
+    this.loading = 'assets/loading/loading.svg';
     this.load = true;
    }
 

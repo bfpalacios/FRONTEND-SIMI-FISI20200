@@ -69,4 +69,8 @@ export class FormLoginComponent implements OnInit {
       return true;
     }
   }
+
+  public signUp() {
+   this.router.navigate(['createAccount']);
+  }
 }

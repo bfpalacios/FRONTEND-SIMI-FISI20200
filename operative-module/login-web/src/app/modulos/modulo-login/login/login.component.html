@@ -1,7 +1,9 @@
 <div *ngIf="load" style="position: absolute; z-index: 1; width: 100%; height: 100%;" class="center-content">
-    <img src="{{loading}}" style="width: 100px;">
+    <div>
+        <img src="{{loading}}" style="width: 100px;">
+    </div>
 </div>
-<div class="background-login-center center-content display-h-none">
+<div class="background-primary center-content display-h-none">
     <div class="background-login-white display-h-none display-w-none">
         <div class="row height-100 m-0">
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 center-content">
@@ -17,7 +19,7 @@
                 <app-banner-login></app-banner-login>
             </div>
             <div class="col-lg-2 center-content display-none" style="margin-left: -35px;">
-                <app-section-buttons></app-section-buttons>
+                <app-section-buttons  (emitter)="ngAfterContentInit($event)"></app-section-buttons>
             </div>
         </div>
     </div>

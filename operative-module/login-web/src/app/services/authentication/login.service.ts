@@ -15,4 +15,10 @@ export class LoginService {
   public signInWithEmailAndPassword(user: User) {
     return this.http.post<User>(this.url + '/withEmailAndPassword', user);
   }
+
+  public signInLikeInvited() {
+    const user = new User();
+    user.setUserInvited();
+    return this.http.post<User>(this.url + '/signInLikeInvited', user);
+  }
 }

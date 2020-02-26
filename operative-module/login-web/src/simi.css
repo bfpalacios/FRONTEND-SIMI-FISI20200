@@ -1,4 +1,9 @@
 /* Simi Styles*/
+
+.background-primary {
+  background-color: #096ac6; background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%;
+}
+
 .simi-card {
     background-color: #ffffff; color: black;
     font-size: 17px; margin: 15px; padding: 17px;

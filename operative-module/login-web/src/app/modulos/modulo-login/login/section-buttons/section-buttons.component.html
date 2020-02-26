@@ -1,25 +1,29 @@
 <div>
     <div class="mb-4 mt-3 section-border text-center">
-        <div>
-            <i class="mdi mdi-account-tie primary-color" style="font-size: 50px; color: #f44336;"></i>
-        </div>
-        <div>
-            <h6 style="color: #f44336;">
-                INVITADO
-            </h6>
-            <span class="f-13 m-1">Ingresar como invitado al sistema</span>
-        </div>
+        <button (click)="signInLikeInvited()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-account-tie primary-color" style="font-size: 50px; color: #f44336;"></i>
+            </div>
+            <div>
+                <h6 style="color: #f44336;">
+                    INVITADO
+                </h6>
+                <span class="f-13 m-1">Ingresar como invitado al sistema</span>
+            </div>
+        </button>
     </div>
     <div class="mb-4 mt-3 section-border text-center">
-        <div>
-            <i class="mdi mdi-flag-outline primary-color" style="font-size: 50px; color: #4caf50;"></i>
-        </div>
-        <div>
-            <h6 class="primary-color" style="color: #4caf50;">
-                IDIOMAS
-            </h6>
-            <span class="f-13 m-1">Cursos e idiomas que se dictan</span>
-        </div>
+        <button (click)="goIdiomas()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-flag-outline primary-color" style="font-size: 50px; color: #4caf50;"></i>
+            </div>
+            <div>
+                <h6 class="primary-color" style="color: #4caf50;">
+                    IDIOMAS
+                </h6>
+                <span class="f-13 m-1">Cursos e idiomas que se dictan</span>
+            </div>
+        </button>
     </div>
     <div class="mb-4 mt-3 section-border text-center">
         <button (click)="href()" style="border: 0px; background-color: transparent;">
