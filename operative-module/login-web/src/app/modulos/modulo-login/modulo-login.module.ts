@@ -8,6 +8,8 @@ import { SectionButtonsComponent } from './login/section-buttons/section-buttons
 import { SectionButtonsResponsiveComponent } from './login/section-buttons-responsive/section-buttons-responsive.component';
 import { FormLoginComponent } from './login/form-login/form-login.component';
 import { FormsModule } from '@angular/forms';
+import { FormRegisterComponent } from './create-account/form-register/form-register.component';
+import { FormDatosPesonalesComponent } from './create-account/form-datos-pesonales/form-datos-pesonales.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { FormsModule } from '@angular/forms';
     SectionButtonsComponent,
     SectionButtonsResponsiveComponent,
     FormLoginComponent,
+    FormRegisterComponent,
+    FormDatosPesonalesComponent,
   ],
   imports: [
     CommonModule,

@@ -33,11 +33,11 @@ export class FormLoginComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.updateLoad();
+    this.updateLoad();
   }
 
   public login() {
-     if (!this.isEmpty()) {
+    if (!this.isEmpty()) {
       this.updateLoad();
       this.signIn.signInWithEmailAndPassword(this.user).subscribe(data => {
         this.updateLoad();
@@ -71,6 +71,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   public signUp() {
-   this.router.navigate(['createAccount']);
+    this.router.navigate(['createAccount']);
   }
 }

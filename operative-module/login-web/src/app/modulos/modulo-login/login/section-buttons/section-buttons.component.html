@@ -25,7 +25,7 @@
             </div>
         </button>
     </div>
-    <div class="mb-4 mt-3 section-border text-center">
+    <div *ngIf="onLogin" class="mb-4 mt-3 section-border text-center">
         <button (click)="href()" style="border: 0px; background-color: transparent;">
             <div>
                 <i class="mdi mdi-restart primary-color" style="font-size: 50px; color: #212121;"></i>
@@ -35,6 +35,19 @@
                     PRINCIPAL
                 </h6>
                 <span class="f-13 m-2">Volver a la página del Centro de Idiomas</span>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="!onLogin" class="mb-4 mt-3 section-border text-center">
+        <button (click)="href()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-arrow-left-thick primary-color" style="font-size: 50px; color: #212121;"></i>
+            </div>
+            <div>
+                <h6 style="color: #212121;">
+                    LOGIN
+                </h6>
+                <span class="f-13 m-2">Volver al inicio</span>
             </div>
         </button>
     </div>

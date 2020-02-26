@@ -1,51 +1,35 @@
 /* Simi Styles*/
 
-.background-primary {
+.simi-background-primary {
   background-color: #096ac6; background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%;
 }
 
+.simi-background-white{
+  height: 80%; background-color: white;width: 88%; border-radius: 8px; box-shadow: 20px 20px 15px;
+}
+
 .simi-card {
-    background-color: #ffffff; color: black;
-    font-size: 17px; margin: 15px; padding: 17px;
+    background-color: #ffffff; color: black;font-size: 17px; margin: 15px; padding: 17px;
 }
 
 .simi-bg-gray-circle{
-  background-color: #ebebeb;
-  border-radius: 40px;
-  width: 80px;
-  height: 80px;
-  display: inline-block;
+  background-color: #ebebeb;border-radius: 40px;width: 80px;height: 80px;display: inline-block;
 }
 
 .simi-section-label-blue{
-  background-color: #096ac6;
-  border-radius: 4px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #096ac6;border-radius: 4px;padding: 5.5px 9.5px;margin: 5px;font-size: 14px;color: white;
 }
 
 .simi-section-label-rose{
-  background-color: #c60869;
-  border-radius: 7px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #c60869;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px;font-size: 14px;color: white;
 }
 
 .simi-bg-header {
-  background-color: #323232;
-  color: white;
-  padding: 6px;
+  background-color: #323232;color: white;padding: 6px;
 }
 
 .simi-header{
-  background-color:#f0f1f0; color: white;
-  font-size: 18px;
-  align-items: center;
-  padding: 6px;
+  background-color:#f0f1f0; color: white; font-size: 18px; align-items: center; padding: 6px;
 }
 
 .btn {
@@ -81,11 +65,48 @@
 .simi-btn-dark:hover { background-color: #4e4e4e !important;}
 
 .simi-btn-default { background-color: none !important; color: black !important;}
-.simi-btn-default:hover { font-weight: normal !important;}
+.simi-btn-default:hover { color: #096ac6 !important;}
 
 @media screen and (max-width: 650px) {
   .simi-min-size{
-      background-color: #ffffff;
-      color: black;
+      background-color: #ffffff; color: black;
   }
 }
+
+@media screen and (max-height: 660px){
+  .simi-display-h-none{
+      height: 100%; background-color: white; width: 100%; border-radius: 0px; box-shadow: 0px 0px 0px;
+  }
+}
+
+
+@media screen and (max-width: 500px){
+  .simi-display-w-none{
+      height: 100%;background-color: white;width: 100%; border-radius: 0px; box-shadow: 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .simi-display-none-blue{
+      display:none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .simi-display-none{
+      display:none !important;
+  }
+}
+
+.simi-center-content {
+  display: flex;justify-content: center;align-items: center;
+}
+
+.simi-height-100 {
+  height: 100%;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;}

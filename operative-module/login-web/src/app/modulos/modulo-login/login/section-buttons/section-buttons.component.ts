@@ -11,6 +11,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class SectionButtonsComponent implements OnInit {
 
+  public onLogin: boolean;
   public auth: boolean;
   public user: User;
   @Output() public emitter;
@@ -22,6 +23,7 @@ export class SectionButtonsComponent implements OnInit {
     this.emitter = new EventEmitter();
     this.load = false;
     this.auth = false;
+    this.onLogin = true;
    }
 
   ngOnInit() {

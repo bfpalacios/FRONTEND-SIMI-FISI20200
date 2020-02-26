@@ -21,7 +21,6 @@ export class SistemaMatriculaService {
       (observer: Observer<any>) => {
         this.http.get<boolean>(this.url + '/sistema/verificarSistemaMatricula').subscribe(data => {
           console.log('data -> ', data);
-          this._toastService.success('Bienvenido.');
           observer.next('');
           observer.complete();
         }, () => {
