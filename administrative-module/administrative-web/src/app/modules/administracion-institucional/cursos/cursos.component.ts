@@ -39,7 +39,7 @@ export class CursosComponent implements OnInit {
 
   ngOnInit() {
     this.parametro = parseInt( localStorage.getItem('parametro'));
-    this.obtenerCursos(this.parametro);
+    //this.obtenerCursos(this.parametro);
     this.getIdiomas();
 
 
