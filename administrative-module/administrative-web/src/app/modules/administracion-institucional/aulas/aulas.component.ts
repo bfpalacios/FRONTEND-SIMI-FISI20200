@@ -4,6 +4,8 @@ import { AulaDTO } from 'src/app/domain/AulaDTO';
 import { Path } from 'src/app/infrastructure/constans/Path';
 import Swal from 'sweetalert2';
 import { AulaService } from 'src/app/services/administracion/AdmInstitucional/aula.service';
+import { Sede } from 'src/app/domain/Sede';
+import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
 
 @Component({
   selector: 'app-aulas',
@@ -17,33 +19,52 @@ export class AulasComponent implements OnInit {
   public id: number;
    aulasdto: AulaDTO[];
    auladto : AulaDTO;
+   public sedes : Sede[];
   load: boolean;
   loading: string;
   busquedaTexto: any;
+  public selectedTypeIdSede : number;
+  parametro : number ;
    constructor(private router: Router 
-    ,private serviceAula: AulaService  
+    ,private serviceAula: AulaService  , private serviceSede : SedeService
     ) {
       this.load = true;
       this.loading = Path.loading;
      this.estado = false;
      this.auladto = new AulaDTO();
      this.pageActual = 1;
-
+     this.selectedTypeIdSede = 0;
+     this.parametro = 1;
     }
 
 
   ngOnInit() {
-    this.obtenerAulas();
-
+    this.parametro = parseInt( localStorage.getItem('parametro'));
+    this.obtenerAulas(this.parametro);
+    this.getSedes();
 
   }
-  obtenerAulas() {
+  obtenerAulas(id:number) {
     console.log("antes");
-    this.serviceAula.getAulas().subscribe(data => {
+    this.serviceAula.getAulasbySede(id).subscribe(data => {
       this.load = false;
       this.aulasdto = data;
     }
     )
+  }
+
+  getSedes() {
+    console.log("antes");
+    this.serviceSede.getSedes().subscribe(data => {
+      this.load = false;
+      this.sedes = data;
+    }
+    )
+  }
+
+  cambiarTabla(){
+    console.log("selectedTypeIdSede", this.selectedTypeIdSede);
+    this.obtenerAulas(this.selectedTypeIdSede);
   }
 
   nuevaAula() {
@@ -87,7 +108,7 @@ export class AulasComponent implements OnInit {
                   'El aula '+ this.auladto.nomAula+' se elimino correctamente.',
                   'success'
                 );
-                this.obtenerAulas();
+                this.obtenerAulas(this.selectedTypeIdSede);
         
               } else {
                 this.load = false;
