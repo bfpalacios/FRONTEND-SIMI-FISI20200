@@ -3,4 +3,5 @@ export class Apertura{
 	codEstudiante : number;
 	idCurso : number;
 	idHorarioGrupohorario : number;
+	mensaje : string
 }

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-matricula.component.html',
   styleUrls: ['./create-matricula.component.css']
 })
-export class CreateMatriculaaComponent implements OnInit {
+export class CreateMatriculaComponent implements OnInit {
 
    constructor(private router: Router
     ) {
