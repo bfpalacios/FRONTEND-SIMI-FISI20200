@@ -19,6 +19,7 @@ export class MatricularComponent implements OnInit {
   public maxCursos: number;
   public cursosSeleccionados: number;
   mobile: MediaQueryList;
+  public id:number;
   mobileListener: () => void;
 
   constructor(
@@ -37,7 +38,7 @@ export class MatricularComponent implements OnInit {
 
   ngOnInit() {
     this.getPagosSinUsar();
-    this.getProgramacion();
+    this.getProgramacionbyID();
   }
 
   ngOnDestroy(): void {
@@ -56,8 +57,8 @@ export class MatricularComponent implements OnInit {
  
   }
 
-  public getProgramacion() {
-    this.serviceProgramacion.getProgramacion().subscribe(data => {
+  public getProgramacionbyID() {
+    this.serviceProgramacion.getProgramacionbyID(this.dataService.user.codigo).subscribe(data => {
       this.programacion = data;
       console.log(this.programacion);
     }, error => {

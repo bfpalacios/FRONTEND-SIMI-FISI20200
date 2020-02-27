@@ -14,4 +14,8 @@ export class ProgramacionCursoService {
    getProgramacion(){
      return this.http.get<any[]>(this.url + '/listProgramacion');
    }
+
+   getProgramacionbyID(id: number){
+    return this.http.get<any[]>(this.url + '/listProgramacionbyID'+'/'+ id);
+  }
 }
