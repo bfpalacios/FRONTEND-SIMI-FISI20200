@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'app-informacion-academica',
-  templateUrl: './informacion-academica.component.html',
-  styleUrls: ['./informacion-academica.component.css']
+  templateUrl: './informacion-academica.component.html'
 })
 export class InformacionAcademicaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataServiceService,
+  ) { }
 
   ngOnInit() {
   }

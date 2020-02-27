@@ -1,11 +1,11 @@
 {
-    "/simi/matriculaOnline/login/*": {
+    "/simi/login/*": {
       "target": "http://165.227.89.167:9091/",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/simi/matriculaOnline/login": ""
+        "^/simi/login": ""
       }
     }
   }

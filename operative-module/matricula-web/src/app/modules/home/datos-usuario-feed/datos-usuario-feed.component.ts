@@ -14,7 +14,7 @@ export class DatosUsuarioFeedComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataServiceService,
-    private toastService: ToastrService) { 
+    private toastService: ToastrService) {
     this.userDates = new Object;
   }
 
