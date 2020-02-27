@@ -133,7 +133,7 @@ export class EditarDocenteComponent implements OnInit {
           console.log("data",data);
           Swal.fire(
             'Edición Exitosa!',
-            'El curso se edito correctamente.',
+            'El docente se edito correctamente.',
             'success'
           );
            // this.guardarCliente();
