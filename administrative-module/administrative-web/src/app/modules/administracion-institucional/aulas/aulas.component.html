@@ -1,8 +1,12 @@
-<div class="header-user-list">
-    <button class="btn-nuevo ml-1 mr-1" (click)="nuevaAula()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nuevo Aula
+
+
+<div class="simi-header">
+  
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="nuevaAula()">
+        <i [ngClass]="'mdi-pencil' " class="mdi f-16"></i> Nuevo Aula
     </button>
 </div>
+
 <div *ngIf="load" class="div-loading"><img class="loading" src="{{loading}}" /></div>
 
 

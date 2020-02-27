@@ -1,8 +1,13 @@
-<div class="header-user-list">
-    <button class="btn-nuevo ml-1 mr-1" (click)="nuevoIdioma()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nuevo Idioma
+<div class="simi-header">
+  
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="nuevoIdioma()">
+        <i [ngClass]="'mdi-pencil' " class="mdi f-16"></i> Nuevo Idioma
     </button>
 </div>
+
+
+
+
 <div *ngIf="load" class="div-loading"><img class="loading" src="{{loading}}" /></div>
 
 <div class=" form-group row right ml-3">

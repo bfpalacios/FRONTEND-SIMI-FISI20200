@@ -36,5 +36,11 @@ export class CursoService {
    getCursosByIdioma(id: number) {
     return this.http.get<CursoDTO[]>(this.url + '/' + 'listCursosByIdioma'+ '/' + id);
   }
+  getCursosByPeriodo(id: number) {
+    return this.http.get<CursoDTO[]>(this.url + '/' + 'listCursosByPeriodo'+ '/' + id);
+  }
+
+
+  
 
 }

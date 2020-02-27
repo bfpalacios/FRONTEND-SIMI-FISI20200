@@ -1,7 +1,9 @@
-<div class="header-user-list">
-    <button class="btn-nuevo ml-1 mr-1" (click)="nuevaSede()">
-            <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nueva Sede
-        </button>
+
+<div class="simi-header">
+  
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="nuevaSede()">
+        <i [ngClass]="'mdi-pencil' " class="mdi f-16"></i> Nueva Sede
+    </button>
 </div>
 <div *ngIf="load" class="div-loading"><img class="loading" src="{{loading}}" /></div>
 

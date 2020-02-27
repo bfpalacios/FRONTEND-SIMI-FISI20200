@@ -1,20 +1,23 @@
- <div class="header-user-list">
-    <button *ngIf="nuevoCurso==false && actualizar==false" class="btn-nuevo ml-1 mr-1" (click)="nuevo()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Nuevo Curso
+
+<div class="header-user-list mb-2">
+    
+    <button *ngIf="nuevoCurso==false && actualizar==false" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" nuevo()">
+        <i class="mdi i mdi-plus-box-multiple-outline f-16"></i> Nuevo
     </button>
-    <!-- <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1"  (click)="editar()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Editar Curso
-    </button> -->
-    <button  *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1" (click)="guardar()">
+
+    <button  *ngIf="nuevoCurso" class="btn simi-btn-primary ml-2 mr-1" (click)="guardar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
     </button>
-    <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
+    <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
     </button>
-    <button  *ngIf="actualizar" type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarActualizada()">
+    <!-- <button type="button" class="btn simi-btn-red ml-1 mr-1" (click)="actualizarProg()">
+        <i class="mdi mdi-delete f-16"></i> Eliminar
+    </button> -->
+    <button *ngIf="actualizar" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarActualizada()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
-    <button  *ngIf="nuevoCurso " type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarNuevo()">
+    <button   *ngIf="nuevoCurso " type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarNuevo()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
 </div>
@@ -93,11 +96,10 @@
             </select>       
         </div>
         <div class="col-md-1">
-             <button class="btn-nuevo" (click)="filtrarPeriodoIdioma()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+             <button class="btn-nuevo " (click)="filtrarPeriodoIdioma()"> <i class="mdi mdi-magnify f-16"></i>    </button>
          </div>
       </div>
 
-  
     
   </div> 
 

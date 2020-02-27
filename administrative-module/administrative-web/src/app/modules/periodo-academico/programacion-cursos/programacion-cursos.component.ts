@@ -26,6 +26,9 @@ import { EstadoProgCurso } from 'src/app/domain/EstadoProgCurso';
 import { AulaService } from 'src/app/services/administracion/AdmInstitucional/aula.service';
 import { GrupoHorarioService } from 'src/app/services/administracion/AdmInstitucional/grupoHorario.service';
 import { GrupoHorarioDTO } from 'src/app/domain/GrupoHorarioDTO';
+import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
+import { Sede } from 'src/app/domain/Sede';
+import { EstadoPCService } from 'src/app/services/periodo-academico/estadoProgCursos.service';
 
 @Component({
   selector: 'app-programacion-cursos',
@@ -43,11 +46,14 @@ export class ProgramacionCursosComponent implements OnInit {
 
   estadoProgCursos : EstadoProgCurso [];
   aulas: AulaDTO[];
+  docentes: AulaDTO[];
+  cursos: CursoDTO[];
   progDocCursos : ProgDocCursoDTO[];
 
   progCursosDTO : ProgCursoDTO[];
   progCursoDTO : ProgCursoDTO;
   progCurso : ProgCurso;
+  periodos: PeriodoAcademico[];
 
   public empty: boolean;
   public  pageActual : number ;
@@ -55,56 +61,77 @@ export class ProgramacionCursosComponent implements OnInit {
   actualizar : boolean;
   load: boolean;
   loading: string;
-
+  public sedes : Sede[];
   public selectedTypeIdProgDocCuso : number;
   public selectedTypeIdAula : number;  
   public selectedTypeIdHorarioGrupoHorario : number;
   public selectedTypeIdEstadoCurso : number;
+  public selectedTypeIdPeriodo : number;  
+  public selectedTypeIdSede : number;
+  public selectedTypeIdCurso : number;
 
    constructor(
      private router: Router  ,
       // private docenteUPService: DocenteUPService ,     private cursoService: CursoService , 
     //  private periodoacademicoService: PeriodoAcademicoService ,
-      private progdoccurService: ProgDocCursoService ,
+      private progdoccurService: ProgDocCursoService , private cursoService: CursoService ,
     private aulaService : AulaService ,  private progcurService : ProgCursoService , private grupoHorariosService : GrupoHorarioService,
+    private periodoacademicoService: PeriodoAcademicoService , private serviceSede : SedeService, private serviceEstadoPC : EstadoPCService
     ) {
-      
-
+   
+      this.selectedTypeIdSede = 0;
       this.selectedTypeIdProgDocCuso = 0;
       this.selectedTypeIdAula = 0;
       this.selectedTypeIdHorarioGrupoHorario = 0;
       this.selectedTypeIdEstadoCurso = 0;
+      this.selectedTypeIdPeriodo = 0;
+      this.selectedTypeIdCurso = 0;
 
-      this.estado = false;
-     this.pageActual = 1;
-     this.nuevoCurso = false;
-     this.actualizar = false;
+      
+     this.estado = false;    this.pageActual = 1;  this.nuevoCurso = false;    this.actualizar = false;
+     this.empty = false;     this.load = true;     this.loading = Path.loading;
 
      this.progCurso = new ProgCurso();
      this.progCursoDTO = new ProgCursoDTO();
-     
-
-     this.empty = false;
-     this.load = true;
-     this.loading = Path.loading;
-
-
-     this.estadoProgCursos = [{ idEstadoProgCurso: 1, nomEstado: "Deshabilitado" }, {idEstadoProgCurso:2,nomEstado:"Habilitado"},
-                              { idEstadoProgCurso: 3, nomEstado: "Abierto" }, {idEstadoProgCurso:4,nomEstado:"Cerrado"}]; 
-
-      // this.horarios = [{ idGrupoHorario: 1, nomGrupoHorario: "L-M-V" , listaHorarios: "Lunes - Miercoles- Viernes 8 - 11 am" }, 
-      //                 { idGrupoHorario: 2, nomGrupoHorario: "M-J" , listaHorarios: "Martes - Jueves 8 - 12 am" }, 
-      //                 { idGrupoHorario: 3, nomGrupoHorario: "S-D" , listaHorarios: "Sabado - Domingo 8 - 12 am" },        
-      //                        ]; 
     }
 
     ngOnInit() {
-    this.getAulas();
+      this.getSedes();
+    this.getPeriodos();
+
+    // this.getAulas();
+    // this.getCursos();
+    this.getDocentes();
     this.getProgDocCursos();
      this.getGrupoHorarios();
      this.obtenerProgCursos();
+     this.estadoProgCursoss();
     
   }
+
+  getSedes() {
+    console.log("antes");
+    this.serviceSede.getSedes().subscribe(data => {
+      this.load = false;
+      this.sedes = data;
+    }
+    )
+  }
+  getPeriodos() {
+    this.periodoacademicoService.getPeriodosAcademicos().subscribe(data => {
+      this.periodos = data;
+      this.load = false;
+    });
+  }
+ 
+ estadoProgCursoss() {
+  console.log("antes");
+  this.serviceEstadoPC.getEstadosPC().subscribe(data => {
+    this.load = false;
+    this.estadoProgCursos = data;
+  }
+  )
+}
    private getGrupoHorarios() {
     this.grupoHorariosService.getGrupoHorarios().subscribe(data => {
       this.horarios = data;
@@ -120,11 +147,23 @@ export class ProgramacionCursosComponent implements OnInit {
     });
   }
 
-  private getAulas() {
-    this.aulaService.getAulas().subscribe(data => {
+  habilitarAulas() {
+    this.aulaService.getAulasbySede(this.selectedTypeIdSede).subscribe(data => {
       this.aulas = data;
       this.load = false;
     });
+  }
+  habilitarCurso() {  //PERIODO
+    this.cursoService.getCursosByPeriodo(this.selectedTypeIdPeriodo).subscribe(data => {
+      this.cursos = data;
+      this.load = false;
+    });
+  }
+  private getDocentes() {  //PERIODO
+    // this.cursoService.getCursosByPeriodo(1).subscribe(data => {
+    //   this.cursos = data;
+    //   this.load = false;
+    // });
   }
 
   obtenerProgCursos() {
@@ -146,6 +185,9 @@ export class ProgramacionCursosComponent implements OnInit {
     this.selectedTypeIdAula = 0;
     this.selectedTypeIdHorarioGrupoHorario = 0;
     this.selectedTypeIdEstadoCurso = 0;
+    this.selectedTypeIdPeriodo = 0;
+    this.selectedTypeIdSede = 0;
+
      }
      guardar()
     {

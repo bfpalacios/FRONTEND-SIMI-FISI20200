@@ -1,11 +1,12 @@
 
-
-<div class="header-user-list mb-2">
-    <button class="btn-nuevo ml-1 mr-1" (click)="crear()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Crear Sede
+<div class="simi-header">
+  
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="crear()">
+        <i [ngClass]="'mdi-plus-box-multiple-outline' " class="mdi f-16"></i> Crear Sede
     </button>
-    <button type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelar()">
+    <button class="btn simi-btn-silver ml-1 mr-1" (click)="cancelar()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
+
     </button>
 </div>
 
