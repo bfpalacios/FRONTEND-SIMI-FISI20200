@@ -8,7 +8,7 @@ import { CreateMatriculaComponent } from './matriculas/create-matricula/create-m
 
 
 @NgModule({
-  declarations: [MatriculasComponent, MonitoreoMatriculaComponent,CreateMatriculaaComponent],
+  declarations: [MatriculasComponent, MonitoreoMatriculaComponent,CreateMatriculaComponent],
     imports: [
     CommonModule,
     AdministracionMatriculaRoutingModule,
