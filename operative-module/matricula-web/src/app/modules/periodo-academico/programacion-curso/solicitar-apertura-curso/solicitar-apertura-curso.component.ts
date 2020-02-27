@@ -143,19 +143,19 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.ngOnInit();
   }
 
-  // public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
-  //   this.apertura.idCurso = selectedTypeIdCurso;
-  //   this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
+  public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
+  this.apertura.idCurso = selectedTypeIdCurso;
+   this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
 
-  //   this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
-  //     this.apertura = data;
-  //     console.log(this.apertura);
-  //   }, error => {
-  //     console.log(error);
-  //   });
+   this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
+   this.apertura = data;
+    console.log(this.apertura);
+  }, error => {
+  console.log(error);
+  });
 
-  //   this.ngOnInit();
-  // }
+    this.ngOnInit();
+   }
 
   public validar(){
     let cont : number = 0;
@@ -168,8 +168,6 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     if(cont > 0){
       console.log("Solicitud existente");
     }else{
-      this.apertura.idCurso = this.selectedTypeIdCurso;
-      this.apertura.idHorarioGrupohorario = this.selectedTypeIdGrupo;
       this.crearApertura();
       console.log("Registro con éxito");
     }
@@ -186,9 +184,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     if(cont > 0){
       console.log("Solicitud existente");
     }else{
-      this.apertura.idCurso = selectedTypeIdCurso;
-    this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
-      this.crearApertura();
+     this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo );
       console.log("Registro con éxito");
     }
   }
