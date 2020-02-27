@@ -3,6 +3,8 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 import { Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import { PersonaUsuario } from 'src/app/models/PersonaUsuario';
+import { AperturaDialogComponent } from 'src/app/dialogs/matricula/apertura-dialog/apertura-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-datos-usuario-feed',
   templateUrl: './datos-usuario-feed.component.html',
@@ -15,12 +17,14 @@ export class DatosUsuarioFeedComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataServiceService,
-    private toastService: ToastrService) {
+    private toastService: ToastrService,
+    private dialog: MatDialog) {
     this.userDates = new PersonaUsuario();
   }
 
   ngOnInit() {
     this.obtenerDatosUsuario();
+    this.openDialogEdit();
   }
 
   public obtenerDatosUsuario() {
@@ -46,5 +50,15 @@ export class DatosUsuarioFeedComponent implements OnInit {
 
   public cuentaUsuario() {
     this.router.navigate(['profile/cuentaUsuario']).then();
+  }
+
+  public openDialogEdit() {
+    const dialogRef = this.dialog.open(AperturaDialogComponent, {
+      width: '550px',
+      data: 'Hola Chicho'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }
