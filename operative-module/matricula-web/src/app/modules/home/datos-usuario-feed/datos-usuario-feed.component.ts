@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { Router } from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import { PersonaUsuario } from 'src/app/models/PersonaUsuario';
 @Component({
   selector: 'app-datos-usuario-feed',
   templateUrl: './datos-usuario-feed.component.html',
@@ -10,12 +11,12 @@ import {ToastrService} from 'ngx-toastr';
 export class DatosUsuarioFeedComponent implements OnInit {
 
   
-  public userDates: any;
+  public userDates: PersonaUsuario;
   constructor(
     private router: Router,
     private dataService: DataServiceService,
     private toastService: ToastrService) {
-    this.userDates = new Object;
+    this.userDates = new PersonaUsuario();
   }
 
   ngOnInit() {

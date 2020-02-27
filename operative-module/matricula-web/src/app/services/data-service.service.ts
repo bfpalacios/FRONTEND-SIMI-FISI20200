@@ -49,6 +49,10 @@ export class DataServiceService {
     return this.infPersonalService.obtenerDatosUsuario(this.user);
   }
 
+  public obtenerInformacionAcademica() {
+    return this.infPersonalService.obtenerInformacionAcademica(this.user);
+  }
+
   public getPagosSinUsar() {
     return this.matricula.getPagosSinUsar(this.user.codigo);
   }

@@ -21,18 +21,18 @@
                         <div class="simi-bg-gray-circle">
                         </div>
                         <div>
-                            <label class="simi-section-label-rose">16200094</label>
+                            <label class="simi-section-label-rose">{{user.dni}}</label>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div>
                             <label class="simi-section-label-blue">
-                                Universidad Nacional Mayor de San Marcos
+                               {{user.university}}
                             </label>
                         </div>
                         <div>
                             <label class="simi-section-label-dark">
-                                +51 993 420 344
+                                {{user.phone}}
                             </label>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                     </label>
                     <br class="mb-1"/>
                     <input class="simi-input-text form-control" type="text" name="nombres"
-                    value="Nataly Grace"/>
+                    [value]="user.nombre"/>
                 </div>
 
                 <div class="mt-3">
@@ -54,7 +54,7 @@
                     </label>
                     <br class="mb-1"/>
                     <input class="simi-input-text form-control" type="text" name="apPaterno"
-                    value="Vásquez"/>
+                    [value]="user.apPaterno"/>
                 </div>
                 <div class="mt-3">
                     <label style="font-size: 13px; color: gray">
@@ -63,13 +63,66 @@
                     </label>
                     <br class="mb-1"/>
                     <input class="simi-input-text form-control" type="text" name="apMaterno"
-                    value="Sáenz"/>
+                    [value]="user.apMaterno"/>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 m-0 p-0">
             <div class="simi-card">
+                <div>
+                    <h4>Información del Alumno</h4>
+                </div>
+                <div class="text-center">
+                    <label class="simi-section-label-blue">
+                       {{user.email}}
+                    </label>
+                </div>
+                <div>
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        SEXO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="nombres"
+                    [value]="user.genero"/>
+                </div>
 
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        FECHA DE NACIMIENTO (EDAD)
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.birthday + ' - ' + user.edad + ' años'"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        LUGAR DE NACIMIENTO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apMaterno"
+                    [value]="user.lugarNacDep + ' - '+ user.lugarNacProv + ' - ' + user.lugarNacDist"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        DIRECCIÓN
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.address"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        NACIONALIDAD
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.nacionalidad"/>
+                </div>
             </div>
         </div>
     </div>
