@@ -4,4 +4,5 @@ export class Matricula {
     idProgCurso: number;
     numVoucher: number;
     idEstadoMatricula: number;
+    fechaMatricula:Date;
 }

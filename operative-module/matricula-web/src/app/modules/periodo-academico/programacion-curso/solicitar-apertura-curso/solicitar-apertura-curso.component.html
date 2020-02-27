@@ -28,7 +28,7 @@
                             <td> {{apertura.ciclo}} </td>
                             <td> {{apertura.nomGrupoHorario}} <br> ({{apertura.hora}}) </td>
                             <td> {{apertura.solicitantes}} </td>
-                            <td><button class="btn btn-primary btn-sm" (click)="unirseApertura(apertura.idCurso, apertura.idGrupohorario)">Unirse</button></td>
+                            <td><button class="btn btn-primary btn-sm" (click)="validarUnion(apertura.idCurso, apertura.idGrupohorario)">Unirse</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,7 +79,7 @@
         </div>
 
         <div id="boton ">
-            <p><button id="botonSolicitar " class="btn btn-primary " [disabled]="desactivado" (click)="crearApertura()">Solicitar</button></p>
+            <p><button id="botonSolicitar " class="btn btn-primary " [disabled]="desactivado" (click)=" validar()">Solicitar</button></p>
         </div>
     </div>
 </div>

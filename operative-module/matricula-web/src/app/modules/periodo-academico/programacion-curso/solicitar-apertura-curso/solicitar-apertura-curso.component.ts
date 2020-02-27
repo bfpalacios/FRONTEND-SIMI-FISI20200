@@ -27,6 +27,7 @@ import { AperturaDialogComponent } from 'src/app/dialogs/matricula/apertura-dial
 export class SolicitarAperturaCursoComponent implements OnInit {
 
   public aperturaDTO: AperturaDTO[];
+  public aperturaDTO2: AperturaDTO[];
   public apertura: Apertura;
   public nivel: Nivel[];
   public idiomaDTO: IdiomaDTO[];
@@ -52,6 +53,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     private serviceGrupo: GrupoService,
     private serviceHora: HoraService,
     private dialog: MatDialog) {
+
     this.apertura = new Apertura();
     this.apertura.codEstudiante = this.serviceData.user.codigo;
   }
@@ -61,12 +63,23 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.getApertura();
     this.getIdioma();
     this.openDialogEdit();
+    this.getAperturabyID();
   }
 
   public getApertura() {
     this.serviceApertura.getApertura().subscribe(data => {
       this.aperturaDTO = data;
       console.log(this.aperturaDTO);
+
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  public getAperturabyID() {
+    this.serviceApertura.getAperturabyID(this.serviceData.user.codigo).subscribe(data => {
+      this.aperturaDTO2 = data;
+      console.log(this.aperturaDTO2);
 
     }, error => {
       console.log(error);
@@ -165,4 +178,19 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     });
   }
 
+  public validarUnion(selectedTypeIdCurso, selectedTypeIdGrupo){
+    let cont : number = 0;
+    for(let i in this.aperturaDTO2){
+      if(selectedTypeIdCurso == this.aperturaDTO2[i].idCurso && selectedTypeIdGrupo == this.aperturaDTO2[i].idGrupohorario){
+        cont = cont + 1;
+      }
+    }
+
+    if(cont > 0){
+      console.log("Solicitud existente");
+    }else{
+     this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo );
+      console.log("Registro con éxito");
+    }
+  }
 }

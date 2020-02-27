@@ -13,6 +13,10 @@ export class SolicitudAperturaService {
   constructor(private http: HttpClient) {
     this.url = 'simi/matricula/api/v1/programacionCurso/apertura';
   }
+  getAperturabyID(id : number){
+    return this.http.get<AperturaDTO[]>(this.url + '/listApertura' +'/'+id);
+  }
+
   getApertura(){
     return this.http.get<AperturaDTO[]>(this.url + '/listApertura');
   }
