@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmiiterBuilder } from 'src/app/models/EmiiterBuilder';
+import { UserDTO } from 'src/app/models/UserDTO';
 
 @Component({
   selector: 'app-form-datos-pesonales',
@@ -10,10 +11,12 @@ export class FormDatosPesonalesComponent implements OnInit {
 
   public showDatosPersonales: boolean;
   @Output() public emitter;
+  @Input()  public newUser: UserDTO;
   constructor(
     private router: Router
   ) { 
     this.showDatosPersonales = true;
+    this.newUser = new UserDTO();
     this.emitter = new EventEmitter();
   }
 
@@ -21,11 +24,14 @@ export class FormDatosPesonalesComponent implements OnInit {
   }
 
   public back() {
+    console.log('Usuario->', this.newUser);
     EmiiterBuilder.emitterUpdate(this.emitter, this.showDatosPersonales);
   }
 
   public signIn() {
-    this.showDatosPersonales = !this.showDatosPersonales;
+    console.log('Usuario->', this.newUser);
+    console.log('Usuario Tipo Alumno creado.');
+    this.router.navigate(['/']);
   }
 
 }

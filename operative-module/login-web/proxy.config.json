@@ -1,12 +1,11 @@
 {
-    "/simi/*": {
-      "target": "http://localhost:9091/",
+    "/simi/matriculaOnline/login/*": {
+      "target": "http://165.227.89.167:9091/",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/simi": ""
+        "^/simi/matriculaOnline/login": ""
       }
-
     }
   }

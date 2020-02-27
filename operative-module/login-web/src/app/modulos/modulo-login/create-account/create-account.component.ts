@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { UserDTO } from 'src/app/models/UserDTO';
 import { FormRegisterComponent } from './form-register/form-register.component';
+import { FormDatosPesonalesComponent } from './form-datos-pesonales/form-datos-pesonales.component';
 
 @Component({
   selector: 'app-create-account',
@@ -12,7 +13,8 @@ export class CreateAccountComponent implements OnInit {
   public loading: string;
   public load: boolean;
   public newUser: UserDTO;
-  @ViewChild(FormRegisterComponent) child;
+  @ViewChild(FormRegisterComponent) formRegisterUser;
+  @ViewChild(FormDatosPesonalesComponent) formRegisterDatos;
 
   constructor() {
     this.loading = 'assets/loading/loading.svg';
@@ -31,7 +33,11 @@ export class CreateAccountComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.newUser = this.child.newUser;
+    this.newUser = this.formRegisterUser.newUser;
     console.log('Obteniendo usuario ->', this.newUser);
+    if (this.formRegisterDatos !== undefined) {
+      this.newUser = this.formRegisterDatos.newUser;
+      console.log('Obteniendo usuario ->', this.newUser);
+    }
   }
 }

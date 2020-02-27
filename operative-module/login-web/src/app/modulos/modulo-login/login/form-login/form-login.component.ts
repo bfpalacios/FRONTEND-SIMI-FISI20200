@@ -47,7 +47,7 @@ export class FormLoginComponent implements OnInit {
             this.toast.error('Es posible que la Base de Datos no exista o la Tabla no exista.');
           } else {
             this.msg = 'Ha iniciado sesión. Gracias por probar.';
-            console.log(this.msg);
+            location.href ="/matriculaOnline";
           }
         } else {
           this.msg = 'Email y/o contraseña incorrectos';
