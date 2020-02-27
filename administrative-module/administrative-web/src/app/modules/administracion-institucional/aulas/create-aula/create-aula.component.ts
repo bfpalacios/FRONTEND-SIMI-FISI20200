@@ -35,7 +35,7 @@ export class CreateAulaComponent implements OnInit {
 
   setLocalStorageParamSede(title: string) {
     this.title = title;
-    localStorage.setItem('parametro', this.title);
+    localStorage.setItem('parametroAula', this.title);
   }
 
   ngOnInit() {//lenar cmbs

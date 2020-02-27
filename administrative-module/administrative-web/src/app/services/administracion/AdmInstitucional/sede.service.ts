@@ -30,7 +30,7 @@ export class SedeService {
    }
 
    public deleteSedeById(id: number) {
-     return this.http.delete<boolean>(this.url + '/' + 'eliminarSedeById' + '/' + id);
+     return this.http.delete<String>(this.url + '/' + 'eliminarSedeById' + '/' + id);
    }
 
 }

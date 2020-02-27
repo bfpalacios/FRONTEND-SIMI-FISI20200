@@ -31,7 +31,7 @@ export class CursoService {
    }
 
    public deleteCursoById(id: number) {
-     return this.http.delete<boolean>(this.url + '/' + 'eliminarCursoById' + '/' + id);
+     return this.http.delete<String>(this.url + '/' + 'eliminarCursoById' + '/' + id);
    }
    getCursosByIdioma(id: number) {
     return this.http.get<CursoDTO[]>(this.url + '/' + 'listCursosByIdioma'+ '/' + id);

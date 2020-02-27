@@ -33,7 +33,7 @@ export class AulaService {
   }
 
   public deleteAulaById(id: number) {
-    return this.http.delete<boolean>(this.url + '/' + 'eliminarAulaById' + '/' + id);
+    return this.http.delete<String>(this.url + '/' + 'eliminarAulaById' + '/' + id);
   }
 
 }

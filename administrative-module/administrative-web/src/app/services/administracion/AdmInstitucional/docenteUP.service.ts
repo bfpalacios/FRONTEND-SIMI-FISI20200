@@ -31,7 +31,7 @@ export class DocenteUPService {
    }
 
    public deleteDocenteById(id: number) {
-     return this.http.delete<boolean>(this.url + '/' + 'eliminarDocenteUsuarioPersonaById' + '/' + id);
+     return this.http.delete<String>(this.url + '/' + 'eliminarDocenteUsuarioPersonaById' + '/' + id);
    }
 
 }

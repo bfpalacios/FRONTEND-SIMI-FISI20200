@@ -39,7 +39,7 @@ export class EditarAulaComponent implements OnInit {
 
   setLocalStorageParamSede(title: string) {
     this.title = title;
-    localStorage.setItem('parametro', this.title);
+    localStorage.setItem('parametroAula', this.title);
   }
 
   ngOnInit() {
@@ -182,9 +182,16 @@ export class EditarAulaComponent implements OnInit {
           }
         }, error => {
           if (error) {
-            this.load = false;
-            this.success = true;
-            this.successText = 'Sucedió un error con el servidor';
+            Swal.fire(
+              'Error!',
+              error.error.text,
+              'error'
+            );
+           if (error) {
+             this.load = false;
+             // this.obtenerIdiomas();
+            
+           }
           }
         });
 

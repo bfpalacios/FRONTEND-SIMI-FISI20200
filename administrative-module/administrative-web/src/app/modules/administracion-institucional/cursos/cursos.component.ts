@@ -30,7 +30,7 @@ export class CursosComponent implements OnInit {
      this.estado = false;
      this.pageActual = 1;
      this.load = true;
-     this.selectedTypeIdIdioma = 0;
+     this.selectedTypeIdIdioma = 1;
      this.parametro = 1;
     }
 
@@ -39,7 +39,12 @@ export class CursosComponent implements OnInit {
 
   ngOnInit() {
     this.parametro = parseInt( localStorage.getItem('parametro'));
-    //this.obtenerCursos(this.parametro);
+
+    if(isNaN(this.parametro )){
+      this.parametro = 1;
+    }
+    
+    this.obtenerCursos(this.parametro);
     this.getIdiomas();
 
 
@@ -121,9 +126,16 @@ export class CursosComponent implements OnInit {
               }
             }, error => {
               if (error) {
-                this.load = false;
-                // this.obtenerIdiomas();
-               
+                Swal.fire(
+                  'Error!',
+                  error.error.text,
+                  'error'
+                );
+               if (error) {
+                 this.load = false;
+                 // this.obtenerIdiomas();
+                
+               }
               }
             });
            

@@ -100,9 +100,16 @@ export class DocentesComponent implements OnInit {
               }
             }, error => {
               if (error) {
-                this.load = false;
-                // this.obtenerIdiomas();
-               
+                Swal.fire(
+                  'Error!',
+                  error.error.text,
+                  'error'
+                );
+               if (error) {
+                 this.load = false;
+                 // this.obtenerIdiomas();
+                
+               }
               }
             });
            

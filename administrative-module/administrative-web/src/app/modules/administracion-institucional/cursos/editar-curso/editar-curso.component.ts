@@ -193,11 +193,16 @@ export class EditarCursoComponent implements OnInit {
                this.successText = 'No se puede eliminar este curso';
              }
            }, error => {
-             if (error) {
-               this.load = false;
-               this.success = true;
-               this.successText = 'Sucedió un error con el servidor';
-             }
+            Swal.fire(
+              'Error!',
+              error.error.text,
+              'error'
+            );
+           if (error) {
+             this.load = false;
+             // this.obtenerIdiomas();
+            
+           }
            });
          
           

@@ -39,7 +39,12 @@ export class AulasComponent implements OnInit {
 
 
   ngOnInit() {
-    this.parametro = parseInt( localStorage.getItem('parametro'));
+   
+    this.parametro = parseInt( localStorage.getItem('parametroAula'));
+    if(isNaN(this.parametro )){
+      this.parametro = 1;
+    }
+    console.log("this.parametro",this.parametro);
     this.obtenerAulas(this.parametro);
     this.getSedes();
 
@@ -116,9 +121,16 @@ export class AulasComponent implements OnInit {
               }
             }, error => {
               if (error) {
-                this.load = false;
-                // this.obtenerIdiomas();
-               
+                Swal.fire(
+                  'Error!',
+                  error.error.text,
+                  'error'
+                );
+               if (error) {
+                 this.load = false;
+                 // this.obtenerIdiomas();
+                
+               }
               }
             });
            
