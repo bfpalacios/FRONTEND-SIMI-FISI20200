@@ -8,9 +8,10 @@
         <div class="row simi-height-100 m-0">
             <div class="col-lg-5 col-md-6 col-sm-12 col-12 simi-center-content">
                 <div>
-                    <app-form-register *ngIf="!showDatosPersonales" (emitter)="ngAfterContentInit($event)"></app-form-register>
+                    <app-form-register [newUser]="newUser" *ngIf="!showDatosPersonales" (emitter)="ngAfterContentInit($event)"></app-form-register>
                     
-                    <app-form-datos-pesonales *ngIf="showDatosPersonales"  (emitter)="ngAfterContentInit($event)"></app-form-datos-pesonales>
+                    <app-form-datos-pesonales [newUser]="newUser"
+                    *ngIf="showDatosPersonales"  (emitter)="ngAfterContentInit($event)"></app-form-datos-pesonales>
                 </div>
 
             </div>

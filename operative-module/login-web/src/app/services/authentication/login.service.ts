@@ -9,7 +9,7 @@ export class LoginService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/v1/authentication';
+    this.url = 'simi/matriculaOnline/loginapi/v1/authentication';
    }
 
   public signInWithEmailAndPassword(user: User) {

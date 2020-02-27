@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { EmiiterBuilder } from 'src/app/models/EmiiterBuilder';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ export class FormRegisterComponent implements OnInit {
   public loading: string;
   public load: boolean;
   public user: User;
-  public newUser: UserDTO;
+  @Input()  public newUser: UserDTO;
   public msg: string;
   @Output() public emitter;
   constructor(private router: Router) {
