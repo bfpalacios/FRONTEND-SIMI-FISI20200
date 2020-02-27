@@ -41,22 +41,27 @@ export class FormLoginComponent implements OnInit {
       this.updateLoad();
       this.signIn.signInWithEmailAndPassword(this.user).subscribe(data => {
         this.updateLoad();
-        if (data != null) {
-          this.user = data;
-          if (this.user.id === '' && this.user.email === '' && this.user.password === '') {
-            this.toast.error('Es posible que la Base de Datos no exista o la Tabla no exista.');
-          } else {
-            this.msg = 'Ha iniciado sesión. Gracias por probar.';
-            location.href ="/matriculaOnline";
-          }
-        } else {
-          this.msg = 'Email y/o contraseña incorrectos';
-        }
+        this.setSessionStorage(data);
       }, () => {
         this.updateLoad();
         this.toast.error('Ha ocurrido un error en el servidor.');
       });
     }
+  }
+  private setSessionStorage(data: User) {
+    if (data != null) {
+      this.user = data;
+      sessionStorage.setItem('SIMI-EMAIL', this.user.email);
+      sessionStorage.setItem('SIMI-ID', this.user.id);
+      sessionStorage.setItem('SIMI-TYPE', this.user.rolId);
+      this.matriculaOnline();
+    } else {
+      this.msg = 'Email y/o contraseña incorrectos';
+    }
+  }
+
+  private matriculaOnline() {
+    location.href = '/matricula';
   }
 
   private isEmpty() {

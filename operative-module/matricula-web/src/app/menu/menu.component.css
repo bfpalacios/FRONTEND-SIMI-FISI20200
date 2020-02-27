@@ -1,7 +1,6 @@
 .btn-item{
     background-color: #096ac6;
     width: 100%;
-    border: none;
     padding-left: 13px;
     padding-right: 12px;
     padding-top: 8px;
@@ -9,11 +8,8 @@
     text-align: center;
     font-size: 14.5px;
     color: white;
-    border-radius: 0px !important;
     text-align: left !important;
-    justify-content: center;
 }
-
   .f-11{
     font-size: 12px;
   }
@@ -25,7 +21,7 @@
   }
 
   .btn-item:hover{
-    background-color: #323232;
+    background-color: #1a51a3;
   }
   .ele {
   animation: 0.5s fadeIn;

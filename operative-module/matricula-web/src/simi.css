@@ -5,29 +5,19 @@
 }
 
 .simi-bg-gray-circle{
-  background-color: #ebebeb;
-  border-radius: 40px;
-  width: 80px;
-  height: 80px;
-  display: inline-block;
+  background-color: #ebebeb;border-radius: 40px;width: 80px; height: 80px; display: inline-block;
 }
 
 .simi-section-label-blue{
-  background-color: #096ac6;
-  border-radius: 4px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #096ac6; border-radius: 4px;padding: 5.5px 9.5px;margin: 5px;font-size: 14px;color: white;
 }
 
 .simi-section-label-rose{
-  background-color: #c60869;
-  border-radius: 7px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #c60869;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
+}
+
+.simi-section-label-dark{
+  background-color: #323232;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
 }
 
 .simi-bg-header {
@@ -80,4 +70,8 @@
       background-color: #ffffff;
       color: black;
   }
+}
+
+.simi-input-text{
+  font-size: 18px; border: 0px !important; border-bottom: 1px solid gray !important;  background-color: transparent;
 }

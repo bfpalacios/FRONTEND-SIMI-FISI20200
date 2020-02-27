@@ -1,8 +1,10 @@
 <div class="main-container">
     <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #snav opened [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
+        <mat-sidenav #snav opened [mode]="mobile.matches ? 'over' : 'side'" 
+        [fixedInViewport]="mobile.matches"
             class="sidenav-content">
-            <div class="text-center font-weight-light" style="background-color: #fafafa; color: black;">
+            <div class="text-center font-weight-light" 
+            style="background-color: #fafafa; color: black;">
                 <br/>
                 <br/>
                 <h2 class="example-app-name">
@@ -28,8 +30,8 @@
                 <span style="font-size: 12px;">Simi: Sistema de Matrícula Online</span>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content style="background-color: #ededee">
-            <div class="header-login">
+        <mat-sidenav-content style="background-color: #ededee;">
+            <div class="header-login" style="position: fixed; z-index: 100;">
                 <button (click)="snav.toggle()" class="btn-sidenav">
                     <i class="ml-2 mr-2 mdi mdi-menu white"></i>
                 </button>

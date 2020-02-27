@@ -1,10 +1,10 @@
 <div style="overflow-y: auto; overflow-x: hidden;">
-    <button (click)="home()" class="btn-item">
+    <button (click)="home()" class="btn-item btn">
         <i class="mdi mdi-home f-15"></i> <span class="font-weight-light">Inicio</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle f-11"></i></span>
     </button>
-    <button (click)="show(1)" class="list-group-item btn-item">
+    <button (click)="show(1)" class="list-group-item btn-item btn">
         <i class="mdi mdi-account-multiple f-15 "></i> <span class="font-weight-light">Mi Perfil</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span>
@@ -21,7 +21,7 @@
         </button>
     </div>
 
-    <button (click)="show(2)" class="list-group-item btn-item">
+    <button (click)="show(2)" class="list-group-item btn-item btn">
         <i class="mdi mdi-school-outline f-15"></i> <span class="font-weight-light">Centro de Idiomas</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
@@ -35,7 +35,7 @@
         <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">
         <i class="mdi mdi-view-dashboard f-15"></i> Dashboard Online</button>
     </div>
-    <button (click)="show(3)" class="list-group-item btn-item">
+    <button (click)="show(3)" class="list-group-item btn-item btn">
         <i class="mdi mdi-calendar-multiple f-15"></i> <span class="font-weight-light">Periodo Académico</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
@@ -47,7 +47,7 @@
         <button class="list-group-item btn-light subitem" [routerLink]="['periodo-academico/programacionCurso']">
         <i class="mdi mdi-progress-clock f-15"></i> Programación de cursos</button>
     </div>
-    <button (click)="show(4)" class="list-group-item btn-item">
+    <button (click)="show(4)" class="list-group-item btn-item btn">
         <i class="mdi mdi-file f-15"></i> <span class="font-weight-light">Reportes</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
@@ -59,7 +59,7 @@
         <button class="list-group-item btn-light subitem" [routerLink]="['reportes/reportePagos']">
         <i class="mdi mdi-file-chart f-15"></i> Reporte de pagos</button>
     </div>
-    <button class="btn-item">
+    <button class="btn-item btn">
         <i class="mdi mdi-location-exit f-15"></i> <span class="font-weight-light">Cerrar Sesión</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle f-11"></i></span>

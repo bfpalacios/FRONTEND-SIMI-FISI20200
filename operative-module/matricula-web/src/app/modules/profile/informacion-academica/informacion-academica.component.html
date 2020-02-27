@@ -1,117 +1,129 @@
-<div style="background-color: #e9ebee; height: 100%;">
-    <div class="pb-3 font-weight-light">
-        <div class="simi-bg-header" style=" display: flex; align-items: center;">
-            <span>
-                <i class="mdi mdi-account-multiple f-15 "></i>
-                Mi perfil
-                <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+<div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-account-multiple ml-2 f-15 "></i>
+        Mi perfil
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
 
-                <span style="font-size: 15px;">
-                    <i class="mdi mdi-book-information-variant f-15"></i>
-                    Información Académica</span>
-            </span>
-        </div>
-        <div class="row m-0">
-            <div class="col-lg-6" style="position: relative;margin: 0px !important; padding: 10px !important;">
-                <div class="mt-2 table-responsive card-profile">
-                    <table class="table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="section-photo">
-                                    </div>
-                                </td>
-                                <td>
-                                    <h3>Saenz Falcón, <span>Brandon Duvan</span></h3>
-                                    <span class="section-codigo">16200094</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="row">
-                        <div class="col-lg-3">
-
+        <span style="font-size: 15px;">
+            <i class="mdi mdi-book-information-variant f-15"></i>
+            Información Académica</span>
+    </span>
+</div>
+<div>
+    <div class="row m-0">
+        <div class="col-lg-6 col-md-6 m-0 p-0">
+            <div class="simi-card">
+                <div>
+                    <h4>Información Personal</h4>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="simi-bg-gray-circle">
                         </div>
-                        <div class="col-lg-9">
-
+                        <div>
+                            <label class="simi-section-label-rose">{{user.dni}}</label>
                         </div>
                     </div>
-                    <div>
-
+                    <div class="col-lg-9">
+                        <div>
+                            <label class="simi-section-label-blue">
+                               {{user.university}}
+                            </label>
+                        </div>
+                        <div>
+                            <label class="simi-section-label-dark">
+                                {{user.phone}}
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-6" style="position: relative;margin: 0px !important; padding: 10px !important;">
-                <div class="mt-2 table-responsive card-profile">
-                    <div class="text-center mt-3">
-                        <h4>Información Personal</h4>
-                    </div>
-                    <table class="table table-hover table-light"
-                     style="font-size: 15px; font-weight: normal; padding-left: 5px; padding-right: 5px;">
-                        <tbody>
+                <div>
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        NOMBRES
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="nombres"
+                    [value]="user.nombre"/>
+                </div>
 
-                            <tr>
-                                <td>
-                                    <i class="mdi mdi-card-text f-15 "></i> DNI
-                                    <div>
-                                        <span>72525673</span>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span>72525673</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <i class="mdi mdi-gender-male-female f-15"></i> SEXO
-                                </td>
-                                <td>
-                                    <span>
-                                        MASCULINO
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="mdi mdi-calendar f-15"></i> FECHA DE NACIMIENTO
-                                </td>
-                                <td>
-                                    07-09-1997
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="mdi mdi-map-marker f-15"></i>  LUGAR DE NACIMIENTO
-                                </td>
-                                <td>
-                                    LIMA / LIMA / VILLA EL SALVADOR
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <i class="mdi mdi-phone f-15"></i> CELULAR
-                                </td>
-                                <td>
-                                    938560903
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="mdi mdi-email f-15"></i> CORREO
-                                </td>
-                                <td>
-                                    diego.soto1@unmsm.edu.pe
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        APELLIDO PATERNO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.apPaterno"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        APELLIDO MATERNO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apMaterno"
+                    [value]="user.apMaterno"/>
                 </div>
             </div>
         </div>
+        <div class="col-lg-6 col-md-6 m-0 p-0">
+            <div class="simi-card">
+                <div>
+                    <h4>Información del Alumno</h4>
+                </div>
+                <div class="text-center">
+                    <label class="simi-section-label-blue">
+                       {{user.email}}
+                    </label>
+                </div>
+                <div>
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        SEXO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="nombres"
+                    [value]="user.genero"/>
+                </div>
 
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        FECHA DE NACIMIENTO (EDAD)
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.birthday + ' - ' + user.edad + ' años'"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        LUGAR DE NACIMIENTO
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apMaterno"
+                    [value]="user.lugarNacDep + ' - '+ user.lugarNacProv + ' - ' + user.lugarNacDist"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        DIRECCIÓN
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.address"/>
+                </div>
+                <div class="mt-3">
+                    <label style="font-size: 13px; color: gray">
+                        <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+                        NACIONALIDAD
+                    </label>
+                    <br class="mb-1"/>
+                    <input class="simi-input-text form-control" type="text" name="apPaterno"
+                    [value]="user.nacionalidad"/>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
