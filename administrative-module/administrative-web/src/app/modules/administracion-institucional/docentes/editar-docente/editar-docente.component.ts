@@ -104,13 +104,40 @@ export class EditarDocenteComponent implements OnInit {
       return true;
     }  
 
-    if (this.isEmpytText(this.docente.email, Mensaje.emptyEmailDoc)) {
+    if (this.isEmail(this.docente.email, Mensaje.emptyEmailDoc)) {
        return true;
     }
+  
     if (this.isEmpytText(this.docente.contrasenia, Mensaje.emptyContraDoc)) {
       return true;
     }
   
+  }
+  private isEmail(info: string, msg: string) {
+    if (info === undefined || info.trim().length === 0) {
+      this.successText = msg;
+      return true;
+    }
+    else{
+     var emailValido= this.esEmailValido(info);
+     console.log("emailValido",emailValido);
+        if(emailValido) return false;
+        if(!emailValido)  this.successText = "El email no es válido"; return true;
+    }
+
+
+  }
+  esEmailValido(email: string):boolean {
+    let mailValido = false;
+      'use strict';
+
+      var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@unmsm.edu.pe*$/;
+
+      if (email.match(EMAIL_REGEX)){
+        mailValido = true;
+      }
+    return mailValido;
   }
 
   cancelar(){

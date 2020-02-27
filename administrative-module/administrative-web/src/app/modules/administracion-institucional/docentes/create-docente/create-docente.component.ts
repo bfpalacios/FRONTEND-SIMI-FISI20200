@@ -106,12 +106,7 @@ export class CreateDocenteComponent implements OnInit {
         return true;
       }
     }
-    private isEmpytNum(info: number, msg: string) {
-      if (info === undefined || info == 0) {
-        this.successText = msg;
-        return true;
-      }
-    }
+   
     private isEmpty() { // true : vacio 
 
       if (this.isEmpytText(this.docente.nombre, Mensaje.emptyNomDoc)) {
@@ -123,9 +118,7 @@ export class CreateDocenteComponent implements OnInit {
       if (this.isEmpytText(this.docente.apellidoMat, Mensaje.emptyApMatDoc)) {
         return true;
       }
-      if (this.isEmpytNum(this.docente.dni, Mensaje.emptyDNIDoc)) {
-        return true;
-      }
+     
       if (this.isEmpytText(this.selectedTypeIdDepartamento, Mensaje.emptyDepDoc)) {
         return true;
       }  
@@ -137,7 +130,33 @@ export class CreateDocenteComponent implements OnInit {
       if (this.isEmpytText(this.docente.contrasenia, Mensaje.emptyContraDoc)) {
         return true;
       }
+      if (this.isDNI(this.docente.dni, Mensaje.emptyDNIDoc)) {
+        return true;
+      }
+      if (this.isPhone(parseInt(this.docente.phone), "Celular invalido")) {
+        return true;
+      }
     
+    }
+    private isDNI(info: number, msg: string) {
+      if (info === undefined || info == 0) {
+        this.successText = msg;
+        return true;
+      }else{
+        if(info>99999999 || info<=9999999)
+        {
+          this.successText = "DNI debe tener 8 dígitos";
+          return true;
+        }
+      }
+    }
+    private isPhone(info: number, msg: string) {
+      if (info) {
+        if(info>999999999 || info<=99999999){
+          this.successText = "Celular debe tener 9 dígitos";
+          return true;
+        }
+      }
     }
     private isEmail(info: string, msg: string) {
       if (info === undefined || info.trim().length === 0) {

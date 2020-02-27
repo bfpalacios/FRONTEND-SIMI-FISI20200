@@ -92,26 +92,26 @@ export class ProgramacionCursosComponent implements OnInit {
      this.estadoProgCursos = [{ idEstadoProgCurso: 1, nomEstado: "Deshabilitado" }, {idEstadoProgCurso:2,nomEstado:"Habilitado"},
                               { idEstadoProgCurso: 3, nomEstado: "Abierto" }, {idEstadoProgCurso:4,nomEstado:"Cerrado"}]; 
 
-      this.horarios = [{ idGrupoHorario: 1, nomGrupoHorario: "L-M-V" , listaHorarios: "Lunes - Miercoles- Viernes 8 - 11 am" }, 
-                      { idGrupoHorario: 2, nomGrupoHorario: "M-J" , listaHorarios: "Martes - Jueves 8 - 12 am" }, 
-                      { idGrupoHorario: 3, nomGrupoHorario: "S-D" , listaHorarios: "Sabado - Domingo 8 - 12 am" },        
-                             ]; 
+      // this.horarios = [{ idGrupoHorario: 1, nomGrupoHorario: "L-M-V" , listaHorarios: "Lunes - Miercoles- Viernes 8 - 11 am" }, 
+      //                 { idGrupoHorario: 2, nomGrupoHorario: "M-J" , listaHorarios: "Martes - Jueves 8 - 12 am" }, 
+      //                 { idGrupoHorario: 3, nomGrupoHorario: "S-D" , listaHorarios: "Sabado - Domingo 8 - 12 am" },        
+      //                        ]; 
     }
 
     ngOnInit() {
     this.getAulas();
     this.getProgDocCursos();
-    //  this.getGrupoHorarios();
+     this.getGrupoHorarios();
      this.obtenerProgCursos();
     
   }
-  // private getGrupoHorarios() {
-  //   this.grupoHorariosService.getGrupoHorarios().subscribe(data => {
-  //    this.horarios = data;
-  //    console.log("horarios",this.horarios);
-  //     this.load = false;
-  //   });
-  // }
+   private getGrupoHorarios() {
+    this.grupoHorariosService.getGrupoHorarios().subscribe(data => {
+      this.horarios = data;
+      console.log("horarios",this.horarios);
+       this.load = false;
+     });
+   }
   
   private getProgDocCursos() {
     this.progdoccurService.getProgDocCurso().subscribe(data => {
@@ -141,6 +141,7 @@ export class ProgramacionCursosComponent implements OnInit {
     nuevo(){
 
     this.nuevoCurso = !this.nuevoCurso ;
+    //Limpiar Select
     this.selectedTypeIdProgDocCuso = 0;
     this.selectedTypeIdAula = 0;
     this.selectedTypeIdHorarioGrupoHorario = 0;
@@ -154,7 +155,7 @@ export class ProgramacionCursosComponent implements OnInit {
         console.log("entro no vacio");
         this.load = true;
         this.progCurso.idAula = this.selectedTypeIdAula;
-        this.progCurso.idEstadoProgCurso = this.selectedTypeIdEstadoCurso;
+        this.progCurso.idEstadoProgCurso = this.selectedTypeIdEstadoCurso; // cuadno se crea siempre debe ser 
         this.progCurso.idHorarioGrupoHorario = this.selectedTypeIdHorarioGrupoHorario;
         this.progCurso.idProgDocCur = this.selectedTypeIdProgDocCuso;
 
