@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sedes.component.css']
 })
 export class SedesComponent implements OnInit {
+  busquedaTexto: any;
   public  pageActual : number ;
   estado: boolean;
   prueba : string;

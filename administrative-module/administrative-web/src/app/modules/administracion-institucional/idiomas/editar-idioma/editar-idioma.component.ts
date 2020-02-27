@@ -123,7 +123,7 @@ export class EditarIdiomaComponent implements OnInit {
  console.log("this.idioma",this.idioma);
  
     Swal.fire({
-      title: 'Estas seguro que deseas eliminar el idioma '+this.idioma.nomIdioma +' ?',
+      title: 'Estas seguro que deseas eliminar el idioma '+this.idioma.nomIdioma,
       // text: "S",
       icon: 'warning',
       showCancelButton: true,

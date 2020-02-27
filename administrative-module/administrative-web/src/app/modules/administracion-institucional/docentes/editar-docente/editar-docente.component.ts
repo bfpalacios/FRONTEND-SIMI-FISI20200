@@ -23,14 +23,14 @@ export class EditarDocenteComponent implements OnInit {
   // public pmcompuesta : boolean;
   public success: boolean;
   public  docente: DocenteUP;
+  public idioma : Idioma[];
 
   public selectedTypeIdGenero : number;
   public selectedTypeIRol : number;
   public selectedTypeIdDepartamento : string;
   
   constructor(private router: Router ,  private activedRouter: ActivatedRoute,
-    private docenteUPService: DocenteUPService 
-    
+    private docenteUPService: DocenteUPService, private serviceIdioma : IdiomaService
     )  {
     this.load = true;
     this.empty = false;
@@ -42,6 +42,7 @@ export class EditarDocenteComponent implements OnInit {
   ngOnInit() {
     this.load = false;
     this.getDocente();
+    this.getIdioma();
   }
   private getDocente() {
     this.activedRouter.params.subscribe(data => {
@@ -149,6 +150,16 @@ export class EditarDocenteComponent implements OnInit {
 
   private navigateList() {
     this.router.navigate(['administracionInstitucional/docentes']).then();
+  }
+
+  public getIdioma() {
+    this.serviceIdioma.getIdiomas().subscribe(data => {
+      this.idioma = data;
+      console.log(this.idioma);
+
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

@@ -5,105 +5,105 @@
     <!-- <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1"  (click)="editar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Editar Curso
     </button> -->
-    <button  *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1" (click)="guardar()">
+    <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1" (click)="guardar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
     </button>
-<!--     <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
+    <!--     <button  *ngIf="actualizar" class="btn-nuevo ml-1 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
     </button> -->
-    <button  *ngIf="actualizar" type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarActualizada()">
+    <button *ngIf="actualizar" type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarActualizada()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
-    <button  *ngIf="nuevoCurso " type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarNuevo()">
+    <button *ngIf="nuevoCurso " type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelarNuevo()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
 </div>
 
 
-<div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3" >
-    <h5  *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Programacion de Cursos </h5>
-    <h5  *ngIf="actualizar"class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de Programacion de Cursos </h5>
-<hr>
-<div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
-<span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
+<div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3">
+    <h5 *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Programacion de Cursos </h5>
+    <h5 *ngIf="actualizar" class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de Programacion de Cursos </h5>
+    <hr>
+    <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
+    <span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
     {{successText}} <br /></span>
 
 
-       <div class="row col-sm-12">
+    <div class="row col-sm-12">
         <div class="col-sm-6">
-            <label  class="col-sm-12  col-form-label"> Curso - Docente </label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdProgDocCuso">
+            <label class="col-sm-12  col-form-label"> Curso - Docente </label>
+            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdProgDocCuso">
                 <option [ngValue]="0">Seleccionar el  Curso - Docente</option>
                 <option [ngValue]="prog.idProgCurso" *ngFor="let prog of progDocCursos">
                     {{prog.nomIdioma}} {{prog.nomNivel}} {{prog.ciclo}}   -- 
                      {{prog.idDocente}} -- {{prog.nombre}}  {{prog.apellidoPat}}  {{prog.apellidoMat}} 
                 </option>
-            </select>       
-         </div>
-    
+            </select>
+        </div>
+
         <div class="col-sm-6">
-            <label  class="col-sm-12  col-form-label"> Aula </label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdAula">
+            <label class="col-sm-12  col-form-label"> Aula </label>
+            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdAula">
               <option [ngValue]="0">Seleccionar el  Curso - Docente</option>
                 <option [ngValue]="aula.idAula" *ngFor="let aula of aulas">  {{aula.nomAula}} --   {{aula.nomSede}}
                 </option>
-            </select>       
-         </div>
-         <div class="col-sm-6">
-            <label  class="col-sm-12  col-form-label"> Horario </label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label class="col-sm-12  col-form-label"> Horario </label>
+            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
                 <option [ngValue]="0">Seleccionar Horario </option>
                 <option [ngValue]="horario.idGrupoHorario" *ngFor="let horario of horarios">  {{horario.listaHorarios}}  
                 </option>
-            </select>       
-         </div>
+            </select>
+        </div>
 
-         <div class="col-sm-6">
-            <label  class="col-sm-12  col-form-label">Estado de Curso </label>
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdEstadoCurso">
+        <div class="col-sm-6">
+            <label class="col-sm-12  col-form-label">Estado de Curso </label>
+            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdEstadoCurso">
                 <option [ngValue]="0">Seleccionar el Estado del Curso</option>
                 <option [ngValue]="estadoCurso.idEstadoProgCurso" *ngFor="let estadoCurso of estadoProgCursos">{{estadoCurso.nomEstado}} 
                 </option>
-            </select>       
-         </div>
+            </select>
+        </div>
 
-       </div>
-       <hr>
-     
-  </div>
+    </div>
+    <hr>
+
+</div>
 
 
 
- <div  *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3" >
-    
+<div *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3">
+
     <div class="row col-md-12">
-        <div class="col-md-5"> 
-                 <div class="col-md-12">
-                    <label  class="col-sm-12  col-form-label">Filtro</label>
-                    <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" />      
-                </div>
+        <div class="col-md-5">
+            <div class="col-md-12">
+                <label class="col-sm-12  col-form-label">Filtro</label>
+                <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" [(ngModel)]="busquedaTexto" />
+            </div>
         </div>
     </div>
 
-  
-    
-  </div> 
 
 
-  <div class="w-100 mt-3 table-responsive" style="margin: auto;">
+</div>
+
+
+<div class="w-100 mt-3 table-responsive" style="margin: auto;">
     <table class="table table-hover table-bordered">
-        <thead class="header-table " style ="background: #dfe3e7;">
+        <thead class="header-table " style="background: #dfe3e7;">
             <tr>
-                
+
                 <td>
                     <div class="center-head">N°</div>
                 </td>
-              
+
 
                 <td>
                     <div class="center-head">Docente</div>
                 </td>
-                
+
                 <td>
                     <div class="center-head">Curso</div>
                 </td>
@@ -126,57 +126,52 @@
             </tr>
         </thead>
         <tbody class="header-body">
-            <tr *ngFor= "let progCurso of progCursosDTO | filter:busquedaTexto
+            <tr *ngFor="let progCurso of progCursosDTO | filter:busquedaTexto
             | paginate : {itemsPerPage :15,currentPage : pageActual}; let i = index">
-            <td>
-                <div class="center-body">{{i+1}}</div> 
-            </td> 
-           
+                <td>
+                    <div class="center-body">{{i+1}}</div>
+                </td>
+
 
                 <td>
-                    <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progCurso.nombre}}   {{progCurso.apellidoPat}}  {{progCurso.apellidoMat}}</span> </div>
-                 </td>
-                
+                    <div class="center-body"> <span class=" font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progCurso.nombre}}   {{progCurso.apellidoPat}}  {{progCurso.apellidoMat}}</span> </div>
+                </td>
+
                 <td>
-                    <div class="center-body">{{progCurso.nomIdioma}}  {{progCurso.nomNivel}}  {{progCurso.ciclo}}° ciclo </div>
+                    <div class="center-body">{{progCurso.nomIdioma}} {{progCurso.nomNivel}} {{progCurso.ciclo}}° ciclo </div>
                 </td>
                 <td>
-                    <div class="center-body">  {{progCurso.nomPeriodo}}   </div> 
-                </td> 
+                    <div class="center-body"> {{progCurso.nomPeriodo}} </div>
+                </td>
                 <td>
-                    <div class="center-body">  {{progCurso.nomAula}}   </div> 
+                    <div class="center-body"> {{progCurso.nomAula}} </div>
                     <!-- --  {{progCurso.nomSede}}  -->
-                </td> 
-                <td>
-                    <div class="center-body">  {{progCurso.nomGrupoHorario}}  </div> 
-                    <div class="center-body">  De {{progCurso.horaInicio}} a {{progCurso.horaSalida}} </div> 
                 </td>
                 <td>
-                    <div class="center-body">  {{progCurso.nomEstado}}  </div> 
+                    <div class="center-body"> {{progCurso.nomGrupoHorario}} </div>
+                    <div class="center-body"> De {{progCurso.horaInicio}} a {{progCurso.horaSalida}} </div>
                 </td>
-              <td>
-                
+                <td>
+                    <div class="center-body"> {{progCurso.nomEstado}} </div>
+                </td>
+                <td>
 
-                <div class="row" >
-                        <button class="btn-edit mt-1 ml-3 " style ="background: #27c68f ;" (click)="editar(progCurso.idProgCurso)">
+
+                    <div class="row">
+                        <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;" (click)="editar(progCurso.idProgCurso)">
                                 <i class="mdi mdi-border-color" style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
                             </button>
-                            
-                            <button type="button" class="btn-edit mt-1 ml-2" style ="background: #dd2f18 ;" (click)="eliminar(progCurso.idProgCurso)">
+
+                        <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;" (click)="eliminar(progCurso.idProgCurso)">
                                     <i class="mdi mdi-delete  " style="color : white ; font-size: 20px; display: inline-block !important;"></i> 
                             </button>
 
-                </div>
-            </td>
+                    </div>
+                </td>
             </tr>
         </tbody>
 
     </table>
     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 
-</div>  
-
-
-
-
-
+</div>

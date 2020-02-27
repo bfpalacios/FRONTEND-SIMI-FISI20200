@@ -1,0 +1,36 @@
+<div class="m-3">
+    <div>
+        <span class="title-module">
+            <i class="mdi mdi-tablet-dashboard f-15" style="font-size: 22px;"></i>Docentes
+        </span>
+        <hr />
+    </div>
+
+    <div>
+        <button>Descargar en PDF</button>
+    </div>
+    <div class="row" style="margin-right: 80px; margin-left: 80px; margin-top: 50px;">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+            <div id="container" class="section-matricula">
+                <table>
+                    <thead>
+                        <tr class="head">
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Departamento</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let docente of docente">
+                            <td>{{docente.nombre}}</td>
+                            <td>{{docente.apellidoPat}} {{docente.apellidoMat}}</td>
+                            <td>{{docente.departamento}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

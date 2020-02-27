@@ -9,6 +9,7 @@ import { PeriodoAcademico } from 'src/app/domain/PeriodoAcademico';
   styleUrls: ['./ciclo-academico.component.css']
 })
 export class CicloAcademicoComponent implements OnInit {
+  busquedaTexto: any;
   estado: boolean;
   prueba : string;
   public id: number;
