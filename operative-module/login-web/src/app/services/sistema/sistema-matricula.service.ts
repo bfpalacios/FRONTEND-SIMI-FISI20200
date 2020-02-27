@@ -11,7 +11,7 @@ export class SistemaMatriculaService {
   constructor(
     private http: HttpClient,
     private _injector: Injector) {
-    this.url = 'simi/api/v1';
+    this.url = 'simi/matriculaOnline/loginapi/v1';
   }
 
   private get _toastService() { return this._injector.get(ToastrService); }
