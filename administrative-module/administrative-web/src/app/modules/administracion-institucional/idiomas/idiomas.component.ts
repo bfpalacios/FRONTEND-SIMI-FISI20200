@@ -85,7 +85,7 @@ export class IdiomasComponent implements OnInit {
           if (result.value) {
             this.load = true;
             this.serviceIdioma.deleteIdiomaById(id).subscribe(data => {
-              
+            ;
               if (data) {
                 this.load = false;
                 Swal.fire(
@@ -100,6 +100,12 @@ export class IdiomasComponent implements OnInit {
                 // this.obtenerIdiomas();
               }
             }, error => {
+            
+               Swal.fire(
+                 'Error!',
+                 error.error.text,
+                 'error'
+               );
               if (error) {
                 this.load = false;
                 // this.obtenerIdiomas();

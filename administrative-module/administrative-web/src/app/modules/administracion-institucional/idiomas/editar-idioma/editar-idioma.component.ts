@@ -133,31 +133,42 @@ export class EditarIdiomaComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-
         this.load = true;
         this.idiomaService.deleteIdiomaById(this.idioma.idIdioma).subscribe(data => {
+        ;
           if (data) {
+            this.load = false;
             Swal.fire(
-              'Eliminación Exitosa!',
-              'El idioma '+this.idioma.nomIdioma +' se eliminó correctamente.',
+              'Idioma Eliminado!',
+              'El idioma '+ this.idioma.nomIdioma+' se elimino correctamente.',
               'success'
             );
             this.navigateList();
+    
           } else {
             this.load = false;
-            this.success = true;
-            this.successText = 'No se puede eliminar este idioma';
+            // this.obtenerIdiomas();
           }
         }, error => {
+        
+           Swal.fire(
+             'Error!',
+             error.error.text,
+             'error'
+           );
           if (error) {
             this.load = false;
-            this.success = true;
-            this.successText = 'Sucedió un error con el servidor';
+            // this.obtenerIdiomas();
+           
           }
         });
-      
        
-      }})
+      }
+      })
+
+
+
+     
 
   } 
 
