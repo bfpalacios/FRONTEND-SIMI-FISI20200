@@ -143,7 +143,19 @@ export class EditarDocenteComponent implements OnInit {
           this.empty = true;
           this.successText = 'El curso  ya existe';
         }
-      });
+      }, error => {
+            
+        Swal.fire(
+          'Advertencia!',
+          error.error.text,
+          'info'
+        );
+       if (error) {
+         this.load = false;
+         // this.obtenerIdiomas();
+        
+       }
+     });
     }
   }
 
