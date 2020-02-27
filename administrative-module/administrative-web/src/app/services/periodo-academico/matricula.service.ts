@@ -10,7 +10,7 @@ export class MatriculaService {
 
   private url: string;
   constructor(private http: HttpClient) {
-    this.url = 'simi/api/matricula';
+    this.url = 'simi/v1/procesoMatricula/matricula';
   }
 
   getMatriculas() {
