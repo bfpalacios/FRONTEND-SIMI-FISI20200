@@ -49,7 +49,7 @@ export class CreateAulaComponent implements OnInit {
     });
   }
 
-  private crear(){
+   crear(){
     this.empty = this.isEmpty();
     this.aula.idSede = this.selectedTypeIdSede;
     console.log("this.selectedTypeIdSede",this.selectedTypeIdSede);

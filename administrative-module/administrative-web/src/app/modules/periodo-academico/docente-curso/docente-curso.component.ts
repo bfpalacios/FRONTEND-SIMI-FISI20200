@@ -136,7 +136,7 @@ export class DocenteCursoComponent implements OnInit {
        }
  
    }
-   private nuevo(){
+   nuevo(){
 
     this.nuevoCurso = !this.nuevoCurso ;
     this.selectedTypeIdDocente = " " ;
@@ -144,7 +144,7 @@ export class DocenteCursoComponent implements OnInit {
     this.selectedTypeIdCurso = 0;
 
      }
-    private guardar()
+     guardar()
     { console.log("entro a guardar");
       this.empty = this.isEmpty();
       // this.aula.idSede = this.selectedTypeIdSede;
@@ -231,11 +231,11 @@ export class DocenteCursoComponent implements OnInit {
     
     }
 
-    private cancelarNuevo()
+   cancelarNuevo()
   {
     this.nuevoCurso = !this.nuevoCurso ;
   }
-  private cancelarActualizada()
+  cancelarActualizada()
   {
     this.actualizar = !this.actualizar ;
   }

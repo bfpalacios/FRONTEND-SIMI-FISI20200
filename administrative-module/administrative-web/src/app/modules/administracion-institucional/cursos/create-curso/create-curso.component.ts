@@ -59,7 +59,7 @@ export class CreateCursoComponent implements OnInit {
       this.load = false;
     });
   }
-  private crear(){
+ crear(){
     this.empty = this.isEmpty();
     // this.curso.cnivel = this.selectedTypeIdNivel;
     // this.c      console.log("entro no vacio");

@@ -33,7 +33,7 @@ import { GrupoHorarioDTO } from 'src/app/domain/GrupoHorarioDTO';
   styleUrls: ['./programacion-cursos.component.css']
 })
 export class ProgramacionCursosComponent implements OnInit {
-
+  busquedaTexto: any;
   public successText: string;
   estado: boolean;
   prueba : string;
@@ -138,7 +138,7 @@ export class ProgramacionCursosComponent implements OnInit {
      }
      )
    }
-   private nuevo(){
+    nuevo(){
 
     this.nuevoCurso = !this.nuevoCurso ;
     this.selectedTypeIdProgDocCuso = 0;
@@ -146,7 +146,7 @@ export class ProgramacionCursosComponent implements OnInit {
     this.selectedTypeIdHorarioGrupoHorario = 0;
     this.selectedTypeIdEstadoCurso = 0;
      }
-    private guardar()
+     guardar()
     {
       this.empty = this.isEmpty();
      
@@ -224,11 +224,11 @@ export class ProgramacionCursosComponent implements OnInit {
     
     }
 
-    private cancelarNuevo()
+     cancelarNuevo()
   {
     this.nuevoCurso = !this.nuevoCurso ;
   }
-  private cancelarActualizada()
+   cancelarActualizada()
   {
     this.actualizar = !this.actualizar ;
   }
@@ -270,14 +270,14 @@ actualizarProg() {
 
   this.actualizar = !this.actualizar ;
 
-}
+}*/
 editar(id: number) { 
-  console.log("editarCurso",id);
-  if(this.nuevoCurso ==true )this.nuevoCurso =false;
-  this.actualizar = !this.actualizar ;
-  this.getProgDocente(id);
+  // console.log("editarCurso",id);
+  // if(this.nuevoCurso ==true )this.nuevoCurso =false;
+  // this.actualizar = !this.actualizar ;
+  // this.getProgDocente(id);
 }
-
+/*
 private getProgDocente(id: number) {
 
       this.progdoccurService.getProgDocCursoById(id).subscribe(data => {

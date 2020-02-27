@@ -70,5 +70,9 @@ export class CreateHorarioComponent implements OnInit {
     private navigateList() {
       this.router.navigate(['administracionInstitucional/horarios']).then();
     }
+
+    crear(){
+      
+    }
   }
 

@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./docentes.component.css']
 })
 export class DocentesComponent implements OnInit {
+  public  pageActual : number ;
   estado: boolean;
   prueba : string;
   public id: number;
@@ -26,6 +27,7 @@ export class DocentesComponent implements OnInit {
     ) {
      this.estado = false;
       this.docenteUP = new DocenteUP();
+      this.pageActual = 1;
     }
 
 
