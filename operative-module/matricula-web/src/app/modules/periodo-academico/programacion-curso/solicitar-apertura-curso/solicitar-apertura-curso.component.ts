@@ -16,6 +16,8 @@ import { CursoService } from 'src/app/services/periodo-academico/curso.service';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GrupoService } from 'src/app/services/periodo-academico/grupo.service';
 import { HoraService } from 'src/app/services/periodo-academico/hora.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AperturaDialogComponent } from 'src/app/dialogs/matricula/apertura-dialog/apertura-dialog.component';
 
 @Component({
   selector: 'app-solicitar-apertura-curso',
@@ -30,26 +32,35 @@ export class SolicitarAperturaCursoComponent implements OnInit {
   public idiomaDTO: IdiomaDTO[];
   public curso: Curso[];
   public grupo: Grupo[];
-  public hora : Hora[];
+  public hora: Hora[];
   public load: boolean;
 
   public selectedTypeIdNivel: number;
   public selectedTypeIdIdioma: number;
   public selectedTypeIdCurso: number;
   public selectedTypeIdDias: number;
-  public selectedTypeIdGrupo : number;
+  public selectedTypeIdGrupo: number;
   public id: number;
   desactivado = true;
 
-  constructor(private serviceApertura: SolicitudAperturaService, private serviceIdioma: IdiomaService, private serviceNivel: NivelService, private serviceCurso: CursoService, private serviceData: DataServiceService, private serviceGrupo: GrupoService, private serviceHora: HoraService) { 
+  constructor(
+    private serviceApertura: SolicitudAperturaService,
+    private serviceIdioma: IdiomaService,
+    private serviceNivel: NivelService,
+    private serviceCurso: CursoService,
+    private serviceData: DataServiceService,
+    private serviceGrupo: GrupoService,
+    private serviceHora: HoraService,
+    private dialog: MatDialog) {
     this.apertura = new Apertura();
-    this.apertura.codEstudiante=this.serviceData.user.codigo;
+    this.apertura.codEstudiante = this.serviceData.user.codigo;
   }
 
   ngOnInit() {
     console.log(this.serviceData.user.codigo);
     this.getApertura();
     this.getIdioma();
+    this.openDialogEdit();
   }
 
   public getApertura() {
@@ -117,32 +128,41 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     });
   }
 
-public crearApertura(){
-  this.apertura.idCurso = this.selectedTypeIdCurso;
-  this.apertura.idHorarioGrupohorario = this.selectedTypeIdGrupo;
+  public crearApertura() {
+    this.apertura.idCurso = this.selectedTypeIdCurso;
+    this.apertura.idHorarioGrupohorario = this.selectedTypeIdGrupo;
 
-  this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
-    this.apertura = data;
-    console.log(this.apertura);
-  }, error => {
-    console.log(error);
-  });
+    this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
+      this.apertura = data;
+      console.log(this.apertura);
+    }, error => {
+      console.log(error);
+    });
 
-  this.ngOnInit() ;
-}
+    this.ngOnInit();
+  }
 
-public unirseApertura(selectedTypeIdCurso,selectedTypeIdGrupo ){
-  this.apertura.idCurso = selectedTypeIdCurso;
-  this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
+  public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
+    this.apertura.idCurso = selectedTypeIdCurso;
+    this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
 
-  this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
-    this.apertura = data;
-    console.log(this.apertura);
-  }, error => {
-    console.log(error);
-  });
+    this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
+      this.apertura = data;
+      console.log(this.apertura);
+    }, error => {
+      console.log(error);
+    });
+  }
 
-  this.ngOnInit();
-}
+
+  public openDialogEdit() {
+    const dialogRef = this.dialog.open(AperturaDialogComponent, {
+      width: '550px',
+      data: 'Hola Chicho'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
 
 }

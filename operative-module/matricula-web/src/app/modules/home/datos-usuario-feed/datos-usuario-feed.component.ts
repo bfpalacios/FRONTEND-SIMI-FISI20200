@@ -17,14 +17,12 @@ export class DatosUsuarioFeedComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataServiceService,
-    private toastService: ToastrService,
-    private dialog: MatDialog) {
+    private toastService: ToastrService) {
     this.userDates = new PersonaUsuario();
   }
 
   ngOnInit() {
     this.obtenerDatosUsuario();
-    this.openDialogEdit();
   }
 
   public obtenerDatosUsuario() {
@@ -50,15 +48,5 @@ export class DatosUsuarioFeedComponent implements OnInit {
 
   public cuentaUsuario() {
     this.router.navigate(['profile/cuentaUsuario']).then();
-  }
-
-  public openDialogEdit() {
-    const dialogRef = this.dialog.open(AperturaDialogComponent, {
-      width: '550px',
-      data: 'Hola Chicho'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
   }
 }
