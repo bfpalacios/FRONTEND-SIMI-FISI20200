@@ -111,7 +111,19 @@ export class EditarIdiomaComponent implements OnInit {
           this.empty = true;
           this.successText = 'El idioma  ya existe';
         }
-      });
+      }, error => {
+            
+        Swal.fire(
+          'Advertencia!',
+          error.error.text,
+          'info'
+        );
+       if (error) {
+         this.load = false;
+         // this.obtenerIdiomas();
+        
+       }
+     });
     }
   }
 

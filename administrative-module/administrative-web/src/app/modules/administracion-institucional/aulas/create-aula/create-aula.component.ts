@@ -80,7 +80,19 @@ export class CreateAulaComponent implements OnInit {
             this.empty = true;
             this.successText = 'El nombre del aula ya existe, ingrese otro.';
           }
-        });
+        }, error => {
+            
+          Swal.fire(
+            'Advertencia!',
+            error.error.text,
+            'info'
+          );
+         if (error) {
+           this.load = false;
+           // this.obtenerIdiomas();
+          
+         }
+       });
     }
     cancelar(){
       this.navigateList();
@@ -88,7 +100,10 @@ export class CreateAulaComponent implements OnInit {
     }
     
     private navigateList() {
-      this.setLocalStorageParamSede(this.aula.idSede.toString());
+      if(this.aula.idSede){
+        this.setLocalStorageParamSede((this.aula.idSede).toString());
+
+      }
       this.router.navigate(['administracionInstitucional/aulas']).then();
     }
 
@@ -104,9 +119,25 @@ export class CreateAulaComponent implements OnInit {
         return true;
       }
     }
+    private isMayorTamNomAula(info: string, msg: string) {
+      if(info != null){
+        if (info.length >4) {
+          this.successText = msg;
+          return true;
+        }
+      }
+    }
+    private isMayorTamRefAula(info: string, msg: string) {
+      if(info != null){
+        if (info.length >=140) {
+          this.successText = msg;
+          return true;
+        }
+      }
+    }
     private isEmpty() { // true : vacio 
 
-      if (this.isEmpytText(this.aula.nomAula, Mensaje.emptyNomAula)) {
+      if (this.isEmpytNum( Number(this.aula.nomAula), Mensaje.emptyNomAula)) {
         return true;
       }
        
@@ -115,6 +146,12 @@ export class CreateAulaComponent implements OnInit {
         return true;
       }
      
-    
+      if (this.isMayorTamNomAula(this.aula.nomAula, "Campo Aula, máximo 4 caracteres")) {
+        return true;
+      }
+      if (this.isMayorTamRefAula(this.aula.refAula, "Campo Referencia, máximo 140 caracteres")) {
+        return true;
+      }
+
     }
   }

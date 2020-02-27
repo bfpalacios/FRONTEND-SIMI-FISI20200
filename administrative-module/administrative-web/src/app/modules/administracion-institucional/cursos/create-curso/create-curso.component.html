@@ -54,7 +54,7 @@
                     <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                         <i class="mdi mdi-drawing-box f-16"></i> N° Ciclo</label>
                     <div class="col-sm-6">
-                        <input name="nomAula" [(ngModel)]="curso.ciclo" type="text" class="form-control"  placeholder="Ingrese el Ciclo del Curso">
+                        <input name="nomAula" [(ngModel)]="curso.ciclo" type="number"  min="1" max="20" class="form-control"  placeholder="Ingrese el Ciclo del Curso">
                     </div>
                 </div>
         </div>

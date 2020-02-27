@@ -97,7 +97,19 @@ console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
             this.empty = true;
             this.successText = 'El curso ya existe, ingrese otro.';
           }
-        });
+        }, error => {
+            
+          Swal.fire(
+            'Advertencia!',
+            error.error.text,
+            'info'
+          );
+         if (error) {
+           this.load = false;
+           // this.obtenerIdiomas();
+          
+         }
+       });
     }
     setLocalStorageParamIdioma(title: string) {
       this.title = title;
@@ -119,7 +131,14 @@ console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
       }
     }
     private isEmpytNum(info: number, msg: string) {
-      if (info === undefined || info == 0) {
+      if (info === undefined ) {
+        this.successText = msg;
+        return true;
+      }
+    }
+
+    private isRangoNum(info: number, msg: string) {
+      if (info <= 0 || info >20 ) {
         this.successText = msg;
         return true;
       }
@@ -138,6 +157,9 @@ console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
         return true;
       }
      
+      if (this.isRangoNum(this.curso.ciclo, "El Ciclo debe estar entre 1 y 20")) {
+        return true;
+      }
     
     }
   }

@@ -96,12 +96,18 @@ export class EditarCursoComponent implements OnInit {
   }
  
   private isEmpytNum(info: number, msg: string) {
-    if (info === undefined || info == 0) {
+    if (info === undefined ) {
       this.successText = msg;
       return true;
     }
   }
 
+  private isRangoNum(info: number, msg: string) {
+    if (info <= 0 || info >20 ) {
+      this.successText = msg;
+      return true;
+    }
+  }
   private isEmpty() { // true : vacio 
 
     if (this.isEmpytNum(this.curso.ciclo, Mensaje.emptyCiclo)) {
@@ -116,6 +122,9 @@ export class EditarCursoComponent implements OnInit {
       return true;
     }
    
+    if (this.isRangoNum(this.curso.ciclo, "El Ciclo debe estar entre 1 y 20")) {
+      return true;
+    }
   
   }
   cancelar(){
@@ -148,7 +157,19 @@ export class EditarCursoComponent implements OnInit {
           this.empty = true;
           this.successText = 'El curso  ya existe';
         }
-      });
+      }, error => {
+            
+        Swal.fire(
+          'Advertencia!',
+          error.error.text,
+          'info'
+        );
+       if (error) {
+         this.load = false;
+         // this.obtenerIdiomas();
+        
+       }
+     });
     }
   }
 

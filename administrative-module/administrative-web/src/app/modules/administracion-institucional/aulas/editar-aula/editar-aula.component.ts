@@ -95,17 +95,37 @@ export class EditarAulaComponent implements OnInit {
     }
   }
 
-  private isEmpty() {
+  private isMayorTamNomAula(info: string, msg: string) {
+    if(info != null){
+      if (info.length >4) {
+        this.successText = msg;
+        return true;
+      }
+    }
+  }
+  private isMayorTamRefAula(info: string, msg: string) {
+    if(info != null){
+      if (info.length >=140) {
+        this.successText = msg;
+        return true;
+      }
+    }
+  }
+  private isEmpty() { // true : vacio 
 
-    if (this.isEmpytText(this.aula.nomAula, Mensaje.emptyNomAula)) {
+    if (this.isEmpytNum( Number(this.aula.nomAula), Mensaje.emptyNomAula)) {
       return true;
     }
-    // if (this.isEmpytText(this.aula.refAula, Mensaje.emptyRefAula)) {
-    //   return true;
-    // }
-
+     
     if (this.isEmpytNum(this.selectedTypeIdSede, Mensaje.emptySede)) {
-
+      
+      return true;
+    }
+   
+    if (this.isMayorTamNomAula(this.aula.nomAula, "Campo Aula, máximo 4 caracteres")) {
+      return true;
+    }
+    if (this.isMayorTamRefAula(this.aula.refAula, "Campo Referencia, máximo 140 caracteres")) {
       return true;
     }
 
@@ -141,16 +161,31 @@ export class EditarAulaComponent implements OnInit {
           this.empty = true;
           this.successText = 'El aula  ya existe';
         }
-      });
+      }, error => {
+            
+        Swal.fire(
+          'Advertencia!',
+          error.error.text,
+          'info'
+        );
+       if (error) {
+         this.load = false;
+         // this.obtenerIdiomas();
+        
+       }
+     });
     }
   }
 
 
   private navigateList() {
+    if(this.aula.idSede){
+      this.setLocalStorageParamSede((this.aula.idSede).toString());
+    }
     
-    this.setLocalStorageParamSede(this.aula.idSede.toString());
     this.router.navigate(['administracionInstitucional/aulas']).then();
   }
+
   public eliminar() {
     console.log("this.aula", this.aula);
 

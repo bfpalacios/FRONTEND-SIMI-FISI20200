@@ -56,7 +56,19 @@ export class CreateSedeComponent implements OnInit {
             this.empty = true;
             this.successText = 'La sede ya existe, pruebe otro.';
           }
-        });
+        }, error => {
+            
+          Swal.fire(
+            'Advertencia!',
+            error.error.text,
+            'info'
+          );
+         if (error) {
+           this.load = false;
+           // this.obtenerIdiomas();
+          
+         }
+       });
     }
   
 

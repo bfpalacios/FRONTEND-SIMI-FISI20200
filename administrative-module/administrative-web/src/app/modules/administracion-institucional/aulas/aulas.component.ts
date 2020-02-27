@@ -33,7 +33,7 @@ export class AulasComponent implements OnInit {
      this.estado = false;
      this.auladto = new AulaDTO();
      this.pageActual = 1;
-     this.selectedTypeIdSede = 0;
+     this.selectedTypeIdSede = 1;
      this.parametro = 1;
     }
 
