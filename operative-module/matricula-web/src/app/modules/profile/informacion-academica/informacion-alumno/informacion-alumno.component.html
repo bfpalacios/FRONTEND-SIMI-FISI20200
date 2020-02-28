@@ -1,0 +1,115 @@
+<div class="simi-card" *ngIf="!show">
+    <div>
+        <h4>Información del Alumno
+            <div style="float: right;">
+                <button class="btn simi-btn-rose" (click)="mostrarInformacionAcademica()">
+                    Información Académica <i class="mdi mdi-arrow-right-bold"></i>
+                </button>
+            </div>
+        </h4>
+    </div>
+    <div class="text-center">
+        <label class="simi-section-label-blue">
+           {{user.email}}
+        </label>
+    </div>
+    <div>
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            SEXO
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">{{user.genero}}</label>
+    </div>
+
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            FECHA DE NACIMIENTO (EDAD)
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">{{user.birthday + ' - ' + user.edad + ' años'}}</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            LUGAR DE NACIMIENTO
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">{{user.lugarNacDep + ' - '+ user.lugarNacProv + ' - ' + user.lugarNacDist}}</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            DIRECCIÓN
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">{{user.address}}</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            NACIONALIDAD
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">{{user.nacionalidad}}</label>
+    </div>
+</div>
+
+<div class="simi-card" *ngIf="show">
+    <div>
+        <h4>Información Académica
+            <div style="float: right;">
+                <button class="btn simi-btn-rose" (click)="mostrarInformacionPersonal()">
+                    <i class="mdi mdi-arrow-left-bold"></i>  Información del Alumno
+                </button>
+            </div>
+        </h4>
+    </div>
+    <div class="text-center">
+        <label class="simi-section-label-blue">
+           {{user.email}}
+        </label>
+    </div>
+    <div>
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            FECHA DE REGISTRO
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">2020-02-23</label>
+    </div>
+
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            ÚLTIMO IDIOMA APRENDIDO / NIVEL / CICLO
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">INGLÉS INTERMEDIO V - FRANCÉS BÁSICO I</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            ÚLTIMA NOTA OBTENIDA
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">17</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+            ÚLTIMA MATRÍCULA
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">2020-2</label>
+    </div>
+    <div class="mt-3">
+        <label style="font-size: 13px; color: gray">
+            <i class="mdi mdi-account" style="font-size: 25px; color: black;"></i>
+           SITUACIÓN ACTUAL
+        </label>
+        <br class="mb-1"/>
+        <label class="simi-input-text form-control">ACTIVO</label>
+    </div>
+</div>

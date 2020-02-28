@@ -24,6 +24,10 @@
   background-color: #323232;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
 }
 
+.simi-section-label-green{
+  background-color: #69c608;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
+}
+
 .simi-bg-header {
   background-color: #323232;
   color: white;
@@ -42,7 +46,10 @@
 }
 
 .simi-bg-primary {
-  background-color: #1a51a3 !important; color: white;
+  background-color: #096ac6 !important; color: white;
+}
+.simi-bg-primary:hover {
+  background-color: #096ac6 !important; color: white !important;
 }
 .simi-btn-primary {background-color: #096ac6 !important;}
 .simi-btn-primary:hover{background-color: #1a51a3 !important;
@@ -88,3 +95,4 @@
 .simi-hover:hover {
   background-color: #e0dedf;
 }
+

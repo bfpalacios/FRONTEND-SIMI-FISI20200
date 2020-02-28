@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-historial-datos-alumno',
-  templateUrl: './historial-datos-alumno.component.html',
-  styleUrls: ['./historial-datos-alumno.component.css']
+  templateUrl: './historial-datos-alumno.component.html'
 })
 export class HistorialDatosAlumnoComponent implements OnInit {
 

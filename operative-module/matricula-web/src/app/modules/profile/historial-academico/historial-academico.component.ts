@@ -1,10 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { HistorialDatosAlumnoComponent } from '../historial-academica/historial-datos-alumno/historial-datos-alumno.component';
-
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-historial-academico',
-  templateUrl: './historial-academico.component.html',
-  styleUrls: ['./historial-academico.component.css']
+  templateUrl: './historial-academico.component.html'
 })
 export class HistorialAcademicoComponent implements OnInit {
 
