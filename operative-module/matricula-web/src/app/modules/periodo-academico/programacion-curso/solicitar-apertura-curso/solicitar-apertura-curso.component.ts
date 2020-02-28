@@ -62,7 +62,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     console.log(this.serviceData.user.codigo);
     this.getApertura();
     this.getIdioma();
-    this.openDialogEdit();
+    //this.openDialogEdit();
     this.getAperturabyID();
   }
 
@@ -168,10 +168,10 @@ export class SolicitarAperturaCursoComponent implements OnInit {
   }
 
 
-  public openDialogEdit() {
+  public openDialogEdit(mensaje : string) {
     const dialogRef = this.dialog.open(AperturaDialogComponent, {
       width: '550px',
-      data: 'Hola Chicho'
+      data: mensaje,
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -188,9 +188,29 @@ export class SolicitarAperturaCursoComponent implements OnInit {
 
     if(cont > 0){
       console.log("Solicitud existente");
+      this.openDialogEdit("Ya solicitaste este curso");
     }else{
      this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo );
       console.log("Registro con éxito");
+      this.openDialogEdit("Solicitud exitosa");
+    }
+  }
+
+  public validar(){
+    let cont : number = 0;
+    for(let i in this.aperturaDTO2){
+      if(this.selectedTypeIdCurso == this.aperturaDTO2[i].idCurso && this.selectedTypeIdGrupo == this.aperturaDTO2[i].idGrupohorario){
+        cont = cont + 1;
+      }
+    }
+
+    if(cont > 0){
+      console.log("Solicitud existente");
+      this.openDialogEdit("Ya solicitaste este curso");
+    }else{
+     this.crearApertura();
+      console.log("Registro con éxito");
+      this.openDialogEdit("Solicitud exitosa");
     }
   }
 }
