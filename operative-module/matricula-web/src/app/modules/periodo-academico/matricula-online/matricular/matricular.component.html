@@ -1,100 +1,109 @@
-<div style="height: 92%; margin-top: 55px;">
-    <mat-sidenav-container class="sidenav-container" style="height: 100%;">
-        <mat-sidenav #snav [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
-            style="background: #e9ebee; width: 280px;">
-            <div class="section-matricula">
-                <div>
-                    <span style="font-size: 14px;">
-                        Filtrar por sedes
-                    </span>
-                    <hr class="mt-1" />
-                    <div class="section-filtro">
-                        <mat-checkbox class="oink">Ciudad Universitaria</mat-checkbox><br />
-                        <mat-checkbox class="oink">San Juan de Lurigancho</mat-checkbox>
-                    </div>
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Periódo Académico
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Matrícula Online
+        </span>
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Seleccionar Cursos
+        </span>
+    </span>
+</div>
+<mat-sidenav-container class="sidenav-container" *ngIf="!load" style=" height: 100% !important;">
+    <mat-sidenav #snav [mode]="mobile.matches ? 'over' : 'side'" [fixedInViewport]="mobile.matches"
+        style="background: #e9ebee; width: 280px;">
+        <div class="section-matricula">
+            <div>
+                <span style="font-size: 14px;">
+                    Filtrar por sedes
+                </span>
+                <hr class="mt-1" />
+                <div class="section-filtro">
+                    <mat-checkbox class="oink">Ciudad Universitaria</mat-checkbox><br />
+                    <mat-checkbox class="oink">San Juan de Lurigancho</mat-checkbox>
                 </div>
-                <div class="mt-4">
-                    <span style="font-size: 14px;">
-                        Filtrar por Idioma
-                    </span>
-                    <hr class="mt-1" />
-                    <div class="section-filtro">
-                        <mat-checkbox class="oink">Inglés</mat-checkbox><br />
-                        <mat-checkbox class="oink">Francés</mat-checkbox><br />
-                        <mat-checkbox class="oink">Portugués</mat-checkbox><br />
-                        <mat-checkbox class="oink">Alemán</mat-checkbox><br />
-                    </div>
+            </div>
+            <div class="mt-4">
+                <span style="font-size: 14px;">
+                    Filtrar por Idioma
+                </span>
+                <hr class="mt-1" />
+                <div class="section-filtro">
+                    <mat-checkbox class="oink">Inglés</mat-checkbox><br />
+                    <mat-checkbox class="oink">Francés</mat-checkbox><br />
+                    <mat-checkbox class="oink">Portugués</mat-checkbox><br />
+                    <mat-checkbox class="oink">Alemán</mat-checkbox><br />
                 </div>
-                <div class="mt-4">
-                    <span style="font-size: 14px;">
-                        Filtrar por Nivel
-                    </span>
-                    <hr class="mt-1" />
-                    <div class="section-filtro">
-                        <mat-checkbox class="oink">Básico</mat-checkbox><br />
-                        <mat-checkbox class="oink">Intermedio</mat-checkbox><br />
-                        <mat-checkbox class="oink">Avanzado</mat-checkbox><br />
-                    </div>
+            </div>
+            <div class="mt-4">
+                <span style="font-size: 14px;">
+                    Filtrar por Nivel
+                </span>
+                <hr class="mt-1" />
+                <div class="section-filtro">
+                    <mat-checkbox class="oink">Básico</mat-checkbox><br />
+                    <mat-checkbox class="oink">Intermedio</mat-checkbox><br />
+                    <mat-checkbox class="oink">Avanzado</mat-checkbox><br />
                 </div>
-                <button class="btn-aplicar" (click)="snav.toggle()  ">
-                    Aplicar
+            </div>
+            <button class="btn-aplicar" (click)="snav.toggle()  ">
+                Aplicar
+            </button>
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content style="background-color: #ededee;">
+        <div>
+            <div>
+                <button (click)="snav.toggle()" class="btn-filter">
+                    <i class="mdi mdi-chart-donut-variant"></i>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="simi-card">
+            <div class="text-center">
+                <h3>Matrícula Online</h3>
+                <hr class="mt-2"/>
+                <h5>Seleccionar Cursos de Idiomas</h5>
+                <span style="font-size: 18px;">Ciclo Febrero 2020</span>
+                <div style="font-size: 18px;"><b>05/02/2020</b></div>
+            </div>
+
+            <div *ngIf="programaciones?.length === 0" class="mt-2">
+                <h6 style="color:#c60869;">
+                    No hay cursos habilitados para usted en estos momentos.
+                </h6>
+                <button class="btn simi-btn-silver" (click)="cancelarMatriculaOnline()">
+                    <i class="mdi mdi-close-circle"></i>Volver
                 </button>
             </div>
-            
-        </mat-sidenav>
-        <mat-sidenav-content  class="header-matricular">
-            <div>
-                <div class="ml-3 mr-3 mt-3">
-                    <span class="title-module">
-                        <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
-                    </span>
-                    -
-                    <span>
-                        <b>Matricular</b>
-                    </span>
-                </div>
 
-                <hr class="mt-1" />
+            <div *ngIf="programaciones?.length !== 0">
                 <div>
-                    <button (click)="snav.toggle()" class="btn-filter">
-                        <i class="mdi mdi-chart-donut-variant"></i>
-                    </button>
-
-                </div>
-            </div>
-
-            <div style="margin-right: 80px; margin-left: 80px; margin-top: -50px;">
-                <div class="text-center">
-                    <h4>Matrícula Online</h4>
-                    <span>Ciclo Febrero 2020</span>
-                    <div style="font-size: 14px;"><b>05/02/2020</b></div>
-                </div>
-
-                <div class=" mt-5 row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
-                        <div>
+                    <div style="float: left;">
+                        <label class="ml-2 ml-3">
                             <span>Máximo de Cursos:</span>
-                            <span class="ml-2">
-                                <b>{{maxCursos}}</b>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 mb-1">
-                        <div>
+                            <label class="ml-2 simi-section-label-blue"><b>{{maxCursos}}</b> </label>
+                        </label>
+                        <label class="ml-3 ml-3">
                             <span>Cursos seleccionados:</span>
-                            <span class="ml-2"><b>{{cursosSeleccionados}}</b></span>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-12">
+                            <label class="ml-2 simi-section-label-rose"><b>{{cursosSeleccionados}}</b></label>
+                        </label>
 
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-6">
-                        <button class="btn-cancel mb-1" (click)="cancelarMatriculaOnline()">
+                    <div style="float: right;">
+                        <button class="btn simi-btn-silver" style="width: 160px;" (click)="cancelarMatriculaOnline()">
                             <i class="mdi mdi-close-circle"></i>Cancelar
                         </button>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-6">
-                        <button class="btn-siguiente" (click)="siguiente()">
+                        <button class="btn simi-btn-primary" style="width: 160px;" (click)="siguiente()">
                             Siguiente <i class="mdi mdi-skip-next"></i>
                         </button>
                     </div>
@@ -104,31 +113,34 @@
                     <table class="table table-hover text-center table-matricular">
                         <thead class="thead-dark" style=" border: solid 1px #acacac;">
                             <tr class="head">
-                                <th></th>
                                 <th>Idioma</th>
                                 <th>Nivel</th>
                                 <th>Ciclo</th>
                                 <th>Docente</th>
                                 <th>Horario</th>
                                 <th>Matriculados </th>
+                                <th></th>
                             </tr>
                         </thead>
-    
+
                         <tbody class="text-center">
-                            <tr *ngFor=" let programacion of programacion ">
-                                <td><mat-checkbox (change)="seleccionarCurso()  "></mat-checkbox></td>
+                            <tr *ngFor=" let programacion of programaciones; let i = index ">
                                 <td>{{programacion.nomIdioma}}</td>
                                 <td>{{programacion.nomNivel}}</td>
                                 <td>{{programacion.ciclo}}</td>
                                 <td>{{programacion.docente}}</td>
                                 <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
                                 <td><button class="btn-none "> {{programacion.matriculados}} </button></td>
+                                <td>
+                                    <mat-checkbox [disabled]="seleccionado[i]" 
+                                    (change)="seleccionarCurso($event, i, programacion)"></mat-checkbox>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
 
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-</div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

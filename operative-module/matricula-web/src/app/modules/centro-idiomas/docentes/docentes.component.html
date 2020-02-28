@@ -1,36 +1,67 @@
-<div class="m-3">
-    <div>
-        <span class="title-module">
-            <i class="mdi mdi-tablet-dashboard f-15" style="font-size: 22px;"></i>Docentes
-        </span>
-        <hr />
-    </div>
+<div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-school-outline ml-2 f-15 "></i>
+        Centro de Idiomas
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
 
-    <div>
-        <button>Descargar en PDF</button>
-    </div>
-    <div class="row" style="margin-right: 80px; margin-left: 80px; margin-top: 50px;">
-        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
-            <div id="container" class="section-matricula">
+        <span style="font-size: 15px;">
+            <i class="mdi mdi-teach f-15"></i>
+            Docentes</span>
+    </span>
+</div>
+<div class="simi-card">
+    <h4>Nuestros Docentes del Centro de Idiomas</h4>
+    <div *ngFor="let docente of docente; let i = index">
+        <div class="mt-3">
+            <h5>
+                {{i+1}}. {{docente.apellidoPat}} {{docente.apellidoMat}} {{docente.nombre}}
+            </h5>
+            <label class="btn simi-btn-silver">
+                Especialidad:
+            </label>
+            <label class="btn simi-btn-primary">{{docente.departamento}}</label>
+            <br />
+
+            <div class="table-responsive">
                 <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Departamento</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr *ngFor="let docente of docente">
-                            <td>{{docente.nombre}}</td>
-                            <td>{{docente.apellidoPat}} {{docente.apellidoMat}}</td>
-                            <td>{{docente.departamento}}</td>
-
-                        </tr>
-                    </tbody>
+                    <tr>
+                        <td>
+                            <div class="simi-bg-gray-circle-lg">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ml-2">
+                                <label>
+                                    Información:
+                                </label>
+        
+                                <p style="font-size: 13px;">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                                    been
+                                    the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                                    galley
+                                    of type and scrambled it to make a type specimen book. It has survived not only five
+                                    centuries,
+                                    but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                                    passages,
+                                    and more recently with desktop publishing software like Aldus PageMaker including versions
+                                    of
+                                    Lorem Ipsum.
+                                </p>
+                                <div>
+                                    <button class="btn simi-btn-red">Horarios</button>
+                                    <button class="btn simi-btn-primary">Cursos que dicta</button>
+                                    <button class="btn simi-btn-silver">Más información</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
             </div>
+
+
+            <hr />
         </div>
     </div>
 </div>
