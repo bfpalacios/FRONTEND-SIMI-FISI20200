@@ -8,10 +8,12 @@ import { PersonaUsuario } from 'src/app/models/PersonaUsuario';
 })
 export class InformacionAcademicaComponent implements OnInit {
 
+  public load: boolean;
   public user: PersonaUsuario;
   constructor(
     private dataService: DataServiceService,
   ) { 
+    this.load = true;
     this.user = new PersonaUsuario();
   }
 
@@ -23,6 +25,7 @@ export class InformacionAcademicaComponent implements OnInit {
   private obtenerInformacionAcademica() {
     this.dataService.obtenerInformacionAcademica().subscribe(data => {
       if (data !== null) {
+        this.load = false;
         this.user = data;
       }
     });

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HistorialDatosAlumnoComponent } from '../historial-academica/historial-datos-alumno/historial-datos-alumno.component';
 
 @Component({
   selector: 'app-historial-academico',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistorialAcademicoComponent implements OnInit {
 
-  constructor() { }
+  public load: boolean;
+  constructor() {
+   }
 
   ngOnInit() {
   }

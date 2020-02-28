@@ -12,16 +12,19 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MatricularComponent implements OnInit {
 
-  public programacion : any[];
+  public programaciones: any[];
   public pagosRealizados: any[];
   showFiller = true;
   mobileQuery: MediaQueryList;
   public maxCursos: number;
+  public maxTotal: number;
   public cursosSeleccionados: number;
   mobile: MediaQueryList;
-  public id:number;
+  public id: number;
+  public load: boolean;
+  public cursos: any[];
   mobileListener: () => void;
-
+  public seleccionado: boolean[];
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
@@ -29,8 +32,11 @@ export class MatricularComponent implements OnInit {
     private serviceProgramacion: ProgramacionCursoService,
     private dataService: DataServiceService,
     private toast: ToastrService) {
-      this.maxCursos = 0;
-      this.cursosSeleccionados = 0;
+    this.maxCursos = 0;
+    this.cursosSeleccionados = 0;
+    this.load = true;
+    this.seleccionado = [];
+    this.cursos = [];
     this.mobile = media.matchMedia('(max-width: 500px)');
     this.mobileListener = () => changeDetectorRef.detectChanges();
     this.mobile.addListener(this.mobileListener);
@@ -50,17 +56,28 @@ export class MatricularComponent implements OnInit {
   }
 
   public siguiente() {
-    this.router.navigate(['/periodo-academico/matriculaOnline/verificarMatricula']).then();
+    if (this.cursos.length === 0) {
+      this.toast.error('Seleccione un curso a matricularse.');
+    } else {
+      localStorage.setItem('SIMI-MATRICULA-CURSOS-SELECCIONADOS',
+      JSON.stringify(this.cursos));
+      this.router.navigate(['/periodo-academico/matriculaOnline/verificarMatricula']).then();
+    }
+    
   }
 
   public aplicar() {
- 
+
   }
 
   public getProgramacionbyID() {
     this.serviceProgramacion.getProgramacionbyID(this.dataService.user.codigo).subscribe(data => {
-      this.programacion = data;
-      console.log(this.programacion);
+      this.programaciones = data;
+      this.programaciones.forEach(v => {
+        this.seleccionado.push(false);
+      });
+      console.log(this.programaciones);
+      this.load = false;
     }, error => {
       console.log(error);
     });
@@ -69,16 +86,48 @@ export class MatricularComponent implements OnInit {
   private getPagosSinUsar() {
     this.dataService.getPagosSinUsar().subscribe(data => {
       this.maxCursos = data.length;
+      this.maxTotal = this.maxCursos;
     },
-    () => {
-      this.toast.error('Ocurrió un error.');
-    });
+      () => {
+        this.toast.error('Ocurrió un error.');
+      });
   }
 
 
-  seleccionarCurso() {
-    if(this.maxCursos > 0) {
-      this.maxCursos = this.maxCursos - 1;
+  seleccionarCurso($event, i: number, programacion: any) {
+    if ($event.checked) {
+      if (this.maxCursos > 0) {
+        this.maxCursos = this.maxCursos - 1;
+        this.cursosSeleccionados = this.cursosSeleccionados + 1;
+        this.cursos.push({programacionId: programacion.idpProgramacionCurso});
+        console.log(this.cursos);
+        if (this.maxTotal === this.cursosSeleccionados) {
+          let c = 0;
+          while (c < this.seleccionado.length) {
+            if (c !== i) {
+              this.seleccionado[c] = true;
+            }
+            c++;
+          }
+        }
+      }
+    } else {
+      if (this.cursosSeleccionados > 0) {
+        this.maxCursos = this.maxCursos + 1;
+        this.cursosSeleccionados = this.cursosSeleccionados - 1;
+        this.cursos.splice(i, 1);
+        let c = 0;
+        while (c < this.seleccionado.length) {
+          this.seleccionado[c] = false;
+          c++;
+        }
+      }
+    }
+  }
+
+  verificarMaxCursosSeleccionados() {
+    if (this.cursosSeleccionados === this.maxTotal) {
+      this.toast.info('Máximo de cursos seleccionados.');
     }
   }
 

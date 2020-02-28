@@ -1,4 +1,8 @@
-<div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+</div>
+<div *ngIf="!load"
+class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
         <i class="mdi mdi-account-multiple ml-2 f-15 "></i>
         Mi perfil
@@ -9,7 +13,7 @@
             Información Académica</span>
     </span>
 </div>
-<div>
+<div *ngIf="!load">
     <div class="row m-0">
         <div class="col-lg-6 col-md-6 m-0 p-0">
             <div class="simi-card">

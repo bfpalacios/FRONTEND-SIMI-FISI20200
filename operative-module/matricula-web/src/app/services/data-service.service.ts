@@ -57,6 +57,9 @@ export class DataServiceService {
     return this.matricula.getPagosSinUsar(this.user.codigo);
   }
 
+  public matricularOnline(cursos: any[]) {
+    return this.matricula.matricularOnline(cursos, this.user.codigo);
+  }
   private getSessionStorage() {
     const id = +(sessionStorage.getItem('SIMI-ID'));
     const email = sessionStorage.getItem('SIMI-EMAIL');

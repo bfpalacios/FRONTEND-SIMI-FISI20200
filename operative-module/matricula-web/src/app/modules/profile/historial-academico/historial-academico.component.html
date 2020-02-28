@@ -1,3 +1,6 @@
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+</div>
 <div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
         <i class="mdi mdi-account-multiple ml-2 f-15 "></i>
@@ -11,7 +14,7 @@
 </div>
 
 <div class="simi-card" style="text-align: center;">
-    <h3 style="font-weight: lighter;">
+    <h3>
         HISTORIAL ACADÉMICA DE CALIFICACIONES
     </h3>
     <div style="font-size: 14px;">
@@ -23,85 +26,44 @@
         <label class="simi-btn-primary btn" style="width: 90px;">Japonés</label>
         <label class="simi-btn-primary btn" style="width: 90px;">Coreano</label>
         <label class="simi-btn-primary btn" style="width: 90px;">Portugués</label>
-    </div> 
-    <div class="iniciar-perfil">
-        <div style="font-size: 14px;" class="text-center">
-            <table class="table">
-                <tr>
-                    <td><strong>Código</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>12345678</td>
-                </tr>
-
-                <tr>
-                    <td><strong>DNI</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>12345678</td>
-                </tr>
-                <tr>
-                    <td><strong>Apellidos y nombres</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>Trujillo Cruz, Joel Angel</td>
-                </tr>
-                <tr>
-                    <td><strong>Ultimo idioma llevado</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>Inglés</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Nivel alcanzado</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>IV</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Periodo académico</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>2020-1</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Fecha y hora</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>jueves, 06 de febrero 2020 <br> 12:45 am
-                    </td>
-                </tr>
-            </table>
-        </div>
     </div>
 </div>
 
-<div>
-    <div style="float: right;">
-        <button>Descargar en PDF</button>
+<app-historial-datos-alumno></app-historial-datos-alumno>
+<div class="simi-card">
+    <h4>Calificaciones</h4>
+    <hr />
+    <div>
+        <button class="simi-btn-dark btn">Descargar en PDF</button>
     </div>
-</div>
-
-<div id="container">
-    <table class="hitorial">
-        <thead>
-            <tr class="head">
-                <th>Idioma</th>
-                <th>Nivel</th>
-                <th>Curso</th>
-                <th>Nota</th>
+    <div class="table-responsive">
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr class="head">
+                    <th>Idioma</th>
+                    <th>Nivel</th>
+                    <th>Curso</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Inglés</td>
+                <td>Básico</td>
+                <td>I</td>
+                <td>15</td>
             </tr>
-        </thead>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>I</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>II</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>III</td>
-            <td>18</td>
-        </tr>
-    </table>
+            <tr>
+                <td>Inglés</td>
+                <td>Básico</td>
+                <td>II</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Inglés</td>
+                <td>Básico</td>
+                <td>III</td>
+                <td>18</td>
+            </tr>
+        </table>
+    </div>
 </div>

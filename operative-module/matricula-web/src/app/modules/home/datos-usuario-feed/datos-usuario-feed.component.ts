@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { Router } from '@angular/router';
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { PersonaUsuario } from 'src/app/models/PersonaUsuario';
 import { AperturaDialogComponent } from 'src/app/dialogs/matricula/apertura-dialog/apertura-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,22 +12,25 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DatosUsuarioFeedComponent implements OnInit {
 
-  
+  public load: boolean;
   public userDates: PersonaUsuario;
   constructor(
     private router: Router,
     private dataService: DataServiceService,
     private toastService: ToastrService) {
+    this.load = true;
     this.userDates = new PersonaUsuario();
   }
 
   ngOnInit() {
+    localStorage.setItem('SIMI-LOAD-HOME', 'true');
     this.obtenerDatosUsuario();
   }
 
+
   public obtenerDatosUsuario() {
     this.dataService.obtenerDatosUsuario().subscribe(data => {
-      console.log(data);
+      localStorage.setItem('SIMI-LOAD-HOME', 'false');
       if (data != null) {
         this.userDates = data;
       } else {

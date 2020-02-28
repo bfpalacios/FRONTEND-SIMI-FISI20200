@@ -1,0 +1,37 @@
+<div>
+    <h3>
+        Pagos realizados en el Banco
+    </h3>
+    <button style="float: right;" class="btn simi-btn-red"
+    [mat-dialog-close]="true" cdkFocusInitial>
+        <i class="mdi mdi-close"></i></button>
+    <hr/>
+</div>
+<div class="pago-realizado" *ngFor="let pagos of pagosRealizados">
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="assets/logo/banco-pichincha.PNG" width="48"
+                            style="margin-right: 5px; margin-top: 10px;">
+                    </td>
+                    <td>
+                        <span><b>Fecha de pago</b></span> <br />
+                        {{pagos.fecha}} 10:02 a. m.
+                    </td>
+                    <td> <span><b>Descripción</b></span><br />
+                        <span class="mr-3">{{pagos.descripcion}}</span>
+                    </td>
+                    <td>
+                        <button class="btn simi-btn-green">
+                            Disponible
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+    
+</div>
