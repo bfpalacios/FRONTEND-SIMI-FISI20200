@@ -9,6 +9,7 @@
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span>
     </button>
+
     <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light subitem" [routerLink]="['profile/informacionAcademica']">
         <i class="mdi mdi-book-information-variant f-15"></i> Información Académica
@@ -16,9 +17,9 @@
         <button class="list-group-item btn-light subitem" [routerLink]="['profile/historialAcademico']">
         <i class="mdi mdi-school f-15"></i> Historial Académico
         </button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['profile/cuentaUsuario']">
+        <!-- <button class="list-group-item btn-light subitem" [routerLink]="['profile/cuentaUsuario']">
         <i class="mdi mdi-account f-15"></i> Cuenta de usuario
-        </button>
+        </button> -->
     </div>
 
     <button (click)="show(2)" class="list-group-item btn-item btn">
@@ -32,8 +33,8 @@
         <i class="mdi mdi-teach f-15"></i> Docentes</button>
         <button class="list-group-item btn-light subitem" [routerLink]="['centro-idiomas/planEstudio']">
         <i class="mdi mdi-tablet-dashboard f-15"></i> Plan de Estudios</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">
-        <i class="mdi mdi-view-dashboard f-15"></i> Dashboard Online</button>
+        <!-- <button class="list-group-item btn-light subitem" [routerLink]="['mesas/list']">
+        <i class="mdi mdi-view-dashboard f-15"></i> Dashboard Online</button> -->
     </div>
     <button (click)="show(3)" class="list-group-item btn-item btn">
         <i class="mdi mdi-calendar-multiple f-15"></i> <span class="font-weight-light">Periodo Académico</span>
@@ -42,12 +43,12 @@
     <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem" [routerLink]="['periodo-academico/matriculaOnline']">
         <i class="mdi mdi-book-variant-multiple f-15"></i> Matrícula Online</button>
-        <button class="list-group-item btn-light subitem" [routerLink]="['clientes/tipos']">
-        <i class="mdi mdi-book-open-variant f-15"></i> Ciclo Académico</button>
+        <!-- <button class="list-group-item btn-light subitem" [routerLink]="['clientes/tipos']">
+        <i class="mdi mdi-book-open-variant f-15"></i> Ciclo Académico</button> -->
         <button class="list-group-item btn-light subitem" [routerLink]="['periodo-academico/programacionCurso']">
         <i class="mdi mdi-progress-clock f-15"></i> Programación de cursos</button>
     </div>
-    <button (click)="show(4)" class="list-group-item btn-item btn">
+    <!-- <button (click)="show(4)" class="list-group-item btn-item btn">
         <i class="mdi mdi-file f-15"></i> <span class="font-weight-light">Reportes</span>
         <span style="float:right">
             <i class="mdi mdi-checkbox-multiple-blank-circle-outline f-11"></i></span></button>
@@ -58,7 +59,7 @@
         <i class="mdi mdi-file-multiple f-15"></i> Reporte de evaluaciones</button>
         <button class="list-group-item btn-light subitem" [routerLink]="['reportes/reportePagos']">
         <i class="mdi mdi-file-chart f-15"></i> Reporte de pagos</button>
-    </div>
+    </div> -->
     <button class="btn-item btn">
         <i class="mdi mdi-location-exit f-15"></i> <span class="font-weight-light">Cerrar Sesión</span>
         <span style="float:right">

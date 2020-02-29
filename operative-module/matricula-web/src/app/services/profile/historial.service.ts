@@ -24,11 +24,11 @@ export class HistorialService {
   }
 
   public editPromedio(id : number){
-    return this.http.post<Boolean>(this.url + '/actualizarPromedio' + '/' + id);
+    return this.http.post<Boolean>(this.url + '/actualizarPromedio' + '/' , id);
   }
 
   public crearDetalle(detalle : DetalleNota[]){
-    return this.http.post<Boolean>(this.url + '/crearDetalle/' + detalle);
+    return this.http.post<Boolean>(this.url + '/crearDetalle/' , detalle);
   }
 
   public editDetalle(detalle : DetalleNota, id: number){

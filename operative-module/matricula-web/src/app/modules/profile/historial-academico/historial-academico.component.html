@@ -34,6 +34,44 @@
     <h4>Calificaciones</h4>
     <hr />
     <div class="mt-2 mb-3">
+        <div *ngFor="let notas of nota">
+            <div class="text-center" style="color: #323232;">
+                <label class="simi-section-label-rose">Periodo Académico {{notas.nomPeriodo}}</label>
+            </div>
+            <div>
+                <button class="simi-btn-dark btn">Descargar en PDF</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered text-center table-hover">
+                    <tbody>
+                        <tr class="simi-bg-primary">
+                            <td>Nro.</td>
+                            <td>HORARIO</td>
+                            <td>Curso de Idioma</td>
+                            <td>Nota</td>
+                            <td>Estado</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>{{notas.hora}}</td>
+                            <td>{{notas.nomIdioma}} {{notas.nomNivel}} {{notas.ciclo}}</td>
+                            <td><label class="btn simi-btn-primary">{{notas.promedio}}</label></td>
+                            <td><label class="btn simi-btn-green-s btn-block">Aprobado</label></td>
+                        </tr>
+                        <!-- <tr>
+                        <td>2</td>
+                        <td>SUPERINTENSIVO</td>
+                        <td>TODOS LOS DÍAS (6:00 p.m. - 10 p.m.)</td>
+                        <td>Portugués Básico I</td>
+                        <td><label class="btn simi-btn-rose">12</label></td>
+                        <td><label class="btn simi-btn-dark btn-block">No Aprobado</label></td>
+                    </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="mt-2 mb-3">
         <div class="text-center" style="color: #323232;">
             <label class="simi-section-label-rose">Periodo Académico 2020-1 Enero</label>
         </div>
@@ -70,43 +108,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="mt-2 mb-3">
-        <div class="text-center" style="color: #323232;">
-            <label class="simi-section-label-rose">Periodo Académico 2020-1 Enero</label>
-        </div>
-        <div>
-            <button class="simi-btn-dark btn">Descargar en PDF</button>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-sm table-bordered text-center table-hover">
-                <tbody>
-                    <tr class="simi-bg-primary">
-                        <td>Nro.</td>
-                        <td>Modalidad</td>
-                        <td>HORARIO</td>
-                        <td>Curso de Idioma</td>
-                        <td>Nota</td>
-                        <td>Estado</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>INTENSIVO</td>
-                        <td>L - M - V (8:00 a.m. - 12 m.)</td>
-                        <td>Inglés Básico I</td>
-                        <td><label class="btn simi-btn-primary">15</label></td>
-                        <td><label class="btn simi-btn-green-s btn-block">Aprobado</label></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>SUPERINTENSIVO</td>
-                        <td>TODOS LOS DÍAS (6:00 p.m. - 10 p.m.)</td>
-                        <td>Portugués Básico I</td>
-                        <td><label class="btn simi-btn-rose">12</label></td>
-                        <td><label class="btn simi-btn-dark btn-block">No Aprobado</label></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    </div> -->
 </div>
