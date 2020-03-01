@@ -11,12 +11,10 @@
 </div>
 
 <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
-<span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
-    {{successText}} <br /></span>
 
     <h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Sede </h5>
     <hr>
-
+    <form [formGroup]="sedeForm" >
 
     <div class="row">
         <div class="col-md-6">
@@ -24,7 +22,22 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
                 <i class="mdi mdi-library-books f-16"></i>  Nombre </label>
                 <div class="col-sm-11 ">
-                    <input name="nomSede" [(ngModel)]="sede.nomSede" type="text" class="form-control" placeholder="Ingrese el nombre de Sede">
+                    <input name="nomSede" formControlName="nomSede"  [(ngModel)]="sede.nomSede" type="text" class="form-control" placeholder="Ingrese el nombre de Sede">
+                    <div class="alert-danger" *ngIf="nomSede.invalid && (nomSede.dirty || nomSede.touched || enviado)">
+                        <div class="container-error-message" *ngIf="nomSede.errors.required">
+                        Ingrese el  nombre de Sede
+                        </div>
+                        <div class="container-error-message" *ngIf="nomSede.errors.minlength">
+                          Debe tener como mínimo 5 caracteres
+                        </div>
+                        <div class="container-error-message" *ngIf="tamNomSede > 30">
+                          Debe tener como máximo 30 caracteres
+                        </div>
+                        <div class="container-error-message"
+                      *ngIf="(nomSede.dirty || nomSede.touched) && nomSede.invalid && nomSede.errors.pattern">
+                     El nombre de Sede solo debe contener letras
+                    </div>
+                      </div>
 
                 </div>
         </div>
@@ -35,8 +48,15 @@
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
                     <i class="mdi mdi-rotate-right-variant f-16"></i>  Descripcion</label>
                     <div class="col-sm-11 ">
-                        <textarea name="descSede "[(ngModel)]="sede.descSede" placeholder="Ingrese una descripción de Sede" 
+                        <textarea  formControlName="descSede" name="descSede "[(ngModel)]="sede.descSede" placeholder="Ingrese una descripción de Sede" 
                         class="form-control" rows="3"></textarea>
+                        <div class="alert-danger" *ngIf="descSede.invalid && (descSede.dirty || descIdioma.touched )">
+                                
+                            <div class="container-error-message" *ngIf="tamDescSede > 100">
+                              Debe tener como máximo 100 caracteres
+                            </div>
+                         </div>
+                   
                     </div>
             </div>
         </div>
@@ -48,10 +68,17 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
                 <i class="mdi mdi-library-books f-16"></i>  Dirección </label>
                 <div class="col-sm-11 ">
-                    <textarea name="dirSede "[(ngModel)]="sede.dirSede" placeholder="Ingrese una Dirección de Sede" 
+                    <textarea  formControlName="dirSede" name="dirSede "[(ngModel)]="sede.dirSede" placeholder="Ingrese una Dirección de Sede" 
                     class="form-control" rows="3"></textarea>
-
+                    <div class="alert-danger" *ngIf="dirSede.invalid && (dirSede.dirty || dirSede.touched )">
+                                
+                        <div class="container-error-message" *ngIf="tamDirSede > 150">
+                          Debe tener como máximo 150 caracteres
+                        </div>
+                     </div>
                 </div>
         </div>
     </div>
-      </div>
+      </div>  
+    
+    </form>

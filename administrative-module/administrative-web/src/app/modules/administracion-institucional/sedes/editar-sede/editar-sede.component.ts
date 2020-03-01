@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
 import { Sede } from 'src/app/domain/Sede';
 import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-sede',
@@ -20,15 +21,50 @@ export class EditarSedeComponent implements OnInit {
   public successText: string;
   public sede: Sede;
 
-   public success: boolean;
+  public sedeForm: FormGroup;
+  public enviado : boolean;
+  public tamNomSede : 0;
+  public tamDescSede : 0;
+  public tamDirSede : 0;
+  
   constructor(private router: Router,  private activedRouter: ActivatedRoute,  private sedeService: SedeService)  {
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
-    this.success = false;
     this.sede = new Sede();
-
+    this.sedeForm = this.createForm();
+    this.enviado = false;
   }  
+
+  get nomSede() { 
+    if(this.sedeForm.get('nomSede').value)
+    this.tamNomSede =this.sedeForm.get('nomSede').value.length;  
+    console.log( this.tamNomSede);
+    return this.sedeForm.get('nomSede');  }
+
+  get descSede() { 
+    if(this.sedeForm.get('descSede').value)
+    this.tamDescSede =this.sedeForm.get('descSede').value.length; 
+    return this.sedeForm.get('descSede'); }
+
+    get dirSede() { 
+      if(this.sedeForm.get('dirSede').value)
+      this.tamDirSede =this.sedeForm.get('dirSede').value.length; 
+      return this.sedeForm.get('dirSede'); }
+
+  private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+
+  createForm() {
+    return new FormGroup({
+      nomSede: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(30) , 
+      Validators.pattern(this.OnlyTextPattern)]),
+     
+      descSede: new FormControl('', [Validators.maxLength(100)]),
+      dirSede: new FormControl('', [Validators.maxLength(150)])
+    });
+  }
+
+
   ngOnInit() {
     // this.load = false;
    this.getSede();
@@ -59,33 +95,14 @@ export class EditarSedeComponent implements OnInit {
     });
   }
 
-  private isEmpytText(info: string, msg: string) {
-    if (info === undefined || info.trim().length === 0) {
-      this.successText = msg;
-      return true;
-    }
-  }
- 
-  private isEmpty() {
-    if (this.isEmpytText(this.sede.nomSede, Mensaje.emptySedeInput)) {
-      return true;
-    }
-    
-    // if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
-    //   return true;
-    // }
-  }
-
-
 
   cancelar(){
     this.navigateList();
   }
  
   public guardar() {
-    this.success = this.isEmpty();
-    this.empty = this.isEmpty();
-    if (!this.empty) {
+    this.enviado = true;
+    if (this.sedeForm.valid) {
       //entro
       this.load = true;
       console.log("this.idioma al guardar",this.sede);
@@ -150,7 +167,6 @@ export class EditarSedeComponent implements OnInit {
             this.navigateList();
           } else {
             this.load = false;
-            this.success = true;
             this.successText = 'No se puede eliminar esta sede';
           }
         }, error => {

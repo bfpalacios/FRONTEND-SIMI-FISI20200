@@ -6,6 +6,7 @@ import { Idioma } from 'src/app/domain/Idioma';
 import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/idioma.service';
 import Swal from 'sweetalert2';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -21,20 +22,23 @@ export class EditarIdiomaComponent implements OnInit {
   public successText: string;
   public idioma: Idioma;
 
-  // public pmcompuesta : boolean;
-   public success: boolean;
-  // public selectedTypePerfil: number;
-  // public selectedTypeEstado: number;
+  public tamNomIdioma : 0;
+  public tamDescIdioma : 0;
+  public idiomaForm: FormGroup;
+  public enviado : boolean;
+
   constructor(private router: Router,
     private activedRouter: ActivatedRoute,
      private idiomaService: IdiomaService)  {
     this.load = true;
     this.empty = false;
     this.loading = Path.loading;
-    this.success = false;
     this.idioma = new Idioma();
-
+    this.idiomaForm = this.createForm();
+    this.enviado = false;
   }  
+
+  
   ngOnInit() {
     // this.load = false;
    this.getIdioma();
@@ -65,24 +69,29 @@ export class EditarIdiomaComponent implements OnInit {
     });
   }
 
-  private isEmpytText(info: string, msg: string) {
-    if (info === undefined || info.trim().length === 0) {
-      this.successText = msg;
-      return true;
-    }
-  }
- 
-  private isEmpty() {
-    
-    if (this.isEmpytText(this.idioma.nomIdioma, Mensaje.emptyNomIdioma)) {
-      return true;
-    }
-    // if (this.isEmpytText(this.idioma.descIdioma, Mensaje.emptyDescIdioma)) {
-    //   return true;
-    // }
-   
-  } 
 
+
+  get nomIdioma() { 
+    if(this.idiomaForm.get('nomIdioma').value)
+    this.tamNomIdioma =this.idiomaForm.get('nomIdioma').value.length;  
+    console.log( this.tamNomIdioma);
+    return this.idiomaForm.get('nomIdioma');  }
+
+  get descIdioma() { 
+    if(this.idiomaForm.get('descIdioma').value)
+    this.tamDescIdioma =this.idiomaForm.get('descIdioma').value.length; 
+    return this.idiomaForm.get('descIdioma'); }
+
+  private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+
+  createForm() {
+    return new FormGroup({
+      nomIdioma: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(40) , 
+      Validators.pattern(this.OnlyTextPattern)]),
+   
+      descIdioma: new FormControl('', [Validators.maxLength(150)])
+    });
+  }
 
 
   cancelar(){
@@ -90,9 +99,8 @@ export class EditarIdiomaComponent implements OnInit {
   }
  
   public guardar() {
-    this.success = this.isEmpty();
-    this.empty = this.isEmpty();
-    if (!this.empty) {
+  this.enviado=true;
+    if (this.idiomaForm.valid) {
       //entro
       this.load = true;
       console.log("this.idioma al guardar",this.idioma);

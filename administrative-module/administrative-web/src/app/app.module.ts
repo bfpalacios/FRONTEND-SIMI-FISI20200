@@ -17,15 +17,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatSliderModule } from '@angular/material/slider';
-// import { DataTablesModule } from 'angular-datatables';
+// import { MatSliderModule } from '@angular/material/slider';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { HttpModule} from '@angular/http';
-
+// import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgxPaginationModule} from 'ngx-pagination';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+// import { environment } from './../environments/environment';
+// import { AngularFirestoreModule } from '@angular/fire/firestore';
+// import { AngularFireModule } from '@angular/fire';
+
+
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
   {
@@ -83,12 +86,15 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatSliderModule,
-    MatFormFieldModule,
+    // MatSliderModule,
+    // MatFormFieldModule,
      Ng2SearchPipeModule,
     NgxPaginationModule,
-    MatSliderModule
-    // NgbModule
+    // MatSliderModule,
+    ReactiveFormsModule,
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFirestoreModule,
+    // AngularFireModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-PE' }],
   bootstrap: [AppComponent]

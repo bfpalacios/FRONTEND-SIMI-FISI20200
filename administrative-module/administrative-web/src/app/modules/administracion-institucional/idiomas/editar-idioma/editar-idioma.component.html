@@ -13,34 +13,55 @@
 
 
 <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
-<span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
-    {{successText}} <br /></span>
-
 
     
     <h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario de Edición de Idioma </h5>
     <hr>
+    <form [formGroup]="idiomaForm" >
 
-    <div class="row">
-        <div class="col-md-6">
-        <div class="form-group row mx-3">
-            <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
-                <i class="mdi mdi-library-books f-16"></i>  Nombre </label>
-                <div class="col-sm-11 ">
-                    <input name="nomIdioma" [(ngModel)]="idioma.nomIdioma" 
-                    type="text" class="form-control">
-                </div>
-        </div>
-    </div>
-        <div class="col-md-6">
-
+        <div class="row">
+            <div class="col-md-6">
             <div class="form-group row mx-3">
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
-                    <i class="mdi mdi-rotate-right-variant f-16"></i>  Descripcion</label>
+                    <i class="mdi mdi-library-books f-16"></i>  Nombre </label>
                     <div class="col-sm-11 ">
-                        <textarea name="descIdioma"  [(ngModel)]="idioma.descIdioma" 
-                        class="form-control" rows="3"></textarea>
+                          <input formControlName="nomIdioma"  name="nomIdioma" [(ngModel)]="idioma.nomIdioma" type="text" class="form-control" placeholder="Ingrese el nombre de Idioma">
+                          <div class="alert-danger" *ngIf="nomIdioma.invalid && (nomIdioma.dirty || nomIdioma.touched || enviado)">
+                            <div class="container-error-message" *ngIf="nomIdioma.errors.required">
+                            Ingrese el  nombre de Idioma
+                            </div>
+                            <div class="container-error-message" *ngIf="nomIdioma.errors.minlength">
+                              Debe tener como mínimo 3 caracteres
+                            </div>
+                            <div class="container-error-message" *ngIf="tamNomIdioma > 40">
+                              Debe tener como máximo 40 caracteres
+                            </div>
+                            <div class="container-error-message"
+                          *ngIf="(nomIdioma.dirty || nomIdioma.touched) && nomIdioma.invalid && nomIdioma.errors.pattern">
+                         El nombre de Idioma solo debe contener letras
+                        </div>
+                          </div>
                     </div>
             </div>
         </div>
-      </div>
+            <div class="col-md-6">
+    
+                <div class="form-group row mx-3">
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                        <i class="mdi mdi-rotate-right-variant f-16"></i>  Descripcion</label>
+                        <div class="col-sm-11 ">
+                            <textarea  formControlName="descIdioma" name="descIdioma" [(ngModel)]="idioma.descIdioma" placeholder="Ingrese una descripción de Idioma" 
+                            class="form-control" rows="3"></textarea>
+                              <div class="alert-danger" *ngIf="descIdioma.invalid && (descIdioma.dirty || descIdioma.touched )">
+                                
+                                <div class="container-error-message" *ngIf="tamDescIdioma > 150">
+                                  Debe tener como máximo 150 caracteres
+                                </div>
+                               </div>
+    
+                        </div>
+    
+                </div>
+            </div>
+          </div> 
+        </form>
