@@ -22,6 +22,7 @@ import { ServerNotFoundComponent } from './errors/server-not-found/server-not-fo
 import {MatDialogModule} from '@angular/material/dialog';
 import { AperturaDialogComponent } from './dialogs/matricula/apertura-dialog/apertura-dialog.component';
 import { VerPagosRealizadosComponent } from './dialogs/matricula/ver-pagos-realizados/ver-pagos-realizados.component';
+import { MatriculaDialogComponent } from './dialogs/matricula/matricula-dialog/matricula-dialog.component';
 
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
@@ -65,7 +66,8 @@ export function get_settings(dataService: DataServiceService) {
     MenuComponent,
     ServerNotFoundComponent,
     AperturaDialogComponent,
-    VerPagosRealizadosComponent
+    VerPagosRealizadosComponent,
+    MatriculaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +95,11 @@ export function get_settings(dataService: DataServiceService) {
     { provide: APP_INITIALIZER, useFactory: get_settings, deps: [DataServiceService], multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true, deps: [ToastrService] }
   ],
-  entryComponents: [AperturaDialogComponent, VerPagosRealizadosComponent],
+  entryComponents: [
+    AperturaDialogComponent,
+    VerPagosRealizadosComponent,
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
