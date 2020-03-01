@@ -6,23 +6,28 @@ import {ProgramacionCursoService} from 'src/app/services/periodo-academico/progr
 
 @Component({
   selector: 'app-programacion-curso',
-  templateUrl: './programacion-curso.component.html',
-  styleUrls: ['./programacion-curso.component.css']
+  templateUrl: './programacion-curso.component.html'
 })
 export class ProgramacionCursoComponent implements OnInit {
 
+  public load: boolean;
   public programacion : any[];
 
-  constructor(private serviceProgramacion: ProgramacionCursoService, private router:Router, ) { }
+  constructor(
+    private serviceProgramacion: ProgramacionCursoService,
+    private router:Router
+    ) {
+      this.load = true;
+    }
 
   ngOnInit() {
     this.getProgramacion();
   }
-  
+
   public getProgramacion() {
     this.serviceProgramacion.getProgramacion().subscribe(data => {
       this.programacion = data;
-      console.log(this.programacion);
+      this.load = false;
     }, error => {
       console.log(error);
     });

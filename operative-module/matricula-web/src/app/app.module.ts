@@ -23,6 +23,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AperturaDialogComponent } from './dialogs/matricula/apertura-dialog/apertura-dialog.component';
 import { VerPagosRealizadosComponent } from './dialogs/matricula/ver-pagos-realizados/ver-pagos-realizados.component';
 import { MatriculaDialogComponent } from './dialogs/matricula/matricula-dialog/matricula-dialog.component';
+import { MatriculaVoucherDialogComponent } from './dialogs/matricula/matricula-voucher-dialog/matricula-voucher-dialog.component';
 
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
@@ -67,7 +68,8 @@ export function get_settings(dataService: DataServiceService) {
     ServerNotFoundComponent,
     AperturaDialogComponent,
     VerPagosRealizadosComponent,
-    MatriculaDialogComponent
+    MatriculaDialogComponent,
+    MatriculaVoucherDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,7 @@ export function get_settings(dataService: DataServiceService) {
   entryComponents: [
     AperturaDialogComponent,
     VerPagosRealizadosComponent,
-    
+    MatriculaDialogComponent
   ],
   bootstrap: [AppComponent]
 })

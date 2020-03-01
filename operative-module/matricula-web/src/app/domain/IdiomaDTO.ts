@@ -1,6 +1,6 @@
 import { Plan } from 'src/app/domain/Plan';
 
-export class IdiomaDTO{
-    idIdioma : number;
-    nom_Idioma : string;
+export class IdiomaDTO {
+    idIdioma: number;
+    nomIdioma: string;
 }
