@@ -68,53 +68,8 @@
                 </div>
             </div>
         </div>
-        <div class="mt-2 mb-3">
-            <div *ngFor="let idioma of idiomaDTO">
-                <div style="font-size: 14px;">
-                    <label class="simi-btn-primary btn" style="width: 90px;">{{idioma.nomIdioma}}</label>
-                </div>
 
-                <div class="table-responsive">
-                    <table class="table table-sm table-bordered text-center table-hover">
-                        <tbody>
-                            <tr class="simi-bg-primary">
-                                <td>Nivel</td>
-                                <td>Ciclos</td>
-                                <td>Libro</td>
-                            </tr>
-                            <tr *ngFor="let plan of planes">
-                                <td>{{plan.nomNivel}}</td>
-                                <td>{{plan.countCiclo}}</td>
-                                <td>{{plan.libro}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
             <div id="container" class="section-matricula">
                 <table>
                     <thead>
@@ -134,16 +89,8 @@
                             <td> {{plan.libro}} </td>
                         </tr>
                     </tbody>
-                     <tr class="idioma">
-                        <td rowspan="5">{{ idioma[0] }}</td>
-                    </tr>
-                    <tr>
-                        <td>{{ nivel[0] }}</td>
-                        <td> {{ ciclo[0][0] }} </td>
-                        <td> {{ libro[0][0]}} </td>
-                    </tr>
-        </table>
-    </div>
-</div> -->
+                </table>
+            </div>
+        </div>
     </div>
 </div>
