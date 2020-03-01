@@ -26,4 +26,8 @@ export class MatriculaOnlineService {
     return this.http.post<any[]>(this.url + '/matriculaOnline/crearMatricla/'+ userId ,matricula);
   }
 
+  public getMatriculaById(userId : number){
+    return this.http.get<any[]>(this.url+ '/matriculaOnline/obtenerMatriculaById/' + userId +'/'+ 4)
+  }
+
 }
