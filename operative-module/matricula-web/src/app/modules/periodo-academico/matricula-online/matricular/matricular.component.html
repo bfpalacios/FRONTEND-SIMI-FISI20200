@@ -1,5 +1,8 @@
 <div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
     <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
 </div>
 <div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
@@ -71,10 +74,17 @@
         <div class="simi-card">
             <div class="text-center">
                 <h3>Matrícula Online</h3>
-                <hr class="mt-2"/>
-                <h5>Seleccionar Cursos de Idiomas</h5>
-                <span style="font-size: 18px;">Ciclo Febrero 2020</span>
-                <div style="font-size: 18px;"><b>05/02/2020</b></div>
+                <hr class="mt-2" />
+                <h4>Seleccionar Cursos de Idiomas</h4>
+                <label style="font-size: 18px;" class="simi-section-label-rose">
+                    Ciclo Febrero 2020
+                </label>
+                <div style="font-size: 22px;">
+
+                    {{date | date:'fullDate':'pe'}} -
+                    {{date | date:'mediumTime':'pe'}}
+
+                </div>
             </div>
 
             <div *ngIf="programaciones?.length === 0" class="mt-2">
@@ -86,7 +96,7 @@
                 </button>
             </div>
 
-            <div *ngIf="programaciones?.length !== 0">
+            <div *ngIf="programaciones?.length !== 0" class="mt-4">
                 <div>
                     <div style="float: left;">
                         <label class="ml-2 ml-3">
@@ -109,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" style="font-size: 19px !important;">
                     <table class="table table-hover text-center table-matricular">
                         <thead class="thead-dark" style=" border: solid 1px #acacac;">
                             <tr class="head">
@@ -119,21 +129,32 @@
                                 <th>Docente</th>
                                 <th>Horario</th>
                                 <th>Matriculados </th>
-                                <th></th>
+                                <th>Seleccionar</th>
                             </tr>
                         </thead>
 
                         <tbody class="text-center">
                             <tr *ngFor=" let programacion of programaciones; let i = index ">
                                 <td>{{programacion.nomIdioma}}</td>
-                                <td>{{programacion.nomNivel}}</td>
+                                <td>
+                                    <label class="simi-section-label-blue">
+                                        {{programacion.nomNivel}}
+
+                                    </label>
+                                </td>
                                 <td>{{programacion.ciclo}}</td>
                                 <td>{{programacion.docente}}</td>
-                                <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
-                                <td><button class="btn-none "> {{programacion.matriculados}} </button></td>
+                                <td>{{programacion.nomGrupoH}} <br>
+                                    <label class="simi-section-label-rose">{{programacion.hora}}
+
+                                    </label></td>
+                                    <td><button class="btn simi-btn-silver"> {{programacion.matriculados}} </button></td>
                                 <td>
-                                    <mat-checkbox [disabled]="seleccionado[i]" 
-                                    (change)="seleccionarCurso($event, i, programacion)"></mat-checkbox>
+                                    <div class="simi-center-content">
+                                        <mat-checkbox [disabled]="seleccionados[i].blocked"
+                                            (change)="seleccionarCurso($event, i, programacion)"></mat-checkbox>
+                                    </div>
+
                                 </td>
                             </tr>
                         </tbody>

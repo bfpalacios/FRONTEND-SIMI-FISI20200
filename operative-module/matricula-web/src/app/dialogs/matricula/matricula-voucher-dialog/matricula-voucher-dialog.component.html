@@ -1,0 +1,46 @@
+<div>
+    <button style="float: right;" class="btn simi-btn-red"
+    [mat-dialog-close]="true" cdkFocusInitial>
+        <i class="mdi mdi-close"></i></button>
+    <h3>
+        Mis Vouchers
+    </h3>
+    <hr/>
+    <div class="text-center">
+        <label style="color: black; font-size: 14px">Curso:</label>
+        <h5>
+            {{programacion.nomIdioma}} {{programacion.nomNivel}} {{programacion.ciclo}}
+        </h5>
+    </div>
+</div>
+<div class="pago-realizado mt-3" *ngFor="let voucher of vouchers; let i = index">
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="assets/logo/banco-pichincha.PNG" width="48"
+                            style="margin-right: 5px; margin-top: 10px;">
+                    </td>
+                    <td>
+                        <span><b>Fecha de pago</b></span> <br />
+                        {{voucher.fecha}} 10:02 a. m.
+                    </td>
+                    <td> <span><b>Descripción</b></span><br />
+                        <span class="mr-3">{{voucher.descripcion}}</span>
+                    </td>
+                    <td>
+                        <button (click)="usarVoucher(i, voucher)"
+                        [mat-dialog-close]="true" cdkFocusInitial
+                        class="btn simi-btn-primary">
+                        <i class="mdi mdi-check-bold f-14"></i> <br/>
+                        Usar este Voucher
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+    
+</div>

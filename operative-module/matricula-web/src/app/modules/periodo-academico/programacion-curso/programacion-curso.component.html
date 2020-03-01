@@ -1,11 +1,21 @@
-<div class="m-3">
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
     <div>
-        <span class="title-module">
-            <i class="mdi mdi-progress-clock f-15" style="font-size: 22px;"></i>Programación de cursos
-        </span>
-        <hr />
+        <h5>Cargando...</h5>
     </div>
-    <div style="margin-right: 80px; margin-left: 80px; margin-top: 50px;">
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Periodo Académico
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Programación de Cursos
+        </span>
+    </span>
+</div>
+<div class="simi-card" *ngIf="!load">
+    <div>
 
         <div class="text-center">
             <h4>Programación de cursos</h4>
@@ -14,45 +24,45 @@
         </div>
 
         <div>
-            <div id="descargar">
-                <button class="btn-descargar">Descargar en PDF</button>
+            <div style="float:right;">
+                <button class="btn simi-btn-dark">Descargar en PDF</button>
             </div>
-        </div>
-
-        <div id="container">
-            <div class="table-responsive">
-                <table class="table table-hover text-center table-matricular">
-                    <thead class="thead-dark" style=" border: solid 1px #acacac;">
-                        <!-- <table class="hitorial"> -->
-                        <!-- <thead> -->
-                        <tr class="head">
-                            <th>Idioma</th>
-                            <th>Nivel</th>
-                            <th>Ciclo</th>
-                            <th>Docente</th>
-                            <th>Horario</th>
-                            <th>Matriculados </th>
-                        </tr>
-                    </thead>
-
-                    <tbody class="text-center">
-                        <tr *ngFor=" let programacion of programacion ">
-                            <td>{{programacion.nomIdioma}}</td>
-                            <td>{{programacion.nomNivel}}</td>
-                            <td>{{programacion.ciclo}}</td>
-                            <td>{{programacion.docente}}</td>
-                            <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
-                            <td><button class="btn-none "> {{programacion.matriculados}} </button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <button class="btn simi-btn-primary" (click)="solicitarApertura() ">
+                Solicitar apertura
+            </button>
         </div>
     </div>
-</div>
 
+    <div id="container">
+        <div class="table-responsive">
+            <table class="table table-hover text-center table-matricular">
+                <thead class="thead-dark" style=" border: solid 1px #acacac;">
+                    <!-- <table class="hitorial"> -->
+                    <!-- <thead> -->
+                    <tr class="head">
+                        <th>Idioma</th>
+                        <th>Nivel</th>
+                        <th>Ciclo</th>
+                        <th>Docente</th>
+                        <th>Horario</th>
+                        <th>Matriculados </th>
+                    </tr>
+                </thead>
 
-<div id="aperturar ">
-    <td><button class="btn btn-primary btn-sm " (click)="solicitarApertura() ">Solicitar apertura</button>
-    </td>
+                <tbody class="text-center">
+                    <tr *ngFor=" let programacion of programacion ">
+                        <td>{{programacion.nomIdioma}}</td>
+                        <td>{{programacion.nomNivel}}</td>
+                        <td>{{programacion.ciclo}}</td>
+                        <td>{{programacion.docente}}</td>
+                        <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
+                        <td><button class="btn"
+                                [ngClass]="programacion.matriculados > 0 ? 'simi-btn-primary' : 'simi-btn-silver'">
+                                {{programacion.matriculados}}
+                            </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

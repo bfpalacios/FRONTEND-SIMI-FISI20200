@@ -2,9 +2,30 @@
 @import "~ngx-toastr/toastr.css";
 
 .toast-error {
-    background-color: #c60869;
+    background-color: #d32f2f;
 }
 
 .mat-drawer-inner-container {
     overflow-y: hidden !important;
 }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
+    background-color: #096ac6 !important; /* Red background for example */
+}
+
+mat-checkbox {
+    color: #096ac6;
+        
+
+    .mat-checkbox-focused{
+        .mat-ink-ripple{
+            background-color: #096ac6;
+        }
+    }
+}
+
+.mat-checkbox-inner-container {
+    height: 20px!important;
+    width: 20px!important;
+  }
+  

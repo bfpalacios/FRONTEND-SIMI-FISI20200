@@ -1,0 +1,20 @@
+<div>
+    <h3>Matrícula Online</h3>
+    <p><i class="mdi mdi-information-outline simi-primary mr-2" style="font-size: 20px;"></i>
+        {{data.mensaje}}
+    </p>
+    <div *ngIf="data.motivo === 1">
+        <button class="btn simi-btn-silver" [mat-dialog-close]="true" cdkFocusInitial style="float: right;">
+            Cancelar
+        </button>
+        <button class="btn simi-btn-primary" [mat-dialog-close]="true" cdkFocusInitial
+        (click)="aceptar()" style="float: right;">
+            Aceptar
+        </button>
+    </div>
+    <div *ngIf="data.motivo === 2">
+        <button class="btn simi-btn-primary" [mat-dialog-close]="true" cdkFocusInitial style="float: right;">
+            Aceptar
+        </button>
+    </div>
+</div>

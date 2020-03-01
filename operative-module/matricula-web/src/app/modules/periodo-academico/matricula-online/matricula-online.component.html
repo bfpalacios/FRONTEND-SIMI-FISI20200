@@ -1,5 +1,8 @@
 <div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
     <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
 </div>
 <div *ngIf="!load && !error"
 class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
@@ -19,7 +22,7 @@ class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; fon
         <div>
             <h5>Matrícula</h5>
         <button style="float:right;" (click)="showPagosRealizados()"
-        class="btn simi-btn-dark">
+        class="btn simi-btn-dark" *ngIf="pagosRealizados?.length">
             Ver Pagos
         </button>
         </div>
