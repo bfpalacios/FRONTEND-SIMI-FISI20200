@@ -1,5 +1,8 @@
 <div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
     <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
 </div>
 <div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
@@ -18,12 +21,21 @@
 <div class="simi-card" *ngIf="!load">
     <div class="text-center">
         <h3>Matrícula Online</h3>
-        <h5>Verificar Matrícula</h5>
-        <span style="font-size: 18px;">Ciclo Febrero 2020</span>
-        <div style="font-size: 18px;"><b>05/02/2020</b></div>
+        <hr class="mt-2" />
+        <h4>Verificar Cursos de Idiomas Seleccionados</h4>
+        <label style="font-size: 18px;" class="simi-section-label-rose">
+            Ciclo Febrero 2020
+        </label>
+        <div style="font-size: 22px;">
+
+            {{date | date:'fullDate':'pe'}} -
+            {{date | date:'mediumTime':'pe'}}
+
+        </div>
     </div>
 
-    <div>
+
+    <div class="mt-3">
         <div>
             <div style="float: left;">
                 <label class="ml-2 ml-3">
@@ -43,7 +55,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-hover text-center table-matricular">
+            <table class="table text-center table-matricular">
                 <thead style=" border: solid 1px #acacac;" class="simi-bg-primary">
                     <tr class="head">
                         <th>Idioma</th>
@@ -52,18 +64,36 @@
                         <th>Docente</th>
                         <th>Horario</th>
                         <th>Matriculados </th>
+                        <th>Voucher</th>
                     </tr>
                 </thead>
 
-                <tbody class="text-center">
+                <tbody class="text-center" >
                     <tr *ngFor=" let programacion of programacionesSeleccionadas; let i = index ">
                         <td>{{programacion.nomIdioma}}</td>
-                        <td>{{programacion.nomNivel}}</td>
+                        <td>
+                            <label class="simi-section-label-blue">
+                                {{programacion.nomNivel}}
+
+                            </label>
+                        </td>
                         <td>{{programacion.ciclo}}</td>
                         <td>{{programacion.docente}}</td>
-                        <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
+                        <td>{{programacion.nomGrupoH}} <br/>
+                            {{programacion.hora}}</td>
                         <td><button class="btn simi-btn-silver"> {{programacion.matriculados}} </button></td>
-                    
+                        <td>
+                            <button *ngIf="programacion.voucher === undefined"
+                            class="btn simi-btn-yellow" 
+                            (click)="ingresarVoucher(i, programacion)">
+                                <i class="mdi mdi-arrow-up f-14"></i> Ingresar Voucher
+                            </button>
+                            <button *ngIf="programacion.voucher !== undefined"
+                            class="btn simi-btn-dark" 
+                            (click)="quitarVoucher(i, programacion)">
+                                <i class="mdi mdi-check-all f-14"></i> Voucher Ingresado
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

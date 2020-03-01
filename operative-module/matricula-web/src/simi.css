@@ -4,6 +4,10 @@
     font-size: 17px; margin: 15px; padding: 17px;
 }
 
+.simi-primary{
+  color: #096ac6;
+}
+
 .simi-bg-gray-circle{
   background-color: #ebebeb;border-radius: 40px;width: 80px; height: 80px; display: inline-block;
 }
@@ -17,7 +21,7 @@
 }
 
 .simi-section-label-rose{
-  background-color: #c60869;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
+  background-color: #e53935;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
 }
 
 .simi-section-label-dark{
@@ -55,7 +59,7 @@
 .simi-btn-primary:hover{background-color: #1a51a3 !important;
 }
 
-.simi-btn-rose {background-color: #c60869 !important;}
+.simi-btn-rose {background-color: #d32f2f !important;}
 .simi-btn-rose:hover{background-color: #a10857 !important;}
 
 .simi-btn-green {background-color: #69c608 !important;}
@@ -78,6 +82,9 @@
 
 .simi-btn-dark { background-color: #323232 !important;}
 .simi-btn-dark:hover { background-color: #4e4e4e !important;}
+
+.simi-btn-yellow { background-color: #ffeb3b !important; color: black !important;}
+.simi-btn-yellow:hover { background-color: #e9d62c !important;}
 
 .simi-btn-light { background-color: #ffffff !important; color:black !important;}
 .simi-btn-light:hover { background-color: #e0e0e0 !important;}
