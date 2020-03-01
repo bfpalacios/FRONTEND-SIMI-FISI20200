@@ -15,13 +15,12 @@ export class PlanEstudioComponent implements OnInit {
   public cantidad : any[];
   constructor(private servicePlan: PlanEstudioService, private serviceIdioma: IdiomaService) { }
   ngOnInit() {
-    this.getPlanEstudio();
+    this.getPlanEstudio(1);
     this.getIdioma();
-    this.idiomas();
   }
 
-  public getPlanEstudio() {
-    this.servicePlan.getPlanDeEstudios().subscribe(data => {
+  public getPlanEstudio(id : number) {
+    this.servicePlan.getPlanDeEstudios(id).subscribe(data => {
       this.planes = data;
       console.log(this.planes);
     }, error => {
@@ -32,6 +31,10 @@ export class PlanEstudioComponent implements OnInit {
   public getIdioma() {
     this.serviceIdioma.getIdioma().subscribe(data => {
       this.idiomaDTO = data;
+      // for(var i in this.idiomaDTO){
+      //   this.idiomaDTO[i].planes=this.getPlanEstudio(this.idiomaDTO[i].idIdioma);
+
+      // }
       console.log(this.idiomaDTO);
 
     }, error => {

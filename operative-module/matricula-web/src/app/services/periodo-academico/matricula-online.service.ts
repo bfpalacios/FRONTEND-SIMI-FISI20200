@@ -21,4 +21,9 @@ export class MatriculaOnlineService {
   public matricularOnline(cursos: any[], userId: number) {
     return this.http.post<any[]>(this.url + '/matriculaOnline/matricularAlumno/' + userId, cursos);
   }
+
+  public crearMatricula(matricula : any[], userId : number){
+    return this.http.post<any[]>(this.url + '/matriculaOnline/crearMatricla/'+ userId ,matricula);
+  }
+
 }

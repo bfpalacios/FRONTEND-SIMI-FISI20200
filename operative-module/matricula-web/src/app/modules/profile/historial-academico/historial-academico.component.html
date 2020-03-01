@@ -34,13 +34,14 @@
     <h4>Calificaciones</h4>
     <hr />
     <div class="mt-2 mb-3">
+        <div>
+            <button class="simi-btn-dark btn">Descargar en PDF</button>
+        </div>
         <div *ngFor="let notas of nota">
             <div class="text-center" style="color: #323232;">
                 <label class="simi-section-label-rose">Periodo Académico {{notas.nomPeriodo}}</label>
             </div>
-            <div>
-                <button class="simi-btn-dark btn">Descargar en PDF</button>
-            </div>
+
             <div class="table-responsive">
                 <table class="table table-sm table-bordered text-center table-hover">
                     <tbody>
