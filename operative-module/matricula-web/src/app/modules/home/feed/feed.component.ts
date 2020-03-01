@@ -23,6 +23,5 @@ export class FeedComponent implements OnInit, DoCheck {
   ngDoCheck() {
     const l = localStorage.getItem('SIMI-LOAD-HOME');
     this.load = l === 'true' ? true : false;
-    console.log(this.load);
   }
 }

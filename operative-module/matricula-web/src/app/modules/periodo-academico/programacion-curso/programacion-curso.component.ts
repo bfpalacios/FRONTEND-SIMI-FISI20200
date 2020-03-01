@@ -11,13 +11,14 @@ import {ProgramacionCursoService} from 'src/app/services/periodo-academico/progr
 export class ProgramacionCursoComponent implements OnInit {
 
   public load: boolean;
-  public programacion : any[];
-
+  public programacion: any[];
+  public date: number;
   constructor(
     private serviceProgramacion: ProgramacionCursoService,
-    private router:Router
+    private router: Router
     ) {
       this.load = true;
+      this.date = Date.now();
     }
 
   ngOnInit() {
