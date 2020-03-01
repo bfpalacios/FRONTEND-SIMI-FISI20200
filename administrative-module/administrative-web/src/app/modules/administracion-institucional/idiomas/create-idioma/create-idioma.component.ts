@@ -30,23 +30,15 @@ export class CreateIdiomaComponent implements OnInit {
     this.idiomaForm = this.createForm();
     this.enviado = false;
   }
-  get nomIdioma() { 
-    if(this.idiomaForm.get('nomIdioma').value)
-    this.tamNomIdioma =this.idiomaForm.get('nomIdioma').value.length;  
-    console.log( this.tamNomIdioma);
-    return this.idiomaForm.get('nomIdioma');  }
+  get nomIdioma() {     if(this.idiomaForm.get('nomIdioma').value)    this.tamNomIdioma =this.idiomaForm.get('nomIdioma').value.length;   return this.idiomaForm.get('nomIdioma');  }
 
-  get descIdioma() { 
-    if(this.idiomaForm.get('descIdioma').value)
-    this.tamDescIdioma =this.idiomaForm.get('descIdioma').value.length; 
-    return this.idiomaForm.get('descIdioma'); }
+  get descIdioma() {     if(this.idiomaForm.get('descIdioma').value)    this.tamDescIdioma =this.idiomaForm.get('descIdioma').value.length;     return this.idiomaForm.get('descIdioma'); }
 
   private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
   createForm() {
     return new FormGroup({
-      nomIdioma: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(40) , 
-      Validators.pattern(this.OnlyTextPattern)]),
+      nomIdioma: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(40) ,   Validators.pattern(this.OnlyTextPattern)]),
    
       descIdioma: new FormControl('', [Validators.maxLength(150)])
     });

@@ -55,7 +55,7 @@ export class CreateAulaComponent implements OnInit {
     return new FormGroup({
       nomAula: new FormControl('', [Validators.required,Validators.maxLength(8)     ]),
       refAula: new FormControl('', [Validators.maxLength(150)]),
-      idSede: new FormControl('', Validators.required)
+      idSede: new FormControl('', [Validators.required ,Validators.min(1)  ])
     });
   }
 

@@ -9,6 +9,7 @@ import { NivelService } from 'src/app/services/administracion/AdmInstitucional/n
 import { Idioma } from 'src/app/domain/Idioma';
 import { Nivel } from 'src/app/domain/Nivel';
 import { Curso } from 'src/app/domain/Curso';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -20,9 +21,6 @@ export class EditarCursoComponent implements OnInit {
   public id: number;
   public load: boolean;
   public loading: string;
-  public empty: boolean;
-  public successText: string;
-  public success: boolean;  
 
   public selectedTypeIdNivel : number;
   public selectedTypeIdIdioma : number;
@@ -31,17 +29,28 @@ export class EditarCursoComponent implements OnInit {
   public idiomas : Idioma[];
   public title: string;
 
+  public cursoForm: FormGroup;
+  public enviado : boolean;
   constructor(private router: Router , private serviceCurso: CursoService,
     private activedRouter: ActivatedRoute,
     private serviceIdiomas: IdiomaService,  private serviceNivel: NivelService )   {
      
     this.load = true;
-    this.empty = false;
     this.loading = Path.loading;
-    this.success = false;
     this.curso = new Curso();
+    this.cursoForm = this.createForm();
+    this.enviado = false;
 
-
+  }
+  get formIdioma() {     return this.cursoForm.get('formIdioma'); }
+  get formNivel() {     return this.cursoForm.get('formNivel'); }
+  get ciclo() {        return this.cursoForm.get('ciclo'); }
+  createForm() {
+    return new FormGroup({
+      formIdioma: new FormControl('', [Validators.required ,Validators.min(1)    ]  ),
+      formNivel: new FormControl('',[ Validators.required ,Validators.min(1)  ] ),
+      ciclo: new FormControl('', [Validators.required,Validators.min(1) ,Validators.max(20)    ]),
+    });
   }
 
   ngOnInit() {
@@ -88,53 +97,13 @@ export class EditarCursoComponent implements OnInit {
       }
     });
   }
-  private isEmpytText(info: string, msg: string) {
-    if (info === undefined || info.trim().length === 0) {
-      this.successText = msg;
-      return true;
-    }
-  }
- 
-  private isEmpytNum(info: number, msg: string) {
-    if (info === undefined ) {
-      this.successText = msg;
-      return true;
-    }
-  }
-
-  private isRangoNum(info: number, msg: string) {
-    if (info <= 0 || info >20 ) {
-      this.successText = msg;
-      return true;
-    }
-  }
-  private isEmpty() { // true : vacio 
-
-    if (this.isEmpytNum(this.curso.ciclo, Mensaje.emptyCiclo)) {
-      return true;
-    }
-    if (this.isEmpytNum(this.selectedTypeIdNivel, Mensaje.emptySelectNivel)) {
-      return true;
-    }
-
-    if (this.isEmpytNum(this.selectedTypeIdIdioma, Mensaje.emptySelectIdioma)) {
-      
-      return true;
-    }
-   
-    if (this.isRangoNum(this.curso.ciclo, "El Ciclo debe estar entre 1 y 20")) {
-      return true;
-    }
-  
-  }
-  cancelar(){
+   cancelar(){
     this.navigateList();
   }
  
   public guardar() {
-    this.success = this.isEmpty();
-    this.empty = this.isEmpty();
-    if (!this.empty) {
+    this.enviado=true;
+    if (this.cursoForm.valid) {
       //entro
       this.load = true;
       this.curso.idIdioma = this.selectedTypeIdIdioma;
@@ -154,8 +123,8 @@ export class EditarCursoComponent implements OnInit {
            this.navigateList();
         } else {
           this.load = false;
-          this.empty = true;
-          this.successText = 'El curso  ya existe';
+          // this.empty = true;
+          // this.successText = 'El curso  ya existe';
         }
       }, error => {
             
@@ -210,8 +179,8 @@ export class EditarCursoComponent implements OnInit {
                
              } else {
                this.load = false;
-               this.success = true;
-               this.successText = 'No se puede eliminar este curso';
+              //  this.success = true;
+              //  this.successText = 'No se puede eliminar este curso';
              }
            }, error => {
             Swal.fire(
