@@ -11,7 +11,7 @@ export class PlanEstudioService {
     this.url = 'simi/matricula/api/v1/programacionCurso/plan';
    }
 
-   getPlanDeEstudios(){
-     return this.http.get<any[]>(this.url + '/listPlan');
+   getPlanDeEstudios(id : number){
+     return this.http.get<any[]>(this.url + '/' + 'listPlan/' + id);
    }
 }
