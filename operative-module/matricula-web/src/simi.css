@@ -5,29 +5,27 @@
 }
 
 .simi-bg-gray-circle{
-  background-color: #ebebeb;
-  border-radius: 40px;
-  width: 80px;
-  height: 80px;
-  display: inline-block;
+  background-color: #ebebeb;border-radius: 40px;width: 80px; height: 80px; display: inline-block;
+}
+
+.simi-bg-gray-circle-lg{
+  background-color: #ebebeb;border-radius: 50px;width: 100px; height: 100px; display: inline-block;
 }
 
 .simi-section-label-blue{
-  background-color: #096ac6;
-  border-radius: 4px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #096ac6; border-radius: 4px;padding: 5.5px 9.5px;margin: 5px;font-size: 14px;color: white;
 }
 
 .simi-section-label-rose{
-  background-color: #c60869;
-  border-radius: 7px;
-  padding: 5.5px 9.5px;
-  margin: 5px;
-  font-size: 14px;
-  color: white;
+  background-color: #c60869;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
+}
+
+.simi-section-label-dark{
+  background-color: #323232;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
+}
+
+.simi-section-label-green{
+  background-color: #69c608;border-radius: 7px;padding: 5.5px 9.5px;margin: 5px; font-size: 14px;color: white;
 }
 
 .simi-bg-header {
@@ -47,6 +45,12 @@
   margin-bottom: 5px !important; border-radius: 0px !important; color: white !important; font-size: 14.5px !important; font-weight: lighter !important;
 }
 
+.simi-bg-primary {
+  background-color: #096ac6 !important; color: white;
+}
+.simi-bg-primary:hover {
+  background-color: #096ac6 !important; color: white !important;
+}
 .simi-btn-primary {background-color: #096ac6 !important;}
 .simi-btn-primary:hover{background-color: #1a51a3 !important;
 }
@@ -75,9 +79,20 @@
 .simi-btn-dark { background-color: #323232 !important;}
 .simi-btn-dark:hover { background-color: #4e4e4e !important;}
 
+.simi-btn-light { background-color: #ffffff !important; color:black !important;}
+.simi-btn-light:hover { background-color: #e0e0e0 !important;}
 @media screen and (max-width: 650px) {
   .simi-min-size{
       background-color: #ffffff;
       color: black;
   }
 }
+
+.simi-input-text{
+  background: none !important; font-size: 18px; border: 0px !important; border-bottom: 1px solid gray !important;
+}
+
+.simi-hover:hover {
+  background-color: #e0dedf;
+}
+

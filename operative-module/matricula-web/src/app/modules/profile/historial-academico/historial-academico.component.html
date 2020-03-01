@@ -1,100 +1,113 @@
-<div class="m-3">
-    <div>
-        <span class="title-module">
-            <i class="mdi mdi-chart-areaspline" style="font-size: 22px;"></i>Historial académido
-        </span>
-        <hr />
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+</div>
+<div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-account-multiple ml-2 f-15 "></i>
+        Mi perfil
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+
+        <span style="font-size: 15px;">
+            <i class="mdi mdi-chart-areaspline f-15"></i>
+            Información Académica</span>
+    </span>
+</div>
+
+<div class="simi-card" style="text-align: center;">
+    <h3>
+        HISTORIAL ACADÉMICA DE CALIFICACIONES
+    </h3>
+    <div style="font-size: 14px;">
+        <label class="simi-btn-primary btn" style="width: 90px;">Inglés</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Francés</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Quechua</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Alemán</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Italiano</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Japonés</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Coreano</label>
+        <label class="simi-btn-primary btn" style="width: 90px;">Portugués</label>
     </div>
 </div>
 
-<div class="section-perfil" style="text-align: center;">
-    <span>
-            <b>Historial académico de calificaciones</b>
-        </span>
-    <div style="font-size: 14px;">
-        <span>
-                    Documento sin valor oficial
-                    <hr />
-                </span>
-    </div> 
-    <div class="iniciar-perfil">
-        <div style="font-size: 14px;" class="text-center">
-            <table>
-                <tr class="left">
-                    <td><strong>Código</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>12345678</td>
-                </tr>
+<app-historial-datos-alumno></app-historial-datos-alumno>
+<div class="simi-card">
+    <h4>Calificaciones</h4>
+    <hr />
+    <div class="mt-2 mb-3">
+        <div>
+            <button class="simi-btn-dark btn">Descargar en PDF</button>
+        </div>
+        <div *ngFor="let notas of nota">
+            <div class="text-center" style="color: #323232;">
+                <label class="simi-section-label-rose">Periodo Académico {{notas.nomPeriodo}}</label>
+            </div>
 
-                <tr class="left">
-                    <td><strong>DNI</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>12345678</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Apellidos y nombres</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>Trujillo Cruz, Joel Angel</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Ultimo idioma llevado</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>Inglés</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Nivel alcanzado</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>IV</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Periodo académico</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>2020-1</td>
-                </tr>
-                <tr class="left">
-                    <td><strong>Fecha y hora</strong> </td>
-                    <td><strong>:</strong></td>
-                    <td>jueves, 06 de febrero 2020 <br> 12:45 am
-                    </td>
-                </tr>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-sm table-bordered text-center table-hover">
+                    <tbody>
+                        <tr class="simi-bg-primary">
+                            <td>Nro.</td>
+                            <td>HORARIO</td>
+                            <td>Curso de Idioma</td>
+                            <td>Nota</td>
+                            <td>Estado</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>{{notas.hora}}</td>
+                            <td>{{notas.nomIdioma}} {{notas.nomNivel}} {{notas.ciclo}}</td>
+                            <td><label class="btn simi-btn-primary">{{notas.promedio}}</label></td>
+                            <td><label class="btn simi-btn-green-s btn-block">Aprobado</label></td>
+                        </tr>
+                        <!-- <tr>
+                        <td>2</td>
+                        <td>SUPERINTENSIVO</td>
+                        <td>TODOS LOS DÍAS (6:00 p.m. - 10 p.m.)</td>
+                        <td>Portugués Básico I</td>
+                        <td><label class="btn simi-btn-rose">12</label></td>
+                        <td><label class="btn simi-btn-dark btn-block">No Aprobado</label></td>
+                    </tr> -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-
-<div>
-    <div style="float: right;">
-        <button>Descargar en PDF</button>
-    </div>
-</div>
-
-<div id="container">
-    <table class="hitorial">
-        <thead>
-            <tr class="head">
-                <th>Idioma</th>
-                <th>Nivel</th>
-                <th>Curso</th>
-                <th>Nota</th>
-            </tr>
-        </thead>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>I</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>II</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>Inglés</td>
-            <td>Básico</td>
-            <td>III</td>
-            <td>18</td>
-        </tr>
-    </table>
+    <!-- <div class="mt-2 mb-3">
+        <div class="text-center" style="color: #323232;">
+            <label class="simi-section-label-rose">Periodo Académico 2020-1 Enero</label>
+        </div>
+        <div>
+            <button class="simi-btn-dark btn">Descargar en PDF</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered text-center table-hover">
+                <tbody>
+                    <tr class="simi-bg-primary">
+                        <td>Nro.</td>
+                        <td>Modalidad</td>
+                        <td>HORARIO</td>
+                        <td>Curso de Idioma</td>
+                        <td>Nota</td>
+                        <td>Estado</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>INTENSIVO</td>
+                        <td>L - M - V (8:00 a.m. - 12 m.)</td>
+                        <td>Inglés Básico I</td>
+                        <td><label class="btn simi-btn-primary">15</label></td>
+                        <td><label class="btn simi-btn-green-s btn-block">Aprobado</label></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>SUPERINTENSIVO</td>
+                        <td>TODOS LOS DÍAS (6:00 p.m. - 10 p.m.)</td>
+                        <td>Portugués Básico I</td>
+                        <td><label class="btn simi-btn-rose">12</label></td>
+                        <td><label class="btn simi-btn-dark btn-block">No Aprobado</label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> -->
 </div>

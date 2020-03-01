@@ -14,6 +14,6 @@ import { DatosUsuarioFeedComponent } from './datos-usuario-feed/datos-usuario-fe
   imports: [
     CommonModule,
     HomeRoutingModule
-  ]
+  ],
 })
 export class HomeModule { }

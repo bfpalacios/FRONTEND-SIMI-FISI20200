@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../models/MainMenu';
 import { Router } from '@angular/router';
 
+import { DataServiceService } from 'src/app/services/data-service.service';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -13,10 +15,12 @@ export class MenuComponent implements OnInit {
   public items: MenuItem[];
   public authentication: boolean;
   public modules: any[];
+  public tipo : number;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private serviceData: DataServiceService) {
     this.success = true;
     this.initAccesoSistema(false);
+    this.tipo = this.serviceData.user.tipo;
   }
 
   ngOnInit() {

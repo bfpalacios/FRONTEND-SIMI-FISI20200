@@ -19,6 +19,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DataServiceService } from './services/data-service.service';
 import { ErrorInterceptor } from './http-intecepter';
 import { ServerNotFoundComponent } from './errors/server-not-found/server-not-found.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AperturaDialogComponent } from './dialogs/matricula/apertura-dialog/apertura-dialog.component';
+import { VerPagosRealizadosComponent } from './dialogs/matricula/ver-pagos-realizados/ver-pagos-realizados.component';
 
 registerLocaleData(localePe, 'es');
 const appRoutes: Routes = [
@@ -60,7 +63,9 @@ export function get_settings(dataService: DataServiceService) {
   declarations: [
     AppComponent,
     MenuComponent,
-    ServerNotFoundComponent
+    ServerNotFoundComponent,
+    AperturaDialogComponent,
+    VerPagosRealizadosComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +81,7 @@ export function get_settings(dataService: DataServiceService) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-top-right',
@@ -87,6 +93,7 @@ export function get_settings(dataService: DataServiceService) {
     { provide: APP_INITIALIZER, useFactory: get_settings, deps: [DataServiceService], multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true, deps: [ToastrService] }
   ],
+  entryComponents: [AperturaDialogComponent, VerPagosRealizadosComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

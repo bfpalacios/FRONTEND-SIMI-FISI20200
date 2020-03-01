@@ -1,103 +1,72 @@
-<div class="header-matricular">
-    <div class="ml-3 mt-3 mr-3">
-        <span class="title-module">
-            <i class="mdi mdi-application mr-1" style="font-size: 22px;"></i>Matrícula Online
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Periódo Académico
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Matrícula Online
         </span>
-        -
-        <span>
-            <b>Verificar Matricula</b>
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Seleccionar Cursos
         </span>
-        <hr class="mt-1"/>
-    </div>
+    </span>
+</div>
+<div class="simi-card" *ngIf="!load">
     <div class="text-center">
-        <h4>Matrícula Online</h4>
-        <span>Ciclo Febrero 2020</span>
-        <div style="font-size: 14px;"><b>05/02/2020</b></div>
+        <h3>Matrícula Online</h3>
+        <h5>Verificar Matrícula</h5>
+        <span style="font-size: 18px;">Ciclo Febrero 2020</span>
+        <div style="font-size: 18px;"><b>05/02/2020</b></div>
     </div>
 
-    <div style="margin-right: 80px; margin-left: 80px;">
-        <div class=" mt-5 row">
-            <div class="col-lg-6 col-md-5 col-sm-6 mb-1">
-                <div>
-                    <span>Total de cursos matriculados:</span>
-                    <span class="ml-2"><b>2</b></span>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-1 col-sm-12">
+    <div>
+        <div>
+            <div style="float: left;">
+                <label class="ml-2 ml-3">
+                    <span>Cursos seleccionados:</span>
+                    <label class="ml-2 simi-section-label-blue"><b>{{programacionesSeleccionadas.length}}</b> </label>
+                </label>
 
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-6">
-                <button class="btn-cancel mb-1" (click)="atras()">
-                    <i class="mdi mdi-close-circle"></i> Atras
+            <div style="float: right;">
+                <button class="btn simi-btn-silver" style="width: 160px;" (click)="atras()">
+                    <i class="mdi mdi-close-circle"></i>Cancelar
                 </button>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-6">
-                <button class="btn-siguiente" (click)="finalizar()">
-                    Finalizar <i class="mdi mdi-skip-next"></i>
+                <button class="btn simi-btn-primary" style="width: 160px;" (click)="realizarMatricula()">
+                    Finalizar Matrícula <i class="mdi mdi-skip-next"></i>
                 </button>
             </div>
         </div>
 
         <div class="table-responsive">
             <table class="table table-hover text-center table-matricular">
-                <thead class="thead-dark" style=" border: solid 1px #acacac;">
-                    <tr>
-                        <th></th>
-                        <th>Sede</th>
+                <thead style=" border: solid 1px #acacac;" class="simi-bg-primary">
+                    <tr class="head">
                         <th>Idioma</th>
                         <th>Nivel</th>
+                        <th>Ciclo</th>
                         <th>Docente</th>
-                        <th>Matriculados</th>
                         <th>Horario</th>
+                        <th>Matriculados </th>
                     </tr>
                 </thead>
-                <tbody style=" border: solid 1px #acacac;">
-                    <tr>
-                        <td>
-                            <mat-checkbox class="oink"></mat-checkbox>
-                        </td>
-                        <td>Ciudad Universitaria</td>
-                        <td>Francés</td>
-                        <td>Intermedio V</td>
-                        <td>Duvan Saenz Falcón</td>
-                        <td><button class="btn-none">-</button></td>
-                        <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-checkbox class="oink"></mat-checkbox>
-                        </td>
-                        <td>Ciudad Universitaria</td>
-                        <td>Francés</td>
-                        <td>Intermedio V</td>
-                        <td>Duvan Saenz Falcón</td>
-                        <td><button class="btn-matriculados-top">15</button></td>
-                        <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-checkbox class="oink"></mat-checkbox>
-                        </td>
-                        <td>Ciudad Universitaria</td>
-                        <td>Francés</td>
-                        <td>Intermedio V</td>
-                        <td>Duvan Saenz Falcón</td>
-                        <td><button class="btn-matriculados-none">5</button></td>
-                        <td><button class="btn-cancel">Seleccionar Horario</button></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-checkbox class="oink"></mat-checkbox>
-                        </td>
-                        <td>Ciudad Universitaria</td>
-                        <td>Francés</td>
-                        <td>Intermedio V</td>
-                        <td>Duvan Saenz Falcón</td>
-                        <td><button class="btn-matriculados-empty">0</button></td>
-                        <td><button class="btn-cancel">Seleccionar Horario</button></td>
+
+                <tbody class="text-center">
+                    <tr *ngFor=" let programacion of programacionesSeleccionadas; let i = index ">
+                        <td>{{programacion.nomIdioma}}</td>
+                        <td>{{programacion.nomNivel}}</td>
+                        <td>{{programacion.ciclo}}</td>
+                        <td>{{programacion.docente}}</td>
+                        <td>{{programacion.nomGrupoH}} <br> ({{programacion.hora}})</td>
+                        <td><button class="btn simi-btn-silver"> {{programacion.matriculados}} </button></td>
+                    
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div  >
+</div>

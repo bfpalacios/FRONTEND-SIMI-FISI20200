@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Plan } from 'src/app/domain/Plan';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +12,6 @@ export class PlanEstudioService {
    }
 
    getPlanDeEstudios(){
-     return this.http.get<any[]>(this.url + '/listPlan');
+     return this.http.get<Plan[]>(this.url + '/listPlan');
    }
 }

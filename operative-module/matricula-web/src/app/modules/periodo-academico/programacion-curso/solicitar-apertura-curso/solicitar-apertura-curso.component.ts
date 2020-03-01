@@ -16,6 +16,8 @@ import { CursoService } from 'src/app/services/periodo-academico/curso.service';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { GrupoService } from 'src/app/services/periodo-academico/grupo.service';
 import { HoraService } from 'src/app/services/periodo-academico/hora.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AperturaDialogComponent } from 'src/app/dialogs/matricula/apertura-dialog/apertura-dialog.component';
 
 @Component({
   selector: 'app-solicitar-apertura-curso',
@@ -42,7 +44,16 @@ export class SolicitarAperturaCursoComponent implements OnInit {
   public id: number;
   desactivado = true;
 
-  constructor(private serviceApertura: SolicitudAperturaService, private serviceIdioma: IdiomaService, private serviceNivel: NivelService, private serviceCurso: CursoService, private serviceData: DataServiceService, private serviceGrupo: GrupoService, private serviceHora: HoraService) {
+  constructor(
+    private serviceApertura: SolicitudAperturaService,
+    private serviceIdioma: IdiomaService,
+    private serviceNivel: NivelService,
+    private serviceCurso: CursoService,
+    private serviceData: DataServiceService,
+    private serviceGrupo: GrupoService,
+    private serviceHora: HoraService,
+    private dialog: MatDialog) {
+
     this.apertura = new Apertura();
     this.apertura.codEstudiante = this.serviceData.user.codigo;
   }
@@ -51,6 +62,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     console.log(this.serviceData.user.codigo);
     this.getApertura();
     this.getIdioma();
+    //this.openDialogEdit();
     this.getAperturabyID();
   }
 
@@ -143,36 +155,27 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.ngOnInit();
   }
 
-  // public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
-  //   this.apertura.idCurso = selectedTypeIdCurso;
-  //   this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
+  public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
+    this.apertura.idCurso = selectedTypeIdCurso;
+    this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
 
-  //   this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
-  //     this.apertura = data;
-  //     console.log(this.apertura);
-  //   }, error => {
-  //     console.log(error);
-  //   });
+    this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
+      this.apertura = data;
+      console.log(this.apertura);
+    }, error => {
+      console.log(error);
+    });
+  }
 
-  //   this.ngOnInit();
-  // }
 
-  public validar(){
-    let cont : number = 0;
-    for(let i in this.aperturaDTO2){
-      if(this.selectedTypeIdCurso == this.aperturaDTO2[i].idCurso && this.selectedTypeIdGrupo == this.aperturaDTO2[i].idGrupohorario){
-        cont = cont + 1;
-      }
-    }
+  public openDialogEdit(mensaje : string) {
+    const dialogRef = this.dialog.open(AperturaDialogComponent, {
+      width: '550px',
+      data: mensaje,
+    });
 
-    if(cont > 0){
-      console.log("Solicitud existente");
-    }else{
-      this.apertura.idCurso = this.selectedTypeIdCurso;
-      this.apertura.idHorarioGrupohorario = this.selectedTypeIdGrupo;
-      this.crearApertura();
-      console.log("Registro con éxito");
-    }
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   public validarUnion(selectedTypeIdCurso, selectedTypeIdGrupo){
@@ -185,11 +188,29 @@ export class SolicitarAperturaCursoComponent implements OnInit {
 
     if(cont > 0){
       console.log("Solicitud existente");
+      this.openDialogEdit("Ya solicitaste este curso");
     }else{
-      this.apertura.idCurso = selectedTypeIdCurso;
-    this.apertura.idHorarioGrupohorario = selectedTypeIdGrupo;
-      this.crearApertura();
+     this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo );
       console.log("Registro con éxito");
+      this.openDialogEdit("Solicitud exitosa");
+    }
+  }
+
+  public validar(){
+    let cont : number = 0;
+    for(let i in this.aperturaDTO2){
+      if(this.selectedTypeIdCurso == this.aperturaDTO2[i].idCurso && this.selectedTypeIdGrupo == this.aperturaDTO2[i].idGrupohorario){
+        cont = cont + 1;
+      }
+    }
+
+    if(cont > 0){
+      console.log("Solicitud existente");
+      this.openDialogEdit("Ya solicitaste este curso");
+    }else{
+     this.crearApertura();
+      console.log("Registro con éxito");
+      this.openDialogEdit("Solicitud exitosa");
     }
   }
 }

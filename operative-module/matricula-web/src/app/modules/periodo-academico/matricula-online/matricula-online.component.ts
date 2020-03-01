@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
+import { VerPagosRealizadosComponent } from 'src/app/dialogs/matricula/ver-pagos-realizados/ver-pagos-realizados.component';
 
 @Component({
   selector: 'app-matricula-online',
@@ -13,9 +15,11 @@ export class MatriculaOnlineComponent implements OnInit {
   public error: boolean;
   public load: boolean;
   public pagosRealizados: any[];
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private dataService: DataServiceService,
-    private toast: ToastrService) {
+    private toast: ToastrService,
+    private dialog: MatDialog) {
       this.error = false;
       this.load = true;
 
@@ -43,5 +47,15 @@ export class MatriculaOnlineComponent implements OnInit {
 
   public goMatricular() {
     this.router.navigate(['/periodo-academico/matriculaOnline/matricular']).then();
+  }
+
+  public showPagosRealizados() {
+    const dialogRef = this.dialog.open(VerPagosRealizadosComponent, {
+      width: '800px',
+      data: this.pagosRealizados
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 }
