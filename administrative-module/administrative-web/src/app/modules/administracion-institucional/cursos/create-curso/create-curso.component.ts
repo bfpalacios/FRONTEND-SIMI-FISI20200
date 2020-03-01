@@ -10,6 +10,7 @@ import { IdiomaService } from 'src/app/services/administracion/AdmInstitucional/
 import { NivelService } from 'src/app/services/administracion/AdmInstitucional/nivel.service';
 import { Nivel } from 'src/app/domain/Nivel';
 import { Curso } from 'src/app/domain/Curso';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-curso',
@@ -20,27 +21,36 @@ export class CreateCursoComponent implements OnInit {
   public curso: Curso;
   public load: boolean;
   public loading: string;
-  public empty: boolean;
-  public successText: string;
-  public pmcompuesta : boolean;
+
   public selectedTypeIdNivel : number;
   public selectedTypeIdIdioma : number;
   public niveles : Nivel[];
   public idiomas : Idioma[];
   public title: string;
 
-  
+  public cursoForm: FormGroup;
+  public enviado : boolean;
   constructor(private router: Router , private serviceCurso: CursoService,
     private serviceIdiomas: IdiomaService,  private serviceNivel: NivelService )   {
       this.curso = new Curso();
     this.selectedTypeIdNivel = 0;
-    this.selectedTypeIdIdioma = 0;
+     this.selectedTypeIdIdioma = 0;
     this.load = true;
-    this.empty = false;
     this.loading = Path.loading;
+    this.cursoForm = this.createForm();
+    this.enviado = false;
   }
 
-  
+  get formIdioma() {     return this.cursoForm.get('formIdioma'); }
+  get formNivel() {     return this.cursoForm.get('formNivel'); }
+  get ciclo() {        return this.cursoForm.get('ciclo'); }
+  createForm() {
+    return new FormGroup({
+      formIdioma: new FormControl('', [Validators.required ,Validators.min(1)    ]  ),
+      formNivel: new FormControl('',[ Validators.required ,Validators.min(1)  ] ),
+      ciclo: new FormControl('', [Validators.required,Validators.min(1) ,Validators.max(20)    ]),
+    });
+  }
 
   ngOnInit() {//lenar cmbs
     this.getIdiomas();
@@ -60,15 +70,12 @@ export class CreateCursoComponent implements OnInit {
     });
   }
  crear(){
-    this.empty = this.isEmpty();
-    // this.curso.cnivel = this.selectedTypeIdNivel;
-    // this.c      console.log("entro no vacio");
-
-console.log("emprty",this.empty);
+  
+    this.enviado=true;
 console.log("selectedTypeIdNivel", this.selectedTypeIdNivel);
 console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
 
-    if (!this.empty) {
+    if (this.cursoForm.valid) {
       console.log("entro no vacio");
       this.load = true;
       this.curso.idNivel = this.selectedTypeIdNivel;
@@ -94,8 +101,8 @@ console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
             this.setLocalStorageParamIdioma(this.curso.idIdioma.toString());
 
           } else {
-            this.empty = true;
-            this.successText = 'El curso ya existe, ingrese otro.';
+            // this.empty = true;
+            // this.successText = 'El curso ya existe, ingrese otro.';
           }
         }, error => {
             
@@ -124,44 +131,7 @@ console.log("selectedTypeIdIdioma",this.selectedTypeIdIdioma);
     private navigateList() {
       this.router.navigate(['administracionInstitucional/cursos']).then();
     }
-    private isEmpytText(info: string, msg: string) {
-      if (info === undefined || info.trim().length === 0) {
-        this.successText = msg;
-        return true;
-      }
-    }
-    private isEmpytNum(info: number, msg: string) {
-      if (info === undefined ) {
-        this.successText = msg;
-        return true;
-      }
-    }
-
-    private isRangoNum(info: number, msg: string) {
-      if (info <= 0 || info >20 ) {
-        this.successText = msg;
-        return true;
-      }
-    }
-    private isEmpty() { // true : vacio 
-
-      if (this.isEmpytNum(this.curso.ciclo, Mensaje.emptyCiclo)) {
-        return true;
-      }
-      if (this.isEmpytNum(this.selectedTypeIdNivel, Mensaje.emptySelectNivel)) {
-        return true;
-      }
   
-      if (this.isEmpytNum(this.selectedTypeIdIdioma, Mensaje.emptySelectIdioma)) {
-        
-        return true;
-      }
-     
-      if (this.isRangoNum(this.curso.ciclo, "El Ciclo debe estar entre 1 y 20")) {
-        return true;
-      }
-    
-    }
   }
 
 

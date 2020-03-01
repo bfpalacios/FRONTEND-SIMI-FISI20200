@@ -21,12 +21,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgxPaginationModule} from 'ngx-pagination';
-
-
 import { ReactiveFormsModule } from '@angular/forms';
-// import { environment } from './../environments/environment';
-// import { AngularFirestoreModule } from '@angular/fire/firestore';
-// import { AngularFireModule } from '@angular/fire';
+import { Select2Module } from 'ng2-select2';
 
 
 registerLocaleData(localePe, 'es');
@@ -86,15 +82,10 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatNativeDateModule,
     MatDialogModule,
-    // MatSliderModule,
-    // MatFormFieldModule,
      Ng2SearchPipeModule,
     NgxPaginationModule,
-    // MatSliderModule,
     ReactiveFormsModule,
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFirestoreModule,
-    // AngularFireModule
+    Select2Module
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-PE' }],
   bootstrap: [AppComponent]

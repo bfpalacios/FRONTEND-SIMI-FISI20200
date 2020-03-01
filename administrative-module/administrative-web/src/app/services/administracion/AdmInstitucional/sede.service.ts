@@ -12,7 +12,7 @@ export class SedeService {
     this.url = 'simi/api/v1/programacionCurso/sede';
   }
 
-  getSedes() {
+  getSedes()  {
     return this.http.get<Sede[]>(this.url + '/' + 'listSedes');
   }
   

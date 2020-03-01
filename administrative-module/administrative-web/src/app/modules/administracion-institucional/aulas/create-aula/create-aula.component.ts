@@ -7,6 +7,8 @@ import { Sede } from 'src/app/domain/Sede';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
 import { AulaService } from 'src/app/services/administracion/AdmInstitucional/aula.service';
 import Swal from 'sweetalert2';
+import { Select2Module } from 'ng2-select2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-aula',
@@ -17,20 +19,44 @@ export class CreateAulaComponent implements OnInit {
   public aula: Aula;
   public load: boolean;
   public loading: string;
-  public empty: boolean;
-  public successText: string;
   public sedes : Sede[];
-  // public pmcompuesta : boolean;
   public selectedTypeIdSede : number;
   public title: string;
 
-  constructor(private router: Router , private serviceAula: AulaService,
-    private serviceSede: SedeService) {
+  public tamNomAula : 0;
+  public tamRefAula : 0;
+  public aulaForm: FormGroup;
+  public enviado : boolean;
+    constructor(private router: Router , private serviceAula: AulaService,    private serviceSede: SedeService) {
     this.aula = new Aula();
     this.selectedTypeIdSede = 0;
     this.load = true;
-    this.empty = false;
     this.loading = Path.loading;
+    this.aulaForm = this.createForm();
+    this.enviado = false;
+  }
+
+  get nomAula() { 
+    if(this.aulaForm.get('nomAula').value)
+    this.tamNomAula =this.aulaForm.get('nomAula').value.length;  
+    console.log( this.tamNomAula);
+    return this.aulaForm.get('nomAula');  }
+
+  get refAula() { 
+    if(this.aulaForm.get('refAula').value)
+    this.tamRefAula =this.aulaForm.get('refAula').value.length; 
+    return this.aulaForm.get('refAula'); }
+
+    get idSede() { 
+      return this.aulaForm.get('idSede'); }
+  // private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+
+  createForm() {
+    return new FormGroup({
+      nomAula: new FormControl('', [Validators.required,Validators.maxLength(8)     ]),
+      refAula: new FormControl('', [Validators.maxLength(150)]),
+      idSede: new FormControl('', Validators.required)
+    });
   }
 
   setLocalStorageParamSede(title: string) {
@@ -43,18 +69,19 @@ export class CreateAulaComponent implements OnInit {
   }
 
   private getSedes() {
-    this.serviceSede.getSedes().subscribe(data => {
+   this.serviceSede.getSedes().subscribe(data => {
       this.sedes = data;
       this.load = false;
     });
   }
 
    crear(){
-    this.empty = this.isEmpty();
+    this.enviado=true;
+
     this.aula.idSede = this.selectedTypeIdSede;
     console.log("this.selectedTypeIdSede",this.selectedTypeIdSede);
     console.log("(this.aula",this.aula);
-    if (!this.empty) {
+    if (this.aulaForm.valid) {
       console.log("entro no vacio");
       this.load = true;
       this.aula.idSede = this.selectedTypeIdSede;
@@ -77,8 +104,7 @@ export class CreateAulaComponent implements OnInit {
             this.navigateList();
            
           } else {
-            this.empty = true;
-            this.successText = 'El nombre del aula ya existe, ingrese otro.';
+            // this.successText = 'El nombre del aula ya existe, ingrese otro.';
           }
         }, error => {
             
@@ -107,51 +133,6 @@ export class CreateAulaComponent implements OnInit {
       this.router.navigate(['administracionInstitucional/aulas']).then();
     }
 
-    private isEmpytText(info: string, msg: string) {
-      if (info === undefined || info.trim().length === 0) {
-        this.successText = msg;
-        return true;
-      }
-    }
-    private isEmpytNum(info: number, msg: string) {
-      if (info === undefined || info == 0) {
-        this.successText = msg;
-        return true;
-      }
-    }
-    private isMayorTamNomAula(info: string, msg: string) {
-      if(info != null){
-        if (info.length >4) {
-          this.successText = msg;
-          return true;
-        }
-      }
-    }
-    private isMayorTamRefAula(info: string, msg: string) {
-      if(info != null){
-        if (info.length >=140) {
-          this.successText = msg;
-          return true;
-        }
-      }
-    }
-    private isEmpty() { // true : vacio 
+  
 
-      if (this.isEmpytNum( Number(this.aula.nomAula), Mensaje.emptyNomAula)) {
-        return true;
-      }
-       
-      if (this.isEmpytNum(this.selectedTypeIdSede, Mensaje.emptySede)) {
-        
-        return true;
-      }
-     
-      if (this.isMayorTamNomAula(this.aula.nomAula, "Campo Aula, máximo 4 caracteres")) {
-        return true;
-      }
-      if (this.isMayorTamRefAula(this.aula.refAula, "Campo Referencia, máximo 140 caracteres")) {
-        return true;
-      }
-
-    }
   }

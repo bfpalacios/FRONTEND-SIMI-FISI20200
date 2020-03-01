@@ -26,13 +26,8 @@ import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { MatSliderModule } from '@angular/material/slider';
-// import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
+import { Select2Module } from 'ng2-select2';
 
 @NgModule({
   declarations: [AlumnosComponent, AulasComponent, CursosComponent, DocentesComponent,
@@ -47,10 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
    FormsModule,
    Ng2SearchPipeModule,
    NgxPaginationModule,
-   ReactiveFormsModule
-  //  MatSliderModule,
-  //  MatFormFieldModule
-  //  NgbModule
+   ReactiveFormsModule,
+   Select2Module
   ]
 })
 export class AdministracionInstitucionalModule { }

@@ -7,6 +7,7 @@ import { Aula } from 'src/app/domain/Aula';
 import { AulaService } from 'src/app/services/administracion/AdmInstitucional/aula.service';
 import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
 import { Sede } from 'src/app/domain/Sede';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-aula',
@@ -17,24 +18,45 @@ export class EditarAulaComponent implements OnInit {
     public id: number;
   public load: boolean;
   public loading: string;
-  public empty: boolean;
-  public successText: string;
   public aula: Aula;
   public title: string;
-
-  // public pmcompuesta : boolean;
-  public success: boolean;
   public selectedTypeIdSede: number;
   public sedes: Sede[];
 
+  public tamNomAula : 0;
+  public tamRefAula : 0;
+  public aulaForm: FormGroup;
+  public enviado : boolean
   constructor(private router: Router, private serviceAula: AulaService,
     private activedRouter: ActivatedRoute, private serviceSede: SedeService) {
     this.load = true;
-    this.empty = false;
     this.loading = Path.loading;
-    this.success = false;
     this.aula = new Aula();
+    this.aulaForm = this.createForm();
+    this.enviado = false;
+  }
 
+  get nomAula() { 
+    if(this.aulaForm.get('nomAula').value)
+    this.tamNomAula =this.aulaForm.get('nomAula').value.length;  
+    console.log( this.tamNomAula);
+    return this.aulaForm.get('nomAula');  }
+
+  get refAula() { 
+    if(this.aulaForm.get('refAula').value)
+    this.tamRefAula =this.aulaForm.get('refAula').value.length; 
+    return this.aulaForm.get('refAula'); }
+
+    get idSede() { 
+      return this.aulaForm.get('idSede'); }
+  // private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
+
+  createForm() {
+    return new FormGroup({
+      nomAula: new FormControl('', [Validators.required,Validators.maxLength(8)     ]),
+      refAula: new FormControl('', [Validators.maxLength(150)]),
+      idSede: new FormControl('', Validators.required)
+    });
   }
 
   setLocalStorageParamSede(title: string) {
@@ -81,66 +103,13 @@ export class EditarAulaComponent implements OnInit {
     });
   }
 
-  private isEmpytText(info: string, msg: string) {
-    if (info === undefined || info.trim().length === 0) {
-      this.successText = msg;
-      return true;
-    }
-  }
-
-  private isEmpytNum(info: number, msg: string) {
-    if (info === undefined || info == 0) {
-      this.successText = msg;
-      return true;
-    }
-  }
-
-  private isMayorTamNomAula(info: string, msg: string) {
-    if(info != null){
-      if (info.length >4) {
-        this.successText = msg;
-        return true;
-      }
-    }
-  }
-  private isMayorTamRefAula(info: string, msg: string) {
-    if(info != null){
-      if (info.length >=140) {
-        this.successText = msg;
-        return true;
-      }
-    }
-  }
-  private isEmpty() { // true : vacio 
-
-    if (this.isEmpytNum( Number(this.aula.nomAula), Mensaje.emptyNomAula)) {
-      return true;
-    }
-     
-    if (this.isEmpytNum(this.selectedTypeIdSede, Mensaje.emptySede)) {
-      
-      return true;
-    }
-   
-    if (this.isMayorTamNomAula(this.aula.nomAula, "Campo Aula, máximo 4 caracteres")) {
-      return true;
-    }
-    if (this.isMayorTamRefAula(this.aula.refAula, "Campo Referencia, máximo 140 caracteres")) {
-      return true;
-    }
-
-  }
-
-
-
   cancelar() {
     this.navigateList();
   }
 
   public guardar() {
-    this.success = this.isEmpty();
-    this.empty = this.isEmpty();
-    if (!this.empty) {
+    this.enviado=true;
+    if ( this.aulaForm.valid) {
       //entro
       this.load = true;
       this.aula.idSede = this.selectedTypeIdSede;
@@ -158,8 +127,8 @@ export class EditarAulaComponent implements OnInit {
           this.navigateList();
         } else {
           this.load = false;
-          this.empty = true;
-          this.successText = 'El aula  ya existe';
+          // this.empty = true;
+          // this.successText = 'El aula  ya existe';
         }
       }, error => {
             
@@ -212,8 +181,7 @@ export class EditarAulaComponent implements OnInit {
             this.navigateList();
           } else {
             this.load = false;
-            this.success = true;
-            this.successText = 'No se puede eliminar este aula';
+            // this.successText = 'No se puede eliminar este aula';
           }
         }, error => {
           if (error) {
