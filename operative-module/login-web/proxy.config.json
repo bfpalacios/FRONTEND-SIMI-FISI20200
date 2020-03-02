@@ -1,6 +1,6 @@
 {
     "/simi/login/*": {
-      "target": "http://165.227.89.167:9091/",
+      "target": "http://localhost:9091/",
       "secure": false,
       "logLevel": "debug",
       "changeOrigin": true,

@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   public items: MenuItem[];
   public authentication: boolean;
   public modules: any[];
-  public tipo : number;
+  public tipo: number;
 
   constructor(private router: Router, private serviceData: DataServiceService) {
     this.success = true;

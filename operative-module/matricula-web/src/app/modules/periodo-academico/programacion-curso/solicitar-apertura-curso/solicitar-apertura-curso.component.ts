@@ -158,11 +158,10 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.serviceApertura.crearApertura(this.apertura).subscribe(data => {
       this.apertura = data;
       console.log(this.apertura);
+      this.ngOnInit();
     }, error => {
       console.log(error);
     });
-
-    this.ngOnInit();
   }
 
   public unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo) {
@@ -200,9 +199,9 @@ export class SolicitarAperturaCursoComponent implements OnInit {
       console.log("Solicitud existente");
       this.openDialogEdit("Ya solicitaste este curso");
     } else {
-      this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo);
       console.log("Registro con éxito");
       this.openDialogEdit("Solicitud exitosa");
+      this.unirseApertura(selectedTypeIdCurso, selectedTypeIdGrupo);
     }
   }
 
@@ -218,9 +217,9 @@ export class SolicitarAperturaCursoComponent implements OnInit {
       console.log("Solicitud existente");
       this.openDialogEdit("Ya solicitaste este curso");
     } else {
-      this.crearApertura();
       console.log("Registro con éxito");
       this.openDialogEdit("Solicitud exitosa");
+      this.crearApertura();
     }
   }
 }

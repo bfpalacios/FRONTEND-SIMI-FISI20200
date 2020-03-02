@@ -13,7 +13,6 @@ import { MatriculaOnlineService } from './periodo-academico/matricula-online.ser
 export class DataServiceService {
   public user: User;
   private url: string;
-
   private get _toastService() { return this.injector.get(ToastrService); }
   private get router() { return this.injector.get(Router); }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EmiiterBuilder } from 'src/app/models/EmiiterBuilder';
 import { UserDTO } from 'src/app/models/UserDTO';
+import { RegisterService } from 'src/app/services/authentication/regiter.service';
 
 @Component({
   selector: 'app-form-datos-pesonales',
@@ -13,7 +14,8 @@ export class FormDatosPesonalesComponent implements OnInit {
   @Output() public emitter;
   @Input()  public newUser: UserDTO;
   constructor(
-    private router: Router
+    private router: Router,
+    private service: RegisterService
   ) { 
     this.showDatosPersonales = true;
     this.newUser = new UserDTO();
@@ -29,9 +31,12 @@ export class FormDatosPesonalesComponent implements OnInit {
   }
 
   public signIn() {
-    console.log('Usuario->', this.newUser);
-    console.log('Usuario Tipo Alumno creado.');
-    this.router.navigate(['/']);
+    this.service.signUpWithEmailAndPassword(this.newUser).subscribe(data => {
+      console.log('oink');
+    }, () => {
+      console.log('error');
+    });
+   
   }
 
 }

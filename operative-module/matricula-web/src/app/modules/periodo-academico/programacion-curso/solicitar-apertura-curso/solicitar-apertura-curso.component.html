@@ -12,8 +12,8 @@
         <span style="font-size: 15px;">
             Programación de Cursos
         </span>
-        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
-        <span style="font-size: 15px;">
+    <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+    <span style="font-size: 15px;">
             Solicitar Apertura
         </span>
     </span>
@@ -73,8 +73,7 @@
             </div>
         </div>
         <div class="col-lg-6 col-md-6 mt-4" *ngIf="!desactivado">
-            <button class="btn simi-btn-primary btn-block"  style="height: 100% !important;"
-            [disabled]="desactivado">Solicitar</button>
+            <button class="btn simi-btn-primary btn-block" style="height: 100% !important;" [disabled]="desactivado" (click)="validar()">Solicitar</button>
         </div>
     </div>
 </div>
@@ -101,8 +100,7 @@
                     <td> {{apertura.ciclo}} </td>
                     <td> {{apertura.nomGrupoHorario}} <br> ({{apertura.hora}}) </td>
                     <td> {{apertura.solicitantes}} </td>
-                    <td><button class="btn simi-btn-rose"
-                            (click)="validarUnion(apertura.idCurso, apertura.idGrupohorario)">Unirse</button></td>
+                    <td><button class="btn simi-btn-rose" (click)="validarUnion(apertura.idCurso, apertura.idGrupohorario)">Unirse</button></td>
                 </tr>
             </tbody>
         </table>
