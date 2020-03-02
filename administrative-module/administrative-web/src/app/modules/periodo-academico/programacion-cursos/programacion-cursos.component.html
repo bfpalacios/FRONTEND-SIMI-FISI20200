@@ -1,235 +1,269 @@
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
+</div>
+<div *ngIf="!load">
+    <div class="header-user-list mb-2">
 
-<div class="header-user-list mb-2">
-    
-    <button *ngIf="nuevoCurso==false && actualizar==false" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" nuevo()">
-        <i class="mdi i mdi-plus-box-multiple-outline f-16"></i> Nuevo 
-    </button>
-     <!-- <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1"  (click)="editar()">
+        <button *ngIf="nuevoCurso==false && actualizar==false" type="button" class="btn simi-btn-silver ml-1 mr-1"
+            (click)=" nuevo()">
+            <i class="mdi i mdi-plus-box-multiple-outline f-16"></i> Nuevo
+        </button>
+        <!-- <button *ngIf="nuevoCurso" class="btn-nuevo ml-1 mr-1"  (click)="editar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Editar Curso
     </button> -->
 
-    <button  *ngIf="nuevoCurso" class="btn simi-btn-primary ml-2 mr-1" (click)="guardar()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
-    </button>
-     <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
-        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
-    </button> 
+        <button *ngIf="nuevoCurso" class="btn simi-btn-primary ml-2 mr-1" (click)="guardar()">
+            <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
+        </button>
+        <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
+            <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
+        </button>
 
-    <button *ngIf="actualizar" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarActualizada()">
-        <i class="mdi mdi-close-circle f-16"></i> Cancelar
-    </button>
-    <button   *ngIf="nuevoCurso " type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarNuevo()">
-        <i class="mdi mdi-close-circle f-16"></i> Cancelar
-    </button>
-</div>
-<!--   -->
-<form [formGroup]="progCursoForm">
- <div >
-<div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3">
-    <h5 *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Programacion de Cursos </h5>
-    <h5 *ngIf="actualizar" class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de Programacion de Cursos </h5>
-    <br>
-    <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
- 
-</div>
-
-
-
-    <div class="row float-right">
-        <div class="col-sm-5">
-            <select  formControlName="formSede" class="form-control form-control-sm" (click)="habilitarAulas()"  [(ngModel)]="selectedTypeIdSede">
-                <option [ngValue]="0">Sede</option>
-                <option  *ngIf="nuevoCurso==false && actualizar==false " [ngValue]="-1">Todas las Sedes</option>
-                <option [ngValue]="sede.idSede" *ngFor="let sede of sedes">{{sede.nomSede}}
-                </option>
-                
-            </select>   
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdSede ==0 && (enviado)">
-                Selecciona una Sede
-            </div>    
-         </div>
-         <div class="col-sm-5"> 
-            <!-- [disabled]="!actualizar" -->
-            <select  formControlName="formPeriodo"   class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo" (click)="habilitarCurso()"  >
-                <option [ngValue]="0">Ciclo Académico</option>
-                <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
-                </option>
-            </select>      
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdPeriodo ==0 && (enviado)">
-                Seleccione un Ciclo 
-            </div>  
-         </div>
-         <div class="col-md-2">
-            <button class="btn-nuevo"(click)="filtrarSedePeriodo()" *ngIf="nuevoCurso==false && actualizar==false " > <i class="mdi mdi-magnify f-16"></i>    </button>
-        </div>
-        
+        <button *ngIf="actualizar" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarActualizada()">
+            <i class="mdi mdi-close-circle f-16"></i> Cancelar
+        </button>
+        <button *ngIf="nuevoCurso " type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarNuevo()">
+            <i class="mdi mdi-close-circle f-16"></i> Cancelar
+        </button>
     </div>
-    <br> 
-
-    <div class="row col-sm-12"  *ngIf="selectedTypeIdSede!=0 && selectedTypeIdPeriodo!=0 && (nuevoCurso ||actualizar ) " >
-           <div class="col-sm-4">
-            <label class="col-sm-12  col-form-label"> Curso </label>
-            <select   formControlName="formCurso" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso" (click)="habilitarDocente()">
-              <option [ngValue]="0">Seleccionar el  Curso </option>
-                <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">  {{curso.nomIdioma}} {{curso.nomNivel}} {{curso.ciclo}}
-                </option>
-            </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado)">
-                Debe seleccionar un Curso
-            </div>
-        </div>
-        <!-- *ngIf="selectedTypeIdCurso!=0" -->
-        <div class="col-sm-4" >
-            <label class="col-sm-12  col-form-label"> Docente </label>
-            <!-- [disabled]="(selectedTypeIdCurso==0)" -->
-            <select formControlName="formDocente" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDocente" >
-              <option [ngValue]="0">Seleccione Docente</option>
-                <option [ngValue]="docente.codDocente" *ngFor="let docente of docentes">  {{docente.nombre}}  {{docente.apellidoPat}}{{docente.apellidoMat}}
-                </option>
-            </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdDocente =='0' && (enviado)">
-                Debe seleccionar un Docente
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <label class="col-sm-12  col-form-label"> Aula </label>
-            <select formControlName="formAula"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdAula">
-              <option [ngValue]="0">Seleccionar el  Aula</option>
-                <option [ngValue]="aula.idAula" *ngFor="let aula of aulas">  {{aula.nomAula}} 
-                </option>
-            </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdAula ==0 && ( formAula.touched && enviado)">
-                Seleccione un Aula
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <label class="col-sm-12  col-form-label"> Horario </label>
-            <select formControlName="formHorario" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
-                <option [ngValue]="0">Seleccionar Horario </option>
-                <option [ngValue]="horario.idHorario" *ngFor="let horario of horarios">  {{horario.nomGrupoHorario}}  De : {{horario.horaInicio}}  a : {{horario.horaSalida}}  
-                </option>
-            </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdHorarioGrupoHorario ==0 && (enviado)">
-                Debe seleccionar un Horario
-            </div>
-        </div>
-        
-        <div class="col-sm-6" *ngIf="actualizar">
-            <label class="col-sm-12  col-form-label">Estado de Curso </label>
-            <select formControlName="formEstadoCurso"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdEstadoCurso" >
-                <!-- <option [ngValue]="0">Seleccionar el Estado del Curso</option> -->
-                <option [ngValue]="estadoCurso.idEstadoProgCurso" *ngFor="let estadoCurso of estadoProgCursos">{{estadoCurso.nomEstado}} 
-                </option>
-            </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdEstadoCurso ==0 && (enviado)">
-                Debe seleccionar un Estado
-            </div>
-        </div>
-
-    </div>
-  
-
-</div>
-</form>
-
-
-<div *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3">
-
-    <div class="row col-md-12">
-        <div class="col-md-8">
-            <div class="col-md-12">
-                <label class="col-sm-12  col-form-label">Filtro</label>
-                <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda" [(ngModel)]="busquedaTexto"/>      
+    <!--   -->
+    <form [formGroup]="progCursoForm">
+        <div>
+            <div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3">
+                <h5 *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de
+                    Programacion de Cursos </h5>
+                <h5 *ngIf="actualizar" class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de
+                    Programacion de Cursos </h5>
+                <br>
+                <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
 
             </div>
-        </div>
-    </div>
 
 
 
-</div>
+            <div class="row float-right">
+                <div class="col-sm-5">
+                    <select formControlName="formSede" class="form-control form-control-sm" (click)="habilitarAulas()"
+                        [(ngModel)]="selectedTypeIdSede">
+                        <option [ngValue]="0">Sede</option>
+                        <option *ngIf="nuevoCurso==false && actualizar==false " [ngValue]="-1">Todas las Sedes</option>
+                        <option [ngValue]="sede.idSede" *ngFor="let sede of sedes">{{sede.nomSede}}
+                        </option>
 
-
-<div class="w-100 mt-3 table-responsive" style="margin: auto;">
-    <table class="table table-hover table-bordered">
-        <thead class="header-table " style="background: #dfe3e7;">
-            <tr>
-
-                <td>
-                    <div class="center-head">N°</div>
-                </td>
-
-
-                <td>
-                    <div class="center-head">Docente</div>
-                </td>
-
-                <td>
-                    <div class="center-head">Curso</div>
-                </td>
-                <td>
-                    <div class="center-head">Periodo</div>
-                </td>
-                <td>
-                    <div class="center-head">Aula</div>
-                </td>
-                <td>
-                    <div class="center-head">Horario</div>
-                </td>
-                <td>
-                    <div class="center-head">Estado Curso</div>
-                </td>
-
-                <td style="width: 100px;" class="text-center"></td>
-
-
-            </tr>
-        </thead>
-        <tbody class="header-body">
-            <tr *ngFor="let progCurso of progCursosDTO | filter:busquedaTexto
-            | paginate : {itemsPerPage :15,currentPage : pageActual}; let i = index">
-                <td>
-                    <div class="center-body">{{i+1}}</div>
-                </td>
-                <td>
-                    <div class="center-body"> <span class=" font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progCurso.nombre}}   {{progCurso.apellidoPat}}  {{progCurso.apellidoMat}}</span> </div>
-                </td>
-
-                <td>
-                    <div class="center-body">{{progCurso.nomIdioma}} {{progCurso.nomNivel}} {{progCurso.ciclo}}° ciclo </div>
-                </td>
-                <td>
-                    <div class="center-body"> {{progCurso.nomPeriodo}} </div>
-                </td>
-                <td>
-                    <div class="center-body"> {{progCurso.nomAula}} </div>
-                    <!-- --  {{progCurso.nomSede}}  -->
-                </td>
-                <td>
-                    <div class="center-body"> {{progCurso.nomGrupoHorario}} </div>
-                    <div class="center-body"> De {{progCurso.horaInicio}} a {{progCurso.horaSalida}} </div>
-                </td>
-                <td>
-                    <div class="center-body"> {{progCurso.nomEstado}} </div>
-                </td>
-                <td>
-
-
-                    <div class="row">
-                        <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;" (click)="editar(progCurso.idProgCurso)">
-                                <i class="mdi mdi-border-color" style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
-                            </button>
-
-                        <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;" (click)="eliminar(progCurso.idProgCurso)">
-                                    <i class="mdi mdi-delete  " style="color : white ; font-size: 20px; display: inline-block !important;"></i> 
-                            </button>
-
+                    </select>
+                    <div class="container-error-message alert-danger" *ngIf="selectedTypeIdSede ==0 && (enviado)">
+                        Selecciona una Sede
                     </div>
-                </td>
-            </tr>
-        </tbody>
+                </div>
+                <div class="col-sm-5">
+                    <!-- [disabled]="!actualizar" -->
+                    <select formControlName="formPeriodo" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdPeriodo" (click)="habilitarCurso()">
+                        <option [ngValue]="0">Ciclo Académico</option>
+                        <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos"> {{periodo.nomPeriodo}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger" *ngIf="selectedTypeIdPeriodo ==0 && (enviado)">
+                        Seleccione un Ciclo
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn-nuevo" (click)="filtrarSedePeriodo()"
+                        *ngIf="nuevoCurso==false && actualizar==false "> <i class="mdi mdi-magnify f-16"></i> </button>
+                </div>
 
-    </table>
-    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+            </div>
+            <br>
 
+            <div class="row col-sm-12"
+                *ngIf="selectedTypeIdSede!=0 && selectedTypeIdPeriodo!=0 && (nuevoCurso ||actualizar ) ">
+                <div class="col-sm-4">
+                    <label class="col-sm-12  col-form-label"> Curso </label>
+                    <select formControlName="formCurso" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdCurso" (click)="habilitarDocente()">
+                        <option [ngValue]="0">Seleccionar el Curso </option>
+                        <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos"> {{curso.nomIdioma}}
+                            {{curso.nomNivel}} {{curso.ciclo}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado)">
+                        Debe seleccionar un Curso
+                    </div>
+                </div>
+                <!-- *ngIf="selectedTypeIdCurso!=0" -->
+                <div class="col-sm-4">
+                    <label class="col-sm-12  col-form-label"> Docente </label>
+                    <!-- [disabled]="(selectedTypeIdCurso==0)" -->
+                    <select formControlName="formDocente" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdDocente">
+                        <option [ngValue]="0">Seleccione Docente</option>
+                        <option [ngValue]="docente.codDocente" *ngFor="let docente of docentes"> {{docente.nombre}}
+                            {{docente.apellidoPat}}{{docente.apellidoMat}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger" *ngIf="selectedTypeIdDocente =='0' && (enviado)">
+                        Debe seleccionar un Docente
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label class="col-sm-12  col-form-label"> Aula </label>
+                    <select formControlName="formAula" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdAula">
+                        <option [ngValue]="0">Seleccionar el Aula</option>
+                        <option [ngValue]="aula.idAula" *ngFor="let aula of aulas"> {{aula.nomAula}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger"
+                        *ngIf="selectedTypeIdAula ==0 && ( formAula.touched && enviado)">
+                        Seleccione un Aula
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label class="col-sm-12  col-form-label"> Horario </label>
+                    <select formControlName="formHorario" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
+                        <option [ngValue]="0">Seleccionar Horario </option>
+                        <option [ngValue]="horario.idHorario" *ngFor="let horario of horarios">
+                            {{horario.nomGrupoHorario}} De : {{horario.horaInicio}} a : {{horario.horaSalida}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger"
+                        *ngIf="selectedTypeIdHorarioGrupoHorario ==0 && (enviado)">
+                        Debe seleccionar un Horario
+                    </div>
+                </div>
+
+                <div class="col-sm-6" *ngIf="actualizar">
+                    <label class="col-sm-12  col-form-label">Estado de Curso </label>
+                    <select formControlName="formEstadoCurso" class="form-control form-control-sm"
+                        [(ngModel)]="selectedTypeIdEstadoCurso">
+                        <!-- <option [ngValue]="0">Seleccionar el Estado del Curso</option> -->
+                        <option [ngValue]="estadoCurso.idEstadoProgCurso" *ngFor="let estadoCurso of estadoProgCursos">
+                            {{estadoCurso.nomEstado}}
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger"
+                        *ngIf="selectedTypeIdEstadoCurso ==0 && (enviado)">
+                        Debe seleccionar un Estado
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </form>
+
+
+    <div *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3">
+
+        <div class="row col-md-12">
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <label class="col-sm-12  col-form-label">Filtro</label>
+                    <input type="text" class="col-sm-12" placeholder="Ingrese su filtro de Búsqueda"
+                        [(ngModel)]="busquedaTexto" />
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="w-100 mt-3 table-responsive" style="margin: auto;">
+        <table class="table table-hover table-bordered">
+            <thead class="header-table " style="background: #dfe3e7;">
+                <tr>
+
+                    <td>
+                        <div class="center-head">N°</div>
+                    </td>
+
+
+                    <td>
+                        <div class="center-head">Docente</div>
+                    </td>
+
+                    <td>
+                        <div class="center-head">Curso</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Periodo</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Aula</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Horario</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Estado Curso</div>
+                    </td>
+
+                    <td style="width: 100px;" class="text-center"></td>
+
+
+                </tr>
+            </thead>
+            <tbody class="header-body">
+                <tr *ngFor="let progCurso of progCursosDTO | filter:busquedaTexto
+            | paginate : {itemsPerPage :15,currentPage : pageActual}; let i = index">
+                    <td>
+                        <div class="center-body">{{i+1}}</div>
+                    </td>
+                    <td>
+                        <div class="center-body"> <span class=" font-weight-bold badge badge-mark border-blue mr-1 "
+                                style="font-size:100%;"> {{progCurso.nombre}} {{progCurso.apellidoPat}}
+                                {{progCurso.apellidoMat}}</span> </div>
+                    </td>
+
+                    <td>
+                        <div class="center-body">{{progCurso.nomIdioma}} {{progCurso.nomNivel}} {{progCurso.ciclo}}°
+                            ciclo </div>
+                    </td>
+                    <td>
+                        <div class="center-body"> {{progCurso.nomPeriodo}} </div>
+                    </td>
+                    <td>
+                        <div class="center-body"> {{progCurso.nomAula}} </div>
+                        <!-- --  {{progCurso.nomSede}}  -->
+                    </td>
+                    <td>
+                        <div class="center-body"> {{progCurso.nomGrupoHorario}} </div>
+                        <div class="center-body"> De {{progCurso.horaInicio}} a {{progCurso.horaSalida}} </div>
+                    </td>
+                    <td>
+                        <div class="center-body"> {{progCurso.nomEstado}} </div>
+                    </td>
+                    <td>
+
+
+                        <div class="row">
+                            <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;"
+                                (click)="editar(progCurso.idProgCurso)">
+                                <i class="mdi mdi-border-color"
+                                    style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
+                            </button>
+
+                            <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;"
+                                (click)="eliminar(progCurso.idProgCurso)">
+                                <i class="mdi mdi-delete  "
+                                    style="color : white ; font-size: 20px; display: inline-block !important;"></i>
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+
+    </div>
 </div>

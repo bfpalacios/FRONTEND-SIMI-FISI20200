@@ -10,15 +10,15 @@ export class InformacionPersonalService {
 
   private url: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.url = 'simi/matricula/api/v1';
   }
 
   public obtenerDatosUsuario(user: User) {
-    return this.http.get<any>(this.url + '/persona/datosUsuario/' + user.codigo);
+    return this.http.get<any>(this.url + '/persona/datosUsuario/' + user.id);
   }
 
   public obtenerInformacionAcademica(user: User) {
-    return this.http.get<PersonaUsuario>(this.url + '/persona/informacionAcademica/' + user.codigo);
+    return this.http.get<PersonaUsuario>(this.url + '/persona/informacionAcademica/' + user.id);
   }
 }

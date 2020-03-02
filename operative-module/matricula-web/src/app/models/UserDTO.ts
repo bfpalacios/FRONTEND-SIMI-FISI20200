@@ -11,4 +11,12 @@ export class UserDTO {
     names: string;
     lastNameP: string;
     lastNameM: string;
+    university: string;
+    birthday: string;
+    address: string;
+    phone: string;
+    genero: string;
+    lugarNacDep: string;
+    lugarNacProv: string;
+    lugarNacDist: string;
 }

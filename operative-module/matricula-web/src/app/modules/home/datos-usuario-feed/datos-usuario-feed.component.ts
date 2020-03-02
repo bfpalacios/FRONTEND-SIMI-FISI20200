@@ -29,16 +29,18 @@ export class DatosUsuarioFeedComponent implements OnInit {
 
 
   public obtenerDatosUsuario() {
-    this.dataService.obtenerDatosUsuario().subscribe(data => {
-      localStorage.setItem('SIMI-LOAD-HOME', 'false');
-      if (data != null) {
-        this.userDates = data;
-      } else {
-        this.toastService.error('Error con el servidor de la Base de Datos.');
-      }
-    }, () => {
-      this.toastService.error('Error en el servidor y/o Base de datos.');
-    });
+    if ( this.dataService.obtenerDatosUsuario() != null){
+      this.dataService.obtenerDatosUsuario().subscribe(data => {
+        localStorage.setItem('SIMI-LOAD-HOME', 'false');
+        if (data != null) {
+          this.userDates = data;
+        } else {
+          this.toastService.error('Error con el servidor de la Base de Datos.');
+        }
+      }, () => {
+        this.toastService.error('Error en el servidor y/o Base de datos.');
+      });
+    }
   }
 
   public informacionAcademica() {

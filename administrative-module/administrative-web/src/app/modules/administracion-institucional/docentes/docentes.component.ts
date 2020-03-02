@@ -16,7 +16,6 @@ export class DocentesComponent implements OnInit {
   prueba : string;
   public id: number;
   busquedaTexto: any;
-
    docentesUP: DocenteUP[];
    docenteUP: DocenteUP;
   // estadomesa : EstadoMesa;
@@ -28,6 +27,7 @@ export class DocentesComponent implements OnInit {
      this.estado = false;
       this.docenteUP = new DocenteUP();
       this.pageActual = 1;
+      this.load = true;
     }
 
 
@@ -39,12 +39,9 @@ export class DocentesComponent implements OnInit {
 
   }
   obtenerDocentes() {
-    console.log("antes");
     this.docenteUPService.getDocentesUP().subscribe(data => {
       this.load = false;
       this.docentesUP = data;
-
-      console.log("docentesUP", this.docentesUP);
 
     }
     )

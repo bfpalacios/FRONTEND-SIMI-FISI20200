@@ -15,37 +15,36 @@ import { Idioma } from 'src/app/domain/Idioma';
 export class CursosComponent implements OnInit {
   busquedaTexto: any;
   estado: boolean;
-  prueba : string;
+  prueba: string;
   public id: number;
-  cursoDTO : CursoDTO;
+  cursoDTO: CursoDTO;
   cursosDTO: CursoDTO[];
-  public  pageActual : number ;
-  public selectedTypeIdIdioma : number;
-  public idiomas : Idioma[];
+  public pageActual: number;
+  public selectedTypeIdIdioma: number;
+  public idiomas: Idioma[];
   load: boolean;
   loading: string;
-  parametro : number ;
-   constructor(private router: Router, private serviceIdiomas: IdiomaService,
-    private cursoService: CursoService    ) {
-     this.estado = false;
-     this.pageActual = 1;
-     this.load = true;
-     this.selectedTypeIdIdioma = 1;
-     this.parametro = 1;
-    }
+  parametro: number;
+  constructor(private router: Router, private serviceIdiomas: IdiomaService,
+    private cursoService: CursoService) {
+    this.estado = false;
+    this.pageActual = 1;
+    this.load = true;
+    this.selectedTypeIdIdioma = 1;
+    this.parametro = 1;
+  }
 
 
   // constructor() { }
 
   ngOnInit() {
-    this.parametro = parseInt( localStorage.getItem('parametro'));
+    this.parametro = parseInt(localStorage.getItem('parametro'));
 
-    if(isNaN(this.parametro )){
+    if (isNaN(this.parametro)) {
       this.parametro = 1;
     }
-    
+
     this.obtenerCursos(this.parametro);
-    this.getIdiomas();
 
 
   }
@@ -57,42 +56,37 @@ export class CursosComponent implements OnInit {
     });
   }
 
-  obtenerCursos(id:number) {
-    console.log("antes");
+  obtenerCursos(id: number) {
     this.cursoService.getCursosByIdioma(id).subscribe(data => {
-      this.load = false;
       this.cursosDTO = data;
-
-      console.log("cursosDTO", this.cursosDTO);
-
-    }
-    )
+      this.getIdiomas();
+    });
   }
-  cambiarTabla(){
-    console.log("selectedTypeIdIdioma", this.selectedTypeIdIdioma);
+  cambiarTabla() {
+    console.log('selectedTypeIdIdioma', this.selectedTypeIdIdioma);
     this.obtenerCursos(this.selectedTypeIdIdioma);
   }
 
   nuevoCurso() {
-    
+
     this.router.navigate(['administracionInstitucional/cursos/crear']).then();
   }
   // editarAlumno(id: number) 
-  editarCurso(id: number) { 
-        console.log(id);
+  editarCurso(id: number) {
+    console.log(id);
 
     // this.router.navigate(['administracionInstitucional/alumnos/nuevo/editar/' + id]);
-    this.router.navigate(['administracionInstitucional/cursos/editar/'+id]).then();
+    this.router.navigate(['administracionInstitucional/cursos/editar/' + id]).then();
   }
 
   public eliminarCurso(id: number) {
     console.log(id);
-    
+
     this.cursoService.getCursoById(id).subscribe(o => {
       if (o !== null) {
-        this.cursoDTO = o;console.log(this.cursoDTO);
+        this.cursoDTO = o; console.log(this.cursoDTO);
         Swal.fire({
-          title: 'Estas seguro que desea eliminar el curso '+ this.cursoDTO.nomIdioma + '-' + this.cursoDTO.nomNivel + '-Ciclo : '+this.cursoDTO.ciclo +' ?',
+          title: 'Estas seguro que desea eliminar el curso ' + this.cursoDTO.nomIdioma + '-' + this.cursoDTO.nomNivel + '-Ciclo : ' + this.cursoDTO.ciclo + ' ?',
           // text: "S",
           icon: 'warning',
           showCancelButton: true,
@@ -104,7 +98,7 @@ export class CursosComponent implements OnInit {
           if (result.value) {
             this.load = true;
             this.cursoService.deleteCursoById(id).subscribe(data => {
-              
+
               if (data) {
                 this.load = false;
                 Swal.fire(
@@ -115,11 +109,11 @@ export class CursosComponent implements OnInit {
                 this.obtenerCursos(this.selectedTypeIdIdioma);
                 Swal.fire(
                   'Curso Eliminado!',
-                    'El Registro se elimino correctamente.',
-                    'success'
-                  );
-        
-        
+                  'El Registro se elimino correctamente.',
+                  'success'
+                );
+
+
               } else {
                 this.load = false;
                 // this.obtenerIdiomas();
@@ -131,20 +125,20 @@ export class CursosComponent implements OnInit {
                   error.error.text,
                   'error'
                 );
-               if (error) {
-                 this.load = false;
-                 // this.obtenerIdiomas();
-                
-               }
+                if (error) {
+                  this.load = false;
+                  // this.obtenerIdiomas();
+
+                }
               }
             });
-           
-          }
-          })
 
-         } else {  this.navigateList();    }
-   
-  } ) ;
+          }
+        })
+
+      } else { this.navigateList(); }
+
+    });
 
   }
   private navigateList() {

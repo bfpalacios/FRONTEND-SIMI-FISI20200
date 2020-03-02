@@ -55,11 +55,11 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.load = true;
     this.loadcito = false;
     this.apertura = new Apertura();
-    this.apertura.codEstudiante = this.serviceData.user.codigo;
+    this.apertura.codEstudiante = this.serviceData.user.id;
   }
 
   ngOnInit() {
-    console.log(this.serviceData.user.codigo);
+    console.log(this.serviceData.user.id);
     this.getApertura();
   }
 
@@ -74,7 +74,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
   }
 
   public getAperturabyID() {
-    this.serviceApertura.getAperturabyID(this.serviceData.user.codigo).subscribe(data => {
+    this.serviceApertura.getAperturabyID(this.serviceData.user.id).subscribe(data => {
       this.aperturaDTO2 = data;
       this.load = false;
 

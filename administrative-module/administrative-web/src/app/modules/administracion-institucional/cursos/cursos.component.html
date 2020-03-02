@@ -1,100 +1,118 @@
-
-<div class="simi-header">
-  
-    <button class="btn simi-btn-primary ml-2 mr-1" (click)="nuevoCurso()">
-        <i [ngClass]="'mdi-pencil' " class="mdi f-16"></i> Nuevo Curso
-    </button>
-</div>
-<div class=" form-group row right ml-3 mr-3">
-
-
-    <div class="col-sm-7">
-        <label class="col-sm-4  col-form-label">Filtro</label>
-        <input type="text" class="col-sm-10" placeholder="Ingrese su filtro de Búsqueda" [(ngModel)]="busquedaTexto" />
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
     </div>
+</div>
+<div *ngIf="!load">
+    <div class="simi-header">
 
-    <div class="col-sm-5">
-        <label class="col-sm-4  col-form-label">Idioma</label>
-        <select class="form-control form-control-sm" (click)="cambiarTabla()" [(ngModel)]="selectedTypeIdIdioma" (change)="obtenerCursos(selectedTypeIdIdioma)">
+        <button class="btn simi-btn-primary ml-2 mr-1" (click)="nuevoCurso()">
+            <i [ngClass]="'mdi-pencil' " class="mdi f-16"></i> Nuevo Curso
+        </button>
+    </div>
+    <div class=" form-group row right ml-3 mr-3">
+
+
+        <div class="col-sm-7">
+            <label class="col-sm-4  col-form-label">Filtro</label>
+            <input type="text" class="col-sm-10" placeholder="Ingrese su filtro de Búsqueda"
+                [(ngModel)]="busquedaTexto" />
+        </div>
+
+        <div class="col-sm-5">
+            <label class="col-sm-4  col-form-label">Idioma</label>
+            <select class="form-control form-control-sm" (click)="cambiarTabla()" [(ngModel)]="selectedTypeIdIdioma"
+                (change)="obtenerCursos(selectedTypeIdIdioma)">
                 <option [ngValue]="0">Seleccionar el Idioma</option>
                 <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
                 </option>
             </select>
+        </div>
+
     </div>
 
-</div>
 
 
 
+    <div class="w-100 mt-3 table-responsive" style="margin: auto;">
+        <table class="table table-hover table-bordered">
+            <!-- thead-primary -->
+            <thead class="header-table " style="background: #dfe3e7;">
+                <tr>
 
-<div class="w-100 mt-3 table-responsive" style="margin: auto;">
-    <table class="table table-hover table-bordered">
-        <!-- thead-primary -->
-        <thead class="header-table " style="background: #dfe3e7;">
-            <tr>
+                    <td>
+                        <div class="center-head">N°</div>
+                    </td>
 
-                <td>
-                    <div class="center-head">N°</div>
-                </td>
-
-                <td>
-                    <div class="center-head">Idioma</div>
-                </td>
-                <td>
-                    <div class="center-head">Nivel</div>
-                </td>
-                <td>
-                    <div class="center-head">Ciclo</div>
-                </td>
-                <!-- <td>
+                    <td>
+                        <div class="center-head">Idioma</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Nivel</div>
+                    </td>
+                    <td>
+                        <div class="center-head">Ciclo</div>
+                    </td>
+                    <!-- <td>
                         <div class="center-head">Libro</div>
                     </td> -->
 
-                <td style="width: 100px;" class="text-center"></td>
+                    <td style="width: 100px;" class="text-center"></td>
 
 
-            </tr>
-        </thead>
-        <tbody class="header-body">
-            <tr *ngFor="let curso of cursosDTO | filter:busquedaTexto
+                </tr>
+            </thead>
+            <tbody class="header-body">
+                <tr *ngFor="let curso of cursosDTO | filter:busquedaTexto
                 | paginate : {itemsPerPage :12,currentPage : pageActual}; let i = index">
-                <td>
-                    <div class="center-body">{{i+1}}</div>
-                </td>
+                    <td>
+                        <div class="center-body">{{i+1}}</div>
+                    </td>
 
-                <td>
-                    <div class="center-body"> <span class=" font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:110%;"> {{curso.nomIdioma}} </span> </div>
-                </td>
-                <td>
-                    <div class="center-body badge bg-warning badge-pill ml-auto" style="font-size: 110%;" *ngIf="curso.idNivel==1">{{curso.nomNivel}} </div>
-                    <div class="center-body badge bg-info badge-pill ml-auto" style="font-size: 110%;" *ngIf="curso.idNivel==2">{{curso.nomNivel}} </div>
-                    <div class="center-body badge bg-danger badge-pill ml-auto" style="font-size: 110%;" *ngIf="curso.idNivel==3">{{curso.nomNivel}} </div>
-                    <div class="center-body badge bg-success badge-pill ml-auto" style="font-size: 110%;" *ngIf="curso.idNivel==4">{{curso.nomNivel}} </div>
+                    <td>
+                        <div class="center-body"> <span class=" font-weight-bold badge badge-mark border-blue mr-1 "
+                                style="font-size:110%;"> {{curso.nomIdioma}} </span> </div>
+                    </td>
+                    <td>
+                        <div class="center-body badge bg-warning badge-pill ml-auto" style="font-size: 110%;"
+                            *ngIf="curso.idNivel==1">{{curso.nomNivel}} </div>
+                        <div class="center-body badge bg-info badge-pill ml-auto" style="font-size: 110%;"
+                            *ngIf="curso.idNivel==2">{{curso.nomNivel}} </div>
+                        <div class="center-body badge bg-danger badge-pill ml-auto" style="font-size: 110%;"
+                            *ngIf="curso.idNivel==3">{{curso.nomNivel}} </div>
+                        <div class="center-body badge bg-success badge-pill ml-auto" style="font-size: 110%;"
+                            *ngIf="curso.idNivel==4">{{curso.nomNivel}} </div>
 
-                </td>
-                <td>
-                    <div class="center-body">{{curso.ciclo}}° ciclo </div>
-                </td>
-                <!-- <td>
+                    </td>
+                    <td>
+                        <div class="center-body">{{curso.ciclo}}° ciclo </div>
+                    </td>
+                    <!-- <td>
                         <div class="center-body">{{curso.libro}} </div>
                     </td> -->
 
-                <td>
-                    <div class="row">
-                        <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;" (click)="editarCurso(curso.idCurso)">
-                                    <i class="mdi mdi-border-color" style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
-                                </button>
+                    <td>
+                        <div class="row">
+                            <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;"
+                                (click)="editarCurso(curso.idCurso)">
+                                <i class="mdi mdi-border-color"
+                                    style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
+                            </button>
 
-                        <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;" (click)="eliminarCurso(curso.idCurso)">
-                                        <i class="mdi mdi-delete  " style="color : white ; font-size: 20px; display: inline-block !important;"></i> 
-                                </button>
+                            <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;"
+                                (click)="eliminarCurso(curso.idCurso)">
+                                <i class="mdi mdi-delete  "
+                                    style="color : white ; font-size: 20px; display: inline-block !important;"></i>
+                            </button>
 
-                    </div>
-                </td>
-            </tr>
-        </tbody>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
 
-    </table>
-    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+        </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
 
+    </div>
 </div>
