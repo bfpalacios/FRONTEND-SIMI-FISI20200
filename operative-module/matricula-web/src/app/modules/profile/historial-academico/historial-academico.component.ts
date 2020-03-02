@@ -19,7 +19,7 @@ export class HistorialAcademicoComponent implements OnInit {
   }
 
   public getHistorialbyID(){
-    this.serviceHistorial.getNotabyID(this.serviceData.user.codigo).subscribe(data => {
+    this.serviceHistorial.getNotabyID(this.serviceData.user.id).subscribe(data => {
       this.nota = data;
       console.log(this.nota);
     }, error =>{

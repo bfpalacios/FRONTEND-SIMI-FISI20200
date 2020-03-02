@@ -55,7 +55,7 @@ export class SolicitarAperturaCursoComponent implements OnInit {
     this.load = true;
     this.loadcito = false;
     this.apertura = new Apertura();
-    this.apertura.codEstudiante = this.serviceData.user.codigo;
+    this.apertura.codEstudiante = this.serviceData.user.id;
   }
 
   ngOnInit() {

@@ -77,7 +77,7 @@ export class MatricularComponent implements OnInit {
   }
 
   public getProgramacionbyID() {
-    this.serviceProgramacion.getProgramacionbyID(this.dataService.user.codigo).subscribe(data => {
+    this.serviceProgramacion.getProgramacionbyID(this.dataService.user.id).subscribe(data => {
       this.programaciones = data;
       this.programaciones.forEach(v => {
         this.seleccionados.push({blocked: false, checked: false});
