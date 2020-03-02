@@ -1,6 +1,7 @@
 <div class="main-container">
     <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #snav opened [mode]="mobile.matches ? 'over' : 'side'" 
+        <mat-sidenav
+        #snav [mode]="mobile.matches ? 'over' : 'side'" 
         [fixedInViewport]="mobile.matches"
             class="sidenav-content">
             <div class="text-center font-weight-light" 
@@ -17,7 +18,7 @@
                 <br/>
                 <div class="mt-3">
                     <span class="nickname-menu">
-                        Duvan Saenz Falcón
+                        <b>{{name}}</b>
                     </span>
                 </div>
                 <br/>
@@ -25,16 +26,31 @@
 
             <mat-nav-list style="padding-top: 0px !important;">
                 <app-menu></app-menu>
+                <button class="btn simi-btn-primary btn-block" style="text-align: left;"
+                (click)="logout(snav)">
+                    <i class="mdi mdi-location-exit f-15"></i> <span class="font-weight-light">
+                        Cerrar Sesión</span>
+                    <span style="float:right">
+                        <i class="mdi mdi-checkbox-multiple-blank-circle f-11"></i></span>
+                </button>
             </mat-nav-list>
             <div class="text-center mt-4">
                 <span style="font-size: 12px;">Simi: Sistema de Matrícula Online</span>
             </div>
         </mat-sidenav>
         <mat-sidenav-content style="background-color: #ededee;">
-            <div class="header-login" style="position: fixed; z-index: 100;">
-                <button (click)="snav.toggle()" class="btn-sidenav">
-                    <i class="ml-2 mr-2 mdi mdi-menu white"></i>
-                </button>
+            <div *ngIf="service.authenticated"
+            class="header-login" style="position: absolute; z-index: 100; width: 100%;">
+                    <button (click)="snav.toggle()" class="btn-sidenav btn simi-btn-primary" 
+                    style="float:left; font-size: 18px !important;">
+                        <i class="ml-2 mr-2 mdi mdi-menu white"></i>
+                    </button>
+                <div style="float: right; height: 100%;">
+                    <button class="btn simi-btn-primary simi-height-100"
+                    (click)="logout(snav)">
+                        Cerrar Sesión
+                    </button>
+                </div>
             </div>
             <router-outlet></router-outlet>
         </mat-sidenav-content>

@@ -1,0 +1,49 @@
+<div class="mt-2">
+    <div class="text-center">
+        <img src="assets/logo/logo-completo.png" width="200" />
+        <br />
+        <h6 class="f-14 ml-5 mr-5">Sistema de Matrícula Online</h6>
+    </div>
+    <div class="text-center mt-2">
+        <h4>Crear cuenta</h4>
+    </div>
+    <form novalidate class="mt-2">
+        <div>
+            <label style="font-size: 15px;">
+                <i class="mdi mdi-account f-18 primary-color"></i>
+                Email
+            </label>
+            <input type="text" name="email" [(ngModel)]="newUser.email" class="form-control form-control-md" />
+        </div>
+        <div class="mt-3">
+            <label style="font-size: 15px;">
+                <i class="mdi mdi-key-variant f-18 primary-color"></i>
+                Contraseña</label>
+            <input type="password" name="password" [(ngModel)]="newUser.password"
+                class="form-control form-control-md" />
+        </div>
+        <div class="mt-3">
+            <label style="font-size: 15px;">
+                <i class="mdi mdi-key-variant f-18 primary-color"></i>
+                Confirmar Contraseña</label>
+            <input type="password" name="passwordConfirm" [(ngModel)]="newUser.passwordConfirm"
+                class="form-control form-control-md" />
+        </div>
+        <div>
+            <label style="font-size: 13px; color: red">
+                {{msg}}</label>
+        </div>
+        <div class="text-center mt-2">
+            <button type="submit" class="btn simi-btn-primary btn-block" (click)="validarUsuario()">
+                Continuar
+            </button>
+        </div>
+    </form>
+    <div class="mt-2">
+        <button class="btn simi-btn-silver btn-block" (click)="back()">
+            <i class="mdi mdi-arrow-left"></i> Login
+        </button>
+    </div>
+    <br />
+    <br />
+</div>

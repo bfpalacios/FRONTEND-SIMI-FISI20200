@@ -2,7 +2,7 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Observer } from 'rxjs';
 import { User } from '../models/User';
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { InformacionPersonalService } from './data-user/informacion-personal.service';
 import { MatriculaOnlineService } from './periodo-academico/matricula-online.service';
@@ -11,6 +11,7 @@ import { MatriculaOnlineService } from './periodo-academico/matricula-online.ser
   providedIn: 'root'
 })
 export class DataServiceService {
+  public authenticated: boolean;
   public user: User;
   private url: string;
   private get _toastService() { return this.injector.get(ToastrService); }
@@ -21,6 +22,7 @@ export class DataServiceService {
     private injector: Injector,
     private infPersonalService: InformacionPersonalService,
     private matricula: MatriculaOnlineService) {
+    this.authenticated = false;
     this.url = 'simi/matricula/api/v1';
   }
 
@@ -35,7 +37,7 @@ export class DataServiceService {
             observer.next('');
             observer.complete();
           } else {
-             //location.href = 'http://165.227.89.167/';
+            //location.href = 'http://165.227.89.167/';
             this._toastService.error('Usuario autenticado no válido.');
           }
         }, () => {
@@ -64,7 +66,14 @@ export class DataServiceService {
     const email = sessionStorage.getItem('SIMI-EMAIL');
     const rol = +(sessionStorage.getItem('SIMI-TYPE'));
     const user = new User();
-    user.setUser(id, email, rol);
+    if (email != null) {
+      this.authenticated = true;
+      user.setUser(id, email, rol);
+      this.router.navigate(['home']);
+    } else {
+      this.authenticated = false;
+      user.setUser(1, 'nataly@unmsm.edu.pe', 1);
+    }
     return user;
   }
 }
