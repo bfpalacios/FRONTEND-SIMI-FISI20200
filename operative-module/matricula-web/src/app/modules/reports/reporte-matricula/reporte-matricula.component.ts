@@ -19,7 +19,7 @@ export class ReporteMatriculaComponent implements OnInit {
   }
 
   public getAperturabyID() {
-    this.serviceMatricula.getMatriculaById(this.serviceData.user.codigo).subscribe(data => {
+    this.serviceMatricula.getMatriculaById(this.serviceData.user.id).subscribe(data => {
       this.matricula= data;
       this.load = false;
     }, error => {
