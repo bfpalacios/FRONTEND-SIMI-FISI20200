@@ -1,0 +1,85 @@
+<div>
+    <span class="title-module" style="font-size: 22px;">
+        <i class="mdi mdi-collage mr-1"></i>Solicitud de apertura
+    </span>
+    <hr />
+</div>
+
+<div style="margin-right: 80px; margin-left: 80px; margin-top: 50px;">
+    <div id="all">
+        <div class="contenedor">
+            <div class="table-responsive">
+                <table class="table table-hover text-center table-matricular">
+                    <thead style=" border: solid 1px #acacac;">
+                        <tr class="head">
+                            <th>Idioma</th>
+                            <th>Nivel</th>
+                            <th>Ciclo</th>
+                            <th>Horario</th>
+                            <th>Solicitantes</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="text-center">
+                        <tr *ngFor=" let apertura of aperturaDTO ">
+                            <td> {{apertura.nomIdioma}} </td>
+                            <td> {{apertura.nomNivel}} </td>
+                            <td> {{apertura.ciclo}} </td>
+                            <td> {{apertura.nomGrupoHorario}} <br> ({{apertura.hora}}) </td>
+                            <td> {{apertura.solicitantes}} </td>
+                            <td><button class="btn btn-primary btn-sm" (click)="unirseApertura(apertura.idCurso, apertura.idGrupohorario)">Unirse</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="combo">
+
+            <div class="combito">
+                <label>Idioma</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="selectedTypeIdIdioma" (change)="getNivel()">
+                    <option disabled selected value="">Seleccionar el idioma</option>
+                    <option [value]="idioma.idIdioma" *ngFor="let idioma of idiomaDTO "> {{ idioma.nomIdioma }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="combito">
+                <label>Nivel</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="selectedTypeIdNivel" (change)="getCurso()">
+                    <option disabled selected value="">Seleccione el nivel</option>
+                    <option [value]="nivel.idNivel" *ngFor="let nivel of nivel"> {{ nivel.nomNivel }}
+                </select>
+            </div>
+            <div class="combito">
+                <label>Ciclo</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="selectedTypeIdCurso" (change)="getGrupo()">
+                    <option disabled selected value="">Seleccione el ciclo</option>
+                    <option [value]="ciclo.idCurso" *ngFor="let ciclo of curso"> {{ ciclo.ciclo }} </option>
+                </select>
+            </div>
+            <div class="combito">
+                <label>Días</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="selectedTypeIdDias" (change)="getHora()">
+                    <option disabled selected value="">Seleccione dias</option>
+                    <option [value]="grupo.idGrupo"*ngFor="let grupo of grupo"> {{grupo.nomGrupo}} </option>
+                </select>
+            </div>
+
+            <div class="combito">
+                <label>Horario</label>
+                <select class="custom-select d-block w-100" [(ngModel)]="selectedTypeIdGrupo" (change)="desactivado=false">
+                    <option disabled selected value=" ">Seleccione hora</option>
+                    <option [value]="hora.idHorario" *ngFor="let hora of hora" > {{ hora.horario}} </option>
+                </select>
+            </div>
+
+        </div>
+
+        <div id="boton ">
+            <p><button id="botonSolicitar " class="btn btn-primary " [disabled]="desactivado" (click)="crearApertura()">Solicitar</button></p>
+        </div>
+    </div>
+</div>

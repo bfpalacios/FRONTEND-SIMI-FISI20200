@@ -1,0 +1,24 @@
+.btn-none{
+    background: transparent;
+    border: 0px;
+}
+
+.table .thead-primary th {
+    color:white;
+    background-color: #096ac6;
+    border-color: #096ac6;
+    line-height: 1 !important;
+
+}
+
+.table .header-body tr > td{
+    border: 1px solid rgb(220,220,220) !important;
+    height: 30px !important;
+    padding-left: 3px !important;
+}
+
+.table td, .table th {
+    padding: 0.50rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}

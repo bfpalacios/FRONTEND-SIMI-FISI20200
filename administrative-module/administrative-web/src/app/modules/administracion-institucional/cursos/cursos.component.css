@@ -1,0 +1,17 @@
+.btn-none{
+    background: transparent;
+    border: 0px;
+}
+
+.table .thead-primary th {
+    color:white;
+    background-color: #096ac6;
+    border-color: #096ac6;
+}
+
+
+.table td, .table th {
+    padding: 0.25rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}

@@ -1,0 +1,65 @@
+
+    <div class="header-user-list mb-2">
+        <button class="btn-nuevo ml-1 mr-1" (click)="crear()">
+            <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Crear Horario
+        </button>
+        <button type="button" class="btn-nuevo ml-1 mr-1" (click)=" cancelar()">
+            <i class="mdi mdi-close-circle f-16"></i> Cancelar
+        </button>
+    </div>
+
+ 
+    <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
+    <span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
+        {{successText}} <br /></span>
+    
+        <h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Horario </h5>
+        <hr>
+
+        <div class="row col-sm-10" style="margin: auto;">
+            <!-- <div class="form-group row"> -->
+                <label class="col-sm-3 col-form-label text-sm-left" style=" font-size: 110%;">
+                    <i class=" f-16"></i> Nombre</label>
+                <div class="col-sm-5">
+                    <input name="nomAula" [(ngModel)]="aula.nomAula" type="text" class="form-control"  placeholder="Ingrese el identificador del Horario">
+                </div>
+            <!-- </div> -->
+        </div>
+        <hr>
+        <br>
+      <div class="row col-md-10" style="margin: auto;">
+        <div class="col-md-5">
+            <div class="form-group row ">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
+                    <i class=" f-16"></i> Dia : </label>
+                
+                <div class="col-sm-12 ">
+                    <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDia">
+                        <option [ngValue]="0">Seleccionar el día</option>
+                        <option [ngValue]="dia.idDia" *ngFor="let dia of dias">{{dia.nomDia}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            
+        </div>
+            <div class="col-md-5">
+
+                <div class="form-group row ">
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"            >
+                        <i class="f-16"></i>  Hora : </label>
+                        <div class="col-sm-12 ">
+                            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHora">
+                                <option [ngValue]="0">Seleccionar la Hora </option>
+                                <!-- poner ambas horas , jutanrlas  -->
+                                <option [ngValue]="hora.chora" *ngFor="let hora of horas">{{hora.horaInicio}} -- {{hora.horaSalida}} 
+                                </option>
+                            </select>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+                <button > + </button>
+            </div>
+          </div>

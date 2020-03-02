@@ -1,0 +1,12 @@
+{
+    "/simi/matricula/*": {
+      "target": "http://localhost:8081/",
+      "secure": true,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/simi/matricula": ""
+      }
+      
+    }
+  }
