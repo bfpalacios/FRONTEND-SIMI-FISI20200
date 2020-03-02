@@ -28,29 +28,27 @@ loading: string;
    this.estado = false;
     this.estudianteUP = new EstudianteUP();
     this.pageActual = 1;
+    this.load = true;
   }
 
 
 // constructor() { }
 
 ngOnInit() {
-  this.obtenerDocentes();
+  this.obtenerEstudiantes();
 
 
 }
-obtenerDocentes() {
-  console.log("antes");
+obtenerEstudiantes() {
   this.estudianteUPService.getEstudianteUP().subscribe(data => {
     this.load = false;
     this.estudiantesUP = data;
-
-    console.log("estudiantesUP", this.estudiantesUP);
 
   }
   )
 }
 
-nuevoDocente() {
+nuevoEstudiante() {
   
   this.router.navigate(['administracionInstitucional/estudiantes/crear']).then();
 }
@@ -88,7 +86,7 @@ public eliminarDocente(id: number) {
                 'El Estudiante se elimino correctamente.',
                 'success'
               );
-              this.obtenerDocentes();
+              this.nuevoEstudiante();
               Swal.fire(
                 'Estudiante Eliminado!',
                   'El Estudiante se elimino correctamente.',

@@ -1,7 +1,7 @@
 <div style="overflow-y: auto;">
     <button (click)="home()" class="list-group-item btn-item"> Inicio   </button>
     
-    <button (click)="show(1)" class="list-group-item btn-item">  Administración del Sistema   </button>
+    <!-- <button (click)="show(1)" class="list-group-item btn-item">  Administración del Sistema   </button>
     <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light  subitem w-100" style  (click)="setTitle(1)" [routerLink]="['administracionSistema/sistemaGeneral']">Sistema General
         </button>
@@ -14,7 +14,7 @@
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(3)"   [routerLink]="['administracionUsuarios/permisos']">Permisos</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(4)"  [routerLink]="['administracionUsuarios/tipoUsuario']">Tipos de Usuario</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(5)"  [routerLink]="['administracionUsuarios/listUsuarios']">Usuarios</button>
-    </div>
+    </div> -->
     <button (click)="show(3)" class="list-group-item btn-item">  Administración Institucional</button>
       <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(9)"   [routerLink]="['administracionInstitucional/docentes']">Docentes</button>

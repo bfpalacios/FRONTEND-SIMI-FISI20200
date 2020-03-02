@@ -46,14 +46,14 @@ export class AulasComponent implements OnInit {
     }
     console.log("this.parametro",this.parametro);
     this.obtenerAulas(this.parametro);
-    this.getSedes();
+
 
   }
   obtenerAulas(id:number) {
     console.log("antes");
     this.serviceAula.getAulasbySede(id).subscribe(data => {
-      this.load = false;
       this.aulasdto = data;
+      this.getSedes();
     }
     )
   }
@@ -63,8 +63,7 @@ export class AulasComponent implements OnInit {
     this.serviceSede.getSedes().subscribe(data => {
       this.load = false;
       this.sedes = data;
-    }
-    )
+    });
   }
 
   cambiarTabla(){
