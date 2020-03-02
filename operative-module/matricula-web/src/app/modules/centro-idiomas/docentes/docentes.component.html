@@ -1,4 +1,10 @@
-<div class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
         <i class="mdi mdi-school-outline ml-2 f-15 "></i>
         Centro de Idiomas
@@ -9,7 +15,7 @@
             Docentes</span>
     </span>
 </div>
-<div class="simi-card">
+<div *ngIf="!load" class="simi-card">
     <h4>Nuestros Docentes del Centro de Idiomas</h4>
     <div *ngFor="let docente of docente; let i = index">
         <div class="mt-3">

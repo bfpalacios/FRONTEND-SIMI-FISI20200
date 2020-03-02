@@ -3,6 +3,7 @@ import { User } from 'src/app/models/User';
 import { EmiiterBuilder } from 'src/app/models/EmiiterBuilder';
 import { Router } from '@angular/router';
 import { UserDTO } from 'src/app/models/UserDTO';
+import { RegisterService } from 'src/app/services/authentication/regiter.service';
 
 @Component({
   selector: 'app-form-register',
@@ -16,7 +17,9 @@ export class FormRegisterComponent implements OnInit {
   @Input()  public newUser: UserDTO;
   public msg: string;
   @Output() public emitter;
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private service: RegisterService) {
     this.loading = 'assets/loading/loading.svg';
     this.load = false;
     this.user = new User();
@@ -30,9 +33,14 @@ export class FormRegisterComponent implements OnInit {
 
   public validarUsuario(): void {
     if(!this.isEmpty()) {
-      console.log('nuevo usuario ->', this.newUser);
       this.msg = 'Verificando usuario...';
-      EmiiterBuilder.emitterUpdate(this.emitter, this.showDatosPersonales);
+      this.service.validadUsuario(this.newUser).subscribe(data => {
+        if (!data) {
+          this.msg = 'Ya existe un usuario registrado con este email.';
+        } else {
+          EmiiterBuilder.emitterUpdate(this.emitter, this.showDatosPersonales);
+        }
+      });
     }
   }
 

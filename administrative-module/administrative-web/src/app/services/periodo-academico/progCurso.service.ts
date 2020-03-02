@@ -16,9 +16,16 @@ export class ProgCursoService {
   getProgCurso() {
     return this.http.get<ProgCursoDTO[]>(this.url + '/' + 'listProgCursos');
   }
-  
+
   public getProgCursoById(id: number) {
     return this.http.get<ProgCursoDTO>(this.url + '/' + 'obtenerProgCursoById' + '/' + id);
+  }
+  public getProgCursosPeriodo(idPeriodo: number) {
+    return this.http.get<ProgCursoDTO[]>(this.url + '/' + 'listProgCursosByPeriodo' + '/' + idPeriodo);
+  }
+
+  public getProgCursosBySedePeriodo(idSede: number,idPeriodo: number) {
+    return this.http.get<ProgCursoDTO[]>(this.url + '/' + 'listProgCursosBySedePeriodo' + '/' + idSede+ '/' + idPeriodo);
   }
 
    public crearProgCurso(pa: ProgCurso) {

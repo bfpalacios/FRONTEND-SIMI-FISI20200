@@ -26,7 +26,9 @@ export class ProgDocCursoService {
   getProgDocCursoByPeriodoByIdioma(idPeriodo: number,idIdioma: number) {
     return this.http.get<ProgDocCursoDTO[]>(this.url + '/' + 'listProgDocCursosByPeriodoIdioma' + '/' + idPeriodo+ '/' + idIdioma);
   }
-
+  getProgDocCursosByDocenteCursoPeriodo(codDocente: string, idCurso: number,idPeriodo: number) {
+    return this.http.get<ProgDocCursoDTO[]>(this.url + '/' + 'listProgDocCursosByDocenteCursoPeriodo' + '/' + codDocente+ '/' + idCurso+ '/' + idPeriodo);
+  }
   public getProgDocCursoById(id: number) {
     return this.http.get<ProgDocCursoDTO>(this.url + '/' + 'obtenerProgDocCursoById' + '/' + id);
   }
