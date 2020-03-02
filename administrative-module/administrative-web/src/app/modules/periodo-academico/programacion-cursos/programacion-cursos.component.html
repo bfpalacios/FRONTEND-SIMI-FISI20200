@@ -11,9 +11,9 @@
     <button  *ngIf="nuevoCurso" class="btn simi-btn-primary ml-2 mr-1" (click)="guardar()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
     </button>
-    <!-- <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
+     <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
-    </button> -->
+    </button> 
     <!-- <button type="button" class="btn simi-btn-red ml-1 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-delete f-16"></i> Eliminar
     </button> -->
@@ -36,47 +36,43 @@
 </div>
 
     <div class="row float-right">
-        <div class="col-sm-6">
+        <div class="col-sm-5">
             <select class="form-control form-control-sm" (click)="habilitarAulas()"  [(ngModel)]="selectedTypeIdSede">
-                <option [ngValue]="0">Seleccionar la Sede</option>
+                <option [ngValue]="0">Sede</option>
+                <option  *ngIf="nuevoCurso==false && actualizar==false " [ngValue]="-1">Todas las Sedes</option>
                 <option [ngValue]="sede.idSede" *ngFor="let sede of sedes">{{sede.nomSede}}
                 </option>
             </select>       
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-5">
             <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo" (click)="habilitarCurso()">
-                <option [ngValue]="0">Seleccionar el Periodo Académico</option>
+                <option [ngValue]="0">Periodo Académico</option>
                 <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
                 </option>
             </select>       
          </div>
-         <br> <br>
+         <div class="col-md-2">
+            <button class="btn-nuevo"(click)="filtrarSedePeriodo()" *ngIf="nuevoCurso==false && actualizar==false " > <i class="mdi mdi-magnify f-16"></i>    </button>
+        </div>
+        
     </div>
-     <!-- <div class="col-sm-6">
-            <label class="col-sm-12  col-form-label"> Curso - Docente </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdProgDocCuso">
-                <option [ngValue]="0">Seleccionar el  Curso - Docente</option>
-                <option [ngValue]="prog.idProgCurso" *ngFor="let prog of progDocCursos">
-                    {{prog.nomIdioma}} {{prog.nomNivel}} {{prog.ciclo}}   -- 
-                     {{prog.idDocente}} -- {{prog.nombre}}  {{prog.apellidoPat}}  {{prog.apellidoMat}} 
-                </option>
-            </select>
-        </div> -->
-
-    <div class="row col-sm-12"  *ngIf="selectedTypeIdSede!=0 && selectedTypeIdPeriodo!=0 &&nuevoCurso " >
+    <br> 
+ 
+    <div class="row col-sm-12"  *ngIf="selectedTypeIdSede!=0 && selectedTypeIdPeriodo!=0 && (nuevoCurso ||actualizar ) " >
            <div class="col-sm-4">
             <label class="col-sm-12  col-form-label"> Curso </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso">
+            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso" (click)="habilitarDocente()">
               <option [ngValue]="0">Seleccionar el  Curso </option>
-                <option [ngValue]="curso.idAula" *ngFor="let curso of cursos">  {{curso.nomIdioma}} {{curso.nomNivel}} {{curso.ciclo}}
+                <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">  {{curso.nomIdioma}} {{curso.nomNivel}} {{curso.ciclo}}
                 </option>
             </select>
         </div>
-        <div class="col-sm-4">
+        <!-- *ngIf="selectedTypeIdCurso!=0" -->
+        <div class="col-sm-4"  >
             <label class="col-sm-12  col-form-label"> Docente </label>
             <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDocente">
-              <option [ngValue]="0">Seleccionar el  Docente</option>
-                <option [ngValue]="docente.idAula" *ngFor="let docente of docentes">  {{docente.nombre}}  {{docente.apellidoPat}}{{docente.apellidoMat}}
+              <option [ngValue]="0">Seleccione Docente</option>
+                <option [ngValue]="docente.codDocente" *ngFor="let docente of docentes">  {{docente.nombre}}  {{docente.apellidoPat}}{{docente.apellidoMat}}
                 </option>
             </select>
         </div>

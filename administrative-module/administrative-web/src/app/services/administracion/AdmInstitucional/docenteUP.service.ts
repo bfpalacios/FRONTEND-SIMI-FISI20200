@@ -15,6 +15,10 @@ export class DocenteUPService {
   getDocentesUP() {
     return this.http.get<DocenteUP[]>(this.url + '/' + 'listDocenteUsuarioPersona');
   }
+
+  getDocentesUPByCursoPeriodo(idCurso: number,idPeriodo: number) {
+    return this.http.get<DocenteUP[]>(this.url + '/' + 'listDocentesByCursoPeriodo'+ '/' + idCurso+ '/' + idPeriodo);
+  }
   
   public getDocenteUPById(id: number) {
     return this.http.get<DocenteUP>(this.url + '/' + 'obtenerDocenteUsuarioPersonaById' + '/' + id);
