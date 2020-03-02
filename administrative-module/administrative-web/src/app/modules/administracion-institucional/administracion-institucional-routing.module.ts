@@ -22,6 +22,9 @@ import { CreateCursoComponent } from './cursos/create-curso/create-curso.compone
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { CreateDocenteComponent } from './docentes/create-docente/create-docente.component';
 import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente.component';
+import { EstudiantesComponent } from './estudiantes/estudiantes.component';
+import { CreateEstudianteComponent } from './estudiantes/create-estudiante/create-estudiante.component';
+import { EditarEstudianteComponent } from './estudiantes/editar-estudiante/editar-estudiante.component';
 
 const routes: Routes = [
 {  path: 'alumnos',  component: AlumnosComponent},
@@ -36,6 +39,9 @@ const routes: Routes = [
 {  path: 'docentes',  component: DocentesComponent},
 {  path: 'docentes/crear',  component: CreateDocenteComponent},
 {  path: 'docentes/editar/:id',  component: EditarDocenteComponent},
+{  path: 'estudiantes',  component: EstudiantesComponent},
+{  path: 'estudiantes/crear',  component: CreateEstudianteComponent},
+{  path: 'estudiantes/editar/:id',  component: EditarEstudianteComponent},
 {  path: 'horarios',  component: HorariosComponent},
 {  path: 'horarios/crear',  component: CreateHorarioComponent},
 {  path: 'horarios/editar/:id',  component: EditarHorarioComponent},
@@ -53,6 +59,7 @@ const routes: Routes = [
 {  path: '**',  redirectTo: 'horarios'},
 {  path: '**',  redirectTo: 'cursos'},
 {  path: '**',  redirectTo: 'docentes'},
+{  path: '**',  redirectTo: 'estudiantes'},
 ];
 
 @NgModule({

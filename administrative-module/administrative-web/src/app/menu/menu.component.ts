@@ -77,6 +77,9 @@ export class MenuComponent implements OnInit {
       case 9:
         this.setLocalStorageTitle('Admin. Institucional - Docentes');
         break;
+        case 91:
+          this.setLocalStorageTitle('Admin. Institucional - Estudiantes');
+          break;
       case 10:
         this.setLocalStorageTitle('Admin. Institucional - Alumnos');
         break;

@@ -328,7 +328,7 @@ private getProgDocente(id: number) {
 }
 
   public eliminar(id: number) {
-    console.log(id);
+    console.log("id a elimianr" , id);
     
     this.progdoccurService.getProgDocCursoById(id).subscribe(o => {
       if (o !== null) {
@@ -345,7 +345,7 @@ private getProgDocente(id: number) {
           cancelButtonText: 'Cancelar'
         }).then((result) => {
           if (result.value) {
-            console.log("entro a true ");
+           
             this.load = true;
             this.progdoccurService.deleteProgDocCursoById(id).subscribe(data => {
               console.log("data", data);
@@ -379,9 +379,17 @@ private getProgDocente(id: number) {
               }
             }, error => {
               if (error) {
-                this.load = false;
-                // this.obtenerIdiomas();
-               
+                console.log("enotr a erorrr asdsdr");
+                Swal.fire(
+                  'Error!',
+                  error.error.text,
+                  'error'
+                );
+               if (error) {
+                 this.load = false;
+                 // this.obtenerIdiomas();
+                
+               }
               }
             });
            

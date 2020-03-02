@@ -80,8 +80,8 @@
         <div class="col-md-3">
             <label  class="col-sm-12  col-form-label">Idioma</label>
             <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeFILTROIdIdioma">
-                <option [ngValue]="0">Seleccionar el Idioma</option>
-                <option [ngValue]="-1">Todos los Idiomas</option>
+                <option [ngValue]= '0'>Seleccionar el Idioma</option>
+                <option [ngValue]='-1'>Todos los Idiomas</option>
                 <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
                 </option>
             </select>       

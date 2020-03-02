@@ -22,6 +22,7 @@ export class CreateDocenteComponent implements OnInit {
   public selectedTypeIRol : number;
   public selectedTypeIdDepartamento : string;
   docente: DocenteUP;
+  
   public idiomas : Idioma[];
   public tamNom : 0; public tamApellidoPat : 0;  public tamApellidoMat : 0; public tamAdreess : 0;public tamNacionalidad : 0;
   public tamUniversity : 0;public tamContrasenia : 0;public tamEmail : 0;  public tamFechaNacimiento: 0;

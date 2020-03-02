@@ -2,7 +2,7 @@
       <div class="simi-header">
   
         <button class="btn simi-btn-primary ml-2 mr-1" (click)="crear()">
-            <i [ngClass]="'mdi-plus-box-multiple-outline' " class="mdi f-16"></i> Crear Docente
+            <i [ngClass]="'mdi-plus-box-multiple-outline' " class="mdi f-16"></i> Crear Estudiante
         </button>
         <button class="btn simi-btn-silver ml-1 mr-1" (click)="cancelar()">
             <i class="mdi mdi-close-circle f-16"></i> Cancelar
@@ -18,26 +18,26 @@
         <h5 class="modal-title ml-3" style=" color: #317bbc;">Datos Personales y Académicos </h5>
         
         <hr>
-
-        <form [formGroup]="docenteForm" >
+        <!-- [formGroup]="estudianteForm" -->
+        <form [formGroup]="estudianteForm" >
         <div class="row ml-2  mr-2">
             <div class="col-md-4">
                 <div class="form-group row">
-                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> Nombre</label>
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">      Nombre</label>
                     <div class="col-sm-12">
-                        <input formControlName="nombre"  [(ngModel)]="docente.nombre" type="text" class="form-control"  placeholder="Ingrese su Nombre">
-                        <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched || enviado)">
-                            <div class="container-error-message" *ngIf="nombre.errors.required">
+                        <input formControlName="nombreEst"  [(ngModel)]="estudiante.nombre" type="text" class="form-control"  placeholder="Ingrese su Nombre">
+                        <div class="alert-danger" *ngIf="nombreEst.invalid && (nombreEst.dirty || nombreEst.touched || enviado)">
+                            <div class="container-error-message" *ngIf="nombreEst.errors.required">
                             Ingrese el  nombre
                             </div>
                             <div class="container-error-message" *ngIf="tamNom > 50">
                             Debe tener como máximo 50 caracteres
                             </div>
                             <div class="container-error-message"
-                            *ngIf="(nombre.dirty || nombre.touched) && nombre.invalid && nombre.errors.pattern">
+                            *ngIf="(nombreEst.dirty || nombreEst.touched) && nombreEst.invalid && nombreEst.errors.pattern">
                             El nombre debe solo debe contener letras
                             </div>
-                  </div> 
+                        </div> 
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="form-group row ">
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">     Apellido Paterno</label>
                 <div class="col-sm-12">
-                    <input formControlName="apellidoPat"  name="apellidoPat" [(ngModel)]="docente.apellidoPat" type="text" class="form-control" placeholder="Ingrese su  Apellido Paterno">
+                    <input formControlName="apellidoPat"  name="apellidoPat" [(ngModel)]="estudiante.apellidoPat" type="text" class="form-control" placeholder="Ingrese su  Apellido Paterno">
                     <div class="alert-danger" *ngIf="apellidoPat.invalid && (apellidoPat.dirty || apellidoPat.touched || enviado)">
                         <div class="container-error-message" *ngIf="apellidoPat.errors.required">
                         Ingrese el  apellido Paterno
@@ -65,7 +65,7 @@
             <div class="form-group row">
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> Apellido Materno</label>
                 <div class="col-sm-12">
-                    <input formControlName="apellidoMat"  name="apellidoMat" [(ngModel)]="docente.apellidoMat" type="text" class="form-control" placeholder="Ingrese su  Apellido Materno" >
+                    <input formControlName="apellidoMat"  name="apellidoMat" [(ngModel)]="estudiante.apellidoMat" type="text" class="form-control" placeholder="Ingrese su  Apellido Materno" >
                     <div class="alert-danger" *ngIf="apellidoMat.invalid && (apellidoMat.dirty || apellidoMat.touched || enviado)">
                         <div class="container-error-message" *ngIf="apellidoMat.errors.required">
                         Ingrese el  apellido Materno
@@ -82,20 +82,20 @@
             </div>
         </div>
     </div>
-    <div class="row ml-2  mr-2">
+   <div class="row ml-2  mr-2">
         <div class="col-md-3">
             <div class="form-group row">
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">  DNI</label>
                 <div class="col-sm-12">
-                    <input formControlName="dni" name="dni" [(ngModel)]="docente.dni" type="number" class="form-control" placeholder="Ingrese su DNI">
-                    <div class="alert-danger" *ngIf="dni.invalid && (dni.dirty || dni.touched || enviado)">
-                        <div class="container-error-message" *ngIf="dni.errors.required">
+                    <input formControlName="dniEst" [(ngModel)]="estudiante.dni" type="number" class="form-control" placeholder="Ingrese su DNI">
+                    <div class="alert-danger" *ngIf="dniEst.invalid && (dniEst.dirty || dniEst.touched || enviado)">
+                        <div class="container-error-message" *ngIf="dniEst.errors.required">
                         Ingrese el DNI
                         </div>
-                        <div class="container-error-message" *ngIf="dni.errors.min">
+                        <div class="container-error-message" *ngIf="dniEst.errors.min">
                           Debe tener 8 caracteres
                         </div>
-                        <div class="container-error-message" *ngIf="dni.errors.max">
+                        <div class="container-error-message" *ngIf="dniEst.errors.max">
                            Debe tener 8 caracteres
                           </div>
                        
@@ -105,8 +105,7 @@
         </div>
         <div class="col-md-3">
         <div class="form-group row">
-            <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
-                Género</label>
+            <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">   Género</label>
             <div class="col-sm-12">
                 <select formControlName="formGenero"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdGenero">
                     <option [ngValue]=-1>Seleccione un Género</option>
@@ -114,7 +113,7 @@
                     <option [ngValue]=1>Masculino</option>
                 </select>   
                
-                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( dni.errors.required && (enviado|| formGenero.touched))">
+                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( enviado|| formGenero.touched)">
                     Debe seleccionar un Genero
                     </div>  
                </div>
@@ -125,7 +124,7 @@
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                     Edad</label>
                 <div class="col-sm-12">
-                    <input formControlName="edad"  name="edad" [(ngModel)]="docente.edad" type="number" class="form-control"  placeholder="Ingrese su  Edad">
+                    <input formControlName="edad"  name="edad" [(ngModel)]="estudiante.edad" type="number" class="form-control"  placeholder="Ingrese su  Edad">
                     <div class="alert-danger" *ngIf="edad.invalid && (edad.dirty || edad.touched || enviado)">
                         <div class="container-error-message" *ngIf="edad.errors.required">
                          Ingrese la edad
@@ -146,7 +145,7 @@
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                     F. Nacimiento</label>
                 <div class="col-sm-12">
-                    <input formControlName="fechaNacimiento"  [(ngModel)]="docente.fechaNacimiento" type="date" max="1900-01-31" max="2010-01-31" class="form-control" placeholder="Ingrese su  F. Nacimiento" >
+                    <input formControlName="fechaNacimiento"  [(ngModel)]="estudiante.fechaNacimiento" type="date" max="1900-01-31" max="2010-01-31" class="form-control" placeholder="Ingrese su  F. Nacimiento" >
                     <div class="alert-danger" *ngIf="fechaNacimiento.invalid && (edad.dirty || edad.touched || enviado)">
                         
                         <div class="container-error-message" >
@@ -157,7 +156,7 @@
                       </div>
                 </div> 
             </div>
-        </div>
+        </div> 
 </div>
 
 <div class="row ml-2  mr-2">
@@ -166,7 +165,7 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                 Dirección</label>
             <div class="col-sm-12">
-                <input formControlName="address" name="address" [(ngModel)]="docente.address" type="text" class="form-control"  placeholder="Ingrese su Dirección">
+                <input formControlName="address" name="address" [(ngModel)]="estudiante.address" type="text" class="form-control"  placeholder="Ingrese su Dirección">
                 <div class="alert-danger" *ngIf="address.invalid && (address.dirty || address.touched )">
                             
                     <div class="container-error-message" *ngIf="tamAdreess > 128">
@@ -184,7 +183,7 @@
         <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
             Celular</label>
         <div class="col-sm-12">
-            <input formControlName="phone"  name="phone" [(ngModel)]="docente.phone" type="number" class="form-control"  placeholder="Ingrese su Celular" >
+            <input formControlName="phone"  name="phone" [(ngModel)]="estudiante.phone" type="number" class="form-control"  placeholder="Ingrese su Celular" >
             <div class="alert-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched || enviado)">
                 <div class="container-error-message" *ngIf="phone.errors.required">
                 Ingrese el  N° de Celular
@@ -206,7 +205,7 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                 Nacionalidad</label>
             <div class="col-sm-12">
-                <input name="nacionalidad"   formControlName="nacionalidad"  [(ngModel)]="docente.nacionalidad" type="text" class="form-control" placeholder="Ingrese su Nacionalidad" >
+                <input name="nacionalidad"   formControlName="nacionalidad"  [(ngModel)]="estudiante.nacionalidad" type="text" class="form-control" placeholder="Ingrese su Nacionalidad" >
                 <div class="alert-danger" *ngIf="nacionalidad.invalid && (nacionalidad.dirty || nacionalidad.touched || enviado)">
                   
                     <div class="container-error-message" *ngIf="nacionalidad.errors.minlength">
@@ -229,7 +228,7 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                 Universidad de Estudios</label>
             <div class="col-sm-12">
-                <input  formControlName="university" name="university" [(ngModel)]="docente.university" type="text" class="form-control"  placeholder="Ingrese su Universidad de Estudios">
+                <input  formControlName="university" name="university" [(ngModel)]="estudiante.university" type="text" class="form-control"  placeholder="Ingrese su Universidad de Estudios">
                 <div class="alert-danger" *ngIf="university.invalid && (university.dirty || university.touched || enviado)">
                   
                     <div class="container-error-message" *ngIf="university.errors.minlength">
@@ -248,9 +247,9 @@
         </div>
     </div>
    
-</div>
+</div> 
 <br>
-<h5 class="modal-title ml-3" style=" color: #317bbc;">Datos de Docente </h5>
+<h5 class="modal-title ml-3" style=" color: #317bbc;">Datos de Estudiante </h5>
         <hr>
 <div class="row ml-2  mr-2">
 
@@ -259,11 +258,11 @@
         <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
          Rol</label>
         <div class="col-sm-12">
-            <select formControlName="formRol"   class="form-control form-control-sm" [(ngModel)]="selectedTypeIRol">
-                <option [ngValue]="0">Rol de Usuario</option>
-                <option [ngValue]="2">Docente</option>
+            <select formControlName="formRoles"   class="form-control form-control-sm" [(ngModel)]="selectedTypeIRol">
+                <option [ngValue]=0 >Rol de Usuario</option>
+                <option [ngValue]=1 >Estudiante</option>
             </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIRol ==0 && (enviado|| formRol.touched)">
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIRol ==0 && (enviado|| formRoles.touched)">
                 Debe seleccionar un Rol
             </div>
         </div>
@@ -273,22 +272,21 @@
     <div class="col-md-6">
     <div class="form-group row">
         <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
-            Departamento </label>
+            Tipo de Estudiante </label>
         <div class="col-sm-12">
-            <select  formControlName="formDepartamemto"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDepartamento">
-                <option [ngValue]='0'>Departamento de pertenencia </option> 
-                <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
+             <select formControlName="formTipoEstudiante"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdTipoEstudiante">
+                <option [ngValue]="0">Seleccionar el Tipo de Estudiante</option>
+                <option [ngValue]="tipo.idTipoEstudiante" *ngFor="let tipo of tipos">{{tipo.nomTipoEstudiante}}
                 </option>
             </select>
-            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdDepartamento =='0' && (enviado|| formDepartamemto.touched)">
-                Debe seleccionar un Departamento
+
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdTipoEstudiante ==0 && (enviado|| formTipoEstudiante.touched)">
+                Debe seleccionar el Tipo de Estudiante 
             </div>
         </div>
     </div>
-</div>
+</div> 
 
-
-   
 </div>
 
 <br>
@@ -301,7 +299,7 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                 <i class="mdi mdi-emailf-16"></i> Email</label>
             <div class="col-sm-12">
-                <input  formControlName="email" name="email" [(ngModel)]="docente.email" type="email" class="form-control"  placeholder="email@unmsm.edu.pe">
+                <input  formControlName="email" name="email" [(ngModel)]="estudiante.email" type="email" class="form-control"  placeholder="email@unmsm.edu.pe">
                 <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched || enviado)">
                     <div class="container-error-message" *ngIf="email.errors.required">
                     Ingrese el email
@@ -323,7 +321,7 @@
             <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                 <i class="mdi mdi-key f-16"></i> Contraseña</label>
             <div class="col-sm-12">
-                <input  formControlName="contrasenia"  name="contrasenia" [(ngModel)]="docente.contrasenia" type="password" class="form-control"  placeholder="Ingrese su contraseña">
+                <input  formControlName="contrasenia"  name="contrasenia" [(ngModel)]="estudiante.contrasenia" type="password" class="form-control"  placeholder="Ingrese su contraseña">
                 <div class="alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched  || enviado)">
                     <div class="container-error-message" *ngIf="contrasenia.errors.required">
                         Ingrese la contraseña
@@ -338,17 +336,9 @@
             </div>
         </div>
     </div>
- <!-- <div class="col-md-4">
-    <div class="form-group row">
-        <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
-            <i class="mdi mdi-key-plus f-16"></i> Confirmación de Contraseña</label>
-        <div class="col-sm-12">
-            <input name="confContrasenia" [(ngModel)]="docente.contrasenia" type="password" class="form-control"  placeholder="Confirme su contraseña">
-        </div>
-    </div>
-</div>  -->
+
    
-</div>
+</div> 
 </form>
            
            

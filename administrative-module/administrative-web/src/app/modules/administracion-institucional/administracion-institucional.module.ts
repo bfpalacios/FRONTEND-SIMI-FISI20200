@@ -23,19 +23,25 @@ import { CreateCursoComponent } from './cursos/create-curso/create-curso.compone
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { CreateDocenteComponent } from './docentes/create-docente/create-docente.component';
 import { EditarDocenteComponent } from './docentes/editar-docente/editar-docente.component';
+import { EstudiantesComponent } from './estudiantes/estudiantes.component';
+import { CreateEstudianteComponent } from './estudiantes/create-estudiante/create-estudiante.component';
+import { EditarEstudianteComponent } from './estudiantes/editar-estudiante/editar-estudiante.component';
+
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Select2Module } from 'ng2-select2';
-
 @NgModule({
   declarations: [AlumnosComponent, AulasComponent, CursosComponent, DocentesComponent,
     HorariosComponent, IdiomasComponent , SedesComponent, CreateAlumnoComponent,
     EditarAlumnoComponent ,CreateAulaComponent,EditarAulaComponent,
     CreateSedeComponent,EditarSedeComponent,CreateIdiomaComponent,EditarIdiomaComponent,
     CreateHorarioComponent,EditarHorarioComponent,CreateCursoComponent,
-    EditarCursoComponent,CreateDocenteComponent,EditarDocenteComponent],
+    EditarCursoComponent,CreateDocenteComponent,EditarDocenteComponent, EstudiantesComponent, 
+     CreateEstudianteComponent, EditarEstudianteComponent ,
+     EstudiantesComponent , CreateEstudianteComponent,EditarEstudianteComponent
+    ]  ,
     imports: [
     CommonModule,
    AdministracionInstitucionalRoutingModule,

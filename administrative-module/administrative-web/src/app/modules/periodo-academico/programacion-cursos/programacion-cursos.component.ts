@@ -419,7 +419,7 @@ private getProgCurso(id: number) {
 }
 
   public eliminar(id: number) {
-    console.log(id);
+    console.log("id a elimianr" , id);
     this.selectedTypeIdSedeANTESACUTALIZAR =  this.selectedTypeIdSede;
     this.progcurService.getProgCursoById(id).subscribe(o => {
       if (o !== null) {
@@ -461,6 +461,8 @@ private getProgCurso(id: number) {
                 // this.obtenerIdiomas();
               }
             }, error => {
+              console.log("erriessssr");
+
               if (error) {
                 Swal.fire(
                   'Error!',
@@ -468,6 +470,8 @@ private getProgCurso(id: number) {
                   'error'
                 );
                if (error) {
+                console.log("aaaaa");
+
                  this.load = false;
                  // this.obtenerIdiomas();
                 
