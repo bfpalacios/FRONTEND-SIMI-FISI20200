@@ -1,1 +1,35 @@
-<p>reporte-evaluaciones works!</p>
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
+</div>
+
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Mis Reportes
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Mis cursos
+        </span>
+    </span>
+</div>
+
+<div class="simi-card" *ngIf="!load">
+
+    <div>
+        <h5>Mis Cursos y evaluaciones</h5>
+        <hr/>
+    </div>
+    <div class="mt-1" *ngIf="!cursos?.length">
+        <span>No está cursando ningún curso de idioma.</span>
+    </div>
+    <div class="mt-1" *ngIf="cursos?.length">
+        <div *ngFor="let curso of cursos; let i = index">
+            <h5>{{i+1}}. {{curso.nombreCurso}}</h5>
+            <span style="font-size: 14px;">Docente: {{curso.nombreDocente}}</span>
+            <hr/>
+        </div>
+    </div>
+</div>

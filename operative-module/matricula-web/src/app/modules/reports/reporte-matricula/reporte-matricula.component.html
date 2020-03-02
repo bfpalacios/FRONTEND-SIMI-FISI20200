@@ -7,7 +7,7 @@
 <div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
     <span>
         <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
-        Reportes
+        Mis Reportes
         <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
         <span style="font-size: 15px;">
             Reporte de matrícula
@@ -16,21 +16,31 @@
 </div>
 <div class="simi-card" *ngIf="!load">
     <div>
-
         <div class="text-center">
             <h4>Reporte de matrícula</h4>
-            <span>Ciclo Febrero 2020</span>
-            <div style="font-size: 14px;"><b>02/03/2020</b></div>
-        </div>
+            <label style="font-size: 18px;" class="simi-section-label-rose">
+                Ciclo Febrero 2020
+            </label>
+            <div style="font-size: 22px;">
 
+                {{date | date:'fullDate':'pe'}} -
+                {{date | date:'mediumTime':'pe'}}
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!matricula?.length" class="mt-2">
+        <span style="font-size: 14px;">
+            No se ha matriculado en ningún curso de idioma.
+        </span>
+    </div>
+    <div *ngIf="matricula?.length">
         <div>
             <div style="float:right;">
                 <button class="btn simi-btn-dark">Descargar en PDF</button>
             </div>
         </div>
-    </div>
-
-    <div id="container">
         <div class="table-responsive">
             <table class="table table-hover text-center table-matricular">
                 <thead class="thead-dark" style=" border: solid 1px #acacac;">
@@ -50,7 +60,11 @@
                     <tr *ngFor=" let reporte of matricula ">
                         <td>{{reporte.nomIdioma}}</td>
                         <td>{{reporte.nomNivel}}</td>
-                        <td>{{reporte.ciclo}}</td>
+                        <td>
+                            <button class="btn simi-btn-primary">
+                                {{reporte.ciclo}}
+                            </button>
+                        </td>
                         <td>{{reporte.appatDocente}} {{reporte.apmatDocente}}, {{reporte.nomDocente}}</td>
                         <td>{{reporte.nomGrupoH}} <br> ({{reporte.horaInicio}} a {{reporte.horaFin}})</td>
                         <td>{{reporte.fechaMat}}</td>

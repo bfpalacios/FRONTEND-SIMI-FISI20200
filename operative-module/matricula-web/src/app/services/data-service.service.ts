@@ -63,10 +63,17 @@ export class DataServiceService {
     return this.infPersonalService.obtenerInformacionAcademica(this.user);
   }
 
+  public getPagosRealizados() {
+    return this.matricula.getPagosRealizados(this.user.id);
+  }
+
   public getPagosSinUsar() {
     return this.matricula.getPagosSinUsar(this.user.id);
   }
 
+  public getCursosDelAlumno() {
+    return this.matricula.getCursosDelAlumno(this.user.id);
+  }
   public matricularOnline(cursos: any[]) {
     return this.matricula.matricularOnline(cursos, this.user.id);
   }

@@ -1,1 +1,76 @@
-<p>reporte-pagos works!</p>
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Mis Reportes
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Mis pagos realizados
+        </span>
+    </span>
+</div>
+<div class="simi-card" *ngIf="!load">
+    <div>
+        <div class="text-center">
+            <h4>Mis Pagos Realizados</h4>
+            <label style="font-size: 18px;" class="simi-section-label-rose">
+                Ciclo Febrero 2020
+            </label>
+            <div style="font-size: 22px;">
+
+                {{date | date:'fullDate':'pe'}} -
+                {{date | date:'mediumTime':'pe'}}
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!vouchers?.length" class="mt-2">
+        <span style="font-size: 14px;">
+            No tiene pagos realizados en el Banco Pichincha.
+        </span>
+    </div>
+    <div *ngIf="vouchers?.length">
+        <div>
+            <div style="float:right;">
+                <button class="btn simi-btn-dark">Descargar en PDF</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover text-center table-matricular">
+                <thead class="thead-dark" style=" border: solid 1px #acacac;">
+                    <tr class="head">
+                        <th>Codigo</th>
+                        <th>Email</th>
+                        <th>DNI</th>
+                        <th>Descripción</th>
+                        <th>Importe</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-center">
+                    <tr *ngFor=" let voucher of vouchers">
+                        <td>{{voucher.codVoucher}}</td>
+                        <td>{{voucher.email}}</td>
+                        <td>{{voucher.dni}}</td>
+                        <td>{{voucher.descripcion}}</td>
+                        <td>S/. {{voucher.importe}}.00</td>
+                        <td>{{voucher.fecha}}</td>
+                        <td>
+                            <button class="btn" [ngClass]="voucher.estado === 'USADO' ? 'simi-btn-primary' : 'simi-btn-silver'">
+                                {{voucher.estado}}
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
