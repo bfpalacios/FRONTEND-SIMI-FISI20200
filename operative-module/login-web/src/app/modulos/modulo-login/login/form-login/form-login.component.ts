@@ -61,7 +61,8 @@ export class FormLoginComponent implements OnInit {
   }
 
   private matriculaOnline() {
-    location.href = '/matricula';
+    location.href = 'http://localhost:4201/' +
+    this.user.email + '/' + this.user.id + '/' + this.user.rolId;
   }
 
   private isEmpty() {
