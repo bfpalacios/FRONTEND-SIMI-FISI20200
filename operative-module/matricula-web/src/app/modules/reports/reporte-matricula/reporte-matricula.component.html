@@ -1,1 +1,62 @@
-<p>reporte-matricula works!</p>
+<div *ngIf="load" class="center-content" style="height: 100% !important; width: 100% !important;">
+    <img src="assets/loading/loading.gif" style="width: 100px;">
+    <div>
+        <h5>Cargando...</h5>
+    </div>
+</div>
+<div *ngIf="!load" class="simi-bg-header mt-5 pt-3" style=" display: flex; align-items: center; font-weight: lighter;">
+    <span>
+        <i class="mdi mdi-home mr-1 ml-2 f-15"></i>
+        Reportes
+        <i class="mdi mdi-chevron-right" style="font-size: 20px;"></i>
+        <span style="font-size: 15px;">
+            Reporte de matrícula
+        </span>
+    </span>
+</div>
+<div class="simi-card" *ngIf="!load">
+    <div>
+
+        <div class="text-center">
+            <h4>Reporte de matrícula</h4>
+            <span>Ciclo Febrero 2020</span>
+            <div style="font-size: 14px;"><b>02/03/2020</b></div>
+        </div>
+
+        <div>
+            <div style="float:right;">
+                <button class="btn simi-btn-dark">Descargar en PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="container">
+        <div class="table-responsive">
+            <table class="table table-hover text-center table-matricular">
+                <thead class="thead-dark" style=" border: solid 1px #acacac;">
+                    <!-- <table class="hitorial"> -->
+                    <!-- <thead> -->
+                    <tr class="head">
+                        <th>Idioma</th>
+                        <th>Nivel</th>
+                        <th>Ciclo</th>
+                        <th>Docente</th>
+                        <th>Horario</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+
+                <tbody class="text-center">
+                    <tr *ngFor=" let reporte of matricula ">
+                        <td>{{reporte.nomIdioma}}</td>
+                        <td>{{reporte.nomNivel}}</td>
+                        <td>{{reporte.ciclo}}</td>
+                        <td>{{reporte.appatDocente}} {{reporte.apmatDocente}}, {{reporte.nomDocente}}</td>
+                        <td>{{reporte.nomGrupoH}} <br> ({{reporte.horaInicio}} a {{reporte.horaFin}})</td>
+                        <td>{{reporte.fechaMat}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
