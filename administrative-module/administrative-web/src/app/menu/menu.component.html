@@ -1,20 +1,20 @@
 <div style="overflow-y: auto;">
     <button (click)="home()" class="list-group-item btn-item"> Inicio   </button>
     
-    <button (click)="show(1)" class="list-group-item btn-item">  Administración del Sistema   </button>
+    <!-- <button (click)="show(1)" class="list-group-item btn-item">  Administración del Sistema   </button>
     <div *ngIf="modules[0].state" class="ele">
         <button class="list-group-item btn-light  subitem w-100" style  (click)="setTitle(1)" [routerLink]="['administracionSistema/sistemaGeneral']">Sistema General
         </button>
         <button class="list-group-item btn-light subitem w-100"  (click)="setTitle(2)" [routerLink]="['administracionSistema/configuracion']">Configuración
         </button>
-    </div>
+    </div> -->
 
-    <button (click)="show(2)" class="list-group-item btn-item">   Administración de Usuarios  </button>
+    <!-- <button (click)="show(2)" class="list-group-item btn-item">   Administración de Usuarios  </button>
     <div *ngIf="modules[1].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(3)"   [routerLink]="['administracionUsuarios/permisos']">Permisos</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(4)"  [routerLink]="['administracionUsuarios/tipoUsuario']">Tipos de Usuario</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(5)"  [routerLink]="['administracionUsuarios/listUsuarios']">Usuarios</button>
-    </div>
+    </div> -->
     <button (click)="show(3)" class="list-group-item btn-item">  Administración Institucional</button>
       <div *ngIf="modules[2].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(9)"   [routerLink]="['administracionInstitucional/docentes']">Docentes</button>
@@ -30,15 +30,15 @@
     <button (click)="show(4)" class="list-group-item btn-item">    Periodo Académico</button>
     <div *ngIf="modules[3].state" class="ele">
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(13)"      [routerLink]="['periodoAcademico/cicloAcademico']">Ciclo Académico</button>
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(14)"   [routerLink]="['periodoAcademico/matriculados']">Matriculados</button>
+        <!-- <button class="list-group-item btn-light subitem w-100" (click)="setTitle(14)"   [routerLink]="['periodoAcademico/matriculados']">Matriculados</button> -->
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(15)"  [routerLink]="['periodoAcademico/programacionCursos']">Programación de Cursos</button>
         <button class="list-group-item btn-light subitem w-100" (click)="setTitle(152)"  [routerLink]="['periodoAcademico/programacionDocente']">Programación de Docentes</button>
 
     </div>
     <button (click)="show(5)" class="list-group-item btn-item"> Administración de Matrícula</button>
     <div *ngIf="modules[4].state" class="ele">
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(16)"   [routerLink]="['administracionMatricula/matricula']">Matrícula</button>
-        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(17)"  [routerLink]="['administracionMatricula/monitoreoMatricula']">Monitoreo de Matrícula</button>
+        <button class="list-group-item btn-light subitem w-100" (click)="setTitle(16)"   [routerLink]="['administracionMatricula/matricula/crear']">Matrícula</button>
+        <!-- <button class="list-group-item btn-light subitem w-100" (click)="setTitle(17)"  [routerLink]="['administracionMatricula/monitoreoMatricula']">Monitoreo de Matrícula</button> -->
     </div>
     <button (click)="show(6)" class="list-group-item btn-item">  Reportes</button>
     <div *ngIf="modules[5].state" class="ele">
