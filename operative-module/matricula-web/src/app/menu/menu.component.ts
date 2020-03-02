@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { MenuItem } from '../models/MainMenu';
 import { Router } from '@angular/router';
 
@@ -49,5 +49,12 @@ export class MenuComponent implements OnInit {
 
   public home() {
     this.router.navigate(['home']).then();
+  }
+
+  public logout() {
+    /* sessionStorage.clear();
+    localStorage.clear();
+    this.serviceData.authenticated = false;
+    this.router.navigate(['login']); */
   }
 }

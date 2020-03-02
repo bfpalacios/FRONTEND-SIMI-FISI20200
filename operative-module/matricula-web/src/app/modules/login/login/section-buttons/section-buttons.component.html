@@ -1,0 +1,41 @@
+<div>
+    <div class="mb-4 mt-3 section-border text-center">
+        <button (click)="signInLikeInvited()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-account-tie primary-color" style="font-size: 50px; color: #f44336;"></i>
+            </div>
+            <div>
+                <h6 style="color: #f44336;">
+                    INVITADO
+                </h6>
+                <span class="f-13 m-1">Ingresar como invitado al sistema</span>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="onLogin" class="mb-4 mt-3 section-border text-center">
+        <button (click)="href()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-restart primary-color" style="font-size: 50px; color: #212121;"></i>
+            </div>
+            <div>
+                <h6 style="color: #212121;">
+                    PRINCIPAL
+                </h6>
+                <span class="f-13 m-2">Volver a la página del Centro de Idiomas</span>
+            </div>
+        </button>
+    </div>
+    <div *ngIf="!onLogin" class="mb-4 mt-3 section-border text-center">
+        <button (click)="href()" style="border: 0px; background-color: transparent;">
+            <div>
+                <i class="mdi mdi-arrow-left-thick primary-color" style="font-size: 50px; color: #212121;"></i>
+            </div>
+            <div>
+                <h6 style="color: #212121;">
+                    LOGIN
+                </h6>
+                <span class="f-13 m-2">Volver al inicio</span>
+            </div>
+        </button>
+    </div>
+</div>

@@ -67,6 +67,19 @@
 .panel {
   background-color: #F5F5F6;
 }
+.f-13 {
+  font-size: 13px;
+}
+.f-title{
+  font-size: 3vw;
+}
+
+.f-subtitle {
+  font-size: 1.2vw;
+}
+.f-11 {
+  font-size: 11px;
+} 
 
 .btn-siguiente {
   background-color: #096ac6;
@@ -144,5 +157,13 @@
 
 .section-background{
   padding: 10px 10px 10px 10px;
+  color: white;
+}
+
+.f-grey {
+  color: grey;
+}
+
+.f-white {
   color: white;
 }

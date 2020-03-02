@@ -1,7 +1,15 @@
 /* Simi Styles*/
+
+.simi-background-primary {
+  background-color: #096ac6; background-position: center; background-repeat: no-repeat; background-size: cover; height: 100%;
+}
+
+.simi-background-white{
+  height: 80%; background-color: white;width: 88%; border-radius: 8px; box-shadow: 20px 20px 15px;
+}
+
 .simi-card {
-    background-color: #ffffff; color: black;
-    font-size: 17px; margin: 15px; padding: 17px;
+    background-color: #ffffff; color: black; font-size: 17px; margin: 15px; padding: 17px;
 }
 
 .simi-primary{
@@ -46,10 +54,7 @@
 }
 
 .simi-header{
-  background-color:#f0f1f0; color: white;
-  font-size: 18px;
-  align-items: center;
-  padding: 6px;
+  background-color:#f0f1f0; color: white;font-size: 18px;align-items: center;padding: 6px;
 }
 
 .btn {
@@ -101,6 +106,44 @@
       color: black;
   }
 }
+
+@media screen and (max-height: 660px){
+  .simi-display-h-none{
+      height: 100%; background-color: white; width: 100%; border-radius: 0px; box-shadow: 0px 0px 0px;
+  }
+}
+
+
+@media screen and (max-width: 500px){
+  .simi-display-w-none{
+      height: 100%;background-color: white;width: 100%; border-radius: 0px; box-shadow: 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .simi-display-none-blue{
+      display:none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .simi-display-none{
+      display:none !important;
+  }
+}
+
+.simi-center-content {
+  display: flex;justify-content: center;align-items: center;
+}
+
+.simi-height-100 {
+  height: 100%;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; margin: 0;}
 
 .simi-input-text{
   background: none !important; font-size: 18px; border: 0px !important; border-bottom: 1px solid gray !important;
