@@ -52,7 +52,7 @@ export class AppComponent implements OnInit/* , DoCheck */ {
   public getNameUser() {
     if ( this.service.obtenerDatosUsuario() != null) {
       this.service.obtenerDatosUsuario().subscribe(data => {
-        this.name = data.nombre + ' ' + data.apPaterno + ' ' + data. apMaterno;
+        this.service.user.nombres = data.nombre + ' ' + data.apPaterno + ' ' + data. apMaterno;
       }, () => {
         console.log('ERROR');
       });

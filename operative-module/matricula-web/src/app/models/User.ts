@@ -1,5 +1,6 @@
 export class User {
     email: string;
+    nombres: string;
     codPerona: number;
     tipo: number;
     id: number;
