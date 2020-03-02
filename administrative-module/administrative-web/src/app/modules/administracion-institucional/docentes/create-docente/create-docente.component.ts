@@ -22,15 +22,15 @@ export class CreateDocenteComponent implements OnInit {
   public selectedTypeIRol : number;
   public selectedTypeIdDepartamento : string;
   docente: DocenteUP;
-
+  public idiomas : Idioma[];
   public tamNom : 0; public tamApellidoPat : 0;  public tamApellidoMat : 0; public tamAdreess : 0;public tamNacionalidad : 0;
-  public tamUniversity : 0;public tamContrasenia : 0;public tamEmail : 0;
+  public tamUniversity : 0;public tamContrasenia : 0;public tamEmail : 0;  public tamFechaNacimiento: 0;
   public docenteForm: FormGroup;
   public enviado : boolean;
-  constructor(private router: Router   ,private docenteUPService: DocenteUPService )  {
-    this.selectedTypeIdGenero = 0;
+  constructor(private router: Router   ,  private serviceIdiomas: IdiomaService, private docenteUPService: DocenteUPService )  {
+    this.selectedTypeIdGenero = -1;
     this.selectedTypeIRol = 0;
-    this.selectedTypeIdDepartamento = "0";
+    this.selectedTypeIdDepartamento = '0';
     this.load = true;
     this.loading = Path.loading;
     this.docente = new DocenteUP();
@@ -44,7 +44,7 @@ export class CreateDocenteComponent implements OnInit {
   get apellidoPat() { if(this.docenteForm.get('apellidoPat').value)   this.tamApellidoPat =this.docenteForm.get('apellidoPat').value.length;  return this.docenteForm.get('apellidoPat');  }
   get apellidoMat() { if(this.docenteForm.get('apellidoMat').value)   this.tamApellidoMat =this.docenteForm.get('apellidoMat').value.length;  return this.docenteForm.get('apellidoMat');  }
   get dni() {     return this.docenteForm.get('dni'); }
-  get formGenero() {     return this.docenteForm.get('formGenero'); }
+  get formGenero() { console.log("fgenero",this.docenteForm.get('formGenero') ) ;    return this.docenteForm.get('formGenero'); }
   get edad() {     return this.docenteForm.get('edad'); }
   get address() { if(this.docenteForm.get('address').value)   this.tamAdreess =this.docenteForm.get('address').value.length;  return this.docenteForm.get('address');  }
   get phone() {     return this.docenteForm.get('phone'); }
@@ -54,6 +54,7 @@ export class CreateDocenteComponent implements OnInit {
   get formDepartamemto() {     return this.docenteForm.get('formDepartamemto'); }
   get email() { if(this.docenteForm.get('email').value)   this.tamEmail =this.docenteForm.get('email').value.length;  return this.docenteForm.get('email');  }
   get contrasenia() { if(this.docenteForm.get('contrasenia').value)   this.tamContrasenia =this.docenteForm.get('contrasenia').value.length;  return this.docenteForm.get('contrasenia');  }
+  get fechaNacimiento() { if(this.docenteForm.get('fechaNacimiento').value)   this.tamFechaNacimiento =this.docenteForm.get('fechaNacimiento').value.length;  return this.docenteForm.get('fechaNacimiento');  }
 
   private FormatEmailPattern: any =  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@unmsm.edu.pe*$/;
   private OnlyTextPattern: any = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
@@ -63,7 +64,7 @@ export class CreateDocenteComponent implements OnInit {
       apellidoPat: new FormControl('', [Validators.required,Validators.maxLength(50) ,   Validators.pattern(this.OnlyTextPattern)]),
       apellidoMat: new FormControl('', [Validators.required,Validators.maxLength(50) ,   Validators.pattern(this.OnlyTextPattern)]),
       dni: new FormControl('', [Validators.required,Validators.min(10000000) ,Validators.max(99999999)    ]),
-      formGenero: new FormControl('', [Validators.min(1)    ]  ),
+      formGenero: new FormControl('', [Validators.required, Validators.min(0) ,Validators.max(1)   ]  ),
       edad: new FormControl('', [Validators.min(8) ,Validators.max(100)    ]),
       address: new FormControl('', [Validators.maxLength(150) , Validators.minLength(5)]),
       phone:new FormControl('', [Validators.required,Validators.min(100000000) ,Validators.max(999999999)    ]),
@@ -73,14 +74,21 @@ export class CreateDocenteComponent implements OnInit {
       formDepartamemto: new FormControl('', [Validators.required, Validators.min(1)] ),
       email: new FormControl('', [Validators.required,Validators.maxLength(150) ,Validators.pattern(this.FormatEmailPattern) ]),
       contrasenia:  new FormControl('', [Validators.required,Validators.maxLength(20), Validators.minLength(6)]),
+      fechaNacimiento: new FormControl('', )
     });
   }
   
 
   ngOnInit() {//lenar cmbs
     this.load = false;
+    this.getIdiomas();
   }
-
+   getIdiomas() {
+    this.serviceIdiomas.getIdiomas().subscribe(data => {
+      this.idiomas = data;
+      this.load = false;
+    });
+  }
   crear() {
     this.enviado=true;
        if (this.docenteForm.valid) {

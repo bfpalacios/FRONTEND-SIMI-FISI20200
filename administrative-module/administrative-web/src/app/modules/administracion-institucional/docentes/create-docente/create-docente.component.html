@@ -68,7 +68,7 @@
                     <input formControlName="apellidoMat"  name="apellidoMat" [(ngModel)]="docente.apellidoMat" type="text" class="form-control" placeholder="Ingrese su  Apellido Materno" >
                     <div class="alert-danger" *ngIf="apellidoMat.invalid && (apellidoMat.dirty || apellidoMat.touched || enviado)">
                         <div class="container-error-message" *ngIf="apellidoMat.errors.required">
-                        Ingrese el  apellido Pmterno
+                        Ingrese el  apellido Materno
                         </div>
                         <div class="container-error-message" *ngIf="tamApellidoMat > 50">
                         Debe tener como máximo 50 caracteres
@@ -109,12 +109,14 @@
                 Género</label>
             <div class="col-sm-12">
                 <select formControlName="formGenero"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdGenero">
-                    <option [ngValue]="0">Femenino</option>
-                    <option [ngValue]="1">Masculino</option>
+                    <option [ngValue]=-1>Seleccione un Género</option>
+                    <option [ngValue]=0>Femenino</option>
+                    <option [ngValue]=1>Masculino</option>
                 </select>   
-                <div class="container-error-message alert-danger" *ngIf="selectedTypeIdGenero ==0 && (enviado|| formGenero.touched)">
+               
+                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( dni.errors.required && (enviado|| formGenero.touched))">
                     Debe seleccionar un Genero
-                </div>      
+                    </div>  
                </div>
         </div>
     </div>
@@ -143,9 +145,17 @@
             <div class="form-group row">
                 <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
                     F. Nacimiento</label>
-                <!-- <div class="col-sm-12">
-                    <input name="fechaNacimiento" [(ngModel)]="docente.fechaNacimiento" type="date" class="form-control" placeholder="Ingrese su  F. Nacimiento" >
-                </div> -->
+                <div class="col-sm-12">
+                    <input formControlName="fechaNacimiento"  [(ngModel)]="docente.fechaNacimiento" type="date" max="1900-01-31" max="2010-01-31" class="form-control" placeholder="Ingrese su  F. Nacimiento" >
+                    <div class="alert-danger" *ngIf="fechaNacimiento.invalid && (edad.dirty || edad.touched || enviado)">
+                        
+                        <div class="container-error-message" >
+                         Ingrese la Fecha de Nacimiento
+                        </div>
+                       
+                       
+                      </div>
+                </div> 
             </div>
         </div>
 </div>
@@ -266,12 +276,9 @@
             Departamento </label>
         <div class="col-sm-12">
             <select  formControlName="formDepartamemto"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDepartamento">
-                <option [ngValue]="0">Departamento de pertenencia </option> 
-                <option value="Portugues">Portugues</option>
-                <option value="Frances">Frances</option>
-                <option value="Ingles">Ingles</option>
-                <option value="Quechua">Quechua</option>
-                <option value="Aleman">Aleman</option>
+                <option [ngValue]='0'>Departamento de pertenencia </option> 
+                <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">{{idioma.nomIdioma}}
+                </option>
             </select>
             <div class="container-error-message alert-danger" *ngIf="selectedTypeIdDepartamento =='0' && (enviado|| formDepartamemto.touched)">
                 Debe seleccionar un Departamento
@@ -317,7 +324,7 @@
                 <i class="mdi mdi-key f-16"></i> Contraseña</label>
             <div class="col-sm-12">
                 <input  formControlName="contrasenia"  name="contrasenia" [(ngModel)]="docente.contrasenia" type="password" class="form-control"  placeholder="Ingrese su contraseña">
-                <div class="alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched )">
+                <div class="alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched  || enviado)">
                     <div class="container-error-message" *ngIf="contrasenia.errors.required">
                         Ingrese la contraseña
                         </div>      

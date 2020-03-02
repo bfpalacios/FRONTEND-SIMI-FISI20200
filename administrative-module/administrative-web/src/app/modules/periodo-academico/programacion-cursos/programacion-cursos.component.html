@@ -14,9 +14,7 @@
      <button *ngIf="actualizar" class="btn simi-btn-primary ml-2 mr-1" (click)="actualizarProg()">
         <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Actualizar
     </button> 
-    <!-- <button type="button" class="btn simi-btn-red ml-1 mr-1" (click)="actualizarProg()">
-        <i class="mdi mdi-delete f-16"></i> Eliminar
-    </button> -->
+
     <button *ngIf="actualizar" type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelarActualizada()">
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
@@ -24,32 +22,42 @@
         <i class="mdi mdi-close-circle f-16"></i> Cancelar
     </button>
 </div>
-
+<!--   -->
+<form [formGroup]="progCursoForm">
  <div >
 <div *ngIf="nuevoCurso || actualizar" class=" form-group row right ml-3 mr-3">
     <h5 *ngIf="nuevoCurso" class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Programacion de Cursos </h5>
     <h5 *ngIf="actualizar" class="modal-title ml-3" style=" color: #317bbc;">Formulario Actualizacion de Programacion de Cursos </h5>
     <br>
     <div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
-    <span *ngIf="empty" class="not-complete ml-3" style="    color: red;">
-    {{successText}} <br /></span>
+ 
 </div>
+
+
 
     <div class="row float-right">
         <div class="col-sm-5">
-            <select class="form-control form-control-sm" (click)="habilitarAulas()"  [(ngModel)]="selectedTypeIdSede">
+            <select  formControlName="formSede" class="form-control form-control-sm" (click)="habilitarAulas()"  [(ngModel)]="selectedTypeIdSede">
                 <option [ngValue]="0">Sede</option>
                 <option  *ngIf="nuevoCurso==false && actualizar==false " [ngValue]="-1">Todas las Sedes</option>
                 <option [ngValue]="sede.idSede" *ngFor="let sede of sedes">{{sede.nomSede}}
                 </option>
-            </select>       
+                
+            </select>   
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdSede ==0 && (enviado)">
+                Selecciona una Sede
+            </div>    
          </div>
-         <div class="col-sm-5">
-            <select class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo" (click)="habilitarCurso()">
-                <option [ngValue]="0">Periodo Académico</option>
+         <div class="col-sm-5"> 
+            <!-- [disabled]="!actualizar" -->
+            <select  formControlName="formPeriodo"   class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo" (click)="habilitarCurso()"  >
+                <option [ngValue]="0">Ciclo Académico</option>
                 <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
                 </option>
-            </select>       
+            </select>      
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdPeriodo ==0 && (enviado)">
+                Seleccione un Ciclo 
+            </div>  
          </div>
          <div class="col-md-2">
             <button class="btn-nuevo"(click)="filtrarSedePeriodo()" *ngIf="nuevoCurso==false && actualizar==false " > <i class="mdi mdi-magnify f-16"></i>    </button>
@@ -57,56 +65,72 @@
         
     </div>
     <br> 
- 
+
     <div class="row col-sm-12"  *ngIf="selectedTypeIdSede!=0 && selectedTypeIdPeriodo!=0 && (nuevoCurso ||actualizar ) " >
            <div class="col-sm-4">
             <label class="col-sm-12  col-form-label"> Curso </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso" (click)="habilitarDocente()">
+            <select   formControlName="formCurso" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso" (click)="habilitarDocente()">
               <option [ngValue]="0">Seleccionar el  Curso </option>
                 <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">  {{curso.nomIdioma}} {{curso.nomNivel}} {{curso.ciclo}}
                 </option>
             </select>
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado)">
+                Debe seleccionar un Curso
+            </div>
         </div>
         <!-- *ngIf="selectedTypeIdCurso!=0" -->
-        <div class="col-sm-4"  >
+        <div class="col-sm-4" >
             <label class="col-sm-12  col-form-label"> Docente </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDocente">
+            <!-- [disabled]="(selectedTypeIdCurso==0)" -->
+            <select formControlName="formDocente" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdDocente" >
               <option [ngValue]="0">Seleccione Docente</option>
                 <option [ngValue]="docente.codDocente" *ngFor="let docente of docentes">  {{docente.nombre}}  {{docente.apellidoPat}}{{docente.apellidoMat}}
                 </option>
             </select>
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdDocente =='0' && (enviado)">
+                Debe seleccionar un Docente
+            </div>
         </div>
         <div class="col-sm-4">
             <label class="col-sm-12  col-form-label"> Aula </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdAula">
+            <select formControlName="formAula"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdAula">
               <option [ngValue]="0">Seleccionar el  Aula</option>
                 <option [ngValue]="aula.idAula" *ngFor="let aula of aulas">  {{aula.nomAula}} 
                 </option>
             </select>
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdAula ==0 && ( formAula.touched && enviado)">
+                Seleccione un Aula
+            </div>
         </div>
         <div class="col-sm-6">
             <label class="col-sm-12  col-form-label"> Horario </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
+            <select formControlName="formHorario" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
                 <option [ngValue]="0">Seleccionar Horario </option>
-                <option [ngValue]="horario.idGrupoHorario" *ngFor="let horario of horarios">  {{horario.listaHorarios}}  
+                <option [ngValue]="horario.idHorario" *ngFor="let horario of horarios">  {{horario.nomGrupoHorario}}  De : {{horario.horaInicio}}  a : {{horario.horaSalida}}  
                 </option>
             </select>
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdHorarioGrupoHorario ==0 && (enviado)">
+                Debe seleccionar un Horario
+            </div>
         </div>
-
-        <div class="col-sm-6">
+        
+        <div class="col-sm-6" *ngIf="actualizar">
             <label class="col-sm-12  col-form-label">Estado de Curso </label>
-            <select class="form-control form-control-sm" [(ngModel)]="selectedTypeIdEstadoCurso">
-                <option [ngValue]="0">Seleccionar el Estado del Curso</option>
+            <select formControlName="formEstadoCurso"  class="form-control form-control-sm" [(ngModel)]="selectedTypeIdEstadoCurso" >
+                <!-- <option [ngValue]="0">Seleccionar el Estado del Curso</option> -->
                 <option [ngValue]="estadoCurso.idEstadoProgCurso" *ngFor="let estadoCurso of estadoProgCursos">{{estadoCurso.nomEstado}} 
                 </option>
             </select>
+            <div class="container-error-message alert-danger" *ngIf="selectedTypeIdEstadoCurso ==0 && (enviado)">
+                Debe seleccionar un Estado
+            </div>
         </div>
 
     </div>
   
 
 </div>
-
+</form>
 
 
 <div *ngIf="nuevoCurso==false && actualizar==false " class=" form-group row right ml-3 mr-3">

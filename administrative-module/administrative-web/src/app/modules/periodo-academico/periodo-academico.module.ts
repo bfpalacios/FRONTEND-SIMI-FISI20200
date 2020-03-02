@@ -14,7 +14,8 @@ import { CrearDocenteCursoComponent } from './docente-curso/crear-docente-curso/
 import { EditarDocenteCursoComponent } from './docente-curso/editar-docente-curso/editar-docente-curso.component';
 import { CreateProgramacionCursosComponent } from './programacion-cursos/create-programacion-cursos/create-programacion-cursos.component';
 import { EditarProgramacionCursosComponent } from './programacion-cursos/editar-programacion-cursos/editar-programacion-cursos.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { Select2Module } from 'ng2-select2';
 
 @NgModule({
   declarations: [CicloAcademicoComponent, MatriculadosComponent , ProgramacionCursosComponent, CreateCicloComponent, 
@@ -26,6 +27,8 @@ import { EditarProgramacionCursosComponent } from './programacion-cursos/editar-
     FormsModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
+    ReactiveFormsModule,
+    Select2Module
   ]
 })
 export class PeriodoAcademicoModule { }

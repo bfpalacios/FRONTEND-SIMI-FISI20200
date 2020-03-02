@@ -184,8 +184,8 @@ export class DocenteCursoComponent implements OnInit {
               this.nuevoCurso = !this.nuevoCurso ;
               
             } else {
-              this.empty = true;
-              this.successText = 'El curso ya existe, ingrese otro.';
+              // this.empty = true;
+              // this.successText = 'El curso ya existe, ingrese otro.';
             }
           });
 
@@ -193,6 +193,19 @@ export class DocenteCursoComponent implements OnInit {
         } else {
           this.empty = true;
           this.successText = 'El curso ya existe, ingrese otro.';
+        }
+      }, error => {
+        if (error) {
+          Swal.fire(
+            'Error!',
+            error.error.text,
+            'error'
+          );
+         if (error) {
+           this.load = false;
+           // this.obtenerIdiomas();
+          
+         }
         }
       });
 
