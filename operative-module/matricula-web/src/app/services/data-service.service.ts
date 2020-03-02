@@ -31,23 +31,32 @@ export class DataServiceService {
     return Observable.create(
       (observer: Observer<any>) => {
         this.user = this.getSessionStorage();
-        this.http.post<User>(this.url + '/autorizacion', this.user).subscribe(data => {
-          if (data != null) {
-            this.user = data;
-            observer.next('');
-            observer.complete();
-          } else {
-            //location.href = 'http://165.227.89.167/';
-            this._toastService.error('Usuario autenticado no válido.');
-          }
-        }, () => {
-          this._toastService.error('No se encontró el Servidor');
-        });
+        if (this.user.email != null) {
+          this.http.post<User>(this.url + '/autorizacion', this.user).subscribe(data => {
+            if (data != null) {
+              this.user = data;
+              observer.next('');
+              observer.complete();
+            } else {
+              this._toastService.error('Usuario autenticado no válido.');
+            }
+          }, () => {
+            this._toastService.error('No se encontró el Servidor');
+          });
+        } else {
+          observer.next('');
+          observer.complete();
+        }
+
       }).toPromise();
   }
 
   public obtenerDatosUsuario() {
-    return this.infPersonalService.obtenerDatosUsuario(this.user);
+    if (this.user.email != null) {
+      return this.infPersonalService.obtenerDatosUsuario(this.user);
+    } else {
+      return null;
+    }
   }
 
   public obtenerInformacionAcademica() {
@@ -55,11 +64,11 @@ export class DataServiceService {
   }
 
   public getPagosSinUsar() {
-    return this.matricula.getPagosSinUsar(this.user.codigo);
+    return this.matricula.getPagosSinUsar(this.user.id);
   }
 
   public matricularOnline(cursos: any[]) {
-    return this.matricula.matricularOnline(cursos, this.user.codigo);
+    return this.matricula.matricularOnline(cursos, this.user.id);
   }
   private getSessionStorage() {
     const id = +(sessionStorage.getItem('SIMI-ID'));
@@ -72,7 +81,6 @@ export class DataServiceService {
       this.router.navigate(['home']);
     } else {
       this.authenticated = false;
-      user.setUser(1, 'nataly@unmsm.edu.pe', 1);
     }
     return user;
   }

@@ -132,6 +132,11 @@
   }
 }
 
+@media screen and (max-width: 767px){
+  .simi-display-w-none-r{
+      height: 100%;background-color: white;width: 100%; border-radius: 0px; box-shadow: 0px 0px 0px;
+  }
+}
 .simi-center-content {
   display: flex;justify-content: center;align-items: center;
 }

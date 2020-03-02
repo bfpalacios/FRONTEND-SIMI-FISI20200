@@ -4,31 +4,29 @@ import { EmiiterBuilder } from 'src/app/models/EmiiterBuilder';
 import { Router } from '@angular/router';
 import { UserDTO } from 'src/app/models/UserDTO';
 import { RegisterService } from 'src/app/services/authentication/regiter.service';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-form-register',
   templateUrl: './form-register.component.html'
 })
 export class FormRegisterComponent implements OnInit {
-  public showDatosPersonales: boolean;
   public loading: string;
   public load: boolean;
   public user: User;
-  @Input()  public newUser: UserDTO;
+  public newUser: UserDTO;
   public msg: string;
-  @Output() public emitter;
   constructor(
     private router: Router,
-    private service: RegisterService) {
+    private service: RegisterService,
+    private location: Location) {
     this.loading = 'assets/loading/loading.svg';
     this.load = false;
     this.user = new User();
-    this.showDatosPersonales = false;
-    this.emitter = new EventEmitter();
     this.newUser = new UserDTO();
    }
 
   ngOnInit(): void {
+    this.loadLocalStorage();
   }
 
   public validarUsuario(): void {
@@ -38,14 +36,29 @@ export class FormRegisterComponent implements OnInit {
         if (!data) {
           this.msg = 'Ya existe un usuario registrado con este email.';
         } else {
-          EmiiterBuilder.emitterUpdate(this.emitter, this.showDatosPersonales);
+          this.saveLocalStorage();
+          this.irRegistrarDatosPersonales(); 
         }
       });
     }
   }
 
+  public loadLocalStorage() {
+    const newUser = JSON.parse(localStorage.getItem('SIMI-NEW-USER'));
+    if (newUser != null) {
+       this.newUser = newUser;
+    }
+  }
+
+  public saveLocalStorage() {
+    localStorage.setItem('SIMI-NEW-USER', JSON.stringify(this.newUser));
+  }
+  public irRegistrarDatosPersonales() {
+    this.router.navigate(['login/createAccount/datosPersonales']);
+  }
   public back(): void {
-    this.router.navigate(['/']);
+    localStorage.clear();
+    this.location.back();
   }
 
 

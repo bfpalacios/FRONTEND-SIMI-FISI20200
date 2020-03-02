@@ -9,6 +9,7 @@ import { FormLoginComponent } from './login/form-login/form-login.component';
 import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { FormRegisterComponent } from './create-account/form-register/form-register.component';
+import { FormDatosPersonalesComponent } from './create-account/form-datos-personales/form-datos-personales.component';
 
 
 
@@ -20,7 +21,8 @@ import { FormRegisterComponent } from './create-account/form-register/form-regis
     SectionButtonsResponsiveComponent,
     FormLoginComponent,
     CreateAccountComponent,
-    FormRegisterComponent
+    FormRegisterComponent,
+    FormDatosPersonalesComponent
   ],
   imports: [
     CommonModule,

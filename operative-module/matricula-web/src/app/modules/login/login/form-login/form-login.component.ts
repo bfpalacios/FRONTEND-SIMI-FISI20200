@@ -59,10 +59,11 @@ export class FormLoginComponent implements OnInit {
   private updateSession(data: User) {
     if (data != null) {
       this.user = data;
+      this.service.user = this.user;
       this.service.authenticated = true;
       sessionStorage.setItem('SIMI-AUTHENTICATED', 'SIMI-TRUE');
       sessionStorage.setItem('SIMI-EMAIL', this.user.email);
-      sessionStorage.setItem('SIMI-ID', this.user.id);
+      sessionStorage.setItem('SIMI-ID', this.user.id.toString());
       sessionStorage.setItem('SIMI-TYPE', this.user.rolId);
       this.matriculaOnline();
     } else {
@@ -86,6 +87,6 @@ export class FormLoginComponent implements OnInit {
   }
 
   public crearCuenta() {
-    this.router.navigate(['createAccount']);
+    this.router.navigate(['login/createAccount']);
   }
 }

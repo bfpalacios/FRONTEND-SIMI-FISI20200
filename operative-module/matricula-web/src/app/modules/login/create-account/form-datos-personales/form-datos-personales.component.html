@@ -1,0 +1,162 @@
+<div *ngIf="load" style="position: absolute; z-index: 1; width: 100%; height: 100%;" class="simi-center-content">
+    <div>
+        <img src="{{loading}}" style="width: 100px;">
+    </div>
+</div>
+<div class="simi-background-primary  simi-center-content simi-display-h-none">
+    <div class="simi-background-white simi-display-h-none simi-display-w-none-r">
+            <div class="row simi-height-100 m-0">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 simi-center-content">
+                    <div>
+                        <div class="mt-2 ml-3 mr-3">
+                            <div class="text-center">
+                                <h4>Datos Personales</h4>
+                            </div>
+
+                            <div>
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-card-bulleted f-18 primary-color"></i>
+                                    Documento de Identidad
+                                </label>
+                                <input style="width: 200px !important;"
+                                type="text" name="dni" [(ngModel)]="newUser.docNumber"
+                                    class="form-control form-control-md" />
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Nombres
+                                </label>
+                                <input type="text" name="names" [(ngModel)]="newUser.names"
+                                    class="form-control form-control-md" />
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="mt-3">
+                                        <label style="font-size: 15px;">
+                                            <i class="mdi mdi-account f-18 primary-color"></i>
+                                            Apellido Paterno
+                                        </label>
+                                        <input type="text" name="lastNameP" [(ngModel)]="newUser.lastNameP"
+                                            class="form-control form-control-md" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="mt-3">
+                                        <label style="font-size: 15px;">
+                                            <i class="mdi mdi-account f-18 primary-color"></i>
+                                            Apellido Materno
+                                        </label>
+                                        <input type="text" name="lastNameM" [(ngModel)]="newUser.lastNameM"
+                                            class="form-control form-control-md" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Género
+                                </label>
+                                <select [(ngModel)]="selectedGenero" class="form-control form-control-sm">
+                                    <option [ngValue]="0">Seleccionar Género</option>
+                                    <option [ngValue]="1">Masculino</option>
+                                    <option [ngValue]="2">Femenino</option>
+                                </select>
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Lugar de Nacimiento
+                                </label>
+                                
+                                <div class="table-responsive">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input placeholder="Departamento" type="text" name="lugarNacDep"
+                                                        [(ngModel)]="newUser.lugarNacDep"
+                                                        class="form-control form-control-md" />
+                                                </td>
+                                                <td>
+                                                    <input placeholder="Provincia" type="text" name="lugarNacProv"
+                                                        [(ngModel)]="newUser.lugarNacProv"
+                                                        class="form-control form-control-md" />
+                                                </td>
+                                                <td>
+                                                    <input placeholder="Distrito" type="text" name="lugarNacDist"
+                                                        [(ngModel)]="newUser.lugarNacDist"
+                                                        class="form-control form-control-md" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 simi-center-content">
+                    <div>
+                        <div class="mt-2">
+                            <div class="text-center mt-2 ml-5 mr-5">
+                                <h4>Datos Adicionales</h4>
+                            </div>
+                            <div>
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-card-bulleted f-18 primary-color"></i>
+                                    Universidad / Institución
+                                </label>
+                                <input type="text" name="university" [(ngModel)]="newUser.university"
+                                    class="form-control form-control-md" />
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Fecha de Nacimiento
+                                </label>
+                                <input type="date" max='2017-12-31' defaultValue="2017-12-31" name="birthday"
+                                    [(ngModel)]="newUser.birthday" class="form-control form-control-md" />
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Dirección
+                                </label>
+                                <input type="text" name="address" [(ngModel)]="newUser.address"
+                                    class="form-control form-control-md" />
+                            </div>
+                            <div class="mt-3">
+                                <label style="font-size: 15px;">
+                                    <i class="mdi mdi-account f-18 primary-color"></i>
+                                    Celular
+                                </label>
+                                <input type="text" name="phone" [(ngModel)]="newUser.phone"
+                                    class="form-control form-control-md" />
+                            </div>
+                            <div>
+                                <label style="font-size: 13px; color: red">
+                                    {{msg}}</label>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button type="submit" class="btn simi-btn-primary btn-block"
+                                    (click)="crearCuentaAlumno()">
+                                    Continuar
+                                </button>
+                            </div>
+                            <div class="mt-2">
+                                <button type="button" class="btn simi-btn-silver btn-block" (click)="back()">
+                                    <i class="mdi mdi-arrow-left"></i> Atrás
+                                </button>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>
