@@ -505,7 +505,7 @@ private getProgCurso(id: number) {
   }
   obtenerProgCursos(idSede:number, idPeriodo : number) {
 
-    if(idSede == -1){ // filtrar todos los cursos del periodo academico
+    if(idSede == -1){ // filtrar todos las Sedes
     
       this.progcurService.getProgCursosPeriodo(idPeriodo).subscribe(data => {
         this.load = false;

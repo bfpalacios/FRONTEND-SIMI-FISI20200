@@ -151,9 +151,12 @@
                     <div class="center-body"> <span class = " font-weight-bold badge badge-mark border-blue mr-1 " style="font-size:100%;"> {{progDocCurso.nombre}}   {{progDocCurso.apellidoPat}}  {{progDocCurso.apellidoMat}}</span> </div>
                  </td>
                  <td>
-                    <div class="center-body"> <span class = "  border-blue mr-1 text-muted" style="font-size:110%; font-style: italic;"> 
+                    <div class="center-body"  *ngIf="progDocCurso.email" > 
+                        <span class = "  border-blue mr-1 text-muted" style="font-size:110%; font-style: italic;"> 
                         <i class="mdi mdi-email-outline  " style="color : black ; font-size: 20px; display: inline-block !important;"></i> 
-                         {{progDocCurso.email}} </span> </div>
+                         {{progDocCurso.email}} </span> 
+                        
+                    </div>
                  </td>
 
                 <td>

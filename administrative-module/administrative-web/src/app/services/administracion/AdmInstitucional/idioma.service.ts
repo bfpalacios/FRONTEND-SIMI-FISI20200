@@ -14,7 +14,9 @@ export class IdiomaService {
   getIdiomas() {
     return this.http.get<Idioma[]>(this.url + '/' + 'listIdiomas');
   }
-
+  deProgCursosBySedePeriodo(ids: number,idp: number) {
+    return this.http.get<Idioma[]>(this.url + '/' + 'listIdiomasPCSedePeriodo'+ '/' + ids+ '/' + idp);
+  }
  
   public crearIdioma(idioma: Idioma) {
     return this.http.post<Idioma>(this.url + '/' + 'crearIdioma', idioma);

@@ -114,7 +114,7 @@
                     <option [ngValue]=1>Masculino</option>
                 </select>   
                
-                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( dni.errors.required && (enviado|| formGenero.touched))">
+                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( formGenero.errors.required && (enviado|| formGenero.touched))">
                     Debe seleccionar un Genero
                     </div>  
                </div>

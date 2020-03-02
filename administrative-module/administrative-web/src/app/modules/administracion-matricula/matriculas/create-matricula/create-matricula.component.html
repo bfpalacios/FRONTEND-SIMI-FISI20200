@@ -1,0 +1,176 @@
+
+<div class="simi-header">
+  
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="crear() ">
+        <i [ngClass]="'mdi-plus-box-multiple-outline' " class="mdi f-16"></i> Crear Matricula
+    </button>
+    <button class="btn simi-btn-silver ml-1 mr-1" (click)="cancelar()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+
+    </button>
+</div>
+
+
+
+<div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
+<form [formGroup]="matriculaForm">
+<h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de de Matrícula </h5>
+<hr>
+
+<form [formGroup]="matriculaForm">
+<div class="row ml-2">
+<div class="row float-right" >
+    <div class="col-sm-6">
+        <select  formControlName="formSede" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdSede" >
+            <option [ngValue]="0">Sede</option>
+            <option  *ngIf="nuevoCurso==false && actualizar==false " [ngValue]="-1">Todas las Sedes</option>
+            <option [ngValue]="sede.idSede" *ngFor="let sede of sedes">{{sede.nomSede}}
+            </option>
+            
+        </select>   
+        <div class="container-error-message alert-danger" *ngIf="selectedTypeIdSede ==0 && (enviado)">
+            Selecciona una Sede
+        </div>    
+     </div>
+     <div class="col-sm-6"> 
+        <!-- [disabled]="!actualizar" -->
+        <select  formControlName="formPeriodo"   class="form-control form-control-sm"  [(ngModel)]="selectedTypeIdPeriodo"   >
+            <option [ngValue]="0">Ciclo Académico</option>
+            <option [ngValue]="periodo.idPeriodo" *ngFor="let periodo of periodos">  {{periodo.nomPeriodo}}
+            </option>
+        </select>      
+        <div class="container-error-message alert-danger" *ngIf="selectedTypeIdPeriodo ==0 && (enviado)">
+            Seleccione un Ciclo 
+        </div>  
+     </div>
+        
+     <div class="col-md-1">
+        <button class="btn-nuevo " (click)="getIdiomas()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+    </div>
+</div>
+<br> <br> <br>
+</div>
+
+
+
+        <div class="row ml-3 mr-3" >
+            <div class="col-md-5">
+            <div class="form-group row ">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                    <i class="mdi mdi-library-books f-16"></i>  Código Estudiante</label>
+                    <div class="col-sm-12 ">
+                        <input formControlName="formEstudiante"  [(ngModel)]="matricula.codEstudiante" type="text" class="form-control" placeholder="">
+                      
+                        <div class="alert-danger" *ngIf="formEstudiante.invalid && (formEstudiante.dirty || formEstudiante.touched || enviado)">
+                          <div class="container-error-message" *ngIf="formEstudiante.errors.required">
+                          Ingrese el  Código de Estudiante
+                          </div>
+                          
+                        </div>
+                  </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-1">  </div> -->
+
+        <div class="col-md-1">
+            <button class="btn-nuevo " (click)="filtrarPeriodoIdioma()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+        </div>
+
+
+             <div class="col-md-5">
+
+                <div class="form-group row ">
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                        <i class="mdi mdi-rotate-right-variant f-16"></i> N° Voucher</label>
+                        <div class="col-sm-11 ">
+                            <input formControlName="voucher"  [(ngModel)]="matricula.numVoucher" type="text" class="form-control" placeholder="">
+                          
+                            <div class="alert-danger" *ngIf="voucher.invalid && (voucher.dirty || voucher.touched || enviado)">
+                              <div class="container-error-message" *ngIf="voucher.errors.required">
+                                   Ingrese el  N° de Voucher
+                              </div>
+                              
+                            </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button class="btn-nuevo " (click)="filtrarPeriodoIdioma()"> <i class="mdi mdi-magnify f-16"></i>    </button>
+            </div>
+         </div>
+
+          <div class="row">
+            <div class="col-md-4">
+            <div class="form-group row mx-3">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                    <i class="mdi mdi-library-books f-16"></i>  Idioma </label>
+                   <div class="col-sm-12 ">
+                            <select   formControlName="formIdioma" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdIdioma" (click)="habilitarCursos()">
+                                <option [ngValue]="0">Seleccionar el  Idioma </option>
+                                  <option [ngValue]="idioma.idIdioma" *ngFor="let idioma of idiomas">  {{idioma.nomIdioma}}
+                                  </option>
+                              </select>
+                              <div class="container-error-message alert-danger" *ngIf="selectedTypeIdIdioma ==0 && (enviado|| formIdioma.touched)">
+                                Debe seleccionar un Curso
+                            </div>
+                              <!-- <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado)">
+                                  Debe seleccionar un Curso
+                              </div> -->
+                      </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group row mx-3">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                    <i class="mdi mdi-library-books f-16"></i>  Curso </label>
+                   <div class="col-sm-12 ">
+                            <select   formControlName="formCurso" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdCurso" (click)="habilitarHorario()">
+                                <option [ngValue]="0">Seleccionar el  Curso </option>
+                                  <option [ngValue]="curso.idCurso" *ngFor="let curso of cursos">  {{curso.nomIdioma}} {{curso.nomNivel}} {{curso.ciclo}}
+                                  </option>
+                              </select>
+                              <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado|| formCurso.touched)">
+                                Debe seleccionar un Idioma
+                            </div>
+                              <!-- <div class="container-error-message alert-danger" *ngIf="selectedTypeIdCurso ==0 && (enviado)">
+                                  Debe seleccionar un Curso
+                              </div> -->
+                      </div>
+            </div>
+        </div>
+  
+             <div class="col-md-4">
+                <!-- <div class="col-sm-6">
+                    <label class="col-sm-12  col-form-label"> Horario </label>
+                    <select formControlName="formHorario" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario">
+                        <option [ngValue]="0">Seleccionar Horario </option>
+                        <option [ngValue]="horario.idHorario" *ngFor="let horario of horarios">  {{horario.nomGrupoHorario}}  De : {{horario.horaInicio}}  a : {{horario.horaSalida}}  
+                        </option>
+                    </select>
+                    <div class="container-error-message alert-danger" *ngIf="selectedTypeIdHorarioGrupoHorario ==0 && (enviado)">
+                        Debe seleccionar un Horario
+                    </div>
+                </div> -->
+
+
+                <div class="form-group row mx-3">
+                    <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;"> 
+                        <i class="mdi mdi-rotate-right-variant f-16"></i>Horario</label>
+                        <div class="col-sm-12 ">
+                            <select   formControlName="formHorario" class="form-control form-control-sm" [(ngModel)]="selectedTypeIdHorarioGrupoHorario" >
+                                <option [ngValue]="0">Seleccionar el  Horario </option>
+                                  <option [ngValue]="horario.idHorario" *ngFor="let horario of horarios">   {{horario.nomGrupoHorario}}  De : {{horario.horaInicio}}  a : {{horario.horaSalida}}  
+                                  </option>
+                              </select>
+                              <div class="container-error-message alert-danger" *ngIf="selectedTypeIdHorarioGrupoHorario ==0 && (enviado)">
+                                  Debe seleccionar un Horario
+                              </div>
+                      </div>
+                </div>
+            </div>
+           
+          </div>
+
+       
+        </form>
+
