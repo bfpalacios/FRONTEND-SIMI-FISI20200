@@ -80,7 +80,7 @@ export class VerificarMatriculaComponent implements OnInit {
 
   public getProgramacionbyID() {
     this.getVouchers();
-    this.serviceProgramacion.getProgramacionbyID(this.dataService.user.codigo).subscribe(data => {
+    this.serviceProgramacion.getProgramacionbyID(this.dataService.user.id).subscribe(data => {
       data.forEach(v => {
         this.cursos.forEach(c => {
           if (v.idpProgramacionCurso === c.programacionId) {
