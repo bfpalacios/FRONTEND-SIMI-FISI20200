@@ -50,7 +50,6 @@ export class SectionButtonsComponent implements OnInit {
       this.updateLoad();
       this.auth = true;
       this.user = data;
-      console.log(this.user);
       this.simiMatriculaOnline();
     }, () => {
       this.updateLoad();
