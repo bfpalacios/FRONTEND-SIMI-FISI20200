@@ -4,14 +4,17 @@ import {MatriculaOnlineService} from 'src/app/services/periodo-academico/matricu
 import { DataServiceService } from 'src/app/services/data-service.service';
 @Component({
   selector: 'app-reporte-matricula',
-  templateUrl: './reporte-matricula.component.html',
-  styleUrls: ['./reporte-matricula.component.css']
+  templateUrl: './reporte-matricula.component.html'
 })
 export class ReporteMatriculaComponent implements OnInit {
   public load: boolean;
-  public matricula : any[];
-  constructor(private serviceMatricula : MatriculaOnlineService, private serviceData: DataServiceService, ) { 
+  public matricula: any[];
+  public date: number;
+  constructor(
+    private serviceMatricula: MatriculaOnlineService,
+    private serviceData: DataServiceService, ) {
     this.load = true;
+    this.date = Date.now();
   }
 
   ngOnInit() {
@@ -20,7 +23,7 @@ export class ReporteMatriculaComponent implements OnInit {
 
   public getAperturabyID() {
     this.serviceMatricula.getMatriculaById(this.serviceData.user.id).subscribe(data => {
-      this.matricula= data;
+      this.matricula = data;
       this.load = false;
     }, error => {
       console.log(error);

@@ -18,6 +18,14 @@ export class MatriculaOnlineService {
     return this.http.get<any[]>(this.url + '/matriculaOnline/pagosSinUsar/' + codUser);
   }
 
+  public getCursosDelAlumno(codUser: number) {
+    return this.http.get<any[]>(this.url + '/matriculaOnline/cursosAlumno/' + codUser);
+  }
+
+  public getPagosRealizados(codUser: number) {
+    return this.http.get<any[]>(this.url + '/matriculaOnline/pagosRealizados/' + codUser);
+  }
+
   public matricularOnline(cursos: any[], userId: number) {
     return this.http.post<any[]>(this.url + '/matriculaOnline/matricularAlumno/' + userId, cursos);
   }
