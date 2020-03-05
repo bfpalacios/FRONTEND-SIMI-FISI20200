@@ -114,7 +114,7 @@
                     <option [ngValue]=1>Masculino</option>
                 </select>   
                
-                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( formGenero.errors.required && (enviado|| formGenero.touched))">
+                <div class="container-error-message  alert-danger" *ngIf="(selectedTypeIdGenero ==-1 ) && ( enviado|| formGenero.touched)">
                     Debe seleccionar un Genero
                     </div>  
                </div>
@@ -147,7 +147,7 @@
                     F. Nacimiento</label>
                 <div class="col-sm-12">
                     <input formControlName="fechaNacimiento"  [(ngModel)]="docente.fechaNacimiento" type="date" max="1900-01-31" max="2010-01-31" class="form-control" placeholder="Ingrese su  F. Nacimiento" >
-                    <div class="alert-danger" *ngIf="fechaNacimiento.invalid && (edad.dirty || edad.touched || enviado)">
+                    <div class="alert-danger" *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched || enviado)">
                         
                         <div class="container-error-message" >
                          Ingrese la Fecha de Nacimiento
@@ -167,7 +167,7 @@
                 Dirección</label>
             <div class="col-sm-12">
                 <input formControlName="address" name="address" [(ngModel)]="docente.address" type="text" class="form-control"  placeholder="Ingrese su Dirección">
-                <div class="alert-danger" *ngIf="address.invalid && (address.dirty || address.touched )">
+                <div class="alert-danger" *ngIf="address.invalid && (address.dirty || address.touched  || enviado )">
                             
                     <div class="container-error-message" *ngIf="tamAdreess > 128">
                       Debe tener como máximo 128 caracteres

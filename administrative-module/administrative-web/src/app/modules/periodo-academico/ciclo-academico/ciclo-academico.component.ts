@@ -21,12 +21,12 @@ export class CicloAcademicoComponent implements OnInit {
   loading: string;
 
 
-  constructor(private router: Router     ,private periodoacService: PeriodoAcademicoService ) { }
+  constructor(private router: Router ,private periodoacService: PeriodoAcademicoService ) { }
 
   ngOnInit() {
     this.obtenPeriodos();
-
   }
+
   obtenPeriodos() {
     console.log("antes");
     this.periodoacService.getPeriodosAcademicos().subscribe(data => {
@@ -48,7 +48,61 @@ export class CicloAcademicoComponent implements OnInit {
   }
 
 
+  
   public eliminar(id: number) {
+    console.log(id);
+    
+    this.periodoacService.getPeriodoAcademicoById(id).subscribe(o => {
+      if (o !== null) {
+        this.periodoac = o;console.log(this.periodoac);
+        Swal.fire({
+          title: 'Estas seguro que desea eliminar el Ciclo '+ this.periodoac.nomPeriodo+' ?',
+          // text: "S",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Eliminar',
+          cancelButtonText: 'Cancelar'
+        }).then((result) => {
+          if (result.value) {
+            this.load = true;
+            this.periodoacService.deletePeriodoAcademicoById(id).subscribe(data => {
+              
+              if (data) {
+                this.load = false;
+                Swal.fire(
+                  'Ciclo Eliminado!',
+                  'El ciclo '+ this.periodoac.nomPeriodo+' se elimino correctamente.',
+                  'success'
+                );
+                this.obtenPeriodos();
+        
+              } else {
+                this.load = false;
+                // this.obtenerIdiomas();
+              }
+            }, error => {
+              if (error) {
+                Swal.fire(
+                  'Error!',
+                  error.error.text,
+                  'error'
+                );
+               if (error) {
+                 this.load = false;
+                 // this.obtenerIdiomas();
+                
+               }
+              }
+            });
+           
+          }
+          })
+
+         } else {     }
+   
+  } ) ;
 
   }
 

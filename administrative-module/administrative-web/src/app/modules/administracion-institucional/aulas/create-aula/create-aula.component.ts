@@ -7,7 +7,6 @@ import { Sede } from 'src/app/domain/Sede';
 import { Mensaje } from 'src/app/infrastructure/constans/Mensaje';
 import { AulaService } from 'src/app/services/administracion/AdmInstitucional/aula.service';
 import Swal from 'sweetalert2';
-import { Select2Module } from 'ng2-select2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({

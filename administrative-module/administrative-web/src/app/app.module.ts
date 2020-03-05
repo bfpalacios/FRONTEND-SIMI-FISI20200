@@ -23,6 +23,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Select2Module } from 'ng2-select2';
+import { Component, ViewChild, OnInit } from '@angular/core';
 
 
 registerLocaleData(localePe, 'es');
@@ -77,7 +78,6 @@ const appRoutes: Routes = [
     CdkStepperModule,
     CdkTableModule,
     CdkTreeModule,
-    BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatNativeDateModule,

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Sede } from 'src/app/domain/Sede';
 import { SedeService } from 'src/app/services/administracion/AdmInstitucional/sede.service';
 import { Path } from 'src/app/infrastructure/constans/Path';
 import Swal from 'sweetalert2';
+declare var $;
 
 @Component({
   selector: 'app-sedes',
@@ -11,6 +12,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./sedes.component.css']
 })
 export class SedesComponent implements OnInit {
+  @ViewChild('dataTable') table ;
+  dtOptions: any;
+  dataTable : any;
+  // dtOption: any = {};
+
+
   busquedaTexto: any;
   public  pageActual : number ;
   estado: boolean;
@@ -31,14 +38,25 @@ export class SedesComponent implements OnInit {
 
     }
 
-
-  // constructor() { }
-
-  ngOnInit() {
-    //obtener Listado de Alumnos
-    // this.router.navigate(['home/feed']).then();
+  ngOnInit(): void {
     this.obtenerSedes();
-  }
+ this.dataTable = $(this.table.nativeElement);
+ this.dataTable.dataTable();
+/*
+        this.dtOptions = {"columnDefs": [{ 
+          "targets": [ 0 ],
+          "visible": false,
+          "searchable": false
+          },{
+          "targets": [ 1],
+          "visible": false
+          }]
+          };    
+              this.dataTable = $(this.table.nativeElement);
+              this.dataTable.DataTable(this.dtOptions);*/
+ }
+
+ 
   nuevaSede() {
     
     this.router.navigate(['administracionInstitucional/sedes/crear']).then();
@@ -55,7 +73,7 @@ export class SedesComponent implements OnInit {
     }
     )
   }
-
+/*
 
 
   editarSede(id:number) {
@@ -124,5 +142,5 @@ export class SedesComponent implements OnInit {
   } ) ;
 
   }
-
+*/
 }

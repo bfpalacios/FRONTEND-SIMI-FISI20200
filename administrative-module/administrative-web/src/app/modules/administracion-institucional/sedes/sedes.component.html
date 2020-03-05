@@ -21,7 +21,7 @@
     </div>
 
     <div class="w100 mt-3 table-responsive" style="margin: auto;">
-        <table class="table table-hover table-bordered">
+        <table #dataTable  class="table table-hover table-bordered">
             <!-- thead-primary -->
             <thead class="header-table " style="background: #dfe3e7;">
                 <tr>
@@ -62,14 +62,14 @@
                     </td>
                     <td>
                         <div class="row">
-                            <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;"
-                                (click)="editarSede(sede.idSede)">
+                            <button class="btn-edit mt-1 ml-3 " style="background: #27c68f ;">
+                                <!-- (click)="editarSede(sede.idSede)"> -->
                                 <i class="mdi mdi-border-color"
                                     style=" color : white ; font-size: 20px; display: inline-block !important;"></i>
                             </button>
 
-                            <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;"
-                                (click)="eliminarSede(sede.idSede)">
+                            <button type="button" class="btn-edit mt-1 ml-2" style="background: #dd2f18 ;">
+                                <!-- (click)="eliminarSede(sede.idSede)"> -->
                                 <i class="mdi mdi-delete  "
                                     style="color : white ; font-size: 20px; display: inline-block !important;"></i>
                             </button>

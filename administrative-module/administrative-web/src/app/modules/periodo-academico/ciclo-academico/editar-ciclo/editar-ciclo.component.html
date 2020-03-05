@@ -1,1 +1,77 @@
-<p>editar-ciclo works!</p>
+<div class="header-user-list mb-2">
+   
+    <button class="btn simi-btn-primary ml-2 mr-1" (click)="guardar()">
+        <i class="mdi mdi-plus-box-multiple-outline f-16"></i> Guardar
+    </button>
+    <button type="button" class="btn simi-btn-red ml-1 mr-1" (click)="eliminar()">
+        <i class="mdi mdi-delete f-16"></i> Eliminar
+    </button>
+    <button type="button" class="btn simi-btn-silver ml-1 mr-1" (click)=" cancelar()">
+        <i class="mdi mdi-close-circle f-16"></i> Cancelar
+    </button>
+</div>
+<div *ngIf="load" class="div-loading my-5"><img class="loading" src="{{loading}}" /></div>
+    
+    <h5 class="modal-title ml-3" style=" color: #317bbc;">Formulario Registro de Ciclo </h5>
+    <hr>
+    <form [formGroup]="cicloForm" >
+
+        <div class="row mr-3">
+            <div class="col-md-4">
+            <div class="form-group row mx-3">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
+                    <i class="mdi mdi-domain f-16"></i> Nombre Ciclo</label>
+                <div class="col-sm-10">
+                    <input formControlName="nomCiclo"  [(ngModel)]="ciclo.nomPeriodo" type="text" class="form-control"  placeholder="Ingrese el identificador de un Ciclo">
+                    <div class="alert-danger" *ngIf="nomCiclo.invalid && (nomCiclo.dirty || nomCiclo.touched || enviado)">
+                                <div class="container-error-message" *ngIf="nomCiclo.errors.required">
+                                Ingrese el  nombre de Ciclo
+                                </div>
+                                <div class="container-error-message" *ngIf="tamNom > 8">
+                                Debe tener como máximo 8 caracteres
+                                </div>
+                                <div class="container-error-message"
+                            *ngIf="(nomCiclo.dirty || nomCiclo.touched) && nomCiclo.invalid && nomCiclo.errors.pattern">
+                                 El nombre de Ciclo solo debe contener números y guiones
+                            </div>
+                      </div> 
+               
+                </div>
+            </div>
+          
+        </div>
+        <div class="col-md-4">
+            <div class="form-group row">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
+                    Fecha Inicio</label>
+                <div class="col-sm-12">
+                    <input formControlName="fecInicio"  name ="fecInicio" [(ngModel)]="ciclo.fechaInicio" type="date" class="form-control" placeholder="Ingrese su  F. Inicio"  >
+                    <div class="alert-danger" *ngIf="fecInicio.invalid && (fecInicio.dirty || fecInicio.touched || enviado)">
+                        <div class="container-error-message" >
+                         Ingrese la Fecha de Inicio
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div> 
+
+         <div class="col-md-4">
+            <div class="form-group row">
+                <label class="col-sm-12 col-form-label text-sm-left" style=" font-size: 110%;">
+                    Fecha Fin</label>
+                <div class="col-sm-12">
+                    <input formControlName="fFin"  [(ngModel)]="ciclo.fechaFin" type="date" class="form-control" placeholder="Ingrese F. Fin"  >
+                    <div class="alert-danger" *ngIf="fFin.invalid && (fFin.dirty || fFin.touched || enviado)">
+                        <div class="container-error-message" >
+                         Ingrese la Fecha de Fin
+                        </div>
+                       </div>
+                </div> 
+            </div>
+        </div> 
+     </div>
+   </form>
+
+
+
+

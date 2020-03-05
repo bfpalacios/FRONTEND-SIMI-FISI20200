@@ -40,9 +40,8 @@ export class EditarEstudianteComponent implements OnInit  {
     this.estudiante = new EstudianteUP();
 
     this.selectedTypeIdTipoEstudiante = 0;
-    this.selectedTypeIRol = 0;
     this.selectedTypeIdGenero = -1;
-    this.selectedTypeIRol = 0;
+    this.selectedTypeIRol = 1;
     this.estudianteForm = this.createForm();
     this.enviado = false;
   }  
@@ -113,7 +112,7 @@ export class EditarEstudianteComponent implements OnInit  {
           if (data !== null) {
             this.estudiante = data;
             this.selectedTypeIdTipoEstudiante= this.estudiante.idTipoEstudiante;
-            console.log("this.estudianteUP,",this.estudiante);
+            console.log("this.estudianteUP,", this.selectedTypeIdTipoEstudiante);
            
              } else {  this.navigateList();    }
        
@@ -132,10 +131,16 @@ export class EditarEstudianteComponent implements OnInit  {
  
   public guardar() {
   this.enviado=true;
-    if (this.estudianteForm.valid) {
+  console.log("this.this.estudianteForm al guardar",this.estudianteForm);
+  console.log("this.this.estudianteForm al guardar",this.estudianteForm.valid);
+  console.log("estudauater",this.estudiante);
+  if (this.estudianteForm.valid) {
       //entro
       this.load = true;
+      this.estudiante.idTipoEstudiante = this.selectedTypeIdTipoEstudiante ;
       console.log("this.idioma al guardar",this.estudiante);
+
+
       this.estudianteUPService.editarEstudianteUPById(this.estudiante, this.estudiante.codEstudiante).subscribe(data => {
         if (data != null) {
           console.log("data",data);
@@ -154,7 +159,7 @@ export class EditarEstudianteComponent implements OnInit  {
       }, error => {
             
         Swal.fire(
-          'Advertencia!',
+          'Error!',
           error.error.text,
           'info'
         );

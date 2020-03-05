@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 // import { AdministracionInstitucionalRoutingModule } from './administracion-institucional-routing.module';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { AulasComponent } from './aulas/aulas.component';
